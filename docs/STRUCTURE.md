@@ -33,7 +33,7 @@ AI 조언 5
 **배경음악**
 Suno
 특이할 것 없이 Suno로 만듭니다.
-awesome-suno-prompts 레포 (공개 프롬프트 모음) 를 적용해서, 거의 손 안 대고.
+공개 프롬프트 모음 ( awesome-suno-prompts ) 을 적용해서, 거의 손 안 대고.
 실제 예 · 화성 공모전 곡 일부 · Suno · 20초
 클릭 또는 M
 - 소리 `assets/r2/music_c05_20s.mp3`
@@ -94,7 +94,7 @@ References: @Image1 is the river valley, footbridge, reeds, apartment window lig
 참조 한 장에 역할 하나. 이 그림에서는 장소만 가져오라고 적습니다.
 Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
 움직임은 형용사 대신 순서로 적습니다. 바람에 갈대가 눕고 → 한 박자 뒤 코트 자락이 들리고 → 숨 한 번 → 그대로 멈춤
-- 그림 `assets/vid/b01_shot1.jpg` 숏 1 · 0–3초
+- 그림 `assets/vid/b01_shot1.jpg` 숏 1 · 실제 0–3초 · 무음 반복
 - 그림 `assets/vid/b01_ref2.jpg` @Image2 · 남자 인물 시트
 @Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.
 인물 시트에서는 얼굴과 옷만. 종이 배경과 3면 배치는 장면에 넣지 말라고 적습니다.
@@ -197,7 +197,7 @@ AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.
 | 사람 | 방향·컨셉 선택 · 곡 선택 · 콘티 승인 · 생성 실행 승인 · 결과 채택·거절 · 최종 편집 |
 | AI 세션 | 콘티 구체화 · 프롬프트 작성 · 생성 실행·수확 · 1차 검수 · 후처리 코드 작성·실행 |
 
-AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표 — 자르기 · 길이 조정 · 최종본 조립은 사람이 합니다
+AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표 — 내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람
 근거 · 부록 01-A · 04-B · 06-A · 런타임 규칙 §4
 
 <sub>비고: 사람 · 직접</sub>
@@ -459,7 +459,7 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표 —
 *부록*
 | 항목 | Seedance 2.0 | Seedance 2.5 |
 |---|---|---|
-| 길이 | 5–15초 | 5–30초 (Unlimited는 15초·720p) |
+| 길이 | 5–15초 | 5–30초 (우리 런타임 기준 · Unlimited는 15초·720p) |
 | 숏 수 | 최대 4 | 1–8 |
 | 참조 | 번호로 지정 | 우리 런타임 한도 12장 |
 | 프롬프트 형식 | 흐르는 서술 | 라벨 블록 (04-A) |
