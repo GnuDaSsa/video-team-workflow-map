@@ -94,7 +94,7 @@ References: @Image1 is the river valley, footbridge, reeds, apartment window lig
 참조 한 장에 역할 하나. 이 그림에서는 장소만 가져오라고 적습니다.
 Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
 움직임은 형용사 대신 순서로 적습니다. 바람에 갈대가 눕고 → 한 박자 뒤 코트 자락이 들리고 → 숨 한 번 → 그대로 멈춤
-- 그림 `assets/vid/b01_shot1.jpg` 숏 1 · 실제 0–3초 · 무음 반복
+- 그림 `assets/vid/b01_shot1.jpg` + 영상 `assets/r6/b01_shot1_0-3s.mp4` 숏 1 · 14초 결과 구간의 처음 3초 · 무음
 - 그림 `assets/vid/b01_ref2.jpg` @Image2 · 남자 인물 시트
 @Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.
 인물 시트에서는 얼굴과 옷만. 종이 배경과 3면 배치는 장면에 넣지 말라고 적습니다.
@@ -307,7 +307,7 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표 —
 - 인스트 인트로엔 허밍·속삭임 금지를 명시
 - 고르기 · 다운로드는 내가 직접
 
-<sub>출처: corpus: naqashmunir21/awesome-suno-prompts 스냅샷 · 실행: Aside의 Suno 탭</sub>
+<sub>출처: corpus: naqashmunir21/awesome-suno-prompts 스냅샷 · 이번 작업들의 실행: 내 Suno 계정 화면(Aside 탭)</sub>
 
 ## 03-A 이미지 프롬프트 구조  `[부록]`
 <!-- id: d03a -->
@@ -559,7 +559,7 @@ memory · seeds 메모리 · 시드
 **화면의 배지 네 가지**
 |  |  |
 |---|---|
-| 실제 자료 | 실제 작업에서 가져온 그림 · 소리 · 문장. 잘라 내기만 했습니다 |
+| 실제 자료 | 실제 작업물 · 발췌·크기 조정만, 합성·보정 없음 |
 | 재구성 | 남은 기록을 날짜순으로 이은 사례. 하나만 바꿔 본 비교가 아닙니다 |
 | 예시 | 설명하려고 그린 도식과 숫자. 잰 값이 아닙니다 |
 | 원고의 비유 | 발표자의 비유와 체감. 조사 수치가 아닙니다 |

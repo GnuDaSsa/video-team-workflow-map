@@ -72,8 +72,9 @@ def block_md(node: Tag) -> str:
                 out.append(f"- {clean(tag.get_text()) if tag else ''}: {src} {clean(cap.get_text()) if cap else ''}")
             return
         if el.name == "figure":
-            img = el.find("img"); cap = el.find("figcaption"); tag = el.find("b")
-            out.append(f"- 그림 `{img['src'] if img else ''}` {('[' + clean(tag.get_text()) + '] ') if tag else ''}{clean(cap.get_text()) if cap else ''}"); return
+            img = el.find("img"); vid = el.find("video"); cap = el.find("figcaption"); tag = el.find("b")
+            media = (f"그림 `{img['src']}`" if img else "") + (f" + 영상 `{vid['src']}`" if vid else "")
+            out.append(f"- {media or '그림'} {('[' + clean(tag.get_text()) + '] ') if tag else ''}{clean(cap.get_text()) if cap else ''}"); return
         if el.name == "audio":
             out.append(f"- 소리 `{el.get('src', '')}`"); return
         if el.name == "p" and el.find(class_="strike"):
