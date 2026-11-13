@@ -107,6 +107,7 @@ def main():
           "> 순서는 화면의 카메라 단계 순서와 같다. 앞쪽이 발표 경로, `[부록]` 표시는 발표 모드에서 건너뛰는 시트(D 키로 진입).", ""]
     seen = set()
     for sid, label, deep in steps(src):
+        if sid == "s4": label = "04 영상화"
         if not sid or sid in seen:
             continue
         seen.add(sid)
