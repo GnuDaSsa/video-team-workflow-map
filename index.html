@@ -249,6 +249,36 @@ code{font:.86em var(--mono);background:var(--faint);padding:.08em .35em}
 .statrow div span{font:17px/1.3 var(--sans);color:var(--mid)}
 .statrow div.z b{color:var(--soft)}
 #hud .mode{border:1px solid var(--mid);padding:3px 6px 2px}
+/* r1 */
+.id{font:normal 400 .7em/1.3 var(--mono);color:var(--soft);letter-spacing:.02em;margin-left:.5em}
+.fld.ko td:first-child{font:600 20px/1.42 var(--sans);white-space:normal;width:230px}
+.fld.ko td:first-child .id{display:block;margin-left:0;font-size:14px}
+.fld.big td{font:400 27px/1.4 var(--sans);padding:14px 0}
+.fld.big td:first-child{font:600 27px/1.4 var(--sans);white-space:normal;width:46%}
+.sflow.big b{font-size:30px}
+.sflow.big code{font:400 19px/1.4 var(--sans);color:var(--ink)}
+.aside{border:1.5px dashed var(--soft);padding:22px 24px}
+.pair video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink);background:var(--ink)}
+.snd{display:none;color:var(--red)}
+.case.nosound .snd{display:inline}
+.v4top{display:flex;justify-content:space-between;align-items:baseline;gap:40px}
+.v4brand{font:600 44px/1 var(--sans);letter-spacing:-.03em;white-space:nowrap}
+.v4brand .mid{font-weight:300}
+.v4skip{font:500 26px/1 var(--sans);color:var(--soft);white-space:nowrap}
+.v4skip em{font:normal 500 19px/1 var(--sans);color:var(--red);margin-left:14px}
+.v4claim{font:400 26px/1.4 var(--sans);margin:12px 0 14px}
+.v4{display:grid;grid-template-columns:280px 1fr 280px;column-gap:40px;row-gap:10px;align-items:center}
+.v4 .k{margin:0 0 2px}
+.v4 .k span{color:var(--line);margin-left:10px}
+.v4 img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink)}
+.v4 figcaption{font:14px/1.3 var(--mono);color:var(--mid);margin-top:5px;white-space:nowrap}
+.v4q code{display:block;background:none;padding:0;font:16px/1.45 var(--mono);color:var(--mid)}
+.v4q p{font:600 23px/1.35 var(--sans);margin-top:6px}
+.v4q p small{display:block;font:400 18px/1.35 var(--sans);color:var(--mid)}
+.v4q.r{border-left:3px solid var(--red);padding-left:18px}
+.v4q.r p{color:var(--red)}
+.v4 figure.r img{border:3px solid var(--red)}
+.v4 figure.r figcaption{color:var(--red);cursor:pointer}
 
 /* title block */
 .tb{position:absolute;left:4500px;top:4130px;width:1600px;height:280px;border:2px solid var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;background:var(--sheet)}
@@ -309,14 +339,14 @@ body.clean #hud,body.clean #hint{opacity:0}
           <p class="p">뼈대는 제 창의성으로 세우고,<br>AI에게는 <span class="under">살 붙이는 조언</span>만 듣습니다.</p>
         </div>
         <div>
-          <div class="k">비중</div>
+          <div class="k">비중 · 체감</div>
           <div class="ratio"><span class="circled">95</span><small>%</small></div>
           <p class="p">제 창의성</p>
           <div class="bar"><div class="me"></div><div class="ai"></div></div>
           <div class="barl"><span>나 95</span><span class="red">AI 조언 5</span></div>
         </div>
       </div></div>
-      <div class="df"><span>영상팀 레인 · director (메인 스레드)</span><span>VT-01</span></div>
+      <div class="df"><span>AI 세션 · 기획 대화</span><span>VT-01</span></div>
     </div>
   </section>
 
@@ -335,13 +365,13 @@ body.clean #hud,body.clean #hint{opacity:0}
             <div class="k">배경음악</div>
             <div class="brand">Suno</div>
             <p class="p">특이할 것 없이 Suno로 만듭니다.</p>
-            <p class="p"><code>awesome-suno-prompting</code> 레포를 적용해서, 거의 손 안 대고.</p>
+            <p class="p"><code>awesome-suno-prompts</code> 레포를 적용해서, 거의 손 안 대고.</p>
           </div>
           <div class="redline" style="text-align:right;margin-top:6px">음악이 정해지면<br>다시 기획으로 ↺</div>
         </div>
         <svg id="wave" class="mark" style="left:0;bottom:0" width="1432" height="250"></svg>
       </div>
-      <div class="df"><span>영상팀 레인 · music (Aside → Suno)</span><span>VT-02</span></div>
+      <div class="df"><span>AI 세션 · Suno 조작</span><span>VT-02</span></div>
     </div>
   </section>
 
@@ -357,7 +387,7 @@ body.clean #hud,body.clean #hint{opacity:0}
       <div class="rt">음악을 정하고, 기획을 다시 손봅니다.</div>
       <p class="rp">팝핑댄서 출신이라 비트에 민감합니다.<br>드럼 하이햇 기준으로 장면을 쪼개 보면,<br>30씬으로 기획했어도 40씬은 들어가야 루즈해지지 않습니다.</p>
       <svg id="beats" style="display:block;margin-top:26px;overflow:visible" width="820" height="160"></svg>
-      <div class="rc">음악 결정 → 기획 수정 · 반드시 거치는 단계</div>
+      <div class="rc">음악 결정 → 기획 수정 · 반드시 거치는 단계 · 숫자는 예시</div>
     </div>
   </section>
 
@@ -376,6 +406,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           <p class="p" style="margin-top:14px">남들과 다르고 싶습니다.</p>
           <svg id="dots" style="display:block;margin-top:30px" width="380" height="380"></svg>
           <div class="legend"><i style="background:var(--line)"></i>GPT · 나노바나나 95<br><i style="background:var(--red)"></i>미드저니 · 시드림 5</div>
+          <div class="legend" style="margin-top:6px;color:var(--soft)">원고의 비유 · 조사 수치 아님</div>
         </div>
         <div>
           <p class="p p3">AI 슬롭은 왜 슬롭일까요?<br><strong>일상에서 너무 많이 보이기 때문입니다.</strong></p>
@@ -391,7 +422,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           <p class="redline" style="margin-top:22px">슬롭이냐 아니냐는 이 단계에서 갈립니다.</p>
         </div>
       </div></div>
-      <div class="df"><span>영상팀 레인 · image_creator → image_qc</span><span>VT-03</span></div>
+      <div class="df"><span>AI 세션 · 이미지 생성 → 검수</span><span>VT-03</span></div>
     </div>
   </section>
 
@@ -404,26 +435,31 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">04</span>영상화</h2><div class="r">SHEET 04 / 06</div></div>
-      <div class="body"><div class="col4">
-        <div>
-          <div class="k">플랫폼</div>
-          <div class="brand2">Runway</div>
-          <div class="arrowd">↓</div>
-          <div class="brand3">Seedance 2.0 · 2.5</div>
-          <div class="flow"><span class="strike">Google Flow</span></div>
-          <div class="hand">고수분들 앞이니 생략합니다</div>
+      <div class="body">
+        <div class="v4top">
+          <div class="v4brand">Runway <span class="mid">→</span> Seedance 2.0 · 2.5</div>
+          <div class="v4skip"><span class="strike">Google Flow</span><em>고수분들 앞이니 생략합니다</em></div>
         </div>
-        <div>
-          <div class="k">한 번의 생성 · Seedance 2.5</div>
-          <svg id="shots" style="display:block;overflow:visible" width="720" height="132"></svg>
-          <div class="gap"></div><div class="gap-s"></div>
-          <div class="k">참조 이미지</div>
-          <svg id="refs" style="display:block;overflow:visible" width="720" height="96"></svg>
-          <div class="gap"></div><div class="gap"></div>
-          <p class="p">스타일프레임 없이, 캐릭터 · 장소 · 소품<br>참조만 붙여서 바로 생성합니다.</p>
+        <p class="v4claim">시작 장면 이미지 없이, 캐릭터 · 장소 · 소품 <strong>참조만 붙여서 바로 생성합니다.</strong> 아래는 실제로 넣은 것과 나온 것입니다.</p>
+        <div class="v4">
+          <div class="k">① 붙인 참조 3장</div>
+          <div class="k">② 실제 프롬프트에서 세 줄<span>영어 약 9천 자 중</span></div>
+          <div class="k">③ 나온 결과 · 같은 15초</div>
+
+          <figure><img src="assets/vid/b01_ref1.jpg" alt=""><figcaption>@Image1 · 장소</figcaption></figure>
+          <div class="v4q"><code>References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.</code><p>참조 한 장에 역할 하나. 이 그림에서는 장소만 가져오라고 적습니다.</p></div>
+          <figure><img src="assets/vid/b01_shot1.jpg" alt=""><figcaption>숏 1 · 0–3초</figcaption></figure>
+
+          <figure><img src="assets/vid/b01_ref2.jpg" alt=""><figcaption>@Image2 · 남자 인물 시트</figcaption></figure>
+          <div class="v4q"><code>@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.</code><p>인물 시트에서는 얼굴과 옷만. 종이 배경과 3면 배치는 장면에 넣지 말라고 적습니다.</p></div>
+          <figure><img src="assets/vid/b01_shot2.jpg" alt=""><figcaption>숏 2 · 3–6초</figcaption></figure>
+
+          <figure><img src="assets/vid/b01_ref3.jpg" alt=""><figcaption>@Image3 · 여자 인물 시트</figcaption></figure>
+          <div class="v4q r"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막은 일부러 글자 없는 빈 천으로 뽑습니다.<small>콘티 메모 원문: “후반 ‘솔로몬의 선택’ 합성 자리” — 글자는 05-4에서 겁니다.</small></p></div>
+          <figure class="r"><img src="assets/vid/b01_shot5.jpg" alt=""><figcaption data-go="c54">숏 5 · 빈 현수막 → 05-4</figcaption></figure>
         </div>
-      </div></div>
-      <div class="df"><span>영상팀 레인 · seedance → seedance_qc</span><span>VT-04</span></div>
+      </div>
+      <div class="df"><span>실제 사례 · 성남시 MV 첫 15초 · Seedance 2.5 · 5숏 · 참조 3장</span><span>VT-04</span></div>
     </div>
   </section>
 
@@ -442,33 +478,33 @@ body.clean #hud,body.clean #hint{opacity:0}
             <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」</div>
             <div class="ct">타격하는 박에만, 잉크 프레임</div>
             <div class="pair">
-              <figure><img src="assets/post/hw_before.jpg" alt=""><b>BEFORE</b><figcaption>타격 직전</figcaption></figure>
+              <figure><img src="assets/post/hw_before.jpg" alt=""><b>효과 직전</b><figcaption>최종본의 타격 직전 프레임</figcaption></figure>
               <i>→</i>
-              <figure><img src="assets/post/hw_after.jpg" alt=""><b class="a">AFTER</b><figcaption>펀치가 닿는 박 · 잉크 홀드</figcaption></figure>
+              <figure><video src="assets/clips/hw_hit.mp4" poster="assets/post/hw_after.jpg" preload="auto" playsinline></video><b class="a">효과 순간</b><figcaption>최종본 2.5초 · 소리 포함 <span class="snd">소리 꺼짐 — V 키</span></figcaption></figure>
             </div>
-            <p class="cd">2~3프레임만 실사를 형광 잉크 판화로 바꾸고 멈춥니다. 같은 효과는 반복하지 않습니다.</p>
+            <p class="cd">2~3프레임만 실사를 형광 잉크 판화로 바꾸고 멈춥니다. 같은 효과는 반복하지 않습니다. <span class="mid">두 그림 모두 최종본에서 뽑았습니다(원본 대조 아님).</span></p>
           </article>
           <article class="case tall" id="c52">
             <div class="tx">
               <div class="ch"><span>05-2</span>광양시 「매돌이」</div>
               <div class="ct">장소가 바뀌면,<br>도감 카드</div>
               <p class="cd">자연 다큐처럼 "관찰 지점 No.01" 카드를 띄워 어디인지 화면이 말하게 했습니다.</p>
-              <p class="cd mid">납품 전 4K 업스케일 + 그레인.</p>
+              <p class="cd mid">납품 전 해상도 확대(4K) + 그레인. 두 그림 모두 최종본 프레임.</p>
             </div>
             <div class="pair v">
-              <figure><img src="assets/post/md_before.jpg" alt=""><b>BEFORE</b></figure>
-              <figure><img src="assets/post/md_after.jpg" alt=""><b class="a">AFTER</b></figure>
+              <figure><img src="assets/post/md_before.jpg" alt=""><b>카드 직전</b></figure>
+              <figure><img src="assets/post/md_after.jpg" alt=""><b class="a">카드 등장</b></figure>
             </div>
           </article>
           <article class="case" id="c53">
             <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상</div>
             <div class="ct">실사는 글자 없이, 설명은 코드로</div>
             <div class="pair three">
-              <figure><img src="assets/post/sn_before.jpg" alt=""><b>BEFORE</b><figcaption>Seedance 원본</figcaption></figure>
+              <figure><img src="assets/post/sn_before.jpg" alt=""><b>생성 원본</b><figcaption>Seedance 원본</figcaption></figure>
               <i>→</i>
-              <figure><img src="assets/post/sn_after.jpg" alt=""><b class="a">AFTER</b><figcaption>자막을 얹은 최종</figcaption></figure>
+              <figure><img src="assets/post/sn_after.jpg" alt=""><b class="a">자막 얹음</b><figcaption>자막을 얹은 최종</figcaption></figure>
               <i>+</i>
-              <figure><img src="assets/post/sn_mg.jpg" alt=""><b class="a">MG</b><figcaption>설명 MG · 코드로 제작</figcaption></figure>
+              <figure><img src="assets/post/sn_mg.jpg" alt=""><b class="a">설명 그래픽</b><figcaption>코드로 제작</figcaption></figure>
             </div>
             <p class="cd">기술명·지도·협력기관 로고처럼 틀리면 안 되는 정보는 AI에게 그리게 하지 않습니다.</p>
           </article>
@@ -476,11 +512,11 @@ body.clean #hud,body.clean #hint{opacity:0}
             <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면</div>
             <div class="ct">빈 현수막에 글자 걸기</div>
             <div class="pair">
-              <figure><img src="assets/post/sol_before.jpg" alt=""><b>BEFORE</b><figcaption>빈 천으로 생성</figcaption></figure>
+              <figure><video src="assets/clips/sol_before.mp4" poster="assets/post/sol_before.jpg" preload="auto" muted loop playsinline data-silent></video><b>생성 원본</b><figcaption>빈 천으로 생성 · 04의 숏 5</figcaption></figure>
               <i>→</i>
-              <figure><img src="assets/post/sol_after.jpg" alt=""><b class="a">AFTER</b><figcaption>천의 주름·그림자 위에 곱하기 합성</figcaption></figure>
+              <figure><video src="assets/clips/sol_after.mp4" poster="assets/post/sol_after.jpg" preload="auto" muted loop playsinline data-silent></video><b class="a">글자 합성</b><figcaption>천의 주름·그림자 위에 곱하기 합성</figcaption></figure>
             </div>
-            <p class="cd">AI가 쓰면 글자가 깨지니, 빈 현수막으로 뽑고 글자는 나중에 천에 스며들게 입힙니다.</p>
+            <p class="cd">AI가 쓰면 글자가 깨지니, 프롬프트에서부터 빈 현수막으로 뽑고 글자는 나중에 천에 스며들게 입힙니다.</p>
           </article>
         </div>
       </div>
@@ -508,17 +544,17 @@ body.clean #hud,body.clean #hint{opacity:0}
   </section>
 
   <!-- lanes under sheets -->
-  <div class="lane" style="left:300px;top:2300px"><b>LANE</b>director · 메인 스레드</div>
-  <div class="lane" style="left:2400px;top:2300px"><b>LANE</b>music · Aside → Suno</div>
-  <div class="lane" style="left:4500px;top:2300px"><b>LANE</b>image_creator · image_qc</div>
-  <div class="lane" style="left:300px;top:4000px"><b>LANE</b>seedance · seedance_qc</div>
-  <div class="lane" style="left:2400px;top:4000px"><b>LOCAL</b>Python · ffmpeg</div>
-  <div class="lane" style="left:4500px;top:4000px"><b>HUMAN</b>직접</div>
+  <div class="lane" style="left:300px;top:2300px"><b>AI</b>기획 대화</div>
+  <div class="lane" style="left:2400px;top:2300px"><b>AI</b>Suno 조작</div>
+  <div class="lane" style="left:4500px;top:2300px"><b>AI</b>이미지 생성 → 검수</div>
+  <div class="lane" style="left:300px;top:4000px"><b>AI</b>영상 생성 → 검수</div>
+  <div class="lane" style="left:2400px;top:4000px"><b>로컬</b>Python · ffmpeg</div>
+  <div class="lane" style="left:4500px;top:4000px"><b>사람</b>직접</div>
 
   <div class="legend-ov">
     <div><span class="sw"></span>진행 순서</div>
     <div><span class="sw r"></span>되돌아가는 수정</div>
-    <div style="color:var(--soft)">LANE = 영상팀 디렉터 스레드가 단계마다 띄우는 Codex 세션</div>
+    <div style="color:var(--soft)">AI = 단계마다 따로 띄우는 AI 작업 세션</div>
   </div>
 
   <div class="tb">
@@ -531,43 +567,43 @@ body.clean #hud,body.clean #hint{opacity:0}
 
   <!-- ================= VT-10 단계별 상세도 ================= -->
   <div class="ttl2" style="left:6900px">
-    <div class="k">SHEET 10 — 단계별 상세도</div>
-    <h1>단계별 상세도</h1>
-    <div class="s">단계마다 정해지는 것 · 프롬프트 요소 · 검사 · 모델 변경 — 2026-11-13 현재 파일 기준</div>
+    <div class="k">SHEET 10 — 부록</div>
+    <h1>부록 · 단계별 상세도</h1>
+    <div class="s">질문이 나오면 펼치는 자료 · 발표에서는 건너뜁니다 — 2026-11-13 현재 파일 기준</div>
   </div>
   <div class="tb2" style="left:13000px">
-    <div class="wide"><small>도면명</small>단계별 상세도</div>
+    <div class="wide"><small>도면명</small>부록 · 단계별 상세도</div>
     <div><small>작성</small>사진우</div><div><small>기준일</small>2026.11.13</div><div><small>축척</small>N.S.</div><div><small>도면번호</small>VT-10</div>
   </div>
 
-  <div class="rowlab" style="left:6900px;top:800px"><div class="n">01</div><div class="t">기획</div><div class="k">정해지는 것</div><div class="v">컨셉 · 스타일 바이블 · 콘티</div><div class="k">담당</div><div class="v m">director → planner</div></div>
-  <div class="rowlab" style="left:6900px;top:2060px"><div class="n">02</div><div class="t">음악</div><div class="k">정해지는 것</div><div class="v">Style · 가사 구조 · 길이</div><div class="k">담당</div><div class="v m">music 레인</div></div>
-  <div class="rowlab" style="left:6900px;top:3320px"><div class="n">03</div><div class="t">이미지</div><div class="k">정해지는 것</div><div class="v">참조 이미지<br>인물 · 장소 · 소품 · 스타일</div><div class="k">담당</div><div class="v m">image_creator → image_qc</div></div>
-  <div class="rowlab" style="left:6900px;top:4580px"><div class="n">04</div><div class="t">영상화</div><div class="k">정해지는 것</div><div class="v">블록별 프롬프트 · 생성 · QC</div><div class="k">담당</div><div class="v m">seedance → seedance_qc</div></div>
+  <div class="rowlab" style="left:6900px;top:800px"><div class="n">01</div><div class="t">기획</div><div class="k">정해지는 것</div><div class="v">컨셉 · 스타일 바이블 · 콘티</div><div class="k">담당</div><div class="v m">기획 대화 → 콘티 세션</div></div>
+  <div class="rowlab" style="left:6900px;top:2060px"><div class="n">02</div><div class="t">음악</div><div class="k">정해지는 것</div><div class="v">Style · 가사 구조 · 길이</div><div class="k">담당</div><div class="v m">음악 세션</div></div>
+  <div class="rowlab" style="left:6900px;top:3320px"><div class="n">03</div><div class="t">이미지</div><div class="k">정해지는 것</div><div class="v">참조 이미지<br>인물 · 장소 · 소품 · 스타일</div><div class="k">담당</div><div class="v m">이미지 생성 → 검수</div></div>
+  <div class="rowlab" style="left:6900px;top:4580px"><div class="n">04</div><div class="t">영상화</div><div class="k">정해지는 것</div><div class="v">생성 1회분 프롬프트 · 생성 · 검수</div><div class="k">담당</div><div class="v m">영상 생성 → 검수</div></div>
   <div class="rowlab" style="left:6900px;top:5840px"><div class="n">05</div><div class="t">후처리</div><div class="k">정해지는 것</div><div class="v">색 · 자막 · 효과 · 업스케일 · MG</div><div class="k">담당</div><div class="v m">로컬 스크립트</div></div>
   <div class="rowlab" style="left:6900px;top:7100px"><div class="n">06</div><div class="t">편집</div><div class="k">정해지는 것</div><div class="v">컷 선택 · 길이 · 순서</div><div class="k">담당</div><div class="v m">사람</div></div>
-  <div class="rowlab" style="left:6900px;top:8360px"><div class="n">00</div><div class="t">공통</div><div class="k">정해지는 것</div><div class="v">위키 · 교훈 · 문서 권위</div><div class="k">담당</div><div class="v m">전 단계</div></div>
+  <div class="rowlab" style="left:6900px;top:8360px"><div class="n">00</div><div class="t">공통</div><div class="k">정해지는 것</div><div class="v">위키 · 교훈</div><div class="k">담당</div><div class="v m">전 단계</div></div>
   <section class="sheet dp" id="d01a" style="left:7600px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-A</span><span>STAGES</span></div><div class="ov-name">단계와 잠금</div><div class="ov-sub">P0 → P1 → 음악 → P2</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-A</span><span>STAGES</span></div><div class="ov-name">기획 순서</div><div class="ov-sub">컨셉 → 스타일 → 음악 → 콘티</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-A</span>기획 단계와 잠금</h2><div class="r">preprod v5</div></div>
+      <div class="dh"><h2><span class="no">01-A</span>기획 순서와 확정</h2><div class="r">부록</div></div>
       <div class="body"><div class="sflow">
-  <div><small>P0 · director</small><b>컨셉 3안</b><code>concept_options.md<br>→ concept_lock.json</code><em>잠금: 고른 안을 말한 원문</em></div>
-  <div><small>P1 · director</small><b>스타일 바이블</b><code>style_bible.json</code><em>잠금: 형식 자체 검사</em></div>
-  <div><small>music 레인</small><b>음악</b><code>Suno 생성 → 사용자 선택</code><em>잠금: 등록된 오디오</em></div>
-  <div><small>P2 · planner</small><b>콘티</b><code>storyboard.json</code><em>잠금: 승인 원문</em></div>
+  <div><small>1 · 기획 대화</small><b>컨셉 3안</b><code>세 안 중 하나를 고름</code><em>확정: 고른 안을 말한 원문 그대로</em></div>
+  <div><small>2 · 기획 대화</small><b>스타일 바이블</b><code>화풍 · 인물 · 장소를 글로 고정</code><em>확정: 형식 검사 통과</em></div>
+  <div><small>3 · 음악 세션</small><b>음악</b><code>Suno 생성 → 내가 선택</code><em>확정: 고른 음원 등록</em></div>
+  <div><small>4 · 콘티 세션</small><b>콘티</b><code>15초 단위로 장면 설계</code><em>확정: 승인한 원문 그대로</em></div>
 </div>
 <div class="cols" style="grid-template-columns:1fr 520px;margin-top:34px;height:auto">
   <div><div class="k">컨셉 1안에 들어가는 것</div>
-  <table class="fld">
-    <tr><td>Logline</td><td>한 문장 — 누가, 무엇을 원하고, 무엇이 막고, 무엇이 바뀌나</td></tr>
-    <tr><td>Emotional arc</td><td>hook 0–3초 · build · peak <small>(기억될 한 장면)</small> · out <small>(페이드 말고 해소)</small></td></tr>
-    <tr><td>Differentiator</td><td>공모 주제의 뻔한 버전이 아닌 이유</td></tr>
-    <tr><td>Must-avoid</td><td>클리셰 · 사실 위험 · 거절된 룩</td></tr>
-    <tr><td>Medium / AR / 길이</td><td>2D · 3D · 실사 · mixed / 16:9 / 60초 ≈ 15초 블록 4개</td></tr>
+  <table class="fld ko">
+    <tr><td>한 줄 줄거리</td><td>한 문장 — 누가, 무엇을 원하고, 무엇이 막고, 무엇이 바뀌나</td></tr>
+    <tr><td>감정 곡선</td><td>첫 0–3초에 잡기 · 쌓기 · 정점 <small>(기억될 한 장면)</small> · 마무리 <small>(페이드 말고 해소)</small></td></tr>
+    <tr><td>차별점</td><td>공모 주제의 뻔한 버전이 아닌 이유</td></tr>
+    <tr><td>피할 것</td><td>클리셰 · 사실 위험 · 거절된 룩</td></tr>
+    <tr><td>매체 · 화면비 · 길이</td><td>2D · 3D · 실사 · 혼합 / 16:9 / 60초 ≈ 15초 생성 4번</td></tr>
   </table></div>
-  <div><div class="k">잠금 규칙</div>
-  <div class="ol"><p>상류 파일이 바뀌면 그 단계와 <b>하류 잠금이 전부 STALE</b></p><p>개정은 같은 파일을 고쳐 재잠금, 이전본은 <code>_superseded/</code></p><p>제작 단계에서 프롬프트를 새로 쓰지 않음 — 소유 단계로 돌아감</p><p>mode: mv · contest · tourism · institution · shortform</p></div></div>
+  <div><div class="k">확정 규칙</div>
+  <div class="ol"><p>앞 단계가 바뀌면 <b>뒤 단계의 확정은 전부 다시 확인</b></p><p>고칠 때는 같은 문서를 고쳐 다시 확정, 이전본은 따로 보관</p><p>제작 단계에서 프롬프트를 새로 쓰지 않음 — 그 내용을 정한 단계로 돌아감</p><p>영상 종류: 뮤직비디오 · 공모전 · 관광 · 기관 홍보 · 숏폼</p></div></div>
 </div></div>
       <div class="df"><span>runtime/templates/preprod · video-team-runtime/AGENTS.md §2</span><span>01-A</span></div>
     </div>
@@ -575,76 +611,77 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d01b" style="left:9400px;top:800px">
     <div class="ov"><div class="ov-top"><span class="no">01-B</span><span>BIBLE</span></div><div class="ov-name">스타일 바이블</div><div class="ov-sub">모든 프롬프트의 고정 문단</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-B</span>스타일 바이블 필드</h2><div class="r">style_bible.json</div></div>
+      <div class="dh"><h2><span class="no">01-B</span>스타일 바이블에 적는 것</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
-<table class="fld">
-  <tr><th>필드</th><th>내용</th></tr>
-  <tr><td>palette_hex</td><td>HEX 팔레트</td></tr>
-  <tr><td>lighting</td><td>광원 방향·질 · 시간대 · 실제 조명 · 대비 — 레시피 하나</td></tr>
-  <tr><td>texture</td><td>그레인 · 선 · 재질 · 렌더 방식</td></tr>
-  <tr><td>lens_grammar</td><td>기본 화각대 · 심도 · 카메라 움직임의 느낌</td></tr>
-  <tr><td>forbidden_looks</td><td>거절할 구체적 룩</td></tr>
-  <tr><td>style_block_en</td><td><b>영어 600자 이하</b> — 매체·렌더·팔레트·빛·질감·렌즈. 숏 내용 금지</td></tr>
-  <tr><td>characters[]<br>.identity_block_en</td><td><b>영어 350자 이하</b> — 얼굴·머리·체형·의상·나이감. 표정·행동 금지 <small>+ sheet_ref_id</small></td></tr>
-  <tr><td>locations[]</td><td>구조 · 재질 · 광원 · 고정 랜드마크</td></tr>
-  <tr><td>resolution</td><td>720p · 1080p</td></tr>
+<table class="fld ko">
+  <tr><th>항목</th><th>내용</th></tr>
+  <tr><td>색 팔레트</td><td>HEX 값으로</td></tr>
+  <tr><td>빛</td><td>광원 방향·질 · 시간대 · 실제 조명 · 대비 — 레시피 하나</td></tr>
+  <tr><td>질감</td><td>그레인 · 선 · 재질 · 렌더 방식</td></tr>
+  <tr><td>렌즈 문법</td><td>기본 화각대 · 심도 · 카메라 움직임의 느낌</td></tr>
+  <tr><td>금지할 룩</td><td>거절할 구체적 룩</td></tr>
+  <tr><td>화풍 고정 문장<i class="id">style_block_en</i></td><td><b>영어 600자 이하</b> — 매체·렌더·팔레트·빛·질감·렌즈. 장면 내용은 넣지 않음</td></tr>
+  <tr><td>인물 고정 설명<i class="id">identity_block_en</i></td><td><b>영어 350자 이하</b> — 얼굴·머리·체형·의상·나이감. 표정·행동은 넣지 않음 <small>+ 인물 시트 참조 연결</small></td></tr>
+  <tr><td>장소</td><td>구조 · 재질 · 광원 · 고정 랜드마크</td></tr>
+  <tr><td>해상도</td><td>720p · 1080p</td></tr>
 </table>
 <div><div class="k">어디로 흘러가나</div>
 <div class="tl">
-  <p><span>style_block_en</span>모든 영상 프롬프트의 STYLE 줄에 원문 그대로 — shelf-check가 일치 검사</p>
-  <p><span>identity_block_en</span>IDENTITY 줄에 원문 그대로</p>
-  <p><span>sheet_ref_id</span>03 이미지의 인물 시트 참조로 연결</p>
-  <p><span>palette_hex</span>이미지 프롬프트 Color 섹션의 HEX</p>
-  <p><span>forbidden_looks</span>프롬프트 · QC 거절 기준</p>
+  <p><span>화풍 고정 문장</span>모든 영상 프롬프트 맨 앞에 원문 그대로 — 입력 검사가 일치를 확인</p>
+  <p><span>인물 고정 설명</span>그다음 문단에 원문 그대로</p>
+  <p><span>인물 시트 참조</span>03 이미지의 인물 시트로 연결</p>
+  <p><span>색 팔레트</span>이미지 프롬프트 색 항목의 HEX</p>
+  <p><span>금지할 룩</span>프롬프트 · 검수의 거절 기준</p>
+  <p><span>실제 예 · 성남시 MV</span><code>Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …</code></p>
 </div></div></div></div>
       <div class="df"><span>runtime/templates/preprod/style_bible.json</span><span>01-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d01c" style="left:11200px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 필드</div><div class="ov-sub">블록 15초 · 숏 1–4</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 항목</div><div class="ov-sub">생성 1회 15초 · 숏 1–4</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-C</span>콘티 필드</h2><div class="r">storyboard.json</div></div>
+      <div class="dh"><h2><span class="no">01-C</span>콘티에 적는 것</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
-<div><div class="k">블록 — 생성 1회 단위</div>
-<table class="fld">
-  <tr><td>duration_sec</td><td>프로젝트 길이 잠금과 같아야 함 <small>(기본 15초)</small></td></tr>
-  <tr><td>purpose</td><td>이야기·음악 구간에서 이 블록이 하는 일</td></tr>
-  <tr><td>audio_route</td><td>silent · 현장음 · 대사 · music_reference</td></tr>
-  <tr><td>cast · location_id</td><td>등장 인물 · 장소</td></tr>
-  <tr><td>refs</td><td>붙일 참조 이미지 ID</td></tr>
-  <tr><td>end_frame</td><td>다음 블록이 이어받는 마지막 그림</td></tr>
-  <tr><td>risks</td><td>얼굴 · 텍스처 · 폰 화면 등 위험 속성</td></tr>
+<div><div class="k">생성 1회 (블록)</div>
+<table class="fld ko">
+  <tr><td>길이</td><td>프로젝트에서 확정한 길이와 같아야 함 <small>(기본 15초)</small></td></tr>
+  <tr><td>역할</td><td>이야기·음악 구간에서 이 블록이 하는 일</td></tr>
+  <tr><td>소리</td><td>무음 · 현장음 · 대사 · 음악 참조</td></tr>
+  <tr><td>인물 · 장소</td><td>등장 인물 · 장소</td></tr>
+  <tr><td>붙일 참조</td><td>붙일 참조 이미지</td></tr>
+  <tr><td>마지막 구도</td><td>다음 생성이 이어받는 마지막 그림</td></tr>
+  <tr><td>확인할 오류</td><td>얼굴 · 텍스처 · 폰 화면 등 위험 속성</td></tr>
 </table>
-<p class="note" style="margin-top:18px">최상위 <b>generation.model</b> = Seedance 2.5면 2.5 규격, 없으면 2.0</p></div>
-<div><div class="k">숏 — 블록 안의 컷</div>
-<table class="fld">
-  <tr><td>start · end_sec</td><td>빈틈 없이 이어지는 초 구간</td></tr>
-  <tr><td>shot_size</td><td>통제 목록 9종 <small>(extreme wide ~ insert)</small></td></tr>
-  <tr><td>angle</td><td>통제 목록 10종 <small>(eye level · low · overhead · pov …)</small></td></tr>
-  <tr><td>camera_move</td><td>통제 목록 24종 <small>(static · slow push in · tracking · orbit · fpv …)</small></td></tr>
-  <tr><td>lens · composition</td><td>화각 · 화면 안 위치와 전경/배경 층</td></tr>
-  <tr><td>action</td><td>시작 → 행동 → 보이는 반응</td></tr>
-  <tr><td>must_include</td><td>프롬프트까지 살아남아야 할 구절</td></tr>
-  <tr><td>copy_line</td><td>근거 대사 — 장면은 대사 그대로 <small>(인서트는 "(insert)")</small></td></tr>
+<p class="note" style="margin-top:18px">모델을 <b>Seedance 2.5</b>로 적으면 2.5 규격, 안 적으면 2.0</p></div>
+<div><div class="k">숏 — 한 번의 생성 안의 장면</div>
+<table class="fld ko">
+  <tr><td>시간 구간</td><td>빈틈 없이 이어지는 초 구간</td></tr>
+  <tr><td>숏 크기</td><td>정해진 목록 9종 <small>(extreme wide ~ insert)</small></td></tr>
+  <tr><td>앵글</td><td>정해진 목록 10종 <small>(eye level · low · overhead · pov …)</small></td></tr>
+  <tr><td>카메라 움직임</td><td>정해진 목록 24종 <small>(static · slow push in · tracking · orbit · fpv …)</small></td></tr>
+  <tr><td>렌즈 · 구도</td><td>화각 · 화면 안 위치와 전경/배경 층</td></tr>
+  <tr><td>동작</td><td>시작 → 행동 → 보이는 반응</td></tr>
+  <tr><td>꼭 지킬 내용</td><td>프롬프트까지 살아남아야 할 구절</td></tr>
+  <tr><td>근거 대사</td><td>근거 대사 — 장면은 대사 그대로 <small>(인서트는 따로 표시)</small></td></tr>
 </table>
-<p class="note" style="margin-top:18px">P2 잠금 → <b>video_attributes.json</b> 자동 생성 → 04 지식 라우터 입력</p></div>
+<p class="note" style="margin-top:18px">실제 예 · 성남시 MV 숏 5: <b>“입구 위 글자 없는 긴 크림 천 현수막 … (후반 ‘솔로몬의 선택’ 합성 자리)”</b> → 04 · 05-4</p></div>
 </div></div>
       <div class="df"><span>runtime/scripts/preprod.py — SHOT_SIZES · ANGLES · CAMERA_MOVES</span><span>01-C</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d02a" style="left:7600px;top:2060px">
-    <div class="ov"><div class="ov-top"><span class="no">02-A</span><span>SUNO</span></div><div class="ov-name">Suno 프롬프트</div><div class="ov-sub">코퍼스 → Style · 가사 · 길이</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">02-A</span><span>SUNO</span></div><div class="ov-name">Suno 프롬프트</div><div class="ov-sub">참고 모음 → 스타일 · 가사 · 길이</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">02-A</span>Suno 프롬프트 구조</h2><div class="r">music-director 스킬</div></div>
+      <div class="dh"><h2><span class="no">02-A</span>Suno 프롬프트 구조</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr 1fr;gap:44px">
-<div><div class="k">코퍼스 → 프롬프트</div>
-<div class="ol"><p><b>검색</b> — 장르·무드·용도·그루브·악기·보컬·BPM·형식으로 INDEX + 관련 1–3파일만</p><p><b>추출</b> — 가까운 패턴 2–5개에서 변수만</p><p><b>정리</b> — 아티스트·곡 이름 제거, 묘사어로 대체</p><p><b>조합</b> — 프롬프트 하나</p><p><b>변형</b> — 변수 몇 개만 바꾼 1개</p><p><b>기록</b> — 참고한 코퍼스 파일명</p></div></div>
+<div><div class="k">참고 프롬프트 모음 → 프롬프트</div>
+<div class="ol"><p><b>검색</b> — 장르·무드·용도·그루브·악기·보컬·BPM·형식으로 색인 + 관련 1–3개만</p><p><b>추출</b> — 가까운 패턴 2–5개에서 변수만</p><p><b>정리</b> — 아티스트·곡 이름 제거, 묘사어로 대체</p><p><b>조합</b> — 프롬프트 하나</p><p><b>변형</b> — 변수 몇 개만 바꾼 1개</p><p><b>기록</b> — 참고한 파일 이름</p></div></div>
 <div><div class="k">조합 변수</div>
 <div class="chips"><span>장르 · 서브장르</span><span>시대감</span><span>BPM · 박자 · 키</span><span>그루브 · 드럼</span><span>베이스</span><span>화성</span><span>리드 · 텍스처</span><span>보컬 성격</span><span>형식 · 에너지 곡선</span><span>믹스 · 공간</span><span>용도</span></div>
 <div class="k" style="margin-top:30px">출력 필드</div>
-<div class="chips m"><span>Style</span><span>Lyrics/Structure</span><span>Avoid</span><span>Generation settings</span><span>Corpus basis</span><span>A/B delta</span></div></div>
+<div class="chips"><span>Style</span><span>Lyrics · 구조</span><span>피할 것</span><span>생성 설정</span><span>참고 근거</span><span>두 안의 차이</span></div></div>
 <div><div class="k">규칙</div>
-<div class="ol r"><p>BGM 길이: Simple 대신 Custom, Duration을 <b>초</b>로 입력 — 목표값일 뿐</p><p>보컬: 한 명의 안정된 한국어 보컬, 자연스러운 발음·호흡</p><p>perfect · crystalline · ethereal 같은 형용사 나열 금지</p><p>인스트 인트로엔 허밍·속삭임 금지를 명시</p><p>고르기 · 다운로드는 사용자 <small>(PENDING_USER_AUDIO)</small></p></div></div>
+<div class="ol r"><p>BGM 길이: Simple 대신 Custom, Duration을 <b>초</b>로 입력 — 목표값일 뿐</p><p>보컬: 한 명의 안정된 한국어 보컬, 자연스러운 발음·호흡</p><p>perfect · crystalline · ethereal 같은 형용사 나열 금지</p><p>인스트 인트로엔 허밍·속삭임 금지를 명시</p><p>고르기 · 다운로드는 내가 직접</p></div></div>
 </div></div>
       <div class="df"><span>corpus: naqashmunir21/awesome-suno-prompts 스냅샷 · 실행: Aside의 Suno 탭</span><span>02-A</span></div>
     </div>
@@ -652,16 +689,16 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d03a" style="left:7600px;top:3320px">
     <div class="ov"><div class="ov-top"><span class="no">03-A</span><span>PROMPT</span></div><div class="ov-name">이미지 프롬프트</div><div class="ov-sub">공냥 키트 6섹션</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-A</span>이미지 프롬프트 구조</h2><div class="r">공냥 프롬프트 킷 VOL.2</div></div>
+      <div class="dh"><h2><span class="no">03-A</span>이미지 프롬프트 구조</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 560px">
-<div><table class="fld">
-  <tr><th>섹션</th><th>내용</th><th>분량</th></tr>
-  <tr><td>1 Scene</td><td>누가 · 무엇이 · 어디서 · 무엇을 — 핵심을 맨 앞에</td><td>60–120어</td></tr>
-  <tr><td>2 Camera</td><td>시점 · 거리 · 렌즈 성격 (결과로 서술)</td><td>15–30어</td></tr>
-  <tr><td>3 Lighting</td><td>방향 · soft/hard · 그림자 · 림 (장비명 금지)</td><td>10–25어</td></tr>
-  <tr><td>4 Color</td><td>팔레트 + 색온도 + <b>HEX 3–5개</b></td><td>10–20어</td></tr>
-  <tr><td>5 Texture</td><td>매체 · 질감 · 표면 반응</td><td>10–20어</td></tr>
-  <tr><td>6 Text</td><td>(선택) 따옴표 카피 · 폰트 · 위치</td><td>0–25어</td></tr>
+<div><table class="fld ko">
+  <tr><th>항목</th><th>내용</th><th>분량</th></tr>
+  <tr><td>1 장면<i class="id">Scene</i></td><td>누가 · 무엇이 · 어디서 · 무엇을 — 핵심을 맨 앞에</td><td>60–120어</td></tr>
+  <tr><td>2 카메라<i class="id">Camera</i></td><td>시점 · 거리 · 렌즈 성격 (결과로 서술)</td><td>15–30어</td></tr>
+  <tr><td>3 빛<i class="id">Lighting</i></td><td>방향 · soft/hard · 그림자 · 림 (장비명 금지)</td><td>10–25어</td></tr>
+  <tr><td>4 색<i class="id">Color</i></td><td>팔레트 + 색온도 + <b>HEX 3–5개</b></td><td>10–20어</td></tr>
+  <tr><td>5 질감<i class="id">Texture</i></td><td>매체 · 질감 · 표면 반응</td><td>10–20어</td></tr>
+  <tr><td>6 글자<i class="id">Text</i></td><td>(선택) 따옴표 카피 · 폰트 · 위치</td><td>0–25어</td></tr>
   <tr><td>끝</td><td><code>AR x:y</code> 토큰 하나</td><td></td></tr>
 </table>
 <p class="note" style="margin-top:20px"><b>포맷 B</b> (단독 인물 화보): 피사체 → 얼굴 → 헤어 → 장르 → 장면·포즈 → 의상 → 구도 → 조명 → HEX → 질감 → AR, 350–450자 한 문단</p></div>
@@ -674,14 +711,14 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d03b" style="left:9400px;top:3320px">
     <div class="ov"><div class="ov-top"><span class="no">03-B</span><span>REFERENCES</span></div><div class="ov-name">참조 이미지 규칙</div><div class="ov-sub">인물 · 장소 · 소품 · 스타일</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-B</span>참조 이미지 규칙과 QC</h2><div class="r">image_plan.json · image_qc</div></div>
+      <div class="dh"><h2><span class="no">03-B</span>참조 이미지 규칙과 검수</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
-<div><div class="k">참조 종류 (purpose)</div>
-<div class="chips" style="margin-bottom:22px"><span>identity 인물</span><span>environment 장소</span><span>prop 소품</span><span>style 스타일</span><span>user_supplied</span></div>
-<div class="ol"><p>참조 1 = 프롬프트 1 = 이미지 1 — 그리드·연락 시트 금지</p><p>반복 인물은 <b>승인된 인물 시트를 먼저</b>, 생성 때 실제 첨부</p><p>Seedream 인물 시트: 2패널(정면 · 뒷모습 전신, 높이 85%) + "head and neck fully visible"</p><p>장소 참조에 소품 · 종이 여백 금지 — 영상으로 번진다</p><p>실제 장비 · 장소는 Commons 실사진을 Seedream 입력으로</p><p>시작프레임 · 스타일프레임은 만들지 않음 <small>(10-29~)</small></p></div></div>
-<div><div class="k">image_qc 통과 조건</div>
+<div><div class="k">참조 종류</div>
+<div class="chips" style="margin-bottom:22px"><span>인물</span><span>장소</span><span>소품</span><span>스타일</span><span>내가 준 자료</span></div>
+<div class="ol"><p>참조 1 = 프롬프트 1 = 이미지 1 — 그리드·연락 시트 금지</p><p>반복 인물은 <b>승인된 인물 시트를 먼저</b>, 생성 때 실제 첨부</p><p>Seedream 인물 시트: 2패널(정면 · 뒷모습 전신, 높이 85%) + "head and neck fully visible"</p><p>장소 참조에 소품 · 종이 여백 금지 — 영상으로 번진다</p><p>실제 장비 · 장소는 위키미디어 Commons 실사진을 Seedream 입력으로</p><p>시작프레임 · 스타일프레임은 만들지 않음 <small>(10-29~)</small></p></div></div>
+<div><div class="k">이미지 검수 통과 조건</div>
 <table class="fld">
-  <tr><td>작풍 잠금</td><td>계획된 매체와 다른 화풍이 섞이면 FAIL</td></tr>
+  <tr><td>작풍 잠금</td><td>계획된 매체와 다른 화풍이 섞이면 탈락</td></tr>
   <tr><td>정체성</td><td>얼굴 윤곽 · 눈 간격 · 코 · 턱 · 머리 볼륨 · 나이감</td></tr>
   <tr><td>역할 분리</td><td>같은 화면의 조연과 구분되는가</td></tr>
   <tr><td>이야기 기능</td><td>정지 포스터가 아닌 원인 → 반응</td></tr>
@@ -695,7 +732,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d03c" style="left:11200px;top:3320px">
     <div class="ov"><div class="ov-top"><span class="no">03-C</span><span>MODELS</span></div><div class="ov-name">이미지 모델 변경</div><div class="ov-sub">gpt-image → MJ · Seedream</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-C</span>이미지 모델 변경</h2><div class="r">2026 · 날짜는 기록 기준</div></div>
+      <div class="dh"><h2><span class="no">03-C</span>이미지 모델 변경</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:560px 1fr">
 <div><div class="k">변경 이력</div>
 <div class="tl">
@@ -713,7 +750,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <tr><td>일본풍 2D 캐릭터</td><td>여러 모델 비교</td><td>Grok Imagine · Midjourney · Kling · 나노바나나 · GPT</td></tr>
   <tr><td>포스터 · 도감 · 인포그래픽</td><td>gpt-image-2</td><td>공냥 키트 포맷 A</td></tr>
 </table>
-<p class="note" style="margin-top:20px">생성 실행은 Codex 이미지 레인, 결과는 프로젝트 media/ 레지스트리에 등록 후 image_qc</p></div>
+<p class="note" style="margin-top:20px">생성은 이미지 전용 AI 세션이 실행하고, 결과는 프로젝트에 등록한 뒤 검수합니다.</p></div>
 </div></div>
       <div class="df"><span>wiki video-team-claude-prompt-authoring-routing · Claude 메모리 image-tool-routing</span><span>03-C</span></div>
     </div>
@@ -721,78 +758,90 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d04a" style="left:7600px;top:4580px">
     <div class="ov"><div class="ov-top"><span class="no">04-A</span><span>PROMPT</span></div><div class="ov-name">프롬프트 해부</div><div class="ov-sub">줄마다 주인이 있다</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부 · Seedance 2.5</h2><div class="r">seedance25-prompt-en</div></div>
+      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부 · 실제 제출본</h2><div class="r">부록</div></div>
       <div class="body"><table class="anat">
-  <tr><td>15 seconds, 3 shots:</td><td>길이 잠금<small>기본 15초, 프롬프트 사정으로 줄이지 않음</small></td></tr>
-  <tr><td>STYLE: <em>…스타일 바이블 원문…</em></td><td>01-B style_block_en 그대로</td></tr>
-  <tr><td>IDENTITY: <em>…승인 인물…</em></td><td>01-B identity_block_en 그대로</td></tr>
-  <tr><td>References: @Image1 is <em>the lead's face</em>…</td><td>참조 하나에 역할 하나<small>"분위기용" 같은 느슨한 역할 금지</small></td></tr>
-  <tr><td>Summary: <em>one sentence…</em></td><td>누가 · 어디서 · 무엇이 일어나나 한 문장</td></tr>
-  <tr><td>Shot 1 (0-6s): medium, eye level, slow push. <em>…</em></td><td>준비 → 동작 → 반응 → 정착<small>형용사 대신 보이는 사건</small></td></tr>
-  <tr><td>SFX: <em>…</em>  Sound: <em>…</em> No music. No subtitles.</td><td>현장음만<small>음악·자막은 후처리</small></td></tr>
-  <tr><td>Consistency: <em>…2–3 traits…</em></td><td>인물 특징 2–3개 재명시<small>긴 테이크 흔들림 방지</small></td></tr>
-  <tr><td>End frame: <em>…</em></td><td>01-C end_frame — 다음 블록이 이어받는 구도</td></tr>
+  <tr><td>15 seconds, 5 shots:</td><td>길이와 숏 수<small>15초를 다 씀 — 프롬프트 사정으로 줄이지 않음</small></td></tr>
+  <tr><td>Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …</td><td>화풍 고정 문장<small>스타일 바이블 원문 그대로, 모든 생성에 반복</small></td></tr>
+  <tr><td>Young Korean man drawn about 4.5 heads tall, slim, slightly large head, …</td><td>인물 고정 설명<small>승인한 설명 원문 그대로</small></td></tr>
+  <tr><td>References: @Image1 is the river valley, footbridge, reeds, … only.</td><td>참조 하나에 역할 하나<small>"분위기용" 같은 느슨한 역할 금지</small></td></tr>
+  <tr><td>Summary: On one autumn dusk in Seongnam, Korea, a young man and a young woman, …</td><td>누가 · 어디서 · 무엇이 일어나나 한 문장</td></tr>
+  <tr><td>Shot 1 (0-3s): extreme wide shot, high angle, truck right, 24mm. …</td><td>숏마다 크기 · 앵글 · 움직임 · 렌즈<small>그다음은 형용사 대신 보이는 사건</small></td></tr>
+  <tr><td>SFX: flowing water, wind through the reeds, …  No music. No dialogue. No subtitles.</td><td>현장음만<small>음악 · 자막은 후처리</small></td></tr>
+  <tr><td>Consistency: He keeps messy short black hair with a ruffled fringe, …</td><td>인물 특징 다시 적기<small>긴 테이크 흔들림 방지</small></td></tr>
+  <tr><td>End frame: Fixed eye-level wide of a low glass building …</td><td>마지막 구도<small>다음 생성이 이어받음</small></td></tr>
 </table>
-<p class="note" style="margin-top:20px">모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이 압축 금지 · 부정문은 소리·자막·화면 글자에만</p></div>
+<p class="note" style="margin-top:20px">성남시 MV 첫 15초의 실제 제출 프롬프트(영어 약 9천 자)에서 줄 머리만 발췌 · 모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이를 맞추려고 내용을 압축하지 않음</p></div>
       <div class="df"><span>~/.codex/skills/seedance25-prompt-en/prompting.md</span><span>04-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04b" style="left:9400px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-B</span><span>PIPELINE</span></div><div class="ov-name">선반 → 제작 → QC</div><div class="ov-sub">검사 6겹</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-B</span><span>PIPELINE</span></div><div class="ov-name">검사 → 생성 → 검수</div><div class="ov-sub">넣기 전에 거치는 순서</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-B</span>선반 → 제작 → QC</h2><div class="r">P4 · P5</div></div>
+      <div class="dh"><h2><span class="no">04-B</span>생성 전 묶음 → 검사 → 생성 → 검수</h2><div class="r">부록</div></div>
       <div class="body"><div class="sflow sm">
-  <div><small>knowledge-select</small><b>위키 발췌</b><code>카탈로그 33 → 최대 11섹션<br>14,000자</code></div>
-  <div><small>P4 선반</small><b>블록 패키지</b><code>brief · prompt · settings<br>refs · pack</code></div>
-  <div><small>shelf-check</small><b>형식 검사</b><code>영어·NFC · 10,000자<br>Shot k (a-bs) · @ImageN</code></div>
-  <div><small>prompt_lint</small><b>거절 패턴</b><code>13규칙 → 04-C</code></div>
+  <div><small>규칙 고르기</small><b>위키 발췌</b><code>지식 33개 중 최대 11섹션<br>14,000자</code></div>
+  <div><small>생성 전 묶음</small><b>1회분 패키지</b><code>요약 · 프롬프트 · 설정<br>참조 목록</code></div>
+  <div><small>입력 검사</small><b>형식 검사</b><code>영어 · 10,000자 이하<br>숏 시간 표기 · 참조 번호</code></div>
+  <div><small>반복 실수 검사</small><b>거절 패턴</b><code>13가지 → 04-C</code></div>
 </div>
 <div class="sflow sm" style="margin-top:28px">
-  <div><small>attest</small><b>길이 잠금</b><code>2.0 ≤ 15초<br>2.5 ≤ 30초 · 2–8숏</code></div>
-  <div><small>shelf-lock</small><b>잠금</b><code>블록 입력 해시에 묶임</code><em>사용자 release 1회</em></div>
-  <div><small>produce</small><b>제출 · 수확</b><code>백그라운드 · 종료코드만</code></div>
-  <div><small>seedance_qc</small><b>클립 QC</b><code>1fps 시트 + 사람 확대</code></div>
+  <div><small>설정 확인</small><b>길이 확인</b><code>2.0 ≤ 15초<br>2.5 ≤ 30초 · 2–8숏</code></div>
+  <div><small>확정</small><b>묶음 확정</b><code>입력이 바뀌면 다시 확정</code><em>내가 실행 승인 1회</em></div>
+  <div><small>생성</small><b>제출 · 수확</b><code>백그라운드로 실행</code></div>
+  <div><small>영상 검수</small><b>클립 검수</b><code>1초 1장 시트 + 사람 컷 확대</code></div>
 </div>
 <div class="cols" style="grid-template-columns:1fr 1fr;margin-top:30px;height:auto">
-<table class="fld"><tr><th>produce 종료코드</th><th></th></tr>
-  <tr><td>0</td><td>완료 · 미릴리스</td></tr><tr><td>2</td><td>사용자 확인 필요</td></tr><tr><td>3</td><td>HOLD — 자동화 경고, 사용자만 해제</td></tr><tr><td>4 · 5 · 6</td><td>실패·유실 · 디스패치 거부 · 세션 상한</td></tr></table>
-<table class="fld"><tr><th>QC에서 보는 것</th><th></th></tr>
+<table class="fld ko"><tr><th>생성이 끝나거나 멈추는 경우</th><th></th></tr>
+  <tr><td>완료</td><td>정상 종료</td></tr><tr><td>확인 필요</td><td>내가 확인해야 다음으로</td></tr><tr><td>중단</td><td>사이트의 자동화 경고 — 나만 풀 수 있음</td></tr><tr><td>실패</td><td>생성 실패·유실 · 실행 거부 · 세션 수 상한</td></tr></table>
+<table class="fld"><tr><th>검수에서 보는 것</th><th></th></tr>
   <tr><td>글자</td><td>옷 · 등판 · 소품 위 깨진 글자</td></tr><tr><td>시선 · 손</td><td>장비를 보는가, 손 논리</td></tr><tr><td>얼굴</td><td>서양인 얼굴 · 이상한 헤어</td></tr><tr><td>교체</td><td>같은 클립의 무인 구간·클로즈업으로</td></tr></table>
 </div></div>
       <div class="df"><span>AGENTS.md §2.4–2.5 · runtime/scripts</span><span>04-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04c" style="left:11200px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-C</span><span>LINT</span></div><div class="ov-name">거절 패턴 13</div><div class="ov-sub">prompt_lint 규칙</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-C</span><span>CHECK</span></div><div class="ov-name">반복 실수 검사</div><div class="ov-sub">내가 거절한 것 13가지</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-C</span>거절 패턴 검사 · prompt_lint</h2><div class="r">13 rules</div></div>
-      <div class="body"><table class="fld" style="margin-top:-6px"><tr><th>규칙</th><th>잡는 것</th><th>적용 대상</th></tr><tr><td>smooth_skin</td><td>"매끈한 피부" 문구 → 플라스틱 AI 티</td><td><small>영상 · 이미지</small></td></tr><tr><td>text_prop</td><td>글자가 생기는 소품 → 가짜 한자·숫자</td><td><small>영상 · 콘티</small></td></tr><tr><td>garment_text</td><td>옷 · 물건 위 글자 → 깨진 글자</td><td><small>영상</small></td></tr><tr><td>screen_content</td><td>화면 내용 묘사 → 가짜 UI 글자</td><td><small>영상 · 콘티</small></td></tr><tr><td>screen_summon</td><td>"화면은 비어 있다"도 화면을 부름</td><td><small>영상</small></td></tr><tr><td>nasal_tube</td><td>콧줄 묘사 → 산소 캐뉼라로 오인</td><td><small>영상 · 이미지</small></td></tr><tr><td>foreign_office</td><td>한국 단서 없는 사무실 → 외국 스톡풍</td><td><small>영상 · 콘티 · 컨셉</small></td></tr><tr><td>start_frame</td><td>스타일프레임 · 시작프레임</td><td><small>전부</small></td></tr><tr><td>onscreen_text</td><td>요청 없는 자막 · 지명 타이틀 · 라벨</td><td><small>영상 · 콘티 · 컨셉</small></td></tr><tr><td>env_ref_props</td><td>장소 참조 속 이야기 소품</td><td><small>이미지</small></td></tr><tr><td>paper_margin</td><td>참조 이미지의 종이 여백 · 테두리</td><td><small>이미지</small></td></tr><tr><td>restraint_action</td><td>과한 액션 · 거절된 클리셰</td><td><small>영상 · 콘티</small></td></tr><tr><td>forced_metaphor</td><td>자연 × AI 억지 메타포</td><td><small>콘티 · 컨셉</small></td></tr></table>
-<p class="note" style="margin-top:14px">shelf-check · check · Claude 저작 단계에서 경고 · 의도된 예외는 블록 <b>lint_allow</b>로만 · 규칙마다 근거 메모리 파일이 붙어 있음</p></div>
-      <div class="df"><span>runtime/scripts/prompt_lint.py</span><span>04-C</span></div>
+      <div class="dh"><h2><span class="no">04-C</span>반복 실수 검사<span class="id">prompt_lint</span></h2><div class="r">부록</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 470px;height:auto">
+<div><div class="k">관찰된 실패 — 이렇게 썼더니 이렇게 나왔다</div>
+<table class="fld big">
+  <tr><th>프롬프트에 쓴 것</th><th>실제로 나온 것</th></tr>
+  <tr><td>"매끈한 피부"<span class="id">smooth skin</span></td><td>플라스틱 같은 AI 피부</td></tr>
+  <tr><td>글자가 있을 법한 소품 · 옷</td><td>깨진 글자, 가짜 한자 · 숫자</td></tr>
+  <tr><td>"화면은 비어 있다"</td><td>그 말이 오히려 화면을 불러냄</td></tr>
+  <tr><td>한국 단서가 없는 사무실</td><td>외국 스톡 영상 같은 사무실</td></tr>
+</table>
+<p class="note" style="margin-top:16px">그 밖에 4가지: 화면 내용 묘사 → 가짜 UI 글자 · 콧줄 묘사 → 산소 캐뉼라로 오인 · 장소 참조 속 이야기 소품 · 참조 이미지의 종이 여백이 영상에 번짐</p></div>
+<div><div class="k">작업 방식 선택 — 실패가 아니라 내 방침</div>
+<div class="ol"><p>시작 장면 이미지는 만들지 않음</p><p>요청하지 않은 자막 · 지명 타이틀 · 라벨 금지</p><p>과한 액션 · 거절한 클리셰 금지</p><p>자연 × AI 억지 비유 금지</p></div></div>
+</div>
+<p class="note" style="margin-top:22px">이 13가지 문구를 프롬프트를 쓰는 단계에서 자동으로 찾아 경고합니다. 의도한 예외는 그 장면에만 허용합니다. <b>경고를 통과했다고 좋은 영상이 보장되지는 않습니다 — 같은 실수를 두 번 하지 않기 위한 장치입니다.</b></p></div>
+      <div class="df"><span>runtime/scripts/prompt_lint.py · 규칙마다 근거 메모가 붙어 있음</span><span>04-C</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04d" style="left:13000px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-D</span><span>MODELS</span></div><div class="ov-name">영상 모델 · 모드</div><div class="ov-sub">2.0 → 2.5 · No-I2V</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-D</span><span>MODELS</span></div><div class="ov-name">영상 모델 · 모드</div><div class="ov-sub">2.0 → 2.5 · 시작 이미지 없이</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-D</span>영상 모델 · 모드 변경</h2><div class="r">Runway Seedance</div></div>
+      <div class="dh"><h2><span class="no">04-D</span>영상 모델 · 모드 변경</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
 <div><table class="fld c3">
   <tr><th>항목</th><th>Seedance 2.0</th><th>Seedance 2.5</th></tr>
   <tr><td>길이</td><td>5–15초</td><td>5–30초 <small>(Unlimited는 15초·720p)</small></td></tr>
   <tr><td>숏 수</td><td>최대 4</td><td>2–8</td></tr>
-  <tr><td>참조</td><td>@ImageN</td><td>최대 12장</td></tr>
+  <tr><td>참조</td><td>번호로 지정</td><td>최대 12장</td></tr>
   <tr><td>프롬프트 형식</td><td>흐르는 서술</td><td>라벨 블록 (04-A)</td></tr>
   <tr><td>카메라</td><td>숏당 무브 하나</td><td>4초 넘는 비트 안 복합 무브</td></tr>
   <tr><td>선택</td><td>기본</td><td>사용자가 명시할 때</td></tr>
 </table>
-<p class="note" style="margin-top:20px">경로: Runway 웹 UI (Aside) · Flow는 별도 합성형 분기 · 2026-07 기록상 Grok은 I2V 전용</p></div>
+<p class="note" style="margin-top:20px">경로: Runway 웹 화면 · Flow는 별도 경로 · 2026-07 기록상 Grok은 시작 이미지 방식 전용</p></div>
 <div><div class="k">변경 이력</div>
 <div class="tl">
-  <p><span>~07</span>standard_i2v — 컷마다 시작 프레임 이미지 → 영상</p>
-  <p><span>07-11</span>No-I2V 모드 — 참조만 붙이고 연출은 프롬프트가</p>
+  <p><span>~07</span>컷마다 시작 이미지를 만들어 영상으로</p>
+  <p><span>07-11</span>시작 이미지 없는 방식 추가 — 참조만 붙이고 연출은 프롬프트가</p>
   <p><span>10-29</span>시작프레임 없이 참조만이 기본</p>
-  <p><span>11-07</span>Seedance 2.5 지원 — storyboard generation.model</p>
-  <p><span>11-11</span>v5.1 — produce 백그라운드 · prompt_lint</p>
+  <p><span>11-07</span>Seedance 2.5 지원</p>
+  <p><span>11-11</span>생성을 백그라운드로 · 반복 실수 검사 추가</p>
 </div></div>
 </div></div>
       <div class="df"><span>Claude 메모리 seedance25-runtime-support · wiki no-i2v-reference-native</span><span>04-D</span></div>
@@ -801,18 +850,18 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d05a" style="left:7600px;top:5840px">
     <div class="ov"><div class="ov-top"><span class="no">05-A</span><span>POST</span></div><div class="ov-name">후처리 구성</div><div class="ov-sub">작업 · 방법 · 기준</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">05-A</span>후처리 구성</h2><div class="r">로컬 · Claude</div></div>
+      <div class="dh"><h2><span class="no">05-A</span>후처리 구성</h2><div class="r">부록</div></div>
       <div class="body"><table class="fld c3">
   <tr><th>작업</th><th>방법</th><th>기준</th></tr>
   <tr><td>색보정</td><td>Python · ffmpeg 스크립트</td><td>과한 부분부터 줄이기 · 컷 사이 톤 맞추기</td></tr>
   <tr><td>정보 라벨</td><td>코드 오버레이</td><td>요청한 글자만 — 지명 타이틀 임의 삽입 금지</td></tr>
   <tr><td>가사 자막</td><td>demucs 보컬 분리 + Whisper</td><td>보컬 시작 0.1초 전 · Noto Sans KR Bold</td></tr>
-  <tr><td>효과 (승인)</td><td>FX 라이브러리</td><td>접촉 스파크 · 타이포 임팩트 1–3프레임 · 잉크 작화 6프레임 · 공간 전환</td></tr>
+  <tr><td>효과 (승인)</td><td>효과 모음</td><td>접촉 스파크 · 타이포 임팩트 1–3프레임 · 잉크 작화 6프레임 · 공간 전환</td></tr>
   <tr><td>효과 (거절)</td><td></td><td class="red">얇은 HUD · 흐림·번짐 · 도형 오버레이 · 입술 마스크 · 같은 효과 반복</td></tr>
-  <tr><td>합성</td><td>multiply 블렌드</td><td>빈 현수막 천 위에 글자 (05-4)</td></tr>
+  <tr><td>합성</td><td>곱하기 합성</td><td>빈 현수막 천 위에 글자 (05-4)</td></tr>
   <tr><td>업스케일</td><td>Real-ESRGAN animevideov3 ×2</td><td>+ lanczos 블렌드 · 그레인 → 4K</td></tr>
-  <tr><td>설명 MG</td><td>코드 · Blender · ffmpeg</td><td>480p 미리보기 먼저 · 공공 톤 남색·금색</td></tr>
-  <tr><td>검사</td><td>ffmpeg freezedetect</td><td>렌더마다</td></tr>
+  <tr><td>설명 그래픽</td><td>코드 · Blender · ffmpeg</td><td>480p 미리보기 먼저 · 공공 톤 남색·금색</td></tr>
+  <tr><td>정지 화면 검사</td><td>ffmpeg</td><td>렌더마다</td></tr>
 </table></div>
       <div class="df"><span>Claude 메모리 hwaseong-post-fx · lyric-subs · motion-rail</span><span>05-A</span></div>
     </div>
@@ -820,18 +869,18 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d06a" style="left:7600px;top:7100px">
     <div class="ov"><div class="ov-top"><span class="no">06-A</span><span>EDIT</span></div><div class="ov-name">편집 규칙</div><div class="ov-sub">사람이 직접</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">06-A</span>편집 규칙</h2><div class="r">사용자 직접</div></div>
+      <div class="dh"><h2><span class="no">06-A</span>편집 규칙</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
 <table class="fld">
-  <tr><td>누가</td><td>사용자 직접 — CapCut 레인은 10-16 퇴역</td></tr>
+  <tr><td>누가</td><td>내가 직접 — CapCut 자동 편집은 10-16 중단</td></tr>
   <tr><td>AI 역할</td><td>장면을 계속 뽑고 원본을 바로 띄움 · 편집안은 요청 때만</td></tr>
-  <tr><td>길이 부족</td><td>정지 · 슬로모션 · zoompan 대신 <b>이미 뽑은 다른 테이크</b></td></tr>
-  <tr><td>검사</td><td><code>freezedetect=n=0.002:d=0.4</code> 렌더마다</td></tr>
+  <tr><td>길이 부족</td><td>정지 · 슬로모션 · 확대 이동 효과 대신 <b>이미 뽑은 다른 테이크</b></td></tr>
+  <tr><td>검사</td><td>정지 화면 검사 — 렌더마다</td></tr>
   <tr><td>미리보기</td><td>전 구간 480p 먼저, 확정 후 고해상도</td></tr>
-  <tr><td>파일</td><td>편집물은 프로젝트 media/ 밖 <code>edits/&lt;slug&gt;/</code></td></tr>
+  <tr><td>파일</td><td>편집물은 프로젝트 소재 폴더 밖 별도 폴더에</td></tr>
   <tr><td>보관</td><td>진행 중 로컬 · 완료본 SSD</td></tr>
 </table>
-<div><div class="k">왜 media/ 밖인가</div><p class="note">프로젝트 media/에 등록되지 않은 파일이 있으면 미디어 감사가 실패해 image_qc · seedance · package 레인이 <b>MEDIA_HARD_GATE</b>로 멈춘다.</p></div>
+<div><div class="k">왜 밖에 두나</div><p class="note">소재 폴더에 등록되지 않은 파일이 섞이면 소재 점검이 실패해 이미지 검수 · 영상 생성 단계가 <b>멈춘다</b>.</p></div>
 </div></div>
       <div class="df"><span>Claude 메모리 user-edits · edit-no-freeze · edits-outside-project-media</span><span>06-A</span></div>
     </div>
@@ -839,7 +888,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d00a" style="left:7600px;top:8360px">
     <div class="ov"><div class="ov-top"><span class="no">00-A</span><span>WIKI</span></div><div class="ov-name">위키 지도</div><div class="ov-sub">원문 → 지식 → 고르기</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2><div class="r">/Users/gnudas/wiki</div></div>
+      <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:660px 1fr;gap:70px">
 <div><div class="k">~/wiki</div>
 <div class="tree">wiki/
@@ -857,53 +906,46 @@ body.clean #hud,body.clean #hint{opacity:0}
   <svg id="d1flow" class="mark" style="left:0;top:40px" width="700" height="470"></svg>
   <div class="fbox" style="left:0;top:50px;width:190px"><small>raw/</small>원문</div>
   <div class="fbox" style="left:260px;top:50px;width:200px"><small>concepts/</small>지식 페이지</div>
-  <div class="fbox" style="left:530px;top:50px;width:170px"><small>catalog</small>라우터</div>
+  <div class="fbox" style="left:530px;top:50px;width:170px;font-size:21px"><small>고르기</small>필요한 규칙만</div>
   <div class="fbox r" style="left:0;top:250px;width:190px"><small>세션</small>대화·작업</div>
   <div class="fbox r" style="left:260px;top:250px;width:200px"><small>_hub/</small>캡슐</div>
   <div class="fbox" style="left:530px;top:250px;width:170px"><small>memory · seeds</small>메모리 · 시드</div>
-  <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 raw/에 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 승격한다.</p>
+  <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 raw/에 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 옮긴다.</p>
 </div></div></div>
       <div class="df"><span>wiki SCHEMA.md · index.md</span><span>00-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d00b" style="left:9400px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-B</span><span>LESSONS</span></div><div class="ov-name">교훈 → 규칙</div><div class="ov-sub">거절 원문이 검사가 되는 경로</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">00-B</span><span>LESSON</span></div><div class="ov-name">실패 → 경고</div><div class="ov-sub">'매끈한 피부' 사례 하나</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-B</span>교훈이 규칙이 되는 경로</h2><div class="r">memory → ledger → lint → router</div></div>
-      <div class="body"><div class="cols" style="grid-template-columns:720px 1fr;gap:56px">
-<svg id="loop" style="overflow:visible" width="720" height="700"></svg>
-<div>
-  <div class="k">실제 경로 — '매끈 피부'</div>
-  <div class="trace" id="trace"></div>
-  <div class="k" style="margin-top:34px">하트 경로</div>
-  <p class="note">Runway 하트 → 프로젝트 마감 때 1회 읽기 → <code>proven_prompts.py</code> → 위키 하트 프롬프트 페이지 → 라우터. <b>11-13 추가, 현재 0건.</b></p>
-</div></div></div>
-      <div class="df"><span>video-lessons-ledger: 같은 주제는 최신 사용자 판정 우선, 옛 항목은 "대체됨"</span><span>00-B</span></div>
-    </div>
-  </section>
-  <section class="sheet dp" id="d00c" style="left:11200px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-C</span><span>AUTHORITY</span></div><div class="ov-name">문서 권위</div><div class="ov-sub">규칙은 한 곳에만</div></div>
-    <div class="dt">
-      <div class="dh"><h2><span class="no">00-C</span>문서 권위 순위 · 현재 수치</h2><div class="r">AGENTS.md §0</div></div>
-      <div class="body"><table class="fld c3">
-  <tr><th>순위</th><th>문서</th><th>소유 범위</th></tr>
-  <tr><td>1</td><td>video-team-runtime/AGENTS.md</td><td>레일 · 레인 순서 · 실행 예산 · 미디어 구조 · 게이트 · 안전</td></tr>
-  <tr><td>2</td><td>seedance(25)-prompt-en 스킬</td><td>선택된 버전 하나의 프롬프트 규격 · Runway UI</td></tr>
-  <tr><td>3</td><td>video-team-policies</td><td>세션 생성 승인 · 브라우저 오퍼레이터</td></tr>
-  <tr><td>4</td><td>videodirector 스킬</td><td>이야기 · 연출 · 품질 기준</td></tr>
-</table>
-<p class="note" style="margin-top:16px">같은 규칙을 여러 문서에 복제하지 않는다. 본문은 소유 문서 한 곳, 나머지는 포인터. 프로젝트 예외는 <code>docs/project_overrides.md</code>에 조항 번호와 함께.</p>
-<div class="statrow">
-  <div><b>62</b><span>Claude 메모리</span></div><div><b>147</b><span>컨텍스트 캡슐(일)</span></div><div><b>34</b><span>교훈 장부 항목</span></div><div><b>13</b><span>lint 규칙</span></div><div><b>33</b><span>지식 카탈로그</span></div><div class="z"><b>0</b><span>하트 프롬프트</span></div>
-</div></div>
-      <div class="df"><span>2026-11-13 파일 기준 집계</span><span>00-C</span></div>
+      <div class="dh"><h2><span class="no">00-B</span>실패 하나가 다음 입력의 경고가 되기까지</h2><div class="r">부록</div></div>
+      <div class="body">
+        <div class="k">실제 사례 — '매끈한 피부'</div>
+        <div class="sflow big">
+          <div><small>10-22 · 실패</small><b>“AI 티가 질질”</b><code>실사 인물 프롬프트에 smooth skin이라고 쓴 결과에 대한 내 판정</code></div>
+          <div><small>10-22 · 기록</small><b>메모</b><code>규칙과 이유를 적어 둠 — 대신 모공 · 35mm · 그레인</code></div>
+          <div><small>11-11 · 자동 검사</small><b>검사 규칙</b><code>같은 문구를 찾는 규칙 추가 — 영상 · 이미지 프롬프트</code></div>
+          <div><small>11-13 · 정리</small><b>교훈 장부</b><code>실사 항목에 올림 — 실사 장면마다 함께 전달</code></div>
+          <div><small>다음 입력</small><b class="red">경고</b><code>같은 문구를 쓰면 쓰는 단계에서 경고</code></div>
+        </div>
+        <div class="cols" style="grid-template-columns:1fr 520px;margin-top:44px;height:auto">
+          <div>
+            <p class="note">이런 규칙이 지금 13가지 → 04-C</p>
+          </div>
+          <div class="aside">
+            <div class="k">별도 경로 · 아직 결과 없음</div>
+            <p class="note"><b>좋았던 결과 모으기</b> — Runway에서 하트를 누른 결과의 프롬프트를 프로젝트 마감 때 한 번 읽어 모으는 경로. 11-13에 만들었고 <b>아직 수집 0건</b>입니다. 위 사례와는 별개입니다.</p>
+          </div>
+        </div>
+      </div>
+      <div class="df"><span>교훈 장부: 같은 주제는 최신 판정 우선, 옛 항목은 "대체됨"</span><span>00-B</span></div>
     </div>
   </section>
 </div>
 </div>
 
 <div id="hud"><span id="hudn">00</span><span class="ticks" id="ticks"></span><span id="hudl">전체도</span></div>
-<div id="hint">→ / Space 다음 · ← 이전 · Esc 전체도 · 1–6 이동 · P 발표/상세 · D 상세도 · F 전체화면 · H 안내 숨김</div>
+<div id="hint">→ / Space 다음 · ← 이전 · Esc 전체도 · 1–6 이동 · P 발표 ↔ 부록 포함 · D 부록 · V 클립 다시 · F 전체화면 · H 안내 숨김</div>
 
 <script>
 (() => {
@@ -1049,7 +1091,7 @@ function wave() {
   const t = el('text', {x: 0, y: 250, fill: RED, 'font-size': 16, 'font-family': 'Mono, Menlo', 'letter-spacing': '2'}, s);
   t.textContent = 'HI-HAT';
   const t2 = el('text', {x: 1432, y: 18, fill: SOFT, 'font-size': 16, 'font-family': 'Mono, Menlo', 'text-anchor': 'end', 'letter-spacing': '2'}, s);
-  t2.textContent = 'BGM · 2:30';
+  t2.textContent = '도식 · 예시';
 }
 
 function beats() {
@@ -1064,14 +1106,14 @@ function beats() {
       el('line', {x1: x, y1: y, x2: x, y2: y + 44, stroke: color, 'stroke-width': 1}, s);
     }
   };
-  row(8, 30, INK, '기획 30씬', 'SCENES');
+  row(8, 30, INK, '기획 30씬', '예시');
   // hi-hat marks between rows
   for (let i = 0; i <= 40; i++) {
     const x = x0 + w * i / 40;
     el('path', {d: `M${x-3.5} 77 l7 7 M${x+3.5} 77 l-7 7`, stroke: RED, 'stroke-width': 1.3}, s);
   }
   const hl = el('text', {x: x0 - 12, y: 86, fill: RED, 'font-size': 12, 'font-family': 'Mono, Menlo', 'text-anchor': 'end'}, s); hl.textContent = 'hi-hat';
-  row(104, 40, RED, '하이햇 기준 40씬', 'RE-CUT');
+  row(104, 40, RED, '하이햇 기준 40씬', '예시');
   // hand arrow 30 → 40
   const P = sampleBez([x0 + w + 12, 30], [x0 + w + 44, 46], [x0 + w + 44, 104], [x0 + w + 14, 124], 16);
   el('path', {d: handPath(P, 1.5), fill: 'none', stroke: RED, 'stroke-width': 2.2, 'stroke-linecap': 'round'}, s);
@@ -1085,37 +1127,6 @@ function dots() {
     const x = (i % 10) * 38 + 19, y = Math.floor(i / 10) * 38 + 19;
     el('circle', {cx: x, cy: y, r: 12.5, fill: pick.has(i) ? RED : LINE}, s);
   }
-}
-
-function shots() {
-  const s = document.getElementById('shots');
-  const ws = [1.1, .8, 1.4, .7, 1, 1.3, .9, .8], tot = ws.reduce((a, b) => a + b), W2 = 720;
-  let x = 0;
-  el('rect', {x: 0, y: 26, width: W2, height: 70, fill: 'none', stroke: INK, 'stroke-width': 2}, s);
-  ws.forEach((w, i) => {
-    const ww = W2 * w / tot;
-    if (i) el('line', {x1: x, y1: 26, x2: x, y2: 96, stroke: INK, 'stroke-width': 1.2}, s);
-    const t = el('text', {x: x + 10, y: 50, fill: MID, 'font-size': 15, 'font-family': 'Mono, Menlo'}, s); t.textContent = 'S' + (i + 1);
-    x += ww;
-  });
-  // dimension line like a drawing
-  el('line', {x1: 0, y1: 118, x2: W2, y2: 118, stroke: MID, 'stroke-width': 1}, s);
-  for (const xx of [0, W2]) el('line', {x1: xx, y1: 108, x2: xx, y2: 128, stroke: MID, 'stroke-width': 1}, s);
-  el('rect', {x: W2 / 2 - 110, y: 108, width: 220, height: 20, fill: '#FAF9F6'}, s);
-  const dt = el('text', {x: W2 / 2, y: 123, fill: MID, 'font-size': 15, 'font-family': 'Mono, Menlo', 'text-anchor': 'middle'}, s);
-  dt.textContent = '5 – 30 s · 최대 8숏';
-  const top = el('text', {x: 0, y: 14, fill: SOFT, 'font-size': 14, 'font-family': 'Mono, Menlo'}, s); top.textContent = 'ONE GENERATION';
-}
-
-function refs() {
-  const s = document.getElementById('refs');
-  const lab = ['인물', '인물', '인물', '장소', '장소', '장소', '장소', '소품', '소품', '소품', '', ''];
-  for (let i = 0; i < 12; i++) {
-    const x = i * 60;
-    el('rect', {x, y: 0, width: 50, height: 50, fill: i < 10 ? '#EFEDE7' : 'none', stroke: i < 10 ? INK : LINE, 'stroke-width': 1.4, 'stroke-dasharray': i < 10 ? '' : '4 4'}, s);
-    if (lab[i]) { const t = el('text', {x: x + 25, y: 76, fill: MID, 'font-size': 13, 'font-family': 'Pre, sans-serif', 'text-anchor': 'middle'}, s); t.textContent = lab[i]; }
-  }
-  const t = el('text', {x: 720, y: 96, fill: SOFT, 'font-size': 14, 'font-family': 'Mono, Menlo', 'text-anchor': 'end'}, s); t.textContent = '최대 12장';
 }
 
 function post() {
@@ -1159,7 +1170,7 @@ function edit() {
   const ph = x0 + 640;
   el('line', {x1: ph, y1: 6, x2: ph, y2: 196, stroke: RED, 'stroke-width': 2.4}, s);
   el('path', {d: `M${ph - 9} 0 L${ph + 9} 0 L${ph} 12 Z`, fill: RED}, s);
-  lab(x0, 226, '테이크 번호가 섞여 있는 게 정상 · 더 뽑을 수 있으니까', SOFT, 15);
+  lab(x0, 226, '도식(예시) · 테이크 번호가 섞여 있는 게 정상 — 더 뽑을 수 있으니까', SOFT, 15);
 }
 
 /* ---------- hand marks on text ---------- */
@@ -1211,38 +1222,8 @@ function d1flow() {
   arrowLine(s, [195, 52], [255, 52], INK, 2.4); txt(s, 225, 36, '컴파일', mono);
   arrowLine(s, [465, 52], [525, 52], INK, 2.4); txt(s, 495, 36, '고르기', mono);
   arrowLine(s, [195, 252], [255, 252], RED, 2.4); txt(s, 225, 236, '압축 전', rm);
-  arrowLine(s, [465, 252], [525, 252], RED, 2.4); txt(s, 495, 236, '승격', rm);
-  arrowLine(s, [360, 208], [360, 104], RED, 2.4); txt(s, 372, 165, '승격', Object.assign({}, rm, {'text-anchor': 'start'}));
-}
-function loop() {
-  const s = document.getElementById('loop');
-  const cx = 360, cy = 350, r = 290;
-  const nodes = [['생성', 'Seedance · 이미지'], ['판정', '사용자 거절 원문 · 하트'], ['기록', 'Claude 메모리: 규칙 + Why'], ['승격', '위키 교훈 장부'], ['기계화', 'prompt_lint 정규식'], ['주입', '라우터 → 다음 블록']];
-  const ang = i => (-90 + i * 60) * Math.PI / 180;
-  const pos = i => [cx + Math.cos(ang(i)) * r, cy + Math.sin(ang(i)) * r];
-  const exitPt = (c, d, hw, hh) => { const t = Math.min(Math.abs(d[0]) > 1e-6 ? hw / Math.abs(d[0]) : 1e9, Math.abs(d[1]) > 1e-6 ? hh / Math.abs(d[1]) : 1e9); return [c[0] + d[0] * (t + 10), c[1] + d[1] * (t + 10)]; };
-  for (let i = 0; i < 6; i++) {
-    const A = pos(i), B = pos((i + 1) % 6), L = Math.hypot(B[0] - A[0], B[1] - A[1]), d = [(B[0] - A[0]) / L, (B[1] - A[1]) / L];
-    const p0 = exitPt(A, d, 120, 48), p1 = exitPt(B, [-d[0], -d[1]], 120, 48);
-    const pts = Array.from({length: 10}, (_, k) => [p0[0] + (p1[0] - p0[0]) * k / 9, p0[1] + (p1[1] - p0[1]) * k / 9]);
-    el('path', {d: handPath(pts, 1.5), fill: 'none', stroke: RED, 'stroke-width': 4, 'stroke-linecap': 'round'}, s);
-    arrowHead(s, pts[pts.length - 1], pts[pts.length - 3], 18, RED, 4);
-  }
-  nodes.forEach(([t, sub], i) => {
-    const x = cx + Math.cos(ang(i)) * r, y = cy + Math.sin(ang(i)) * r;
-    el('rect', {x: x - 120, y: y - 48, width: 240, height: 96, fill: '#FAF9F6', stroke: INK, 'stroke-width': 2.5}, s);
-    txt(s, x - 104, y - 6, String(i + 1).padStart(2, '0'), {'font-family': 'Mono, Menlo', 'font-size': 16, fill: RED});
-    txt(s, x - 68, y - 2, t, {'font-family': 'Batang, serif', 'font-size': 30, 'font-weight': 700});
-    txt(s, x - 104, y + 30, sub, {'font-size': 16, fill: MID});
-  });
-  txt(s, cx, cy + 8, '11-13 기준', {'font-family': 'Mono, Menlo', 'font-size': 20, fill: SOFT, 'text-anchor': 'middle'});
-  document.getElementById('trace').innerHTML = [
-    ['10-22 · 판정', '실사 인물 프롬프트의 "smooth skin" → <q>AI 티가 질질</q>'],
-    ['10-22 · 기록', 'Claude 메모리 <code>seedance-avoid-smooth-skin</code> — 대신 모공 · 35mm · 그레인'],
-    ['11-11 · 기계화', 'prompt_lint 규칙 <code>smooth_skin</code> — 영상 · 이미지 프롬프트'],
-    ['11-13 · 승격', '교훈 장부 실사 [10-22] — 라우터가 실사 블록마다 포함'],
-    ['다음 블록 · 주입', '같은 문구를 쓰면 저작 단계에서 경고'],
-  ].map(([a, b]) => `<p><span>${a}</span>${b}</p>`).join('');
+  arrowLine(s, [465, 252], [525, 252], RED, 2.4); txt(s, 495, 236, '옮김', rm);
+  arrowLine(s, [360, 208], [360, 104], RED, 2.4); txt(s, 372, 165, '옮김', Object.assign({}, rm, {'text-anchor': 'start'}));
 }
 
 /* ---------- camera ---------- */
@@ -1250,38 +1231,37 @@ const world = document.getElementById('world');
 const steps = [
   {rect: [30, 30, 6340, 4540], label: '전체도'},
   {id: 's1', label: '01 기획'},
-  {id: 'd01a', deep: 1, label: '01-A 기획 단계와 잠금'},
-  {id: 'd01b', deep: 1, label: '01-B 스타일 바이블 필드'},
-  {id: 'd01c', deep: 1, label: '01-C 콘티 필드'},
   {id: 's2', label: '02 음악'},
-  {id: 'd02a', deep: 1, label: '02-A Suno 프롬프트 구조'},
   {id: 'rev', label: '△1 음악에 맞춰 기획 수정'},
   {id: 's3', label: '03 이미지'},
-  {id: 'd03a', deep: 1, label: '03-A 이미지 프롬프트 구조'},
-  {id: 'd03b', deep: 1, label: '03-B 참조 이미지 규칙 · QC'},
-  {id: 'd03c', deep: 1, label: '03-C 이미지 모델 변경'},
   {id: 's4', label: '04 영상화'},
-  {id: 'd04a', deep: 1, label: '04-A 프롬프트 해부'},
-  {id: 'd04b', deep: 1, label: '04-B 선반 → 제작 → QC'},
-  {id: 'd04c', deep: 1, label: '04-C 거절 패턴 13'},
-  {id: 'd04d', deep: 1, label: '04-D 영상 모델 · 모드 변경'},
   {id: 's5', label: '05 후처리'},
   {id: 'c51', focus: 's5', label: '05-1 화성 · 잉크 프레임'},
-  {id: 'c52', focus: 's5', label: '05-2 매돌이 · 도감 카드'},
-  {id: 'c53', focus: 's5', label: '05-3 성남 · 설명은 코드로'},
+  {id: 'c52', focus: 's5', deep: 1, label: '05-2 매돌이 · 도감 카드'},
+  {id: 'c53', focus: 's5', deep: 1, label: '05-3 성남 · 설명은 코드로'},
   {id: 'c54', focus: 's5', label: '05-4 솔로몬 · 현수막 글자'},
-  {id: 'd05a', deep: 1, label: '05-A 후처리 구성'},
   {id: 's6', label: '06 편집'},
-  {id: 'd06a', deep: 1, label: '06-A 편집 규칙'},
   {rect: [30, 30, 6340, 4540], label: '전체도'},
-  {rect: [6630, 30, 8540, 9640], deep: 1, label: 'VT-10 단계별 상세도'},
+  {rect: [6630, 30, 8540, 9640], deep: 1, appx: 1, label: '부록 · 단계별 상세도'},
+  {id: 'd01a', deep: 1, label: '01-A 기획 순서와 확정'},
+  {id: 'd01b', deep: 1, label: '01-B 스타일 바이블에 적는 것'},
+  {id: 'd01c', deep: 1, label: '01-C 콘티에 적는 것'},
+  {id: 'd02a', deep: 1, label: '02-A Suno 프롬프트 구조'},
+  {id: 'd03a', deep: 1, label: '03-A 이미지 프롬프트 구조'},
+  {id: 'd03b', deep: 1, label: '03-B 참조 이미지 규칙 · 검수'},
+  {id: 'd03c', deep: 1, label: '03-C 이미지 모델 변경'},
+  {id: 'd04a', deep: 1, label: '04-A 프롬프트 해부 · 실제 제출본'},
+  {id: 'd04b', deep: 1, label: '04-B 검사 → 생성 → 검수'},
+  {id: 'd04c', deep: 1, label: '04-C 반복 실수 검사'},
+  {id: 'd04d', deep: 1, label: '04-D 영상 모델 · 모드 변경'},
+  {id: 'd05a', deep: 1, label: '05-A 후처리 구성'},
+  {id: 'd06a', deep: 1, label: '06-A 편집 규칙'},
   {id: 'd00a', deep: 1, label: '00-A 위키 지도'},
-  {id: 'd00b', deep: 1, label: '00-B 교훈 → 규칙 경로'},
-  {id: 'd00c', deep: 1, label: '00-C 문서 권위 · 수치'},
+  {id: 'd00b', deep: 1, label: '00-B 실패 → 경고'},
   {rect: [0, 0, 15200, 9700], deep: 1, label: '전체'},
 ];
-let idx = 0, cam = null, raf = 0, focusTimer = 0, brief = false;
-const stepFrom = (i, d) => { let j = i + d; while (brief && steps[j] && steps[j].deep) j += d; return Math.max(0, Math.min(steps.length - 1, j)); };
+let idx = 0, cam = null, raf = 0, focusTimer = 0, clipTimer = 0, brief = true;
+const stepFrom = (i, d) => { let j = i + d; while (brief && steps[j] && steps[j].deep) j += d; return steps[j] ? j : i; };
 
 function rectFor(st) {
   if (st.rect) return {x: st.rect[0], y: st.rect[1], w: st.rect[2], h: st.rect[3], pad: .02};
@@ -1300,6 +1280,24 @@ function apply(c) {
 }
 const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
+function playClip(v) {
+  v.currentTime = 0;
+  v.muted = v.hasAttribute('data-silent');
+  const box = v.closest('.case');
+  box.classList.remove('nosound');
+  const p = v.play();
+  if (p) p.catch(() => { v.muted = true; box.classList.add('nosound'); v.play().catch(() => {}); });
+}
+function clips(delay) {
+  clearTimeout(clipTimer);
+  const cur = steps[idx].id;
+  const act = [];
+  document.querySelectorAll('.case video').forEach(v => {
+    if (v.closest('.case').id === cur) act.push(v);
+    else if (!v.paused || v.currentTime > 0) { v.pause(); v.load(); }
+  });
+  if (act.length) clipTimer = setTimeout(() => act.forEach(playClip), delay);
+}
 function go(i, instant) {
   i = Math.max(0, Math.min(steps.length - 1, i));
   idx = i;
@@ -1317,6 +1315,7 @@ function go(i, instant) {
     document.body.classList.add('snap');
     if (tgtEl) tgtEl.classList.add('focus');
     requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('snap')));
+    clips(0);
     return;
   }
   const from = {...cam};
@@ -1324,6 +1323,7 @@ function go(i, instant) {
   const dip = Math.min(1.1, dist * .55);
   const dur = 1150 + Math.min(dist, 2) * 260;
   const t0 = performance.now();
+  clips(dur);
   if (tgtEl) focusTimer = setTimeout(() => tgtEl.classList.add('focus'), dur * .62);
   const tick = now => {
     const t = Math.min(1, (now - t0) / dur), e = ease(t);
@@ -1341,11 +1341,15 @@ function go(i, instant) {
 
 /* ---------- HUD ---------- */
 const ticks = document.getElementById('ticks');
-steps.slice(1, -1).forEach(() => ticks.appendChild(document.createElement('i')));
 function hud() {
-  document.getElementById('hudl').innerHTML = `${steps[idx].label} <span class="mode">${brief ? '발표' : '상세'}</span>`;
-  document.getElementById('hudn').textContent = String(idx === steps.length - 1 ? 0 : idx).padStart(2, '0');
-  [...ticks.children].forEach((t, k) => t.classList.toggle('on', k < idx && idx < steps.length - 1));
+  const st = steps[idx];
+  const vis = steps.map((s, i) => i).filter(i => !brief || !steps[i].deep);
+  const pos = vis.indexOf(idx);
+  const mode = st.deep ? '부록' : brief ? '발표' : '발표+부록';
+  document.getElementById('hudl').innerHTML = `${st.label} <span class="mode">${mode}</span>`;
+  document.getElementById('hudn').textContent = pos < 0 ? '··' : String(pos).padStart(2, '0');
+  ticks.innerHTML = '';
+  vis.slice(1).forEach((_, k) => { const t = document.createElement('i'); if (pos >= 0 && k < pos) t.className = 'on'; ticks.appendChild(t); });
 }
 
 /* ---------- input ---------- */
@@ -1354,10 +1358,11 @@ addEventListener('keydown', e => {
   if (['ArrowRight', 'ArrowDown', ' ', 'PageDown', 'Enter'].includes(k)) { e.preventDefault(); go(stepFrom(idx, 1)); }
   else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); go(stepFrom(idx, -1)); }
   else if (k === 'p' || k === 'P') { brief = !brief; hud(); }
-  else if (k === 'd' || k === 'D') go(steps.findIndex(s => s.label === 'VT-10 단계별 상세도'));
+  else if (k === 'd' || k === 'D') { if (steps[idx].deep) { brief = true; go(0); } else { brief = false; go(steps.findIndex(s => s.appx)); } }
+  else if (k === 'v' || k === 'V') document.querySelectorAll('.case video').forEach(v => { if (v.closest('.case').id === steps[idx].id) playClip(v); });
   else if (k === 'Escape' || k === '0') go(0);
   else if (k === 'Home') go(0);
-  else if (k === 'End') go(steps.length - 1);
+  else if (k === 'End') go(brief ? steps.findIndex(s => s.appx) - 1 : steps.length - 1);
   else if (/^[1-6]$/.test(k)) go(steps.findIndex(s => s.id === 's' + k));
   else if (k === 'r' || k === 'R') go(steps.findIndex(s => s.id === 'rev'));
   else if (k === 'f' || k === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
@@ -1375,17 +1380,21 @@ document.querySelectorAll('.case').forEach(c => c.addEventListener('click', ev =
   if (cur.id === c.id) return;
   go(steps.findIndex(st => st.id === c.id));
 }));
+document.querySelectorAll('.case video').forEach(v => v.addEventListener('click', () => { if (v.closest('.case').id === steps[idx].id) playClip(v); }));
+document.querySelectorAll('[data-go]').forEach(e => e.addEventListener('click', ev => { ev.stopPropagation(); go(steps.findIndex(s => s.id === e.dataset.go)); }));
 document.getElementById('stage').addEventListener('click', () => { if (steps[idx].id) go(0); });
 addEventListener('resize', () => go(idx, true));
 
 /* ---------- boot ---------- */
-zones(0, 6400, 4600); zones(6600, 8600, 9700); connectors(); cloud(); wave(); beats(); dots(); shots(); refs(); edit(); d1flow(); loop();
+zones(0, 6400, 4600); zones(6600, 8600, 9700); connectors(); cloud(); wave(); beats(); dots(); edit(); d1flow();
 document.fonts.ready.then(() => {
   decorate();
   const h = parseInt(location.hash.slice(1), 10);
+  if (!isNaN(h) && steps[h] && steps[h].deep) brief = false;
   go(isNaN(h) ? 0 : h, true);
 });
 const params = new URLSearchParams(location.search);
+if (params.has('full')) { brief = false; hud(); }
 if (params.has('clean')) document.body.classList.add('clean');
 setTimeout(() => document.getElementById('hint').style.opacity = 0, 6000);
 })();

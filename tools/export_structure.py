@@ -67,9 +67,13 @@ def block_md(node: Tag) -> str:
             out.append(" → ".join("[" + clean(d.get_text(' ')) + "]" for d in el.find_all("div", recursive=False))); return
         if "pair" in cls:
             for f in el.find_all("figure"):
-                img = f.find("img"); tag = f.find("b"); cap = f.find("figcaption")
-                out.append(f"- {clean(tag.get_text()) if tag else ''}: `{img['src'] if img else ''}` {clean(cap.get_text()) if cap else ''}")
+                img = f.find("img"); vid = f.find("video"); tag = f.find("b"); cap = f.find("figcaption")
+                src = f"영상 `{vid['src']}`" if vid else f"`{img['src']}`" if img else ""
+                out.append(f"- {clean(tag.get_text()) if tag else ''}: {src} {clean(cap.get_text()) if cap else ''}")
             return
+        if el.name == "figure":
+            img = el.find("img"); cap = el.find("figcaption")
+            out.append(f"- 그림 `{img['src'] if img else ''}` {clean(cap.get_text()) if cap else ''}"); return
         if el.name == "p" and el.find(class_="strike"):
             out.append(" ".join(f"~~{clean(x.get_text(' '))}~~" for x in el.find_all(class_="strike")) + " (화면에서 빨간 취소선)"); return
         if el.name in ("p", "h3") or "fbox" in cls or "ct" in cls or "ch" in cls or "lead" in cls or "lead6" in cls:
@@ -93,10 +97,11 @@ def block_md(node: Tag) -> str:
 def main():
     html = render()
     soup = BeautifulSoup(html, "html.parser")
+    for s in soup.select(".snd"): s.decompose()
     src = (ROOT / "index.html").read_text()
     md = ["# 영상팀 워크플로우 — 텍스트 버전", "",
           "> `index.html`을 렌더링해 자동 추출한 문서. 직접 고치지 말고 `python3 tools/export_structure.py`로 다시 만든다.",
-          "> 순서는 화면의 카메라 단계 순서와 같다. `[상세]` 표시는 발표 모드(P)에서 건너뛰는 상세도.", ""]
+          "> 순서는 화면의 카메라 단계 순서와 같다. 앞쪽이 발표 경로, `[부록]` 표시는 발표 모드에서 건너뛰는 시트(D 키로 진입).", ""]
     seen = set()
     for sid, label, deep in steps(src):
         if not sid or sid in seen:
@@ -106,7 +111,7 @@ def main():
         if el is None:
             continue
         dt = el.find(class_="dt")
-        md.append(f"## {label}{'  `[상세]`' if deep else ''}")
+        md.append(f"## {label}{'  `[부록]`' if deep else ''}")
         md.append(f"<!-- id: {sid} -->")
         if dt is not None:
             r = dt.find(class_="r"); df = dt.find(class_="df")
