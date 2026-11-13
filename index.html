@@ -1,0 +1,1394 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영상팀 워크플로우</title>
+<style>
+@font-face{font-family:"Batang";src:url(fonts/GowunBatang-Regular.ttf);font-weight:400}
+@font-face{font-family:"Batang";src:url(fonts/GowunBatang-Bold.ttf);font-weight:700}
+@font-face{font-family:"Pre";src:url(fonts/PretendardGOV-Light.otf);font-weight:300}
+@font-face{font-family:"Pre";src:url(fonts/PretendardGOV-Regular.otf);font-weight:400}
+@font-face{font-family:"Pre";src:url(fonts/PretendardGOV-Medium.otf);font-weight:500}
+@font-face{font-family:"Pre";src:url(fonts/PretendardGOV-SemiBold.otf);font-weight:600}
+@font-face{font-family:"Pre";src:url(fonts/PretendardGOV-Bold.otf);font-weight:700}
+@font-face{font-family:"Mono";src:local("SF Mono"),local("SFMono-Regular"),local("Menlo"),local("Consolas")}
+
+:root{
+  --bg:#EEEDE8;
+  --sheet:#FAF9F6;
+  --ink:#1B1B1D;
+  --mid:#55524C;
+  --soft:#97928A;
+  --line:#CDC8BE;
+  --faint:#E2DED6;
+  --red:#CF3A1E;
+  --serif:"Batang","Gowun Batang","AppleMyungjo",serif;
+  --sans:"Pre","Pretendard GOV","Pretendard","Apple SD Gothic Neo",sans-serif;
+  --mono:"Mono","SF Mono",Menlo,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--ink)}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;cursor:default;user-select:none}
+#stage{position:fixed;inset:0;overflow:hidden}
+#world{position:absolute;left:0;top:0;width:15200px;height:9700px;transform-origin:0 0}
+
+/* ---------- drawing frame ---------- */
+.frame{position:absolute;border:2px solid var(--ink)}
+.frame-in{position:absolute;border:1px solid var(--ink)}
+.zone{position:absolute;font:28px/1 var(--mono);color:var(--mid)}
+.ztick{position:absolute;background:var(--ink)}
+
+/* ---------- overview title ---------- */
+.ttl{position:absolute;left:300px;top:250px}
+.ttl .k{font:30px/1 var(--mono);letter-spacing:.12em;color:var(--mid)}
+.ttl h1{font:700 168px/1.05 var(--serif);letter-spacing:-.02em;margin-top:34px}
+.ttl .s{font:400 50px/1.4 var(--sans);color:var(--mid);margin-top:30px}
+
+/* ---------- sheets ---------- */
+.sheet{position:absolute;width:1600px;height:1000px;background:var(--sheet);border:3px solid var(--ink);cursor:pointer}
+.sheet::after{content:"";position:absolute;inset:16px;border:1px solid var(--line);pointer-events:none}
+.ov,.dt{position:absolute;inset:0;transition:opacity .5s ease}
+.dt{opacity:0;pointer-events:none}
+.snap .ov,.snap .dt{transition:none!important}
+.sheet.focus .ov{opacity:0}
+.sheet.focus .dt{opacity:1}
+.sheet.focus{cursor:default}
+
+.ov{padding:96px 110px}
+.ov-top{display:flex;gap:36px;align-items:baseline;font:46px/1 var(--mono);color:var(--mid);letter-spacing:.1em}
+.ov-top .no{color:var(--ink)}
+.ov-name{font:700 330px/1 var(--serif);letter-spacing:-.03em;margin-top:70px}
+.ov-sub{position:absolute;left:110px;right:110px;bottom:96px;font:500 68px/1.25 var(--sans);color:var(--mid);border-top:2px solid var(--ink);padding-top:34px}
+
+.lane{position:absolute;width:1600px;font:36px/1 var(--mono);color:var(--soft);letter-spacing:.04em}
+.lane b{color:var(--mid);font-weight:400;margin-right:24px}
+
+/* detail layout */
+.dt{padding:64px 84px 0}
+.dh{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--ink);padding-bottom:22px}
+.dh h2{font:700 66px/1 var(--serif);letter-spacing:-.02em;display:flex;align-items:baseline;gap:28px}
+.dh h2 .no{font:400 26px/1 var(--mono);color:var(--mid);letter-spacing:.1em}
+.dh .r{font:20px/1 var(--mono);color:var(--soft);letter-spacing:.12em}
+.df{position:absolute;left:84px;right:84px;bottom:46px;display:flex;justify-content:space-between;font:19px/1 var(--mono);color:var(--soft);letter-spacing:.06em;border-top:1px solid var(--line);padding-top:16px}
+.body{position:absolute;left:84px;right:84px;top:178px;bottom:110px}
+
+.k{font:20px/1 var(--mono);letter-spacing:.12em;color:var(--soft);margin-bottom:16px}
+.p{font:400 31px/1.55 var(--sans)}
+.p strong{font-weight:700}
+.mid{color:var(--mid)}
+.red{color:var(--red)}
+code{font:.86em var(--mono);background:var(--faint);padding:.08em .35em}
+.gap{height:40px}
+.gap-s{height:22px}
+
+.strike,.circled,.under{position:relative;display:inline-block;white-space:nowrap}
+.mark{position:absolute;overflow:visible;pointer-events:none}
+
+.tags{display:flex;gap:14px;margin:18px 0 14px}
+.tags span{font:500 26px/1 var(--sans);border:1.5px solid var(--ink);padding:12px 18px 11px}
+
+.col2{display:grid;grid-template-columns:1fr 470px;gap:90px;height:100%}
+
+/* 01 */
+.ratio{font:700 250px/1 var(--serif);letter-spacing:-.04em;margin-top:6px}
+.ratio small{font-size:110px;margin-left:8px}
+.bar{display:flex;height:46px;border:1.5px solid var(--ink);margin-top:34px}
+.bar .me{flex:95;background:var(--ink)}
+.bar .ai{flex:5;background:var(--red)}
+.barl{display:flex;justify-content:space-between;font:22px/1 var(--mono);margin-top:14px;color:var(--mid)}
+
+/* 02 */
+.brand{font:600 150px/1 var(--sans);letter-spacing:-.04em;margin:14px 0 36px}
+.redline{font:500 28px/1.4 var(--sans);color:var(--red)}
+
+/* revision note */
+.sheet.rev{width:960px;height:600px;border:none;background:transparent}
+.sheet.rev::after{display:none}
+.rev .cloud{position:absolute;inset:0;overflow:visible;pointer-events:none}
+.rev .ov{padding:70px 80px}
+.rev .ov-top{font-size:36px;color:var(--red)}
+.rev .ov-name{font:700 92px/1.2 var(--serif);color:var(--red);margin-top:58px;letter-spacing:-.02em}
+.rev .dt{padding:40px 60px;display:flex;flex-direction:column;justify-content:center}
+.rk{font:15px/1 var(--mono);color:var(--red);letter-spacing:.1em;display:flex;align-items:center;gap:14px}
+.rt{font:700 46px/1.2 var(--serif);margin:24px 0 16px;letter-spacing:-.01em}
+.rp{font:400 21px/1.6 var(--sans);color:var(--ink)}
+.rc{font:15px/1.4 var(--mono);color:var(--mid);letter-spacing:.04em;margin-top:18px}
+
+/* 03 */
+.col3{display:grid;grid-template-columns:470px 1fr;gap:96px;height:100%}
+.hongdae{font:700 118px/1 var(--serif);letter-spacing:-.04em}
+.legend{font:21px/1.7 var(--mono);color:var(--mid);margin-top:20px}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%;margin-right:12px;vertical-align:-1px}
+.sched{width:100%;border-collapse:collapse;margin-top:6px}
+.sched th{font:400 18px/1 var(--mono);letter-spacing:.12em;color:var(--soft);text-align:left;padding:0 0 12px;border-bottom:2px solid var(--ink)}
+.sched td{font:400 26px/1.4 var(--sans);padding:15px 0 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.sched td:first-child{width:210px;color:var(--mid)}
+.sched td b{font-weight:600}
+.sched .alt{font-size:22px;color:var(--mid)}
+.formula{font:500 28px/1.4 var(--sans);margin-top:28px}
+.formula span{border-bottom:2px solid var(--ink);padding-bottom:2px}
+.p3{font-size:28px}
+
+/* 04 */
+.col4{display:grid;grid-template-columns:600px 1fr;gap:90px;height:100%}
+.brand2{font:600 112px/1 var(--sans);letter-spacing:-.04em}
+.arrowd{font:300 60px/1 var(--sans);color:var(--mid);margin:18px 0 14px}
+.brand3{font:600 62px/1.1 var(--sans);letter-spacing:-.02em}
+.flow{font:500 44px/1 var(--sans);color:var(--soft);margin-top:56px}
+.hand{font:500 24px/1.4 var(--sans);color:var(--red);margin-top:16px}
+
+/* 05 */
+.lead{font:700 54px/1.25 var(--serif);letter-spacing:-.02em}
+.tri{display:grid;grid-template-columns:repeat(3,1fr);gap:54px;margin-top:46px}
+.tri .t{border-top:2px solid var(--ink);padding-top:20px}
+.tri .t .k{color:var(--ink)}
+.tri .p{font-size:27px;line-height:1.5}
+
+/* 06 */
+.lead6{font:700 92px/1.1 var(--serif);letter-spacing:-.03em}
+
+
+/* 05 cases */
+.cases{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:340px 340px;gap:32px;height:100%}
+.case{position:relative;border:1.5px solid var(--ink);padding:20px 22px;background:var(--sheet);cursor:zoom-in;display:flex;flex-direction:column}
+.zoomed .case{cursor:default}
+.ch{font:14px/1 var(--mono);letter-spacing:.06em;color:var(--mid);display:flex;gap:12px}
+.ch span{color:var(--red)}
+.ct{font:700 26px/1.2 var(--serif);letter-spacing:-.01em;margin:10px 0 12px}
+.cd{font:400 15.5px/1.5 var(--sans);margin-top:auto}
+.pair{display:flex;align-items:center;gap:10px}
+.pair i{font:300 22px/1 var(--sans);color:var(--mid);font-style:normal;flex:none}
+.pair figure{position:relative;flex:1;min-width:0}
+.pair img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink)}
+.pair b{position:absolute;left:0;top:0;font:600 10px/1 var(--mono);letter-spacing:.12em;background:var(--sheet);color:var(--ink);padding:5px 7px 4px;border-right:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.pair b.a{background:var(--red);color:#fff;border-color:var(--red)}
+.pair figcaption{font:12px/1.3 var(--mono);color:var(--mid);margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pair.three{gap:8px}
+.case.tall{flex-direction:row;gap:26px}
+.case.tall .tx{flex:1;display:flex;flex-direction:column}
+.case.tall .tx .cd{margin-top:0}
+.case.tall .tx .cd:first-of-type{margin-top:auto}
+.case.tall .tx .cd.mid{margin-top:8px}
+.pair.v{gap:10px;height:100%}
+.pair.v figure{height:100%;flex:none}
+.pair.v img{height:100%;width:auto;aspect-ratio:9/16}
+
+
+/* ===== VT-10 단계별 상세도 ===== */
+.ttl2{position:absolute;top:250px}
+.ttl2 .k{font:30px/1 var(--mono);letter-spacing:.12em;color:var(--mid)}
+.ttl2 h1{font:700 150px/1.05 var(--serif);letter-spacing:-.02em;margin-top:30px}
+.ttl2 .s{font:400 50px/1.4 var(--sans);color:var(--mid);margin-top:26px}
+.tb2{position:absolute;top:250px;width:1600px;height:280px;border:2px solid var(--ink);display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:1fr 1fr;background:var(--sheet)}
+.tb2 div{border-right:1px solid var(--ink);padding:18px 22px;font:500 30px/1.2 var(--sans)}
+.tb2 div:last-child{border-right:none}
+.tb2 .wide{grid-column:span 4;border-right:none;border-bottom:1px solid var(--ink);font:700 52px/1 var(--serif);display:flex;align-items:center;gap:30px}
+.tb2 small{display:block;font:18px/1 var(--mono);color:var(--soft);letter-spacing:.12em;margin-bottom:12px}
+.tb2 .wide small{display:inline;margin:0}
+.rowlab{position:absolute;width:600px;height:1000px;border-top:4px solid var(--ink);padding-top:40px}
+.rowlab .n{font:46px/1 var(--mono);color:var(--red)}
+.rowlab .t{font:700 150px/1.05 var(--serif);letter-spacing:-.03em;margin:22px 0 34px}
+.rowlab .k{font:30px/1 var(--mono);letter-spacing:.1em;color:var(--soft);margin-bottom:12px}
+.rowlab .v{font:500 40px/1.35 var(--sans);margin-bottom:34px}
+.rowlab .v.m{font:400 34px/1.35 var(--mono);color:var(--mid)}
+.sheet.dp .ov-name{font-size:150px;line-height:1.15}
+.sheet.dp .ov-top .no{color:var(--red)}
+.cols{display:grid;gap:56px;height:100%}
+.fld{width:100%;border-collapse:collapse}
+.fld th{text-align:left;font:400 16px/1 var(--mono);letter-spacing:.1em;color:var(--soft);padding:0 0 10px;border-bottom:2px solid var(--ink)}
+.fld td{border-bottom:1px solid var(--line);padding:9px 0;vertical-align:top;font:400 21px/1.42 var(--sans)}
+.fld td:first-child{font:18px/1.45 var(--mono);padding-right:18px;white-space:nowrap}
+.fld td small{color:var(--mid);font-size:.88em}
+.fld td b{font-weight:600}
+.fld.c3 td:nth-child(2){font-weight:600}
+.fld .red{color:var(--red)}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chips span{border:1.5px solid var(--ink);padding:8px 12px 7px;font:500 19px/1 var(--sans);background:var(--sheet)}
+.chips.m span{font:17px/1 var(--mono)}
+.ol{counter-reset:o;display:flex;flex-direction:column;gap:11px}
+.ol p{font:400 21px/1.42 var(--sans);padding-left:40px;position:relative}
+.ol p::before{counter-increment:o;content:counter(o);position:absolute;left:0;top:1px;width:26px;height:26px;border:1.5px solid var(--ink);border-radius:50%;font:14px/26px var(--mono);text-align:center}
+.ol p b{font-weight:600}
+.ol.r p::before{border-color:var(--red);color:var(--red)}
+.sflow{display:flex}
+.sflow > div{flex:1;border:2px solid var(--ink);padding:14px 16px;position:relative;margin-right:40px;background:var(--sheet)}
+.sflow > div:last-child{margin-right:0}
+.sflow > div:not(:last-child)::after{content:"→";position:absolute;right:-32px;top:50%;transform:translateY(-50%);font:300 26px/1 var(--sans);color:var(--mid)}
+.sflow small{display:block;font:14px/1.2 var(--mono);color:var(--soft);letter-spacing:.06em}
+.sflow b{display:block;font:700 27px/1.2 var(--serif);margin:6px 0 6px}
+.sflow code{display:block;background:none;padding:0;font:14px/1.35 var(--mono);color:var(--mid)}
+.sflow em{display:block;font:normal 500 16px/1.35 var(--sans);color:var(--red);margin-top:8px}
+.sflow.sm b{font-size:22px}
+.tl{border-left:2px solid var(--ink);padding-left:24px;display:flex;flex-direction:column;gap:13px}
+.tl p{font:400 21px/1.42 var(--sans);position:relative}
+.tl p::before{content:"";position:absolute;left:-31px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--ink)}
+.tl p span{display:block;font:15px/1.2 var(--mono);color:var(--red);margin-bottom:2px}
+.anat{width:100%;border-collapse:collapse}
+.anat td{padding:9px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.anat td:first-child{font:19px/1.45 var(--mono);color:var(--ink);width:760px;padding-right:30px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.anat td:first-child em{font-style:normal;color:var(--soft)}
+.anat td:last-child{font:500 22px/1.4 var(--sans)}
+.anat td:last-child small{font:400 18px/1.4 var(--sans);color:var(--mid);margin-left:10px}
+.tree{font:25px/1.75 var(--mono);white-space:pre;color:var(--ink)}
+.tree em{font-style:normal;color:var(--soft)}
+.tree b{font-weight:400;color:var(--red)}
+.fbox{position:absolute;border:2px solid var(--ink);background:var(--sheet);padding:14px 18px;font:500 24px/1.3 var(--sans)}
+.fbox small{display:block;font:15px/1.3 var(--mono);color:var(--soft);margin-bottom:6px;letter-spacing:.06em}
+.fbox.r{border-color:var(--red)}
+.note{font:400 22px/1.55 var(--sans);color:var(--mid)}
+.note b{color:var(--ink);font-weight:600}
+.trace{border-left:2px solid var(--red);padding-left:22px;display:flex;flex-direction:column;gap:14px}
+.trace p{font:400 21px/1.4 var(--sans);position:relative}
+.trace p::before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--red)}
+.trace p span{display:block;font:15px/1.2 var(--mono);color:var(--red);margin-bottom:3px;letter-spacing:.04em}
+.trace q{font-weight:600}.trace q::before{content:"“"}.trace q::after{content:"”"}
+.trace code{font-size:.8em}
+.statrow{display:flex;gap:56px;margin-top:30px}
+.statrow div b{display:block;font:700 76px/1 var(--serif);letter-spacing:-.03em}
+.statrow div span{font:17px/1.3 var(--sans);color:var(--mid)}
+.statrow div.z b{color:var(--soft)}
+#hud .mode{border:1px solid var(--mid);padding:3px 6px 2px}
+
+/* title block */
+.tb{position:absolute;left:4500px;top:4130px;width:1600px;height:280px;border:2px solid var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;background:var(--sheet)}
+.tb div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 22px;font:500 30px/1.2 var(--sans)}
+.tb div:nth-child(n+2):nth-child(-n+1){}
+.tb .wide{grid-column:span 4;border-right:none;font:700 52px/1 var(--serif);display:flex;align-items:center;gap:30px}
+.tb div:last-child{border-right:none}
+.tb div:nth-child(n+2){border-bottom:none}
+.tb small{display:block;font:18px/1 var(--mono);color:var(--soft);letter-spacing:.12em;margin-bottom:12px}
+.tb .wide small{display:inline;margin:0}
+
+.legend-ov{position:absolute;left:300px;top:4170px;font:36px/1.6 var(--mono);color:var(--mid);letter-spacing:.03em}
+.legend-ov .sw{display:inline-block;width:70px;height:0;border-top:4px solid var(--ink);vertical-align:middle;margin-right:24px}
+.legend-ov .sw.r{border-top:5px solid var(--red)}
+
+/* ---------- HUD ---------- */
+#hud{position:fixed;left:28px;bottom:24px;font:13px/1 var(--mono);color:var(--mid);letter-spacing:.08em;display:flex;align-items:center;gap:16px;transition:opacity .4s}
+#hud .ticks{display:flex;gap:5px}
+#hud .ticks i{width:7px;height:3px;background:var(--line)}
+#hud .ticks i.on{background:var(--ink)}
+#hint{position:fixed;right:28px;bottom:24px;font:12px/1 var(--mono);color:var(--soft);letter-spacing:.06em;transition:opacity 1s}
+body.clean #hud,body.clean #hint{opacity:0}
+</style>
+</head>
+<body>
+<div id="stage">
+<div id="world">
+
+  <div id="zones"></div>
+  <svg id="ink" class="mark" style="left:0;top:0" width="6400" height="4600"></svg>
+
+  <div class="ttl">
+    <div class="k">SHEET 00 — 전체도</div>
+    <h1>영상팀 워크플로우</h1>
+    <div class="s">기획 · 음악 · 이미지 · 영상화 · 후처리 · 편집</div>
+  </div>
+
+  <!-- 01 기획 -->
+  <section class="sheet" id="s1" style="left:300px;top:1250px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">01</span><span>PLANNING</span></div>
+      <div class="ov-name">기획</div>
+      <div class="ov-sub">95%는 내 창의성</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">01</span>기획</h2><div class="r">SHEET 01 / 06</div></div>
+      <div class="body"><div class="col2">
+        <div>
+          <div class="k">처음 꿈꾼 것</div>
+          <p class="p mid"><span class="strike">Codex + LLM Wiki로 기획 경험을 쌓아서,</span><br><span class="strike">언젠가는 제가 기획 안 해도 되게.</span></p>
+          <div class="gap"></div>
+          <div class="k">해 보니</div>
+          <p class="p">공공 영상도, 공모전도 매번 컨셉과 분위기가 다릅니다.</p>
+          <div class="tags"><span>2D</span><span>3D</span><span>실사</span><span>분위기</span></div>
+          <p class="p mid">쌓은 경험이 다음 기획에 그대로 쓰이지 않았습니다.</p>
+          <div class="gap"></div>
+          <div class="k">지금</div>
+          <p class="p">뼈대는 제 창의성으로 세우고,<br>AI에게는 <span class="under">살 붙이는 조언</span>만 듣습니다.</p>
+        </div>
+        <div>
+          <div class="k">비중</div>
+          <div class="ratio"><span class="circled">95</span><small>%</small></div>
+          <p class="p">제 창의성</p>
+          <div class="bar"><div class="me"></div><div class="ai"></div></div>
+          <div class="barl"><span>나 95</span><span class="red">AI 조언 5</span></div>
+        </div>
+      </div></div>
+      <div class="df"><span>영상팀 레인 · director (메인 스레드)</span><span>VT-01</span></div>
+    </div>
+  </section>
+
+  <!-- 02 음악 -->
+  <section class="sheet" id="s2" style="left:2400px;top:1250px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">02</span><span>MUSIC</span></div>
+      <div class="ov-name">음악</div>
+      <div class="ov-sub">Suno</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">02</span>음악</h2><div class="r">SHEET 02 / 06</div></div>
+      <div class="body">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div class="k">배경음악</div>
+            <div class="brand">Suno</div>
+            <p class="p">특이할 것 없이 Suno로 만듭니다.</p>
+            <p class="p"><code>awesome-suno-prompting</code> 레포를 적용해서, 거의 손 안 대고.</p>
+          </div>
+          <div class="redline" style="text-align:right;margin-top:6px">음악이 정해지면<br>다시 기획으로 ↺</div>
+        </div>
+        <svg id="wave" class="mark" style="left:0;bottom:0" width="1432" height="250"></svg>
+      </div>
+      <div class="df"><span>영상팀 레인 · music (Aside → Suno)</span><span>VT-02</span></div>
+    </div>
+  </section>
+
+  <!-- 수정 노트 -->
+  <section class="sheet rev" id="rev" style="left:1880px;top:420px">
+    <svg class="cloud" width="960" height="600"></svg>
+    <div class="ov">
+      <div class="ov-top"><span class="no">△1</span><span>REVISION</span></div>
+      <div class="ov-name">음악에 맞춰<br>기획 수정</div>
+    </div>
+    <div class="dt">
+      <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">1</text></svg>REV. 1 — 음악 → 기획</div>
+      <div class="rt">음악을 정하고, 기획을 다시 손봅니다.</div>
+      <p class="rp">팝핑댄서 출신이라 비트에 민감합니다.<br>드럼 하이햇 기준으로 장면을 쪼개 보면,<br>30씬으로 기획했어도 40씬은 들어가야 루즈해지지 않습니다.</p>
+      <svg id="beats" style="display:block;margin-top:26px;overflow:visible" width="820" height="160"></svg>
+      <div class="rc">음악 결정 → 기획 수정 · 반드시 거치는 단계</div>
+    </div>
+  </section>
+
+  <!-- 03 이미지 -->
+  <section class="sheet" id="s3" style="left:4500px;top:1250px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">03</span><span>IMAGE</span></div>
+      <div class="ov-name">이미지</div>
+      <div class="ov-sub">Midjourney · Seedream</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">03</span>이미지</h2><div class="r">SHEET 03 / 06</div></div>
+      <div class="body"><div class="col3">
+        <div>
+          <div class="hongdae">홍대병</div>
+          <p class="p" style="margin-top:14px">남들과 다르고 싶습니다.</p>
+          <svg id="dots" style="display:block;margin-top:30px" width="380" height="380"></svg>
+          <div class="legend"><i style="background:var(--line)"></i>GPT · 나노바나나 95<br><i style="background:var(--red)"></i>미드저니 · 시드림 5</div>
+        </div>
+        <div>
+          <p class="p p3">AI 슬롭은 왜 슬롭일까요?<br><strong>일상에서 너무 많이 보이기 때문입니다.</strong></p>
+          <p class="p p3 mid" style="margin-top:14px">프롬프트킷도 고민도 없이, 자연어 한두 줄로 뽑은 이미지.<br>슬롭은 거기서 시작합니다.</p>
+          <div class="gap-s"></div>
+          <table class="sched">
+            <tr><th>용도</th><th>도구</th></tr>
+            <tr><td>2D · 3D</td><td><b>Midjourney</b></td></tr>
+            <tr><td>실사</td><td><b>Seedream 5.5 Pro</b></td></tr>
+            <tr><td>일본풍 2D 캐릭터</td><td><b>전부 뽑아 보고 결정</b><br><span class="alt">Grok Imagine · Midjourney · Kling · 나노바나나 · GPT</span></td></tr>
+          </table>
+          <p class="formula"><span>드문 도구</span> + <span>공냥 프롬프트킷</span> + <span>나의 개성</span> = 희소성</p>
+          <p class="redline" style="margin-top:22px">슬롭이냐 아니냐는 이 단계에서 갈립니다.</p>
+        </div>
+      </div></div>
+      <div class="df"><span>영상팀 레인 · image_creator → image_qc</span><span>VT-03</span></div>
+    </div>
+  </section>
+
+  <!-- 04 영상화 -->
+  <section class="sheet" id="s4" style="left:300px;top:2950px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">04</span><span>MOTION</span></div>
+      <div class="ov-name">영상화</div>
+      <div class="ov-sub">Runway · Seedance 2.0 / 2.5</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">04</span>영상화</h2><div class="r">SHEET 04 / 06</div></div>
+      <div class="body"><div class="col4">
+        <div>
+          <div class="k">플랫폼</div>
+          <div class="brand2">Runway</div>
+          <div class="arrowd">↓</div>
+          <div class="brand3">Seedance 2.0 · 2.5</div>
+          <div class="flow"><span class="strike">Google Flow</span></div>
+          <div class="hand">고수분들 앞이니 생략합니다</div>
+        </div>
+        <div>
+          <div class="k">한 번의 생성 · Seedance 2.5</div>
+          <svg id="shots" style="display:block;overflow:visible" width="720" height="132"></svg>
+          <div class="gap"></div><div class="gap-s"></div>
+          <div class="k">참조 이미지</div>
+          <svg id="refs" style="display:block;overflow:visible" width="720" height="96"></svg>
+          <div class="gap"></div><div class="gap"></div>
+          <p class="p">스타일프레임 없이, 캐릭터 · 장소 · 소품<br>참조만 붙여서 바로 생성합니다.</p>
+        </div>
+      </div></div>
+      <div class="df"><span>영상팀 레인 · seedance → seedance_qc</span><span>VT-04</span></div>
+    </div>
+  </section>
+
+  <!-- 05 후처리 -->
+  <section class="sheet" id="s5" style="left:2400px;top:2950px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">05</span><span>POST</span></div>
+      <div class="ov-name">후처리</div>
+      <div class="ov-sub">효과 · 카드 · 설명 · 합성</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">05</span>후처리</h2><div class="r">SHEET 05 / 06</div></div>
+      <div class="body">
+        <div class="cases">
+          <article class="case" id="c51">
+            <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」</div>
+            <div class="ct">타격하는 박에만, 잉크 프레임</div>
+            <div class="pair">
+              <figure><img src="assets/post/hw_before.jpg" alt=""><b>BEFORE</b><figcaption>타격 직전</figcaption></figure>
+              <i>→</i>
+              <figure><img src="assets/post/hw_after.jpg" alt=""><b class="a">AFTER</b><figcaption>펀치가 닿는 박 · 잉크 홀드</figcaption></figure>
+            </div>
+            <p class="cd">2~3프레임만 실사를 형광 잉크 판화로 바꾸고 멈춥니다. 같은 효과는 반복하지 않습니다.</p>
+          </article>
+          <article class="case tall" id="c52">
+            <div class="tx">
+              <div class="ch"><span>05-2</span>광양시 「매돌이」</div>
+              <div class="ct">장소가 바뀌면,<br>도감 카드</div>
+              <p class="cd">자연 다큐처럼 "관찰 지점 No.01" 카드를 띄워 어디인지 화면이 말하게 했습니다.</p>
+              <p class="cd mid">납품 전 4K 업스케일 + 그레인.</p>
+            </div>
+            <div class="pair v">
+              <figure><img src="assets/post/md_before.jpg" alt=""><b>BEFORE</b></figure>
+              <figure><img src="assets/post/md_after.jpg" alt=""><b class="a">AFTER</b></figure>
+            </div>
+          </article>
+          <article class="case" id="c53">
+            <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상</div>
+            <div class="ct">실사는 글자 없이, 설명은 코드로</div>
+            <div class="pair three">
+              <figure><img src="assets/post/sn_before.jpg" alt=""><b>BEFORE</b><figcaption>Seedance 원본</figcaption></figure>
+              <i>→</i>
+              <figure><img src="assets/post/sn_after.jpg" alt=""><b class="a">AFTER</b><figcaption>자막을 얹은 최종</figcaption></figure>
+              <i>+</i>
+              <figure><img src="assets/post/sn_mg.jpg" alt=""><b class="a">MG</b><figcaption>설명 MG · 코드로 제작</figcaption></figure>
+            </div>
+            <p class="cd">기술명·지도·협력기관 로고처럼 틀리면 안 되는 정보는 AI에게 그리게 하지 않습니다.</p>
+          </article>
+          <article class="case" id="c54">
+            <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면</div>
+            <div class="ct">빈 현수막에 글자 걸기</div>
+            <div class="pair">
+              <figure><img src="assets/post/sol_before.jpg" alt=""><b>BEFORE</b><figcaption>빈 천으로 생성</figcaption></figure>
+              <i>→</i>
+              <figure><img src="assets/post/sol_after.jpg" alt=""><b class="a">AFTER</b><figcaption>천의 주름·그림자 위에 곱하기 합성</figcaption></figure>
+            </div>
+            <p class="cd">AI가 쓰면 글자가 깨지니, 빈 현수막으로 뽑고 글자는 나중에 천에 스며들게 입힙니다.</p>
+          </article>
+        </div>
+      </div>
+      <div class="df"><span>로컬 · Python · ffmpeg</span><span>VT-05</span></div>
+    </div>
+  </section>
+
+  <!-- 06 편집 -->
+  <section class="sheet" id="s6" style="left:4500px;top:2950px">
+    <div class="ov">
+      <div class="ov-top"><span class="no">06</span><span>EDIT</span></div>
+      <div class="ov-name">편집</div>
+      <div class="ov-sub">직접</div>
+    </div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">06</span>편집</h2><div class="r">SHEET 06 / 06</div></div>
+      <div class="body">
+        <div class="lead6">편집은 <span class="under">제가</span> 합니다.</div>
+        <p class="p" style="margin-top:30px">AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.</p>
+        <p class="p mid">길이가 모자라면 정지·슬로모션 대신, 이미 뽑은 다른 테이크로 채웁니다.</p>
+        <svg id="edit" style="display:block;margin-top:90px;overflow:visible" width="1432" height="230"></svg>
+      </div>
+      <div class="df"><span>사람 · 직접</span><span>VT-06</span></div>
+    </div>
+  </section>
+
+  <!-- lanes under sheets -->
+  <div class="lane" style="left:300px;top:2300px"><b>LANE</b>director · 메인 스레드</div>
+  <div class="lane" style="left:2400px;top:2300px"><b>LANE</b>music · Aside → Suno</div>
+  <div class="lane" style="left:4500px;top:2300px"><b>LANE</b>image_creator · image_qc</div>
+  <div class="lane" style="left:300px;top:4000px"><b>LANE</b>seedance · seedance_qc</div>
+  <div class="lane" style="left:2400px;top:4000px"><b>LOCAL</b>Python · ffmpeg</div>
+  <div class="lane" style="left:4500px;top:4000px"><b>HUMAN</b>직접</div>
+
+  <div class="legend-ov">
+    <div><span class="sw"></span>진행 순서</div>
+    <div><span class="sw r"></span>되돌아가는 수정</div>
+    <div style="color:var(--soft)">LANE = 영상팀 디렉터 스레드가 단계마다 띄우는 Codex 세션</div>
+  </div>
+
+  <div class="tb">
+    <div class="wide"><small>도면명</small>영상팀 워크플로우</div>
+    <div><small>작성</small>사진우</div>
+    <div><small>소속</small>성남시청</div>
+    <div><small>축척</small>N.S.</div>
+    <div><small>도면번호</small>VT-00</div>
+  </div>
+
+  <!-- ================= VT-10 단계별 상세도 ================= -->
+  <div class="ttl2" style="left:6900px">
+    <div class="k">SHEET 10 — 단계별 상세도</div>
+    <h1>단계별 상세도</h1>
+    <div class="s">단계마다 정해지는 것 · 프롬프트 요소 · 검사 · 모델 변경 — 2026-11-13 현재 파일 기준</div>
+  </div>
+  <div class="tb2" style="left:13000px">
+    <div class="wide"><small>도면명</small>단계별 상세도</div>
+    <div><small>작성</small>사진우</div><div><small>기준일</small>2026.11.13</div><div><small>축척</small>N.S.</div><div><small>도면번호</small>VT-10</div>
+  </div>
+
+  <div class="rowlab" style="left:6900px;top:800px"><div class="n">01</div><div class="t">기획</div><div class="k">정해지는 것</div><div class="v">컨셉 · 스타일 바이블 · 콘티</div><div class="k">담당</div><div class="v m">director → planner</div></div>
+  <div class="rowlab" style="left:6900px;top:2060px"><div class="n">02</div><div class="t">음악</div><div class="k">정해지는 것</div><div class="v">Style · 가사 구조 · 길이</div><div class="k">담당</div><div class="v m">music 레인</div></div>
+  <div class="rowlab" style="left:6900px;top:3320px"><div class="n">03</div><div class="t">이미지</div><div class="k">정해지는 것</div><div class="v">참조 이미지<br>인물 · 장소 · 소품 · 스타일</div><div class="k">담당</div><div class="v m">image_creator → image_qc</div></div>
+  <div class="rowlab" style="left:6900px;top:4580px"><div class="n">04</div><div class="t">영상화</div><div class="k">정해지는 것</div><div class="v">블록별 프롬프트 · 생성 · QC</div><div class="k">담당</div><div class="v m">seedance → seedance_qc</div></div>
+  <div class="rowlab" style="left:6900px;top:5840px"><div class="n">05</div><div class="t">후처리</div><div class="k">정해지는 것</div><div class="v">색 · 자막 · 효과 · 업스케일 · MG</div><div class="k">담당</div><div class="v m">로컬 스크립트</div></div>
+  <div class="rowlab" style="left:6900px;top:7100px"><div class="n">06</div><div class="t">편집</div><div class="k">정해지는 것</div><div class="v">컷 선택 · 길이 · 순서</div><div class="k">담당</div><div class="v m">사람</div></div>
+  <div class="rowlab" style="left:6900px;top:8360px"><div class="n">00</div><div class="t">공통</div><div class="k">정해지는 것</div><div class="v">위키 · 교훈 · 문서 권위</div><div class="k">담당</div><div class="v m">전 단계</div></div>
+  <section class="sheet dp" id="d01a" style="left:7600px;top:800px">
+    <div class="ov"><div class="ov-top"><span class="no">01-A</span><span>STAGES</span></div><div class="ov-name">단계와 잠금</div><div class="ov-sub">P0 → P1 → 음악 → P2</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">01-A</span>기획 단계와 잠금</h2><div class="r">preprod v5</div></div>
+      <div class="body"><div class="sflow">
+  <div><small>P0 · director</small><b>컨셉 3안</b><code>concept_options.md<br>→ concept_lock.json</code><em>잠금: 고른 안을 말한 원문</em></div>
+  <div><small>P1 · director</small><b>스타일 바이블</b><code>style_bible.json</code><em>잠금: 형식 자체 검사</em></div>
+  <div><small>music 레인</small><b>음악</b><code>Suno 생성 → 사용자 선택</code><em>잠금: 등록된 오디오</em></div>
+  <div><small>P2 · planner</small><b>콘티</b><code>storyboard.json</code><em>잠금: 승인 원문</em></div>
+</div>
+<div class="cols" style="grid-template-columns:1fr 520px;margin-top:34px;height:auto">
+  <div><div class="k">컨셉 1안에 들어가는 것</div>
+  <table class="fld">
+    <tr><td>Logline</td><td>한 문장 — 누가, 무엇을 원하고, 무엇이 막고, 무엇이 바뀌나</td></tr>
+    <tr><td>Emotional arc</td><td>hook 0–3초 · build · peak <small>(기억될 한 장면)</small> · out <small>(페이드 말고 해소)</small></td></tr>
+    <tr><td>Differentiator</td><td>공모 주제의 뻔한 버전이 아닌 이유</td></tr>
+    <tr><td>Must-avoid</td><td>클리셰 · 사실 위험 · 거절된 룩</td></tr>
+    <tr><td>Medium / AR / 길이</td><td>2D · 3D · 실사 · mixed / 16:9 / 60초 ≈ 15초 블록 4개</td></tr>
+  </table></div>
+  <div><div class="k">잠금 규칙</div>
+  <div class="ol"><p>상류 파일이 바뀌면 그 단계와 <b>하류 잠금이 전부 STALE</b></p><p>개정은 같은 파일을 고쳐 재잠금, 이전본은 <code>_superseded/</code></p><p>제작 단계에서 프롬프트를 새로 쓰지 않음 — 소유 단계로 돌아감</p><p>mode: mv · contest · tourism · institution · shortform</p></div></div>
+</div></div>
+      <div class="df"><span>runtime/templates/preprod · video-team-runtime/AGENTS.md §2</span><span>01-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d01b" style="left:9400px;top:800px">
+    <div class="ov"><div class="ov-top"><span class="no">01-B</span><span>BIBLE</span></div><div class="ov-name">스타일 바이블</div><div class="ov-sub">모든 프롬프트의 고정 문단</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">01-B</span>스타일 바이블 필드</h2><div class="r">style_bible.json</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
+<table class="fld">
+  <tr><th>필드</th><th>내용</th></tr>
+  <tr><td>palette_hex</td><td>HEX 팔레트</td></tr>
+  <tr><td>lighting</td><td>광원 방향·질 · 시간대 · 실제 조명 · 대비 — 레시피 하나</td></tr>
+  <tr><td>texture</td><td>그레인 · 선 · 재질 · 렌더 방식</td></tr>
+  <tr><td>lens_grammar</td><td>기본 화각대 · 심도 · 카메라 움직임의 느낌</td></tr>
+  <tr><td>forbidden_looks</td><td>거절할 구체적 룩</td></tr>
+  <tr><td>style_block_en</td><td><b>영어 600자 이하</b> — 매체·렌더·팔레트·빛·질감·렌즈. 숏 내용 금지</td></tr>
+  <tr><td>characters[]<br>.identity_block_en</td><td><b>영어 350자 이하</b> — 얼굴·머리·체형·의상·나이감. 표정·행동 금지 <small>+ sheet_ref_id</small></td></tr>
+  <tr><td>locations[]</td><td>구조 · 재질 · 광원 · 고정 랜드마크</td></tr>
+  <tr><td>resolution</td><td>720p · 1080p</td></tr>
+</table>
+<div><div class="k">어디로 흘러가나</div>
+<div class="tl">
+  <p><span>style_block_en</span>모든 영상 프롬프트의 STYLE 줄에 원문 그대로 — shelf-check가 일치 검사</p>
+  <p><span>identity_block_en</span>IDENTITY 줄에 원문 그대로</p>
+  <p><span>sheet_ref_id</span>03 이미지의 인물 시트 참조로 연결</p>
+  <p><span>palette_hex</span>이미지 프롬프트 Color 섹션의 HEX</p>
+  <p><span>forbidden_looks</span>프롬프트 · QC 거절 기준</p>
+</div></div></div></div>
+      <div class="df"><span>runtime/templates/preprod/style_bible.json</span><span>01-B</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d01c" style="left:11200px;top:800px">
+    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 필드</div><div class="ov-sub">블록 15초 · 숏 1–4</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">01-C</span>콘티 필드</h2><div class="r">storyboard.json</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
+<div><div class="k">블록 — 생성 1회 단위</div>
+<table class="fld">
+  <tr><td>duration_sec</td><td>프로젝트 길이 잠금과 같아야 함 <small>(기본 15초)</small></td></tr>
+  <tr><td>purpose</td><td>이야기·음악 구간에서 이 블록이 하는 일</td></tr>
+  <tr><td>audio_route</td><td>silent · 현장음 · 대사 · music_reference</td></tr>
+  <tr><td>cast · location_id</td><td>등장 인물 · 장소</td></tr>
+  <tr><td>refs</td><td>붙일 참조 이미지 ID</td></tr>
+  <tr><td>end_frame</td><td>다음 블록이 이어받는 마지막 그림</td></tr>
+  <tr><td>risks</td><td>얼굴 · 텍스처 · 폰 화면 등 위험 속성</td></tr>
+</table>
+<p class="note" style="margin-top:18px">최상위 <b>generation.model</b> = Seedance 2.5면 2.5 규격, 없으면 2.0</p></div>
+<div><div class="k">숏 — 블록 안의 컷</div>
+<table class="fld">
+  <tr><td>start · end_sec</td><td>빈틈 없이 이어지는 초 구간</td></tr>
+  <tr><td>shot_size</td><td>통제 목록 9종 <small>(extreme wide ~ insert)</small></td></tr>
+  <tr><td>angle</td><td>통제 목록 10종 <small>(eye level · low · overhead · pov …)</small></td></tr>
+  <tr><td>camera_move</td><td>통제 목록 24종 <small>(static · slow push in · tracking · orbit · fpv …)</small></td></tr>
+  <tr><td>lens · composition</td><td>화각 · 화면 안 위치와 전경/배경 층</td></tr>
+  <tr><td>action</td><td>시작 → 행동 → 보이는 반응</td></tr>
+  <tr><td>must_include</td><td>프롬프트까지 살아남아야 할 구절</td></tr>
+  <tr><td>copy_line</td><td>근거 대사 — 장면은 대사 그대로 <small>(인서트는 "(insert)")</small></td></tr>
+</table>
+<p class="note" style="margin-top:18px">P2 잠금 → <b>video_attributes.json</b> 자동 생성 → 04 지식 라우터 입력</p></div>
+</div></div>
+      <div class="df"><span>runtime/scripts/preprod.py — SHOT_SIZES · ANGLES · CAMERA_MOVES</span><span>01-C</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d02a" style="left:7600px;top:2060px">
+    <div class="ov"><div class="ov-top"><span class="no">02-A</span><span>SUNO</span></div><div class="ov-name">Suno 프롬프트</div><div class="ov-sub">코퍼스 → Style · 가사 · 길이</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">02-A</span>Suno 프롬프트 구조</h2><div class="r">music-director 스킬</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr 1fr;gap:44px">
+<div><div class="k">코퍼스 → 프롬프트</div>
+<div class="ol"><p><b>검색</b> — 장르·무드·용도·그루브·악기·보컬·BPM·형식으로 INDEX + 관련 1–3파일만</p><p><b>추출</b> — 가까운 패턴 2–5개에서 변수만</p><p><b>정리</b> — 아티스트·곡 이름 제거, 묘사어로 대체</p><p><b>조합</b> — 프롬프트 하나</p><p><b>변형</b> — 변수 몇 개만 바꾼 1개</p><p><b>기록</b> — 참고한 코퍼스 파일명</p></div></div>
+<div><div class="k">조합 변수</div>
+<div class="chips"><span>장르 · 서브장르</span><span>시대감</span><span>BPM · 박자 · 키</span><span>그루브 · 드럼</span><span>베이스</span><span>화성</span><span>리드 · 텍스처</span><span>보컬 성격</span><span>형식 · 에너지 곡선</span><span>믹스 · 공간</span><span>용도</span></div>
+<div class="k" style="margin-top:30px">출력 필드</div>
+<div class="chips m"><span>Style</span><span>Lyrics/Structure</span><span>Avoid</span><span>Generation settings</span><span>Corpus basis</span><span>A/B delta</span></div></div>
+<div><div class="k">규칙</div>
+<div class="ol r"><p>BGM 길이: Simple 대신 Custom, Duration을 <b>초</b>로 입력 — 목표값일 뿐</p><p>보컬: 한 명의 안정된 한국어 보컬, 자연스러운 발음·호흡</p><p>perfect · crystalline · ethereal 같은 형용사 나열 금지</p><p>인스트 인트로엔 허밍·속삭임 금지를 명시</p><p>고르기 · 다운로드는 사용자 <small>(PENDING_USER_AUDIO)</small></p></div></div>
+</div></div>
+      <div class="df"><span>corpus: naqashmunir21/awesome-suno-prompts 스냅샷 · 실행: Aside의 Suno 탭</span><span>02-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d03a" style="left:7600px;top:3320px">
+    <div class="ov"><div class="ov-top"><span class="no">03-A</span><span>PROMPT</span></div><div class="ov-name">이미지 프롬프트</div><div class="ov-sub">공냥 키트 6섹션</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">03-A</span>이미지 프롬프트 구조</h2><div class="r">공냥 프롬프트 킷 VOL.2</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 560px">
+<div><table class="fld">
+  <tr><th>섹션</th><th>내용</th><th>분량</th></tr>
+  <tr><td>1 Scene</td><td>누가 · 무엇이 · 어디서 · 무엇을 — 핵심을 맨 앞에</td><td>60–120어</td></tr>
+  <tr><td>2 Camera</td><td>시점 · 거리 · 렌즈 성격 (결과로 서술)</td><td>15–30어</td></tr>
+  <tr><td>3 Lighting</td><td>방향 · soft/hard · 그림자 · 림 (장비명 금지)</td><td>10–25어</td></tr>
+  <tr><td>4 Color</td><td>팔레트 + 색온도 + <b>HEX 3–5개</b></td><td>10–20어</td></tr>
+  <tr><td>5 Texture</td><td>매체 · 질감 · 표면 반응</td><td>10–20어</td></tr>
+  <tr><td>6 Text</td><td>(선택) 따옴표 카피 · 폰트 · 위치</td><td>0–25어</td></tr>
+  <tr><td>끝</td><td><code>AR x:y</code> 토큰 하나</td><td></td></tr>
+</table>
+<p class="note" style="margin-top:20px"><b>포맷 B</b> (단독 인물 화보): 피사체 → 얼굴 → 헤어 → 장르 → 장면·포즈 → 의상 → 구도 → 조명 → HEX → 질감 → AR, 350–450자 한 문단</p></div>
+<div><div class="k">철칙</div>
+<div class="ol r"><p>부정문 대신 <b>긍정형으로 다시 쓰기</b> — 모델이 부정어를 그린다</p><p>masterpiece · 8k · best quality 같은 옛 어휘 금지</p><p>카메라·조명 장비명 대신 결과 ("배경이 부드럽게 흐려짐")</p><p>수치는 박는다 — HEX · 켈빈 · key:fill 1:2</p><p>1줄 = 1컷 = 1호출, 그리드 금지</p><p>이상적 피부 대신 natural skin texture · visible pores · film grain</p></div></div>
+</div></div>
+      <div class="df"><span>~/.codex/skills/image-prompt · 카테고리 C1–C12</span><span>03-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d03b" style="left:9400px;top:3320px">
+    <div class="ov"><div class="ov-top"><span class="no">03-B</span><span>REFERENCES</span></div><div class="ov-name">참조 이미지 규칙</div><div class="ov-sub">인물 · 장소 · 소품 · 스타일</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">03-B</span>참조 이미지 규칙과 QC</h2><div class="r">image_plan.json · image_qc</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
+<div><div class="k">참조 종류 (purpose)</div>
+<div class="chips" style="margin-bottom:22px"><span>identity 인물</span><span>environment 장소</span><span>prop 소품</span><span>style 스타일</span><span>user_supplied</span></div>
+<div class="ol"><p>참조 1 = 프롬프트 1 = 이미지 1 — 그리드·연락 시트 금지</p><p>반복 인물은 <b>승인된 인물 시트를 먼저</b>, 생성 때 실제 첨부</p><p>Seedream 인물 시트: 2패널(정면 · 뒷모습 전신, 높이 85%) + "head and neck fully visible"</p><p>장소 참조에 소품 · 종이 여백 금지 — 영상으로 번진다</p><p>실제 장비 · 장소는 Commons 실사진을 Seedream 입력으로</p><p>시작프레임 · 스타일프레임은 만들지 않음 <small>(10-29~)</small></p></div></div>
+<div><div class="k">image_qc 통과 조건</div>
+<table class="fld">
+  <tr><td>작풍 잠금</td><td>계획된 매체와 다른 화풍이 섞이면 FAIL</td></tr>
+  <tr><td>정체성</td><td>얼굴 윤곽 · 눈 간격 · 코 · 턱 · 머리 볼륨 · 나이감</td></tr>
+  <tr><td>역할 분리</td><td>같은 화면의 조연과 구분되는가</td></tr>
+  <tr><td>이야기 기능</td><td>정지 포스터가 아닌 원인 → 반응</td></tr>
+  <tr><td>동작 상태</td><td>던지기·변형은 단계별로 분리</td></tr>
+  <tr><td>물리</td><td>폰 화면 방향 · 손 · 목 연결</td></tr>
+</table></div>
+</div></div>
+      <div class="df"><span>AGENTS.md §2.3 · wiki video-image-qc-style-continuity</span><span>03-B</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d03c" style="left:11200px;top:3320px">
+    <div class="ov"><div class="ov-top"><span class="no">03-C</span><span>MODELS</span></div><div class="ov-name">이미지 모델 변경</div><div class="ov-sub">gpt-image → MJ · Seedream</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">03-C</span>이미지 모델 변경</h2><div class="r">2026 · 날짜는 기록 기준</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:560px 1fr">
+<div><div class="k">변경 이력</div>
+<div class="tl">
+  <p><span>~07-03</span>Claude · ChatGPT 웹에서 프롬프트 작성 → ChatGPT Image 2</p>
+  <p><span>07-06</span>Codex imagegen (gpt-image-2)이 기본 경로</p>
+  <p><span>07-12</span>공냥 키트를 모든 이미지 프롬프트의 기본 층으로</p>
+  <p><span>11-07</span>Midjourney 사용 (공개 갤러리 허용)</p>
+  <p><span>11-10</span>배분 확정 — 수묵·회화 = Midjourney, 사람·깔끔한 실사 = Seedream</p>
+</div></div>
+<div><div class="k">현재 배분</div>
+<table class="fld c3">
+  <tr><th>용도</th><th>도구</th><th>비고</th></tr>
+  <tr><td>2D · 3D · 수묵 · 회화</td><td>Midjourney</td><td>작풍 참조</td></tr>
+  <tr><td>실사 · 인물 · 실제 장소·장비</td><td>Seedream 5.5 Pro</td><td>실사진을 입력으로</td></tr>
+  <tr><td>일본풍 2D 캐릭터</td><td>여러 모델 비교</td><td>Grok Imagine · Midjourney · Kling · 나노바나나 · GPT</td></tr>
+  <tr><td>포스터 · 도감 · 인포그래픽</td><td>gpt-image-2</td><td>공냥 키트 포맷 A</td></tr>
+</table>
+<p class="note" style="margin-top:20px">생성 실행은 Codex 이미지 레인, 결과는 프로젝트 media/ 레지스트리에 등록 후 image_qc</p></div>
+</div></div>
+      <div class="df"><span>wiki video-team-claude-prompt-authoring-routing · Claude 메모리 image-tool-routing</span><span>03-C</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d04a" style="left:7600px;top:4580px">
+    <div class="ov"><div class="ov-top"><span class="no">04-A</span><span>PROMPT</span></div><div class="ov-name">프롬프트 해부</div><div class="ov-sub">줄마다 주인이 있다</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부 · Seedance 2.5</h2><div class="r">seedance25-prompt-en</div></div>
+      <div class="body"><table class="anat">
+  <tr><td>15 seconds, 3 shots:</td><td>길이 잠금<small>기본 15초, 프롬프트 사정으로 줄이지 않음</small></td></tr>
+  <tr><td>STYLE: <em>…스타일 바이블 원문…</em></td><td>01-B style_block_en 그대로</td></tr>
+  <tr><td>IDENTITY: <em>…승인 인물…</em></td><td>01-B identity_block_en 그대로</td></tr>
+  <tr><td>References: @Image1 is <em>the lead's face</em>…</td><td>참조 하나에 역할 하나<small>"분위기용" 같은 느슨한 역할 금지</small></td></tr>
+  <tr><td>Summary: <em>one sentence…</em></td><td>누가 · 어디서 · 무엇이 일어나나 한 문장</td></tr>
+  <tr><td>Shot 1 (0-6s): medium, eye level, slow push. <em>…</em></td><td>준비 → 동작 → 반응 → 정착<small>형용사 대신 보이는 사건</small></td></tr>
+  <tr><td>SFX: <em>…</em>  Sound: <em>…</em> No music. No subtitles.</td><td>현장음만<small>음악·자막은 후처리</small></td></tr>
+  <tr><td>Consistency: <em>…2–3 traits…</em></td><td>인물 특징 2–3개 재명시<small>긴 테이크 흔들림 방지</small></td></tr>
+  <tr><td>End frame: <em>…</em></td><td>01-C end_frame — 다음 블록이 이어받는 구도</td></tr>
+</table>
+<p class="note" style="margin-top:20px">모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이 압축 금지 · 부정문은 소리·자막·화면 글자에만</p></div>
+      <div class="df"><span>~/.codex/skills/seedance25-prompt-en/prompting.md</span><span>04-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d04b" style="left:9400px;top:4580px">
+    <div class="ov"><div class="ov-top"><span class="no">04-B</span><span>PIPELINE</span></div><div class="ov-name">선반 → 제작 → QC</div><div class="ov-sub">검사 6겹</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">04-B</span>선반 → 제작 → QC</h2><div class="r">P4 · P5</div></div>
+      <div class="body"><div class="sflow sm">
+  <div><small>knowledge-select</small><b>위키 발췌</b><code>카탈로그 33 → 최대 11섹션<br>14,000자</code></div>
+  <div><small>P4 선반</small><b>블록 패키지</b><code>brief · prompt · settings<br>refs · pack</code></div>
+  <div><small>shelf-check</small><b>형식 검사</b><code>영어·NFC · 10,000자<br>Shot k (a-bs) · @ImageN</code></div>
+  <div><small>prompt_lint</small><b>거절 패턴</b><code>13규칙 → 04-C</code></div>
+</div>
+<div class="sflow sm" style="margin-top:28px">
+  <div><small>attest</small><b>길이 잠금</b><code>2.0 ≤ 15초<br>2.5 ≤ 30초 · 2–8숏</code></div>
+  <div><small>shelf-lock</small><b>잠금</b><code>블록 입력 해시에 묶임</code><em>사용자 release 1회</em></div>
+  <div><small>produce</small><b>제출 · 수확</b><code>백그라운드 · 종료코드만</code></div>
+  <div><small>seedance_qc</small><b>클립 QC</b><code>1fps 시트 + 사람 확대</code></div>
+</div>
+<div class="cols" style="grid-template-columns:1fr 1fr;margin-top:30px;height:auto">
+<table class="fld"><tr><th>produce 종료코드</th><th></th></tr>
+  <tr><td>0</td><td>완료 · 미릴리스</td></tr><tr><td>2</td><td>사용자 확인 필요</td></tr><tr><td>3</td><td>HOLD — 자동화 경고, 사용자만 해제</td></tr><tr><td>4 · 5 · 6</td><td>실패·유실 · 디스패치 거부 · 세션 상한</td></tr></table>
+<table class="fld"><tr><th>QC에서 보는 것</th><th></th></tr>
+  <tr><td>글자</td><td>옷 · 등판 · 소품 위 깨진 글자</td></tr><tr><td>시선 · 손</td><td>장비를 보는가, 손 논리</td></tr><tr><td>얼굴</td><td>서양인 얼굴 · 이상한 헤어</td></tr><tr><td>교체</td><td>같은 클립의 무인 구간·클로즈업으로</td></tr></table>
+</div></div>
+      <div class="df"><span>AGENTS.md §2.4–2.5 · runtime/scripts</span><span>04-B</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d04c" style="left:11200px;top:4580px">
+    <div class="ov"><div class="ov-top"><span class="no">04-C</span><span>LINT</span></div><div class="ov-name">거절 패턴 13</div><div class="ov-sub">prompt_lint 규칙</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">04-C</span>거절 패턴 검사 · prompt_lint</h2><div class="r">13 rules</div></div>
+      <div class="body"><table class="fld" style="margin-top:-6px"><tr><th>규칙</th><th>잡는 것</th><th>적용 대상</th></tr><tr><td>smooth_skin</td><td>"매끈한 피부" 문구 → 플라스틱 AI 티</td><td><small>영상 · 이미지</small></td></tr><tr><td>text_prop</td><td>글자가 생기는 소품 → 가짜 한자·숫자</td><td><small>영상 · 콘티</small></td></tr><tr><td>garment_text</td><td>옷 · 물건 위 글자 → 깨진 글자</td><td><small>영상</small></td></tr><tr><td>screen_content</td><td>화면 내용 묘사 → 가짜 UI 글자</td><td><small>영상 · 콘티</small></td></tr><tr><td>screen_summon</td><td>"화면은 비어 있다"도 화면을 부름</td><td><small>영상</small></td></tr><tr><td>nasal_tube</td><td>콧줄 묘사 → 산소 캐뉼라로 오인</td><td><small>영상 · 이미지</small></td></tr><tr><td>foreign_office</td><td>한국 단서 없는 사무실 → 외국 스톡풍</td><td><small>영상 · 콘티 · 컨셉</small></td></tr><tr><td>start_frame</td><td>스타일프레임 · 시작프레임</td><td><small>전부</small></td></tr><tr><td>onscreen_text</td><td>요청 없는 자막 · 지명 타이틀 · 라벨</td><td><small>영상 · 콘티 · 컨셉</small></td></tr><tr><td>env_ref_props</td><td>장소 참조 속 이야기 소품</td><td><small>이미지</small></td></tr><tr><td>paper_margin</td><td>참조 이미지의 종이 여백 · 테두리</td><td><small>이미지</small></td></tr><tr><td>restraint_action</td><td>과한 액션 · 거절된 클리셰</td><td><small>영상 · 콘티</small></td></tr><tr><td>forced_metaphor</td><td>자연 × AI 억지 메타포</td><td><small>콘티 · 컨셉</small></td></tr></table>
+<p class="note" style="margin-top:14px">shelf-check · check · Claude 저작 단계에서 경고 · 의도된 예외는 블록 <b>lint_allow</b>로만 · 규칙마다 근거 메모리 파일이 붙어 있음</p></div>
+      <div class="df"><span>runtime/scripts/prompt_lint.py</span><span>04-C</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d04d" style="left:13000px;top:4580px">
+    <div class="ov"><div class="ov-top"><span class="no">04-D</span><span>MODELS</span></div><div class="ov-name">영상 모델 · 모드</div><div class="ov-sub">2.0 → 2.5 · No-I2V</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">04-D</span>영상 모델 · 모드 변경</h2><div class="r">Runway Seedance</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
+<div><table class="fld c3">
+  <tr><th>항목</th><th>Seedance 2.0</th><th>Seedance 2.5</th></tr>
+  <tr><td>길이</td><td>5–15초</td><td>5–30초 <small>(Unlimited는 15초·720p)</small></td></tr>
+  <tr><td>숏 수</td><td>최대 4</td><td>2–8</td></tr>
+  <tr><td>참조</td><td>@ImageN</td><td>최대 12장</td></tr>
+  <tr><td>프롬프트 형식</td><td>흐르는 서술</td><td>라벨 블록 (04-A)</td></tr>
+  <tr><td>카메라</td><td>숏당 무브 하나</td><td>4초 넘는 비트 안 복합 무브</td></tr>
+  <tr><td>선택</td><td>기본</td><td>사용자가 명시할 때</td></tr>
+</table>
+<p class="note" style="margin-top:20px">경로: Runway 웹 UI (Aside) · Flow는 별도 합성형 분기 · 2026-07 기록상 Grok은 I2V 전용</p></div>
+<div><div class="k">변경 이력</div>
+<div class="tl">
+  <p><span>~07</span>standard_i2v — 컷마다 시작 프레임 이미지 → 영상</p>
+  <p><span>07-11</span>No-I2V 모드 — 참조만 붙이고 연출은 프롬프트가</p>
+  <p><span>10-29</span>시작프레임 없이 참조만이 기본</p>
+  <p><span>11-07</span>Seedance 2.5 지원 — storyboard generation.model</p>
+  <p><span>11-11</span>v5.1 — produce 백그라운드 · prompt_lint</p>
+</div></div>
+</div></div>
+      <div class="df"><span>Claude 메모리 seedance25-runtime-support · wiki no-i2v-reference-native</span><span>04-D</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d05a" style="left:7600px;top:5840px">
+    <div class="ov"><div class="ov-top"><span class="no">05-A</span><span>POST</span></div><div class="ov-name">후처리 구성</div><div class="ov-sub">작업 · 방법 · 기준</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">05-A</span>후처리 구성</h2><div class="r">로컬 · Claude</div></div>
+      <div class="body"><table class="fld c3">
+  <tr><th>작업</th><th>방법</th><th>기준</th></tr>
+  <tr><td>색보정</td><td>Python · ffmpeg 스크립트</td><td>과한 부분부터 줄이기 · 컷 사이 톤 맞추기</td></tr>
+  <tr><td>정보 라벨</td><td>코드 오버레이</td><td>요청한 글자만 — 지명 타이틀 임의 삽입 금지</td></tr>
+  <tr><td>가사 자막</td><td>demucs 보컬 분리 + Whisper</td><td>보컬 시작 0.1초 전 · Noto Sans KR Bold</td></tr>
+  <tr><td>효과 (승인)</td><td>FX 라이브러리</td><td>접촉 스파크 · 타이포 임팩트 1–3프레임 · 잉크 작화 6프레임 · 공간 전환</td></tr>
+  <tr><td>효과 (거절)</td><td></td><td class="red">얇은 HUD · 흐림·번짐 · 도형 오버레이 · 입술 마스크 · 같은 효과 반복</td></tr>
+  <tr><td>합성</td><td>multiply 블렌드</td><td>빈 현수막 천 위에 글자 (05-4)</td></tr>
+  <tr><td>업스케일</td><td>Real-ESRGAN animevideov3 ×2</td><td>+ lanczos 블렌드 · 그레인 → 4K</td></tr>
+  <tr><td>설명 MG</td><td>코드 · Blender · ffmpeg</td><td>480p 미리보기 먼저 · 공공 톤 남색·금색</td></tr>
+  <tr><td>검사</td><td>ffmpeg freezedetect</td><td>렌더마다</td></tr>
+</table></div>
+      <div class="df"><span>Claude 메모리 hwaseong-post-fx · lyric-subs · motion-rail</span><span>05-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d06a" style="left:7600px;top:7100px">
+    <div class="ov"><div class="ov-top"><span class="no">06-A</span><span>EDIT</span></div><div class="ov-name">편집 규칙</div><div class="ov-sub">사람이 직접</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">06-A</span>편집 규칙</h2><div class="r">사용자 직접</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
+<table class="fld">
+  <tr><td>누가</td><td>사용자 직접 — CapCut 레인은 10-16 퇴역</td></tr>
+  <tr><td>AI 역할</td><td>장면을 계속 뽑고 원본을 바로 띄움 · 편집안은 요청 때만</td></tr>
+  <tr><td>길이 부족</td><td>정지 · 슬로모션 · zoompan 대신 <b>이미 뽑은 다른 테이크</b></td></tr>
+  <tr><td>검사</td><td><code>freezedetect=n=0.002:d=0.4</code> 렌더마다</td></tr>
+  <tr><td>미리보기</td><td>전 구간 480p 먼저, 확정 후 고해상도</td></tr>
+  <tr><td>파일</td><td>편집물은 프로젝트 media/ 밖 <code>edits/&lt;slug&gt;/</code></td></tr>
+  <tr><td>보관</td><td>진행 중 로컬 · 완료본 SSD</td></tr>
+</table>
+<div><div class="k">왜 media/ 밖인가</div><p class="note">프로젝트 media/에 등록되지 않은 파일이 있으면 미디어 감사가 실패해 image_qc · seedance · package 레인이 <b>MEDIA_HARD_GATE</b>로 멈춘다.</p></div>
+</div></div>
+      <div class="df"><span>Claude 메모리 user-edits · edit-no-freeze · edits-outside-project-media</span><span>06-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d00a" style="left:7600px;top:8360px">
+    <div class="ov"><div class="ov-top"><span class="no">00-A</span><span>WIKI</span></div><div class="ov-name">위키 지도</div><div class="ov-sub">원문 → 지식 → 고르기</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2><div class="r">/Users/gnudas/wiki</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:660px 1fr;gap:70px">
+<div><div class="k">~/wiki</div>
+<div class="tree">wiki/
+├─ raw/                <em>원문 278 · 고치지 않음</em>
+├─ concepts/           <em>지식 50 · 영상 29</em>
+├─ queries/            <em>남겨둘 만한 답 18</em>
+├─ seeds/              <em>다음 작품 시드 7</em>
+├─ _hub/
+│  └─ context-capsules/ <b>캡슐 147일</b>
+├─ _meta/
+│  └─ video-knowledge-catalog.json <b>33</b>
+└─ SCHEMA · index · log</div></div>
+<div style="position:relative">
+  <div class="k">흐름</div>
+  <svg id="d1flow" class="mark" style="left:0;top:40px" width="700" height="470"></svg>
+  <div class="fbox" style="left:0;top:50px;width:190px"><small>raw/</small>원문</div>
+  <div class="fbox" style="left:260px;top:50px;width:200px"><small>concepts/</small>지식 페이지</div>
+  <div class="fbox" style="left:530px;top:50px;width:170px"><small>catalog</small>라우터</div>
+  <div class="fbox r" style="left:0;top:250px;width:190px"><small>세션</small>대화·작업</div>
+  <div class="fbox r" style="left:260px;top:250px;width:200px"><small>_hub/</small>캡슐</div>
+  <div class="fbox" style="left:530px;top:250px;width:170px"><small>memory · seeds</small>메모리 · 시드</div>
+  <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 raw/에 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 승격한다.</p>
+</div></div></div>
+      <div class="df"><span>wiki SCHEMA.md · index.md</span><span>00-A</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d00b" style="left:9400px;top:8360px">
+    <div class="ov"><div class="ov-top"><span class="no">00-B</span><span>LESSONS</span></div><div class="ov-name">교훈 → 규칙</div><div class="ov-sub">거절 원문이 검사가 되는 경로</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">00-B</span>교훈이 규칙이 되는 경로</h2><div class="r">memory → ledger → lint → router</div></div>
+      <div class="body"><div class="cols" style="grid-template-columns:720px 1fr;gap:56px">
+<svg id="loop" style="overflow:visible" width="720" height="700"></svg>
+<div>
+  <div class="k">실제 경로 — '매끈 피부'</div>
+  <div class="trace" id="trace"></div>
+  <div class="k" style="margin-top:34px">하트 경로</div>
+  <p class="note">Runway 하트 → 프로젝트 마감 때 1회 읽기 → <code>proven_prompts.py</code> → 위키 하트 프롬프트 페이지 → 라우터. <b>11-13 추가, 현재 0건.</b></p>
+</div></div></div>
+      <div class="df"><span>video-lessons-ledger: 같은 주제는 최신 사용자 판정 우선, 옛 항목은 "대체됨"</span><span>00-B</span></div>
+    </div>
+  </section>
+  <section class="sheet dp" id="d00c" style="left:11200px;top:8360px">
+    <div class="ov"><div class="ov-top"><span class="no">00-C</span><span>AUTHORITY</span></div><div class="ov-name">문서 권위</div><div class="ov-sub">규칙은 한 곳에만</div></div>
+    <div class="dt">
+      <div class="dh"><h2><span class="no">00-C</span>문서 권위 순위 · 현재 수치</h2><div class="r">AGENTS.md §0</div></div>
+      <div class="body"><table class="fld c3">
+  <tr><th>순위</th><th>문서</th><th>소유 범위</th></tr>
+  <tr><td>1</td><td>video-team-runtime/AGENTS.md</td><td>레일 · 레인 순서 · 실행 예산 · 미디어 구조 · 게이트 · 안전</td></tr>
+  <tr><td>2</td><td>seedance(25)-prompt-en 스킬</td><td>선택된 버전 하나의 프롬프트 규격 · Runway UI</td></tr>
+  <tr><td>3</td><td>video-team-policies</td><td>세션 생성 승인 · 브라우저 오퍼레이터</td></tr>
+  <tr><td>4</td><td>videodirector 스킬</td><td>이야기 · 연출 · 품질 기준</td></tr>
+</table>
+<p class="note" style="margin-top:16px">같은 규칙을 여러 문서에 복제하지 않는다. 본문은 소유 문서 한 곳, 나머지는 포인터. 프로젝트 예외는 <code>docs/project_overrides.md</code>에 조항 번호와 함께.</p>
+<div class="statrow">
+  <div><b>62</b><span>Claude 메모리</span></div><div><b>147</b><span>컨텍스트 캡슐(일)</span></div><div><b>34</b><span>교훈 장부 항목</span></div><div><b>13</b><span>lint 규칙</span></div><div><b>33</b><span>지식 카탈로그</span></div><div class="z"><b>0</b><span>하트 프롬프트</span></div>
+</div></div>
+      <div class="df"><span>2026-11-13 파일 기준 집계</span><span>00-C</span></div>
+    </div>
+  </section>
+</div>
+</div>
+
+<div id="hud"><span id="hudn">00</span><span class="ticks" id="ticks"></span><span id="hudl">전체도</span></div>
+<div id="hint">→ / Space 다음 · ← 이전 · Esc 전체도 · 1–6 이동 · P 발표/상세 · D 상세도 · F 전체화면 · H 안내 숨김</div>
+
+<script>
+(() => {
+const NS = 'http://www.w3.org/2000/svg';
+const RED = '#CF3A1E', INK = '#1B1B1D', LINE = '#CDC8BE', SOFT = '#97928A', MID = '#55524C';
+const W = 6400, H = 4600;
+
+/* seeded random so the hand-drawn marks look identical every time */
+let seed = 20261113;
+const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+const el = (tag, attrs, parent) => {
+  const e = document.createElementNS(NS, tag);
+  for (const k in attrs) e.setAttribute(k, attrs[k]);
+  if (parent) parent.appendChild(e);
+  return e;
+};
+
+/* ---------- hand-drawn helpers ---------- */
+const bez = (p0, p1, p2, p3, t) => {
+  const u = 1 - t;
+  return [u*u*u*p0[0] + 3*u*u*t*p1[0] + 3*u*t*t*p2[0] + t*t*t*p3[0],
+          u*u*u*p0[1] + 3*u*u*t*p1[1] + 3*u*t*t*p2[1] + t*t*t*p3[1]];
+};
+// turn a list of points into a smooth path, with a small human wobble
+function handPath(pts, amp) {
+  const ph = rnd() * 6.28, ph2 = rnd() * 6.28;
+  const out = pts.map((p, i) => {
+    const t = i / (pts.length - 1);
+    const a = pts[Math.max(0, i - 1)], b = pts[Math.min(pts.length - 1, i + 1)];
+    let nx = -(b[1] - a[1]), ny = b[0] - a[0];
+    const l = Math.hypot(nx, ny) || 1; nx /= l; ny /= l;
+    const w = amp * (0.6 * Math.sin(t * 5.1 + ph) + 0.4 * Math.sin(t * 11.7 + ph2));
+    return [p[0] + nx * w, p[1] + ny * w];
+  });
+  let d = `M${out[0][0].toFixed(1)} ${out[0][1].toFixed(1)}`;
+  for (let i = 1; i < out.length - 1; i++) {
+    const m = [(out[i][0] + out[i+1][0]) / 2, (out[i][1] + out[i+1][1]) / 2];
+    d += ` Q${out[i][0].toFixed(1)} ${out[i][1].toFixed(1)} ${m[0].toFixed(1)} ${m[1].toFixed(1)}`;
+  }
+  const L = out[out.length - 1];
+  return d + ` L${L[0].toFixed(1)} ${L[1].toFixed(1)}`;
+}
+const sampleBez = (p0, p1, p2, p3, n) => Array.from({length: n + 1}, (_, i) => bez(p0, p1, p2, p3, i / n));
+function arrowHead(svg, tip, from, len, color, sw) {
+  const ang = Math.atan2(tip[1] - from[1], tip[0] - from[0]);
+  for (const s of [-1, 1]) {
+    const a = ang + Math.PI + s * 0.47 + (rnd() - .5) * .08;
+    const e = [tip[0] + Math.cos(a) * len, tip[1] + Math.sin(a) * len];
+    el('path', {d: handPath([e, [(e[0]+tip[0])/2, (e[1]+tip[1])/2], tip], sw * .25), fill: 'none', stroke: color, 'stroke-width': sw, 'stroke-linecap': 'round'}, svg);
+  }
+}
+
+/* ---------- drawing frame zones ---------- */
+function zones(x0, w, h) {
+  const z = document.getElementById('zones');
+  const add = (cls, css, txt) => { const d = document.createElement('div'); d.className = cls; d.style.cssText = css; if (txt != null) d.textContent = txt; z.appendChild(d); };
+  add('frame', `left:${x0 + 60}px;top:60px;width:${w - 120}px;height:${h - 120}px`);
+  add('frame-in', `left:${x0 + 110}px;top:110px;width:${w - 220}px;height:${h - 220}px`);
+  const cols = Math.round(w / 800), rows = Math.round(h / 920);
+  for (let i = 0; i < cols; i++) {
+    const x = x0 + 110 + (w - 220) * (i + .5) / cols;
+    for (const y of [72, h - 100]) add('zone', `left:${x - 8}px;top:${y}px`, i + 1);
+    if (i) for (const y of [62, h - 110]) add('ztick', `left:${x0 + 110 + (w - 220) * i / cols}px;top:${y}px;width:1px;height:48px`);
+  }
+  for (let j = 0; j < rows; j++) {
+    const y = 110 + (h - 220) * (j + .5) / rows;
+    for (const x of [x0 + 76, x0 + w - 98]) add('zone', `left:${x}px;top:${y - 14}px`, 'ABCDEFGHIJK'[j]);
+    if (j) for (const x of [x0 + 62, x0 + w - 110]) add('ztick', `left:${x}px;top:${110 + (h - 220) * j / rows}px;width:48px;height:1px`);
+  }
+}
+
+/* ---------- overview connectors ---------- */
+function connectors() {
+  const s = document.getElementById('ink');
+  const straight = (pts, head) => {
+    el('polyline', {points: pts.map(p => p.join(',')).join(' '), fill: 'none', stroke: INK, 'stroke-width': 4, 'stroke-linejoin': 'miter'}, s);
+    const a = pts[pts.length - 2], b = pts[pts.length - 1];
+    const ang = Math.atan2(b[1] - a[1], b[0] - a[0]);
+    const l = 46, w = 16;
+    const p1 = [b[0] - Math.cos(ang) * l - Math.sin(ang) * w, b[1] - Math.sin(ang) * l + Math.cos(ang) * w];
+    const p2 = [b[0] - Math.cos(ang) * l + Math.sin(ang) * w, b[1] - Math.sin(ang) * l - Math.cos(ang) * w];
+    el('polygon', {points: [b, p1, p2].map(p => p.join(',')).join(' '), fill: INK}, s);
+    el('circle', {cx: pts[0][0], cy: pts[0][1], r: 9, fill: INK}, s);
+  };
+  straight([[1930, 1750], [2370, 1750]]);
+  straight([[4030, 1750], [4470, 1750]]);
+  straight([[6130, 1750], [6230, 1750], [6230, 2620], [1100, 2620], [1100, 2920]]);
+  straight([[1930, 3450], [2370, 3450]]);
+  straight([[4030, 3450], [4470, 3450]]);
+
+  // red revision loop: 음악 → (note) → 기획
+  const A = sampleBez([3080, 1235], [3110, 1000], [3020, 770], [2880, 735], 30);
+  el('path', {d: handPath(A, 5), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round'}, s);
+  el('circle', {cx: 3080, cy: 1236, r: 11, fill: RED}, s);
+  const Bp = [[1858, 740], [1600, 760], [1320, 960], [1280, 1225]];
+  const B = sampleBez(...Bp, 34);
+  el('path', {d: handPath(B, 6), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round'}, s);
+  arrowHead(s, B[B.length - 1], B[B.length - 4], 56, RED, 7);
+}
+
+/* ---------- revision cloud ---------- */
+function cloud() {
+  const svg = document.querySelector('#rev .cloud');
+  const w = 960, h = 600, m = 8;
+  const corners = [[m, m], [w - m, m], [w - m, h - m], [m, h - m], [m, m]];
+  let d = `M${m} ${m}`;
+  for (let c = 0; c < 4; c++) {
+    const [x0, y0] = corners[c], [x1, y1] = corners[c + 1];
+    const L = Math.hypot(x1 - x0, y1 - y0);
+    const n = Math.max(1, Math.round(L / 44));
+    const js = Array.from({length: n}, () => .85 + rnd() * .3), sum = js.reduce((a, b) => a + b);
+    let pos = 0;
+    for (const j of js) {
+      const step = L * j / sum;
+      pos += step;
+      const t = pos / L, x = x0 + (x1 - x0) * t, y = y0 + (y1 - y0) * t;
+      const r = step * (0.56 + rnd() * .06);
+      d += ` A${r.toFixed(1)} ${r.toFixed(1)} 0 0 1 ${x.toFixed(1)} ${y.toFixed(1)}`;
+    }
+  }
+  el('rect', {x: m, y: m, width: w - 2*m, height: h - 2*m, fill: '#FAF9F6'}, svg);
+  el('path', {d, fill: 'none', stroke: RED, 'stroke-width': 3.2, 'stroke-linejoin': 'round'}, svg);
+}
+
+/* ---------- small diagrams ---------- */
+function wave() {
+  const s = document.getElementById('wave');
+  const n = 179, bw = 8, mid = 120;
+  el('line', {x1: 0, y1: mid, x2: 1432, y2: mid, stroke: LINE, 'stroke-width': 1}, s);
+  for (let i = 0; i < n; i++) {
+    const t = i / n;
+    let env = t < .18 ? .18 + t * 1.4 : t < .42 ? .45 + (t - .18) * 1.1 : t < .45 ? .1 : t < .82 ? .95 : .95 - (t - .82) * 4;
+    env = Math.max(.08, Math.min(1, env));
+    const hh = env * (0.4 + 0.6 * rnd()) * 92;
+    el('rect', {x: i * bw, y: mid - hh, width: 3.4, height: hh * 2, fill: INK}, s);
+  }
+  // hi-hat grid
+  for (let i = 0; i < 90; i++) {
+    const x = i * 16 + 1.7;
+    el('line', {x1: x, y1: 228, x2: x, y2: i % 4 === 0 ? 212 : 220, stroke: RED, 'stroke-width': 1.6}, s);
+  }
+  const t = el('text', {x: 0, y: 250, fill: RED, 'font-size': 16, 'font-family': 'Mono, Menlo', 'letter-spacing': '2'}, s);
+  t.textContent = 'HI-HAT';
+  const t2 = el('text', {x: 1432, y: 18, fill: SOFT, 'font-size': 16, 'font-family': 'Mono, Menlo', 'text-anchor': 'end', 'letter-spacing': '2'}, s);
+  t2.textContent = 'BGM · 2:30';
+}
+
+function beats() {
+  const s = document.getElementById('beats');
+  const x0 = 180, w = 600;
+  const row = (y, n, color, label, sub) => {
+    const a = el('text', {x: 0, y: y + 22, fill: color, 'font-size': 19, 'font-family': 'Pre, sans-serif', 'font-weight': 600}, s); a.textContent = label;
+    const b = el('text', {x: 0, y: y + 46, fill: SOFT, 'font-size': 13, 'font-family': 'Mono, Menlo'}, s); b.textContent = sub;
+    el('rect', {x: x0, y, width: w, height: 44, fill: 'none', stroke: color, 'stroke-width': 1.6}, s);
+    for (let i = 1; i < n; i++) {
+      const x = x0 + w * i / n;
+      el('line', {x1: x, y1: y, x2: x, y2: y + 44, stroke: color, 'stroke-width': 1}, s);
+    }
+  };
+  row(8, 30, INK, '기획 30씬', 'SCENES');
+  // hi-hat marks between rows
+  for (let i = 0; i <= 40; i++) {
+    const x = x0 + w * i / 40;
+    el('path', {d: `M${x-3.5} 77 l7 7 M${x+3.5} 77 l-7 7`, stroke: RED, 'stroke-width': 1.3}, s);
+  }
+  const hl = el('text', {x: x0 - 12, y: 86, fill: RED, 'font-size': 12, 'font-family': 'Mono, Menlo', 'text-anchor': 'end'}, s); hl.textContent = 'hi-hat';
+  row(104, 40, RED, '하이햇 기준 40씬', 'RE-CUT');
+  // hand arrow 30 → 40
+  const P = sampleBez([x0 + w + 12, 30], [x0 + w + 44, 46], [x0 + w + 44, 104], [x0 + w + 14, 124], 16);
+  el('path', {d: handPath(P, 1.5), fill: 'none', stroke: RED, 'stroke-width': 2.2, 'stroke-linecap': 'round'}, s);
+  arrowHead(s, P[P.length - 1], P[P.length - 3], 12, RED, 2.2);
+}
+
+function dots() {
+  const s = document.getElementById('dots');
+  const pick = new Set([47, 58, 63, 74, 86]);
+  for (let i = 0; i < 100; i++) {
+    const x = (i % 10) * 38 + 19, y = Math.floor(i / 10) * 38 + 19;
+    el('circle', {cx: x, cy: y, r: 12.5, fill: pick.has(i) ? RED : LINE}, s);
+  }
+}
+
+function shots() {
+  const s = document.getElementById('shots');
+  const ws = [1.1, .8, 1.4, .7, 1, 1.3, .9, .8], tot = ws.reduce((a, b) => a + b), W2 = 720;
+  let x = 0;
+  el('rect', {x: 0, y: 26, width: W2, height: 70, fill: 'none', stroke: INK, 'stroke-width': 2}, s);
+  ws.forEach((w, i) => {
+    const ww = W2 * w / tot;
+    if (i) el('line', {x1: x, y1: 26, x2: x, y2: 96, stroke: INK, 'stroke-width': 1.2}, s);
+    const t = el('text', {x: x + 10, y: 50, fill: MID, 'font-size': 15, 'font-family': 'Mono, Menlo'}, s); t.textContent = 'S' + (i + 1);
+    x += ww;
+  });
+  // dimension line like a drawing
+  el('line', {x1: 0, y1: 118, x2: W2, y2: 118, stroke: MID, 'stroke-width': 1}, s);
+  for (const xx of [0, W2]) el('line', {x1: xx, y1: 108, x2: xx, y2: 128, stroke: MID, 'stroke-width': 1}, s);
+  el('rect', {x: W2 / 2 - 110, y: 108, width: 220, height: 20, fill: '#FAF9F6'}, s);
+  const dt = el('text', {x: W2 / 2, y: 123, fill: MID, 'font-size': 15, 'font-family': 'Mono, Menlo', 'text-anchor': 'middle'}, s);
+  dt.textContent = '5 – 30 s · 최대 8숏';
+  const top = el('text', {x: 0, y: 14, fill: SOFT, 'font-size': 14, 'font-family': 'Mono, Menlo'}, s); top.textContent = 'ONE GENERATION';
+}
+
+function refs() {
+  const s = document.getElementById('refs');
+  const lab = ['인물', '인물', '인물', '장소', '장소', '장소', '장소', '소품', '소품', '소품', '', ''];
+  for (let i = 0; i < 12; i++) {
+    const x = i * 60;
+    el('rect', {x, y: 0, width: 50, height: 50, fill: i < 10 ? '#EFEDE7' : 'none', stroke: i < 10 ? INK : LINE, 'stroke-width': 1.4, 'stroke-dasharray': i < 10 ? '' : '4 4'}, s);
+    if (lab[i]) { const t = el('text', {x: x + 25, y: 76, fill: MID, 'font-size': 13, 'font-family': 'Pre, sans-serif', 'text-anchor': 'middle'}, s); t.textContent = lab[i]; }
+  }
+  const t = el('text', {x: 720, y: 96, fill: SOFT, 'font-size': 14, 'font-family': 'Mono, Menlo', 'text-anchor': 'end'}, s); t.textContent = '최대 12장';
+}
+
+function post() {
+  const s = document.getElementById('post');
+  el('line', {x1: 0, y1: 90, x2: 1432, y2: 90, stroke: INK, 'stroke-width': 2}, s);
+  for (let i = 0; i <= 64; i++) {
+    const x = i * 1432 / 64;
+    el('line', {x1: x, y1: 90, x2: x, y2: i % 4 === 0 ? 70 : 80, stroke: INK, 'stroke-width': i % 4 === 0 ? 1.6 : 1}, s);
+  }
+  const hits = [[8, '컷'], [16, '스파크'], [24, ''], [28, '타이포'], [40, ''], [44, '스파크'], [52, ''], [56, '타이포']];
+  hits.forEach(([b, lab]) => {
+    const x = b * 1432 / 64;
+    el('path', {d: `M${x} 92 L${x - 9} 112 L${x + 9} 112 Z`, fill: RED}, s);
+    if (lab) { const t = el('text', {x, y: 136, fill: RED, 'font-size': 17, 'font-family': 'Pre, sans-serif', 'font-weight': 500, 'text-anchor': 'middle'}, s); t.textContent = lab; }
+  });
+  // lyric bar
+  el('rect', {x: 1432 * 30 / 64, y: 30, width: 1432 * 9 / 64, height: 22, fill: 'none', stroke: MID, 'stroke-width': 1.4}, s);
+  const ly = el('text', {x: 1432 * 30 / 64 + 8, y: 47, fill: MID, 'font-size': 15, 'font-family': 'Pre, sans-serif'}, s); ly.textContent = '가사';
+  const lt = el('text', {x: 0, y: 47, fill: SOFT, 'font-size': 15, 'font-family': 'Mono, Menlo', 'letter-spacing': '2'}, s); lt.textContent = 'BEAT';
+}
+
+function edit() {
+  const s = document.getElementById('edit');
+  const lab = (x, y, t, c, fs) => { const e = el('text', {x, y, fill: c || SOFT, 'font-size': fs || 15, 'font-family': 'Mono, Menlo', 'letter-spacing': '1'}, s); e.textContent = t; };
+  const x0 = 60;
+  lab(0, 58, 'V1'); lab(0, 152, 'A1');
+  const clips = [['T03', 120], ['T11', 86], ['T07', 160], ['T02', 70], ['T15', 132], ['T09', 96], ['T21', 150], ['T04', 110], ['T18', 140], ['T12', 108], ['T06', 120]];
+  let x = x0;
+  clips.forEach(([n, w]) => {
+    el('rect', {x, y: 28, width: w - 4, height: 48, fill: '#EFEDE7', stroke: INK, 'stroke-width': 1.4}, s);
+    lab(x + 8, 48, n, MID, 14);
+    x += w;
+  });
+  // audio
+  for (let i = 0; i < (x - x0) / 6; i++) {
+    const hh = 6 + rnd() * 22;
+    el('rect', {x: x0 + i * 6, y: 147 - hh / 2, width: 2.6, height: hh, fill: MID}, s);
+  }
+  el('line', {x1: x0, y1: 104, x2: x - 4, y2: 104, stroke: LINE, 'stroke-width': 1}, s);
+  // playhead
+  const ph = x0 + 640;
+  el('line', {x1: ph, y1: 6, x2: ph, y2: 196, stroke: RED, 'stroke-width': 2.4}, s);
+  el('path', {d: `M${ph - 9} 0 L${ph + 9} 0 L${ph} 12 Z`, fill: RED}, s);
+  lab(x0, 226, '테이크 번호가 섞여 있는 게 정상 · 더 뽑을 수 있으니까', SOFT, 15);
+}
+
+/* ---------- hand marks on text ---------- */
+function decorate() {
+  document.querySelectorAll('.strike').forEach(sp => {
+    const w = sp.offsetWidth, h = sp.offsetHeight;
+    const svg = el('svg', {class: 'mark', width: w + 20, height: h, style: `left:-10px;top:0`});
+    const y = h * .56;
+    const P = Array.from({length: 14}, (_, i) => [i / 13 * (w + 16) + 2, y + (i / 13 - .5) * -4]);
+    el('path', {d: handPath(P, 2), fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linecap': 'round'}, svg);
+    sp.appendChild(svg);
+  });
+  document.querySelectorAll('.under').forEach(sp => {
+    const w = sp.offsetWidth, h = sp.offsetHeight;
+    const svg = el('svg', {class: 'mark', width: w + 20, height: 30, style: `left:-6px;top:${h - 10}px`});
+    const P = Array.from({length: 12}, (_, i) => [i / 11 * (w + 10), 10 + Math.sin(i * .9) * 1.2 + i * .3]);
+    el('path', {d: handPath(P, 1.6), fill: 'none', stroke: RED, 'stroke-width': 3.2, 'stroke-linecap': 'round'}, svg);
+    sp.appendChild(svg);
+  });
+  document.querySelectorAll('.circled').forEach(sp => {
+    const w = sp.offsetWidth, h = sp.offsetHeight;
+    const pad = 26, svg = el('svg', {class: 'mark', width: w + pad * 2, height: h + pad * 2, style: `left:${-pad}px;top:${-pad}px`});
+    const cx = w / 2 + pad, cy = h / 2 + pad + 6, rx = w / 2 + 16, ry = h / 2 - 4;
+    const P = [];
+    for (let i = 0; i <= 40; i++) {
+      const a = -2.2 + i / 40 * (Math.PI * 2 + .55);
+      const k = 1 + i / 40 * .07;
+      P.push([cx + Math.cos(a) * rx * k, cy + Math.sin(a) * ry * k]);
+    }
+    el('path', {d: handPath(P, 3), fill: 'none', stroke: RED, 'stroke-width': 4.5, 'stroke-linecap': 'round'}, svg);
+    sp.appendChild(svg);
+  });
+}
+
+
+/* ---------- VT-10 drawings ---------- */
+const txt = (svg, x, y, t, o = {}) => { const e = el('text', Object.assign({x, y, fill: INK, 'font-size': 20, 'font-family': 'Pre, sans-serif'}, o), svg); e.textContent = t; return e; };
+const arrowLine = (svg, a, b, color, sw) => {
+  el('line', {x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: color, 'stroke-width': sw}, svg);
+  const ang = Math.atan2(b[1] - a[1], b[0] - a[0]), l = sw * 5, w = sw * 2;
+  const p1 = [b[0] - Math.cos(ang) * l - Math.sin(ang) * w, b[1] - Math.sin(ang) * l + Math.cos(ang) * w];
+  const p2 = [b[0] - Math.cos(ang) * l + Math.sin(ang) * w, b[1] - Math.sin(ang) * l - Math.cos(ang) * w];
+  el('polygon', {points: [b, p1, p2].map(p => p.join(',')).join(' '), fill: color}, svg);
+};
+function d1flow() {
+  const s = document.getElementById('d1flow');
+  const mono = {'font-family': 'Mono, Menlo', 'font-size': 15, fill: MID, 'text-anchor': 'middle'};
+  const rm = Object.assign({}, mono, {fill: RED});
+  arrowLine(s, [195, 52], [255, 52], INK, 2.4); txt(s, 225, 36, '컴파일', mono);
+  arrowLine(s, [465, 52], [525, 52], INK, 2.4); txt(s, 495, 36, '고르기', mono);
+  arrowLine(s, [195, 252], [255, 252], RED, 2.4); txt(s, 225, 236, '압축 전', rm);
+  arrowLine(s, [465, 252], [525, 252], RED, 2.4); txt(s, 495, 236, '승격', rm);
+  arrowLine(s, [360, 208], [360, 104], RED, 2.4); txt(s, 372, 165, '승격', Object.assign({}, rm, {'text-anchor': 'start'}));
+}
+function loop() {
+  const s = document.getElementById('loop');
+  const cx = 360, cy = 350, r = 290;
+  const nodes = [['생성', 'Seedance · 이미지'], ['판정', '사용자 거절 원문 · 하트'], ['기록', 'Claude 메모리: 규칙 + Why'], ['승격', '위키 교훈 장부'], ['기계화', 'prompt_lint 정규식'], ['주입', '라우터 → 다음 블록']];
+  const ang = i => (-90 + i * 60) * Math.PI / 180;
+  const pos = i => [cx + Math.cos(ang(i)) * r, cy + Math.sin(ang(i)) * r];
+  const exitPt = (c, d, hw, hh) => { const t = Math.min(Math.abs(d[0]) > 1e-6 ? hw / Math.abs(d[0]) : 1e9, Math.abs(d[1]) > 1e-6 ? hh / Math.abs(d[1]) : 1e9); return [c[0] + d[0] * (t + 10), c[1] + d[1] * (t + 10)]; };
+  for (let i = 0; i < 6; i++) {
+    const A = pos(i), B = pos((i + 1) % 6), L = Math.hypot(B[0] - A[0], B[1] - A[1]), d = [(B[0] - A[0]) / L, (B[1] - A[1]) / L];
+    const p0 = exitPt(A, d, 120, 48), p1 = exitPt(B, [-d[0], -d[1]], 120, 48);
+    const pts = Array.from({length: 10}, (_, k) => [p0[0] + (p1[0] - p0[0]) * k / 9, p0[1] + (p1[1] - p0[1]) * k / 9]);
+    el('path', {d: handPath(pts, 1.5), fill: 'none', stroke: RED, 'stroke-width': 4, 'stroke-linecap': 'round'}, s);
+    arrowHead(s, pts[pts.length - 1], pts[pts.length - 3], 18, RED, 4);
+  }
+  nodes.forEach(([t, sub], i) => {
+    const x = cx + Math.cos(ang(i)) * r, y = cy + Math.sin(ang(i)) * r;
+    el('rect', {x: x - 120, y: y - 48, width: 240, height: 96, fill: '#FAF9F6', stroke: INK, 'stroke-width': 2.5}, s);
+    txt(s, x - 104, y - 6, String(i + 1).padStart(2, '0'), {'font-family': 'Mono, Menlo', 'font-size': 16, fill: RED});
+    txt(s, x - 68, y - 2, t, {'font-family': 'Batang, serif', 'font-size': 30, 'font-weight': 700});
+    txt(s, x - 104, y + 30, sub, {'font-size': 16, fill: MID});
+  });
+  txt(s, cx, cy + 8, '11-13 기준', {'font-family': 'Mono, Menlo', 'font-size': 20, fill: SOFT, 'text-anchor': 'middle'});
+  document.getElementById('trace').innerHTML = [
+    ['10-22 · 판정', '실사 인물 프롬프트의 "smooth skin" → <q>AI 티가 질질</q>'],
+    ['10-22 · 기록', 'Claude 메모리 <code>seedance-avoid-smooth-skin</code> — 대신 모공 · 35mm · 그레인'],
+    ['11-11 · 기계화', 'prompt_lint 규칙 <code>smooth_skin</code> — 영상 · 이미지 프롬프트'],
+    ['11-13 · 승격', '교훈 장부 실사 [10-22] — 라우터가 실사 블록마다 포함'],
+    ['다음 블록 · 주입', '같은 문구를 쓰면 저작 단계에서 경고'],
+  ].map(([a, b]) => `<p><span>${a}</span>${b}</p>`).join('');
+}
+
+/* ---------- camera ---------- */
+const world = document.getElementById('world');
+const steps = [
+  {rect: [30, 30, 6340, 4540], label: '전체도'},
+  {id: 's1', label: '01 기획'},
+  {id: 'd01a', deep: 1, label: '01-A 기획 단계와 잠금'},
+  {id: 'd01b', deep: 1, label: '01-B 스타일 바이블 필드'},
+  {id: 'd01c', deep: 1, label: '01-C 콘티 필드'},
+  {id: 's2', label: '02 음악'},
+  {id: 'd02a', deep: 1, label: '02-A Suno 프롬프트 구조'},
+  {id: 'rev', label: '△1 음악에 맞춰 기획 수정'},
+  {id: 's3', label: '03 이미지'},
+  {id: 'd03a', deep: 1, label: '03-A 이미지 프롬프트 구조'},
+  {id: 'd03b', deep: 1, label: '03-B 참조 이미지 규칙 · QC'},
+  {id: 'd03c', deep: 1, label: '03-C 이미지 모델 변경'},
+  {id: 's4', label: '04 영상화'},
+  {id: 'd04a', deep: 1, label: '04-A 프롬프트 해부'},
+  {id: 'd04b', deep: 1, label: '04-B 선반 → 제작 → QC'},
+  {id: 'd04c', deep: 1, label: '04-C 거절 패턴 13'},
+  {id: 'd04d', deep: 1, label: '04-D 영상 모델 · 모드 변경'},
+  {id: 's5', label: '05 후처리'},
+  {id: 'c51', focus: 's5', label: '05-1 화성 · 잉크 프레임'},
+  {id: 'c52', focus: 's5', label: '05-2 매돌이 · 도감 카드'},
+  {id: 'c53', focus: 's5', label: '05-3 성남 · 설명은 코드로'},
+  {id: 'c54', focus: 's5', label: '05-4 솔로몬 · 현수막 글자'},
+  {id: 'd05a', deep: 1, label: '05-A 후처리 구성'},
+  {id: 's6', label: '06 편집'},
+  {id: 'd06a', deep: 1, label: '06-A 편집 규칙'},
+  {rect: [30, 30, 6340, 4540], label: '전체도'},
+  {rect: [6630, 30, 8540, 9640], deep: 1, label: 'VT-10 단계별 상세도'},
+  {id: 'd00a', deep: 1, label: '00-A 위키 지도'},
+  {id: 'd00b', deep: 1, label: '00-B 교훈 → 규칙 경로'},
+  {id: 'd00c', deep: 1, label: '00-C 문서 권위 · 수치'},
+  {rect: [0, 0, 15200, 9700], deep: 1, label: '전체'},
+];
+let idx = 0, cam = null, raf = 0, focusTimer = 0, brief = false;
+const stepFrom = (i, d) => { let j = i + d; while (brief && steps[j] && steps[j].deep) j += d; return Math.max(0, Math.min(steps.length - 1, j)); };
+
+function rectFor(st) {
+  if (st.rect) return {x: st.rect[0], y: st.rect[1], w: st.rect[2], h: st.rect[3], pad: .02};
+  const e = document.getElementById(st.id);
+  let x = 0, y = 0, n = e;
+  while (n && n !== world) { x += n.offsetLeft; y += n.offsetTop; n = n.offsetParent; }
+  return {x, y, w: e.offsetWidth, h: e.offsetHeight, pad: st.focus ? .04 : .05};
+}
+function camFor(r) {
+  const vw = innerWidth, vh = innerHeight;
+  const z = Math.min(vw * (1 - r.pad * 2) / r.w, vh * (1 - r.pad * 2) / r.h);
+  return {x: r.x + r.w / 2, y: r.y + r.h / 2, z};
+}
+function apply(c) {
+  world.style.transform = `translate(${innerWidth / 2 - c.x * c.z}px, ${innerHeight / 2 - c.y * c.z}px) scale(${c.z})`;
+}
+const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+function go(i, instant) {
+  i = Math.max(0, Math.min(steps.length - 1, i));
+  idx = i;
+  const st = steps[i];
+  const target = camFor(rectFor(st));
+  cancelAnimationFrame(raf); clearTimeout(focusTimer);
+  const fid = st.focus || st.id;
+  document.querySelectorAll('.sheet.focus').forEach(e => { if (e.id !== fid) e.classList.remove('focus'); });
+  document.body.classList.toggle('zoomed', !!st.focus);
+  const tgtEl = fid ? document.getElementById(fid) : null;
+  hud();
+  history.replaceState(null, '', '#' + i);
+  if (instant || !cam) {
+    cam = target; apply(cam);
+    document.body.classList.add('snap');
+    if (tgtEl) tgtEl.classList.add('focus');
+    requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('snap')));
+    return;
+  }
+  const from = {...cam};
+  const dist = Math.hypot(target.x - from.x, target.y - from.y) * Math.min(from.z, target.z) / innerWidth;
+  const dip = Math.min(1.1, dist * .55);
+  const dur = 1150 + Math.min(dist, 2) * 260;
+  const t0 = performance.now();
+  if (tgtEl) focusTimer = setTimeout(() => tgtEl.classList.add('focus'), dur * .62);
+  const tick = now => {
+    const t = Math.min(1, (now - t0) / dur), e = ease(t);
+    const lz = Math.log(from.z) + (Math.log(target.z) - Math.log(from.z)) * e;
+    cam = {
+      x: from.x + (target.x - from.x) * e,
+      y: from.y + (target.y - from.y) * e,
+      z: Math.exp(lz) / (1 + dip * Math.sin(Math.PI * e)),
+    };
+    apply(cam);
+    if (t < 1) raf = requestAnimationFrame(tick); else cam = target;
+  };
+  raf = requestAnimationFrame(tick);
+}
+
+/* ---------- HUD ---------- */
+const ticks = document.getElementById('ticks');
+steps.slice(1, -1).forEach(() => ticks.appendChild(document.createElement('i')));
+function hud() {
+  document.getElementById('hudl').innerHTML = `${steps[idx].label} <span class="mode">${brief ? '발표' : '상세'}</span>`;
+  document.getElementById('hudn').textContent = String(idx === steps.length - 1 ? 0 : idx).padStart(2, '0');
+  [...ticks.children].forEach((t, k) => t.classList.toggle('on', k < idx && idx < steps.length - 1));
+}
+
+/* ---------- input ---------- */
+addEventListener('keydown', e => {
+  const k = e.key;
+  if (['ArrowRight', 'ArrowDown', ' ', 'PageDown', 'Enter'].includes(k)) { e.preventDefault(); go(stepFrom(idx, 1)); }
+  else if (['ArrowLeft', 'ArrowUp', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); go(stepFrom(idx, -1)); }
+  else if (k === 'p' || k === 'P') { brief = !brief; hud(); }
+  else if (k === 'd' || k === 'D') go(steps.findIndex(s => s.label === 'VT-10 단계별 상세도'));
+  else if (k === 'Escape' || k === '0') go(0);
+  else if (k === 'Home') go(0);
+  else if (k === 'End') go(steps.length - 1);
+  else if (/^[1-6]$/.test(k)) go(steps.findIndex(s => s.id === 's' + k));
+  else if (k === 'r' || k === 'R') go(steps.findIndex(s => s.id === 'rev'));
+  else if (k === 'f' || k === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
+  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+});
+document.querySelectorAll('.sheet').forEach(s => s.addEventListener('click', ev => {
+  ev.stopPropagation();
+  if (steps[idx].id === s.id) return;
+  go(steps.findIndex(st => st.id === s.id));
+}));
+document.querySelectorAll('.case').forEach(c => c.addEventListener('click', ev => {
+  const cur = steps[idx];
+  if ((cur.focus || cur.id) !== 's5') return;
+  ev.stopPropagation();
+  if (cur.id === c.id) return;
+  go(steps.findIndex(st => st.id === c.id));
+}));
+document.getElementById('stage').addEventListener('click', () => { if (steps[idx].id) go(0); });
+addEventListener('resize', () => go(idx, true));
+
+/* ---------- boot ---------- */
+zones(0, 6400, 4600); zones(6600, 8600, 9700); connectors(); cloud(); wave(); beats(); dots(); shots(); refs(); edit(); d1flow(); loop();
+document.fonts.ready.then(() => {
+  decorate();
+  const h = parseInt(location.hash.slice(1), 10);
+  go(isNaN(h) ? 0 : h, true);
+});
+const params = new URLSearchParams(location.search);
+if (params.has('clean')) document.body.classList.add('clean');
+setTimeout(() => document.getElementById('hint').style.opacity = 0, 6000);
+})();
+</script>
+</body>
+</html>
