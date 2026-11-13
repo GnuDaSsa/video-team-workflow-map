@@ -8,6 +8,7 @@
 *SHEET 01 / 06*
 **처음 꿈꾼 것**
 ~~Codex + LLM Wiki로 기획 경험을 쌓아서,~~ ~~언젠가는 제가 기획 안 해도 되게.~~ (화면에서 빨간 취소선)
+Codex = AI 코딩 도구 · LLM Wiki = 직접 쌓는 정리 문서
 
 **해 보니**
 공공 영상도, 공모전도 매번 컨셉과 분위기가 다릅니다.
@@ -64,27 +65,15 @@ AI 슬롭은 왜 슬롭일까요? 일상에서 너무 많이 보이기 때문입
 
 드문 도구 + 공냥 프롬프트킷 + 나의 개성 = 희소성
 슬롭이냐 아니냐는 이 단계에서 갈립니다.
+실제 예 실사 인물은 Seedream으로 다시 만든 예 · 성남시 푸드테크 영상 · 보호자 인물 시트
+- 그림 `assets/r3/img_earlier_face.jpg` 이전 인물 시트 · 얼굴
+→
+- 그림 `assets/r3/img_seedream_face.jpg` Seedream으로 다시 만든 시트 · 얼굴 · 승인본
+너무 자글자글해서 싫어
+이전 시트를 보고 제가 한 말 · 2026-10-23 강의자료에 적어 둔 원문
+참조 = 영상을 만들 때 AI에게 기준으로 붙이는 그림(인물 · 장소 · 소품). 이런 인물 시트가 참조이고, 04에서 붙입니다.
 
 <sub>비고: AI 세션 · 이미지 생성 → 검수</sub>
-
-## △2 참조를 고쳐서 해결
-<!-- id: s3r -->
-2 REV. 2 — 영상 → 참조
-문장으로 설득하지 말고, 참조를 바꿉니다.
-장소 참조 그림 속 리본 그릇 이, 생성한 영상의 테이블에 그대로 나왔습니다. 리본은 제가 두 번 거절한 소품이었습니다. 그래서 참조 그림을 리본 없이, 여백 없이 다시 만들었습니다.
-참조가 영상 프롬프트를 이깁니다.
-검수 기록 원문 “테이블 그릇에 빨강·파랑의 리본 모양 물체가 보이며, R9의 리본 전면 삭제와 충돌한다.”
-작업 메모 원문 · 11-08 “R9 B01·B03·B04에서 리본 그릇·종이 여백이 나와 프롬프트 수정 … 재생성, full-bleed·리본 없음 QC 통과.”
-이 일에서 검사 규칙 두 개가 생겼습니다 → 부록 04-C
-전 처음 참조 → 생성 결과
-- 그림 `assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg` [종이 여백] 처음 장소 참조 · 11-06 · 왼쪽 아래 확대 — 테이블에 리본 그릇, 가장자리에 종이 여백
-→
-- 그림 `assets/r2/b_leak_clip_2_5_cre2_t7s.jpg` 생성 클립의 한 프레임 · 11-07 — 리본 그릇이 그대로
-후 다시 만든 참조 → 생성 결과
-- 그림 `assets/r2/a_approved_REF_LOC_MEETUP_HALL_2.jpg` 다시 만든 장소 참조 · 11-08 · 왼쪽 아래 확대 — 리본 없음, 화면 끝까지 그림
-→
-- 그림 `assets/r2/b_later_clip_2_5_cre11_t7s.jpg` 이후 생성 클립의 한 프레임 · 11-08 — 리본 그릇 없음
-성남시 MV 라운지 장면 · Seedance 2.5. 어느 클립에 어느 참조를 붙였는지는 클립 단위 기록이 없어, 날짜 순서와 작업 메모로 이었습니다.
 
 ## 04 영상화
 <!-- id: s4 -->
@@ -96,12 +85,14 @@ Runway → Seedance 2.0 · 2.5
 
 **① 붙인 참조 3장**
 
-**② 실제 프롬프트에서 세 줄 영어 약 9천 자 중**
+**② 실제 프롬프트에서 네 줄 영어 약 9천 자 중**
 
-**③ 나온 결과 · 같은 15초**
+**③ 나온 결과 · 한 번에 생성한 15초**
 - 그림 `assets/vid/b01_ref1.jpg` @Image1 · 장소
 References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.
 참조 한 장에 역할 하나. 이 그림에서는 장소만 가져오라고 적습니다.
+Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
+움직임은 형용사 대신 순서로 적습니다. 바람에 갈대가 눕고 → 한 박자 뒤 코트 자락이 들리고 → 숨 한 번 → 그대로 멈춤
 - 그림 `assets/vid/b01_shot1.jpg` 숏 1 · 0–3초
 - 그림 `assets/vid/b01_ref2.jpg` @Image2 · 남자 인물 시트
 @Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.
@@ -113,6 +104,24 @@ Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance �
 - 그림 `assets/vid/b01_shot5.jpg` 숏 5 · 빈 현수막 → 05-4
 
 <sub>비고: 실제 사례 · 성남시 MV 첫 15초 · Seedance 2.5 · 5숏 · 참조 3장</sub>
+
+## △2 참조를 고쳐서 해결
+<!-- id: s3r -->
+2 REV. 2 — 영상 → 참조
+영상에 번지면, 참조부터 고칩니다.
+장소 참조 그림 속 리본 그릇 이, 생성한 영상의 테이블에 그대로 나왔습니다. 리본은 제가 두 번 거절한 소품이었습니다. 그래서 참조 그림을 리본 없이, 여백 없이 다시 만들고, 참조 그림의 프롬프트도 함께 고쳤습니다.
+영상에 이상한 소품이 반복되면, 참조부터 의심합니다.
+교훈 장부에 적어 둔 문장 · 11-08 “참조가 영상 프롬프트를 이긴다.”
+작업 메모 원문 · 11-08 “R9 B01·B03·B04에서 리본 그릇·종이 여백이 나와 프롬프트 수정 … 재생성, full-bleed·리본 없음 QC 통과.”
+이 일에서 검사 규칙 두 개가 생겼습니다 → 부록 04-C
+작업 메모와 날짜순으로 재구성한 사례 · 참조와 클립의 1:1 기록은 없음 · 같은 기간 영상 프롬프트 변경 여부는 확인 못 함
+전 처음 참조(11-06)와 그 뒤 생성한 클립(11-07)
+- 그림 `assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg` [종이 여백] 처음 장소 참조 · 11-06 · 왼쪽 아래 확대 — 테이블에 리본 그릇, 가장자리에 종이 여백
+- 그림 `assets/r3/same_before.jpg` 같은 15초 구간(B03)의 클립 · 11-07 · 8초 지점 — 테이블에 리본 그릇
+후 다시 만든 참조(11-08)와 그 뒤 다시 생성한 클립(11-08)
+- 그림 `assets/r2/a_approved_REF_LOC_MEETUP_HALL_2.jpg` 다시 만든 장소 참조 · 11-08 · 왼쪽 아래 확대 — 리본 없음, 화면 끝까지 그림
+- 그림 `assets/r3/same_after.jpg` 같은 구간을 다시 생성한 클립 · 11-08 · 8초 지점 — 같은 구도, 리본 그릇 없음
+성남시 MV 라운지 장면 · Seedance 2.5. 두 클립은 같은 구도이지만 같은 컷은 아닙니다(색감·잔·촛불이 다름). 어느 생성에 어느 참조를 붙였는지는 기록이 없습니다.
 
 ## 05 후처리
 <!-- id: s5 -->
@@ -207,7 +216,7 @@ AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.
 
 
 **확정 규칙**
-- 앞 단계가 바뀌면 뒤 단계의 확정은 전부 다시 확인
+- 앞 단계가 바뀌면 뒤 단계의 확정을 다시 확인 — 단, 생성 전 묶음은 15초 구간별로 봅니다. 입력이 바뀐 구간만 다시 확정하고, 그대로인 구간의 확정과 결과는 유지(11-11부터). 화풍·인물 고정 문장이 바뀌면 전 구간
 - 고칠 때는 같은 문서를 고쳐 다시 확정, 이전본은 따로 보관
 - 제작 단계에서 프롬프트를 새로 쓰지 않음 — 그 내용을 정한 단계로 돌아감
 - 영상 종류: 뮤직비디오 · 공모전 · 관광 · 기관 홍보 · 숏폼
@@ -313,8 +322,8 @@ AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.
 
 포맷 B (단독 인물 화보): 피사체 → 얼굴 → 헤어 → 장르 → 장면·포즈 → 의상 → 구도 → 조명 → HEX → 질감 → AR, 350–450자 한 문단
 
-**철칙**
-- 부정문 대신 긍정형으로 다시 쓰기 — 모델이 부정어를 그린다
+**철칙 · 공냥 키트(gpt-image-2용) 기준**
+- 장면에서 뺄 것은 부정문 대신 긍정형으로 다시 쓰기 — gpt-image-2는 장면 부정어를 오히려 그림. 예외: 글자를 넣을 때 중복·유령 글자를 막는 정해진 문구
 - masterpiece · 8k · best quality 같은 옛 어휘 금지
 - 카메라·조명 장비명 대신 결과 ("배경이 부드럽게 흐려짐")
 - 수치는 박는다 — HEX · 켈빈 · key:fill 1:2
@@ -380,6 +389,7 @@ AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.
 | References: @Image1 is the river valley, footbridge, reeds, … only. | 참조 하나에 역할 하나 "분위기용" 같은 느슨한 역할 금지 |
 | Summary: On one autumn dusk in Seongnam, Korea, a young man and a young woman, … | 누가 · 어디서 · 무엇이 일어나나 한 문장 |
 | Shot 1 (0-3s): extreme wide shot, high angle, truck right, 24mm. … | 숏마다 크기 · 앵글 · 움직임 · 렌즈 그다음은 형용사 대신 보이는 사건 |
+| … He slows over two steps; he stops and tucks his sketchbook | 동작은 순서로 늦추고 → 멈추고 → 챙긴다 (숏 3) |
 | SFX: flowing water, wind through the reeds, … No music. No dialogue. No subtitles. | 현장음만 음악 · 자막은 후처리 |
 | Consistency: He keeps messy short black hair with a ruffled fringe, … | 인물 특징 다시 적기 긴 테이크 흔들림 방지 |
 | End frame: Fixed eye-level wide of a low glass building … | 마지막 구도 다음 생성이 이어받음 |
@@ -406,7 +416,7 @@ AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.
 | 글자 | 옷 · 등판 · 소품 위 깨진 글자 |
 | 시선 · 손 | 장비를 보는가, 손 논리 |
 | 얼굴 | 서양인 얼굴 · 이상한 헤어 |
-| 교체 | 같은 클립의 무인 구간·클로즈업으로 |
+| 교체 | 같은 클립의 무인 구간·클로즈업으로 — 그 구간이 장면의 역할을 하는지 따로 검수 · 거절된 클립 자체는 해결 전까지 보류 |
 
 <sub>출처: AGENTS.md §2.4–2.5 · runtime/scripts</sub>
 
