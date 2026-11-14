@@ -776,6 +776,53 @@ body.clean .appxb{opacity:0}
 #s3 .sp3g figure.pick img{border-width:2px}
 #s3 .pk3 .big figcaption{background:var(--sheet);color:var(--red);border:2px solid var(--red)}
 #s3 .sp3kl li{line-height:1.22}
+
+/* ===== R14 ===== */
+#ink .cx{transition:opacity .25s ease}
+body.in #ink .cx{opacity:0}
+.snap #ink .cx{transition:none}
+#s2 .au{visibility:hidden;pointer-events:none}
+.ttl .s,.legend-ov,.ov-sub,.ov-top,.rev .ov-top{font-size:106px}
+.ov-sub{line-height:1.15;letter-spacing:-.01em;left:90px;right:90px}
+#s3 .sp3t{font-size:35px}
+#s3 .sp3b strong{font-size:43px;line-height:1.14}
+#s3 .sp3b .bd{font-size:27px}
+#s3 .sp3g.w3{grid-template-columns:repeat(3,216px);gap:12px 14px}
+#s3 .sp3g figcaption{font-size:25px;line-height:1.2}
+#s3 .sp3kl li{line-height:1.15}
+#s3 .sp3s{margin:4px 0 2px}
+#s3 .pk3{grid-template-columns:264px 48px 296px}
+#s3 .pk3>i{display:flex;align-items:center;justify-content:center}
+#s3r .r2l{margin-top:26px}
+#s3r .fx > div:nth-child(2) .cw.z img{left:-30%}
+#s4 .mt4{flex-wrap:wrap;row-gap:10px;font-size:27px;margin-bottom:0}
+#s4 .mt4 .br{flex-basis:100%;height:0}
+#s4 .mt4 small,#s4 .mt4 em{font-size:27px}
+#s4 .mt4 .bd{font-size:22px}
+#s4 .mt4{transition:opacity .4s}
+body.p4b #s4 .mt4{opacity:0;pointer-events:none}
+#s4 .v4a{top:94px;row-gap:6px;grid-template-columns:258px minmax(0,1fr)}
+#s4 .v4a .mark{position:absolute;left:0;top:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+#s4 .v4r.two{border-left:0}
+#s4 .mvw img,#s4 .mvw video{transform:scale(3.3);transform-origin:0% 62%}
+.kc small{font:500 25px/22px var(--sans)}
+.kc b{font:600 28px/1.06 var(--sans);letter-spacing:-.045em}
+.kc .under{font-size:28px}
+.kc>div{height:112px;padding:15px 14px 6px}
+.kc>div.key{min-height:112px}
+#s5 .kc>div:nth-child(2) b{font-size:31px;line-height:1.12}
+#s5 .kc>div:nth-child(2){height:auto;min-height:122px}
+#c53 .pair.three{grid-template-rows:auto auto auto}
+#c53 .pair.three figure:last-child{grid-row:1/4}
+#c53 .pair.three > i:first-of-type{display:block;grid-column:1;justify-self:center;font-size:27px;line-height:1;height:16px;margin:-6px 0;transform:rotate(90deg);color:var(--ink)}
+body.zoomed #c53.cur .pair.three{grid-template-columns:84px minmax(0,1fr);column-gap:10px}
+.ch,.ct,.pair b{transition:font-size .5s ease}
+body.zoomed #s5 .case.cur .ch{font-size:11px}
+body.zoomed #s5 .case.cur .ct{font-size:21px;margin:4px 0 8px}
+body.zoomed #s5 .case.cur .pair b{font-size:9.5px}
+body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
+.pair b{color:var(--ink)}
+.pair b.a{color:var(--red)}
 </style>
 </head>
 <body>
@@ -902,7 +949,7 @@ body.clean .appxb{opacity:0}
               <figure class="pick"><img src="assets/r9/mj_2.jpg" alt=""></figure>
               <figure><img src="assets/r9/mj_3.jpg" alt=""></figure>
             </div>
-            <i>→</i>
+            <i><svg width="48" height="24" viewBox="0 0 48 24"><path d="M2 12H44M34 4l10 8-10 8" fill="none" stroke="#1B1A17" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></i>
             <figure class="big"><img src="assets/r9/mj_2.jpg" alt=""><figcaption>고름</figcaption></figure>
           </div>
           <div class="sp3s">직접 골라 쓴 작풍</div>
@@ -930,7 +977,6 @@ body.clean .appxb{opacity:0}
       <div>
         <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">2</text></svg>영상 → 참조<span class="bd" data-go="d00c">재구성</span></div>
         <div class="rt">참조 그림에 있으면,<br>영상에도 나옵니다.</div>
-        <p class="rp">장소 참조 속 <b>리본 그릇</b> → 영상 테이블에 그대로<br>리본 없이 다시 그림 → 재생성 → 사라짐</p>
         <p class="r2l">영상에 이상한 물건이 계속 나오면,<br>프롬프트보다 참조 그림부터 봅니다.</p>
       </div>
       <div class="fx">
@@ -970,14 +1016,14 @@ body.clean .appxb{opacity:0}
     <div><small>쌓인 특성</small><b>use · exclude · scope</b><b>준비 → 동작 → 반응 → 정착</b><b>글자 날 소품 → 빈 채로</b></div>
     <div><small>위키·기록</small><b>Higgsfield 2D · 3D · 실사</b><b>사징가 어댑터</b><b>교훈 장부</b></div>
   </div>
-  <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i>→</i><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span></div>
-        <div class="v4a">
+  <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i>→</i><span class="br"></span><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span></div>
+        <div class="v4a"><svg class="mark" id="m4"></svg>
           <div class="k">붙인 참조 3장</div>
           <div class="h4">참조 1장 = 역할 1개</div>
           <figure><img src="assets/vid/b01_ref1.jpg" alt=""><figcaption>장소</figcaption></figure>
           <div class="v4r"><p>여기선 장소만</p></div>
           <figure><img src="assets/vid/b01_ref2.jpg" alt=""><figcaption>남자 인물 시트</figcaption></figure>
-          <div class="v4r two"><p>인물 시트 = 얼굴·옷만(use)</p><p>종이 배경·3면 배치 제외(exclude)</p></div>
+          <div class="v4r two"><p>인물 시트 = 얼굴·옷만</p><p>종이 배경·3면 배치 제외</p></div>
           <figure><img src="assets/vid/b01_ref3.jpg" alt=""><figcaption>여자 인물 시트</figcaption></figure>
         </div>
         <div class="v4b">
@@ -1561,8 +1607,9 @@ function zones(x0, w, h, extra) {
 }
 
 /* ---------- overview connectors ---------- */
+function cxg() { const i = document.getElementById('ink'); let g = i.querySelector('g.cx'); if (!g) { g = document.createElementNS('http://www.w3.org/2000/svg', 'g'); g.setAttribute('class', 'cx'); i.appendChild(g); } return g; }
 function connectors() {
-  const s = document.getElementById('ink');
+  const s = cxg();
   const straight = (pts, head) => {
     el('polyline', {points: pts.map(p => p.join(',')).join(' '), fill: 'none', stroke: INK, 'stroke-width': 4, 'stroke-linejoin': 'miter'}, s);
     const a = pts[pts.length - 2], b = pts[pts.length - 1];
@@ -1616,10 +1663,16 @@ function cloud(sel = '#rev .cloud', w = 960, h = 600, sw = 3.2) {
 /* ---------- small diagrams ---------- */
 function rev2() {
   cloud('#s3r .cloud', 1440, 810, 1.1);
-  const s = document.getElementById('ink');
+  const s = cxg();
   const P = sampleBez([5300, 1124], [5288, 1160], [5312, 1196], [5300, 1232], 12);
   el('path', {d: handPath(P, 3), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round'}, s);
   arrowHead(s, P[P.length - 1], P[P.length - 3], 50, RED, 7);
+  const R = [[300, 3450], [150, 3450], [150, 190], [5300, 190], [5300, 292]];
+  const Q = [];
+  for (let i = 0; i < R.length - 1; i++) Q.push(...sampleBez(R[i], R[i], R[i + 1], R[i + 1], 24).slice(i ? 1 : 0));
+  el('path', {d: handPath(Q, 4), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, s);
+  el('circle', {cx: 300, cy: 3450, r: 11, fill: RED}, s);
+  arrowHead(s, Q[Q.length - 1], Q[Q.length - 3], 50, RED, 7);
 }
 
 /* r8: 실제 곡 포락선(assets/r8/c05_hats.json env 1000칸 → 128칸 최대값, 0–99). 바탕 모양만 실제이고 하이햇 위치는 예시 */
@@ -1639,11 +1692,11 @@ function wave() {
   const s = document.getElementById('wave');
   const w = 1072, mid = 138, amp = 116, p = w / 128;
   hatWave(s, 0, w, mid, amp);
-  for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', {d: `M${x} 262 L${x - 7} 276 L${x + 7} 276 Z`, fill: RED}, s); }
+  for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', Object.assign({d: `M${x} 262 L${x - 7} 276 L${x + 7} 276 Z`}, k % 2 ? {fill: RED} : {fill: 'none', stroke: RED, 'stroke-width': 1.6, 'stroke-linejoin': 'round'}), s); }
 }
 function beats() {
   const s = document.getElementById('beats');
-  const x0 = 168, w = 632, p = w / 128, mid = 84, amp = 58, yA = 164, hA = 38, yB = 228, hB = 48;
+  const x0 = 168, w = 632, p = w / 128, mid = 70, amp = 46, yA = 136, hA = 44, yB = 208, hB = 44;
   const T = (x, y, t, o) => { const e = el('text', Object.assign({x, y, fill: MID, 'font-size': 13, 'font-family': 'Mono, Menlo'}, o), s); e.textContent = t; return e; };
   const sans = {'font-family': 'Pre, sans-serif', 'font-weight': 600, 'font-size': 19};
   const ax = k => x0 + (16 * k + .5) * p;
@@ -1653,16 +1706,16 @@ function beats() {
   T(0, mid + 16, '빨강 = 하이햇', {fill: RED});
   el('rect', {x: x0, y: yA, width: w, height: hA, fill: 'none', stroke: MID, 'stroke-width': 1.8}, s);
   for (let j = 1; j < 6; j++) { const x = x0 + w * j / 6; el('line', {x1: x, y1: yA - 12, x2: x, y2: yA + hA, stroke: MID, 'stroke-width': 1.8}, s); }
-  for (let j = 0; j < 6; j++) T(x0 + w * (j + .5) / 6, yA + 25, String(j + 1), {'text-anchor': 'middle', fill: MID, 'font-size': 17, 'font-weight': 600});
+  for (let j = 0; j < 6; j++) T(x0 + w * (j + .5) / 6, yA + 29, String(j + 1), {'text-anchor': 'middle', fill: MID, 'font-size': 20, 'font-weight': 600});
   T(0, yA + 18, '기획 초안 6씬', Object.assign({}, sans, {fill: MID}));
   T(0, yA + 36, '균등 분할');
   for (let k = 0; k < 8; k++) {
     const a = k ? ax(k) : x0, b = k < 7 ? ax(k + 1) : x0 + w;
-    el('rect', {x: a, y: yB, width: b - a, height: hB, fill: k % 2 ? '#F3D9D2' : '#FAF9F6', stroke: RED, 'stroke-width': 1.8}, s);
-    T((a + b) / 2, yB + 31, String(k + 1), {'text-anchor': 'middle', fill: RED, 'font-size': 17, 'font-weight': 700});
+    el('rect', {x: a, y: yB, width: b - a, height: hB, fill: '#FAF9F6', stroke: RED, 'stroke-width': 1.8}, s);
+    T((a + b) / 2, yB + 29, String(k + 1), {'text-anchor': 'middle', fill: RED, 'font-size': 20, 'font-weight': 700});
   }
-  T(0, yB + 22, '하이햇 기준 8씬', Object.assign({}, sans, {fill: RED}));
-  T(0, yB + 41, '튀는 박에서 전환', {fill: RED});
+  T(0, yB + 18, '하이햇 기준 8씬', Object.assign({}, sans, {fill: RED}));
+  T(0, yB + 37, '튀는 박에서 전환', {fill: RED});
   const P = sampleBez([x0 + w + 10, yA + 18], [x0 + w + 38, yA + 34], [x0 + w + 38, yB + 6], [x0 + w + 12, yB + 24], 16);
   el('path', {d: handPath(P, 1.5), fill: 'none', stroke: RED, 'stroke-width': 2.2, 'stroke-linecap': 'round'}, s);
   arrowHead(s, P[P.length - 1], P[P.length - 3], 12, RED, 2.2);
@@ -1710,6 +1763,12 @@ function edit() {
     el('rect', {x: x0 + i * 6, y: 147 - hh / 2, width: 2.6, height: hh, fill: MID}, s);
   }
   el('line', {x1: x0, y1: 104, x2: x - 4, y2: 104, stroke: LINE, 'stroke-width': 1}, s);
+  // cut range (clip T09 = x 568..660)
+  el('rect', {x: 588, y: 28, width: 52, height: 48, fill: '#F3D9D2'}, s);
+  [588, 640].forEach(cx => {
+    el('line', {x1: cx, y1: 20, x2: cx, y2: 84, stroke: RED, 'stroke-width': 3.6}, s);
+    if (cx === 588) el('path', {d: `M${cx - 6} 2 L${cx} 10 L${cx + 6} 2`, fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'}, s);
+  });
   // playhead
   const ph = x0 + 640;
   el('line', {x1: ph, y1: 6, x2: ph, y2: 196, stroke: RED, 'stroke-width': 2.4}, s);
@@ -1717,6 +1776,29 @@ function edit() {
 }
 
 /* ---------- hand marks on text ---------- */
+
+function marks4() {
+  const svg = document.getElementById('m4'); if (!svg) return;
+  const v = svg.parentNode, imgs = v.querySelectorAll('figure img');
+  if (imgs.length < 3) return;
+  svg.innerHTML = '';
+  const ell = (cx, cy, rx, ry) => {
+    const pts = []; for (let i = 0; i <= 34; i++) { const a = -2.2 + i / 34 * 6.7; pts.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
+    el('path', {d: handPath(pts, 1.2), fill: 'none', stroke: RED, 'stroke-width': 2, 'stroke-linecap': 'round'}, svg);
+  };
+  const A = imgs[1], B = imgs[2];
+  [[A, FACE, CLOTH], [B, FACE_F, CLOTH_F]].forEach(([im, FACE, CLOTH]) => {
+    const x = im.offsetLeft, y = im.offsetTop, w = im.offsetWidth, h = im.offsetHeight;
+    ell(x + w * FACE[0], y + h * FACE[1], w * FACE[2], h * FACE[3]);
+    ell(x + w * CLOTH[0], y + h * CLOTH[1], w * CLOTH[2], h * CLOTH[3]);
+  });
+  const tx = v.querySelector('.v4r.two p'); if (!tx) return;
+  const bx = A.offsetLeft + A.offsetWidth + 12, y1 = A.offsetTop + A.offsetHeight / 2, y2 = B.offsetTop + B.offsetHeight / 2, ym = (y1 + y2) / 2;
+  const tl = tx.offsetLeft + tx.offsetParent.offsetLeft - 8;
+  el('path', {d: `M${bx} ${y1} Q${bx + 12} ${y1} ${bx + 12} ${ym - 14} Q${bx + 12} ${ym} ${bx + 24} ${ym} Q${bx + 12} ${ym} ${bx + 12} ${ym + 14} Q${bx + 12} ${y2} ${bx} ${y2}`, fill: 'none', stroke: RED, 'stroke-width': 2.2, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, svg);
+  el('line', {x1: bx + 24, y1: ym, x2: tl, y2: ym, stroke: RED, 'stroke-width': 2}, svg);
+}
+const FACE = [.205, .21, .065, .14], CLOTH = [.205, .62, .095, .25], FACE_F = [.23, .15, .06, .09], CLOTH_F = [.23, .58, .10, .29];
 function decorate() {
   document.querySelectorAll('.strike').forEach(sp => {
     const w = sp.offsetWidth, h = sp.offsetHeight;
@@ -1976,7 +2058,7 @@ addEventListener('hashchange', () => { const j = fromHash(); if (j !== idx) { if
 /* ---------- boot ---------- */
 zones(0, 6400, 4600); zones(6600, 8600, 9700, 'zx'); connectors(); cloud('#rev .cloud', 960, 600, 0.9); wave(); beats(); dots(); edit(); d1flow(); rev2();
 document.fonts.ready.then(() => {
-  decorate();
+  decorate(); marks4();
   const h = fromHash();
   if (steps[h].deep) brief = false;
   go(h, true);
