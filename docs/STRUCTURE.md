@@ -12,30 +12,22 @@
 
 **해 보니 · 매번 다름**
 - 2D · 3D · 실사 · 분위기
-
-**비중**
 95
 %
 제 창의성 체감
-나 95
-AI 조언 5
 
 ## 02 음악
 <!-- id: s2 -->
-**키워드 사슬** 중요 [음악이 먼저 정해짐 · → 기획 다시 손봄 △1] → 판단 [특이할 것 없이 Suno · 거의 손 안 댐 · 고르기·다운로드는 직접] → 모델·도구 [Suno · Custom · 길이는 초로] → 스킬·라이브러리 [music-director 스킬 · awesome-suno-prompts · 가까운 패턴 2–5개만] → 쌓인 특성 [형용사 나열 ✗ · 아티스트·곡 이름 제거 · 인트로 허밍·속삭임 ✗] → 위키·기록 [스킬 · 프롬프트 모음에 · 교훈 장부 항목 없음]
-
-**배경음악**
+**키워드 사슬** 중요 [음악이 먼저 정해짐 · → 기획 다시 손봄 △1] → 판단 [특이할 것 없이 Suno · 거의 손 안 댐 · 고르기·다운로드는 직접] → 모델·도구 [Suno · Custom · 길이는 초로] → 스킬·라이브러리 [음악 감독 스킬 · Suno 프롬프트 모음 · 가까운 패턴 2–5개만] → 쌓인 특성 [형용사 나열 ✗ · 아티스트·곡 이름 제거 · 인트로 허밍·속삭임 ✗] → 위키·기록 [스킬 · 프롬프트 모음에 · 교훈 장부 항목 없음]
 음악이 정해지면 다시 기획으로 ↺ △1
 Suno
-실제 예 · 화성 공모전 곡 일부 · Suno · 20초
-클릭 또는 M
 - 소리 `assets/r2/music_c05_20s.mp3`
 예시
-도식: HI-HAT
+도식:
 
 ## △1 음악에 맞춰 기획 수정
 <!-- id: rev -->
-1 REV. 1 — 음악 → 기획 예시
+1 음악 → 기획 예시
 음악을 정하고, 기획을 다시 손봅니다.
 - 팝핑댄서 출신 · 비트에 민감 · 하이햇 = 장면 전환 · 30씬 → 40씬
 도식: 음파 · 빨강 = 하이햇 · 기획 초안 6씬 [1–6] · 균등 분할 · 하이햇 기준 8씬 [1–8] · 튀는 박에서 전환
@@ -57,7 +49,6 @@ Suno
 공냥 프롬프트킷 서식
 Grok · Midjourney는 한 번에 여러 장
 내 눈에 드는 한 장 → 작풍 선정
-여러 장 → 한 장
 - 그림 `assets/r9/mj_0.jpg` 
 - 그림 `assets/r9/mj_1.jpg` 
 - 그림 `assets/r9/mj_2.jpg` 
@@ -72,51 +63,46 @@ Grok · Midjourney는 한 번에 여러 장
 - 그림 `assets/r9/mine_grok.jpg` Grok · 인물
 - 그림 `assets/r9/mine_real_robot.jpg` 실사 · 로봇 시트
 체감
-이것만으로 공모전 슬롭 85%는 이기고 들어간다
+이것만으로 공모전 슬롭
+85%는 이기고 들어간다
 
 ## 04 영상화 ① 참조에 역할 주기
 <!-- id: s4 a -->
 *실제 자료*
-**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 영상 속 글자는 최대한 피함 · 글자는 후처리로 추가] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개 · 지식을 모아 메타프롬프팅] → 모델·도구 [Seedance 2.0 · 2.5 · 메타프롬프팅 = Claude · Opus 5.5 · Fable 5.2] → 스킬·라이브러리 [seedance25-prompt-en · Higgsfield 커뮤니티 문법 · 사징가 스킬 → 어댑터] → 쌓인 특성 [참조: use · exclude · scope · 준비 → 동작 → 반응 → 정착 · 글자 날 소품 → 빈 채로] → 위키·기록 [higgsfield-community-grammar · 2D · 3D · 실사 · 교훈 장부 · xazinga-prompting-adapter]
+**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 영상 속 글자는 최대한 피함 · 글자는 후처리로 추가] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개 · 지식을 모아 메타프롬프팅] → 모델·도구 [Seedance 2.0 · 2.5 · 메타프롬프팅 = Claude · Opus 5.5 · Fable 5.2] → 스킬·라이브러리 [Seedance 기본 문법 · Higgsfield 커뮤니티 문법 · 사징가 스킬 → 어댑터] → 쌓인 특성 [use · exclude · scope · 준비 → 동작 → 반응 → 정착 · 글자 날 소품 → 빈 채로] → 위키·기록 [Higgsfield 2D · 3D · 실사 · 사징가 어댑터 · 교훈 장부]
 프롬프트 저작 Codex → Astra ✗ → Claude Opus 5.5 · Fable 5.2 원하는 바 이상 체감
 
 **붙인 참조 3장**
 참조 1장 = 역할 1개
-- 그림 `assets/vid/b01_ref1.jpg` @Image1 · 장소
+- 그림 `assets/vid/b01_ref1.jpg` 장소
 여기선 장소만
-References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.
-- 그림 `assets/vid/b01_ref2.jpg` @Image2 · 남자 인물 시트
+- 그림 `assets/vid/b01_ref2.jpg` 남자 인물 시트
 인물 시트 = 얼굴·옷만(use)
 종이 배경·3면 배치 제외(exclude)
-@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.
-- 그림 `assets/vid/b01_ref3.jpg` @Image3 · 여자 인물 시트
+- 그림 `assets/vid/b01_ref3.jpg` 여자 인물 시트
 
 ## 04 영상화 ② 동작과 결과
 <!-- id: s4 b -->
 *실제 자료*
 동작 = 형용사 ✗ · 순서 ○
 갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤
-Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
 - 그림 `assets/vid/b01_shot1.jpg` + 영상 `assets/r6/b01_shot1_0-3s.mp4` 숏 1
-Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.
 현수막 = 글자 없는 빈 천
-- 그림 `assets/vid/b01_shot2.jpg` 숏 2 · 3–6초
-- 그림 `assets/vid/b01_shot5.jpg` 숏 5 · 빈 현수막 → 05-4
+- 그림 `assets/vid/b01_shot2.jpg` 숏 2
+- 그림 `assets/vid/b01_shot5.jpg` 숏 5 → 05-4
 
 ## △2 참조를 고쳐서 해결
 <!-- id: s3r -->
-2 REV. 2 — 영상 → 참조
+2 영상 → 참조
 참조 그림에 있으면, 영상에도 나옵니다.
 장소 참조 속 리본 그릇 → 영상 테이블에 그대로 리본 없이 다시 그림 → 재생성 → 사라짐
 영상에 이상한 물건이 계속 나오면, 프롬프트보다 참조 그림부터 봅니다.
-검사 규칙 2개 추가 → 부록 04-C
 전 처음 참조와 그 뒤 생성한 클립 재구성
 - 그림 `assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg` [종이 여백] 처음 장소 참조 — 리본 그릇, 종이 여백
 - 그림 `assets/r3/same_before.jpg` 생성한 영상 — 리본 그릇 그대로
 후 다시 만든 참조와 그 뒤 다시 생성한 클립
 - 그림 `assets/r2/a_approved_REF_LOC_MEETUP_HALL_2.jpg` 다시 그린 장소 참조 — 리본 없음
 - 그림 `assets/r3/same_after.jpg` 다시 생성한 영상 — 리본 없음
-성남시 MV 라운지 장면 · Seedance 2.5
 
 ## 05 후처리
 <!-- id: s5 -->
@@ -134,9 +120,9 @@ Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance �
 - 카드 등장: `assets/post/md_after.jpg` 
 05-3 성남시 푸드테크 설명 영상
 실사는 글자 없이, 설명은 코드로
-- 생성 원본: `assets/post/sn_before.jpg` Seedance 원본
-- 자막 얹음: `assets/post/sn_after.jpg` 자막을 얹은 최종
-- 설명 그래픽: `assets/post/sn_mg.jpg` 코드로 제작
+- 생성 원본: `assets/post/sn_before.jpg` 
+- 자막 얹음: `assets/post/sn_after.jpg` 
+- 설명 그래픽: `assets/post/sn_mg.jpg` 
 틀리면 안 되는 정보(기술명 · 지도 · 로고) = AI에게 안 그리게
 05-4 성남시 MV · 「솔로몬의 선택」 장면
 빈 현수막에 글자 걸기
@@ -165,9 +151,9 @@ AI 글자는 깨짐 → 빈 현수막으로 생성 → 글자는 천 위에 합�
 <!-- id: c53 -->
 05-3 성남시 푸드테크 설명 영상
 실사는 글자 없이, 설명은 코드로
-- 생성 원본: `assets/post/sn_before.jpg` Seedance 원본
-- 자막 얹음: `assets/post/sn_after.jpg` 자막을 얹은 최종
-- 설명 그래픽: `assets/post/sn_mg.jpg` 코드로 제작
+- 생성 원본: `assets/post/sn_before.jpg` 
+- 자막 얹음: `assets/post/sn_after.jpg` 
+- 설명 그래픽: `assets/post/sn_mg.jpg` 
 틀리면 안 되는 정보(기술명 · 지도 · 로고) = AI에게 안 그리게
 
 ## 05-4 솔로몬 · 현수막 글자
@@ -182,14 +168,22 @@ AI 글자는 깨짐 → 빈 현수막으로 생성 → 글자는 천 위에 합�
 <!-- id: s6 -->
 **키워드 사슬** 중요 [생성 15초 ≠ 최종 15초 · 쓸 구간은 편집에서] → 판단 [자르고 붙이는 판단은 사람 · AI는 장면을 계속 뽑기 · 편집안은 요청 때만] → 모델·도구 [사람 · 직접 편집 · CapCut 자동 편집 중단] → 스킬·라이브러리 [승인 클립 + 이야기 순서표 · 정지 화면 검사 · ffmpeg] → 쌓인 특성 [길이 부족 → 다른 테이크 · 정지·슬로·확대 이동 ✗ · 편집물은 소재 폴더 밖] → 위키·기록 [교훈 장부 · Claude 메모리 3건]
 편집은 제가 합니다.
-도식: V1 · A1 · T03 · T11 · T07 · T02 · T15 · T09 · T21 · T04 · T18 · T12 · T06 · 도식(예시)
-|  |  |
-|---|---|
-| 사람 | 방향·컨셉 선택 · 곡 선택 · 콘티 승인 · 생성 실행 승인 · 결과 채택·거절 · 최종 편집 |
-| AI 세션 | 콘티 구체화 · 프롬프트 작성 · 생성 실행·수확 · 1차 검수 · 후처리 코드 작성·실행 |
-
+예시
+도식: 
+사람
+방향·컨셉 선택
+곡 선택
+콘티 승인
+생성 실행 승인
+결과 채택·거절
+최종 편집
+AI 세션
+콘티 구체화
+프롬프트 작성
+생성 실행·수확
+1차 검수
+후처리 코드 작성·실행
 AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표
-내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람
 
 ## 01-A 기획 순서와 확정  `[부록]`
 <!-- id: d01a -->
@@ -232,7 +226,6 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표
 - 인물 시트 참조 03 이미지의 인물 시트로 연결
 - 색 팔레트 이미지 프롬프트 색 항목의 HEX
 - 금지할 룩 프롬프트 · 검수의 거절 기준
-- 실제 예 · 성남시 MV Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …
 
 ## 01-C 콘티에 적는 것  `[부록]`
 <!-- id: d01c -->
@@ -261,7 +254,7 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표
 | 꼭 지킬 내용 | 프롬프트까지 살아남아야 할 구절 |
 | 근거 대사 | 근거 대사 — 장면은 대사 그대로 (인서트는 따로 표시) |
 
-실제 예 · 성남시 MV 숏 5: “입구 위 글자 없는 긴 크림 천 현수막 … (후반 ‘솔로몬의 선택’ 합성 자리)” → 04 · 05-4
+숏 5: “입구 위 글자 없는 긴 크림 천 현수막 … (후반 ‘솔로몬의 선택’ 합성 자리)” → 04 · 05-4
 
 ## 02-A Suno 프롬프트 구조  `[부록]`
 <!-- id: d02a -->
@@ -314,7 +307,7 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표
 - 인물 · 장소 · 소품 · 스타일 · 내가 준 자료
 - 참조 1 = 프롬프트 1 = 이미지 1 — 그리드·연락 시트 금지
 - 반복 인물은 승인된 인물 시트를 먼저 , 생성 때 실제 첨부
-- Seedream 인물 시트: 2패널(정면 · 뒷모습 전신, 높이 85%) + "head and neck fully visible"
+- Seedream 인물 시트: 2패널(정면 · 뒷모습 전신, 높이 85%)
 - 장소 참조에 소품 · 종이 여백 금지 — 영상으로 번진다
 - 실제 장비 · 장소는 위키미디어 Commons 실사진을 Seedream 입력으로
 - 시작프레임 · 스타일프레임은 만들지 않음 (10-29~)
@@ -358,18 +351,18 @@ AI 세션 → 사람 검수를 통과한 승인 클립 + 이야기 순서표
 
 ## 04-A 프롬프트 해부  `[부록]`
 <!-- id: d04a -->
-|  |  |
-|---|---|
-| 15 seconds, 5 shots: | 길이와 숏 수 15초를 다 씀 — 프롬프트 사정으로 줄이지 않음 |
-| Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. … | 화풍 고정 문장 스타일 바이블 원문 그대로, 모든 생성에 반복 |
-| Young Korean man drawn about 4.5 heads tall, slim, slightly large head, … | 인물 고정 설명 승인한 설명 원문 그대로 |
-| References: @Image1 is the river valley, footbridge, reeds, … only. | 참조 하나에 역할 하나 "분위기용" 같은 느슨한 역할 금지 |
-| Summary: On one autumn dusk in Seongnam, Korea, a young man and a young woman, … | 누가 · 어디서 · 무엇이 일어나나 한 문장 |
-| Shot 1 (0-3s): extreme wide shot, high angle, truck right, 24mm. … | 숏마다 크기 · 앵글 · 움직임 · 렌즈 그다음은 형용사 대신 보이는 사건 |
-| … He slows over two steps; he stops and tucks his sketchbook | 동작은 순서로 늦추고 → 멈추고 → 챙긴다 (숏 3) |
-| SFX: flowing water, wind through the reeds, … No music. No dialogue. No subtitles. | 현장음만 음악 · 자막은 후처리 |
-| Consistency: He keeps messy short black hair with a ruffled fringe, … | 인물 특징 다시 적기 긴 테이크 흔들림 방지 |
-| End frame: Fixed eye-level wide of a low glass building … | 마지막 구도 다음 생성이 이어받음 |
+|  |
+|---|
+| 길이와 숏 수 15초를 다 씀 — 프롬프트 사정으로 줄이지 않음 |
+| 화풍 고정 문장 스타일 바이블 원문 그대로, 모든 생성에 반복 |
+| 인물 고정 설명 승인한 설명 원문 그대로 |
+| 참조 하나에 역할 하나 "분위기용" 같은 느슨한 역할 금지 |
+| 누가 · 어디서 · 무엇이 일어나나 한 문장 |
+| 숏마다 크기 · 앵글 · 움직임 · 렌즈 그다음은 형용사 대신 보이는 사건 |
+| 동작은 순서로 늦추고 → 멈추고 → 챙긴다 (숏 3) |
+| 현장음만 음악 · 자막은 후처리 |
+| 인물 특징 다시 적기 긴 테이크 흔들림 방지 |
+| 마지막 구도 다음 생성이 이어받음 |
 
 모델 입력은 영어만 · Runway 입력 10,000자 이하 · 길이를 맞추려고 내용을 압축하지 않음
 
