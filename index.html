@@ -810,8 +810,6 @@ body.p4b #s4 .mt4{opacity:0;pointer-events:none}
 .kc .under{font-size:28px}
 .kc>div{height:112px;padding:15px 14px 6px}
 .kc>div.key{min-height:112px}
-#s5 .kc>div:nth-child(2) b{font-size:31px;line-height:1.12}
-#s5 .kc>div:nth-child(2){height:auto;min-height:122px}
 #c53 .pair.three{grid-template-rows:auto auto auto}
 #c53 .pair.three figure:last-child{grid-row:1/4}
 #c53 .pair.three > i:first-of-type{display:block;grid-column:1;justify-self:center;font-size:27px;line-height:1;height:16px;margin:-6px 0;transform:rotate(90deg);color:var(--ink)}
@@ -838,8 +836,6 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 #s3r .fxrow > i{font:500 24px/1 var(--sans);color:var(--ink);width:24px;text-align:center}
 #s4 .mt4 i.dn{transform:rotate(90deg)}
 #s4 .mt4 .br + strong{margin-left:416px}
-#s5 .kc>div:nth-child(2) b{font-size:33px;line-height:1.12}
-#s5 .kc>div:nth-child(2){min-height:126px}
 /* 01: 4고리 (사용자 지정 11-14) */
 #s1 .kc{justify-content:flex-start;gap:40px}
 #s1 .kc>div{height:132px;padding-top:16px}
@@ -863,6 +859,10 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 #s3 .sp3g.s4 .cl{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;font:500 24px/1 var(--sans);color:var(--mid);text-align:center;margin-top:6px}
 /* △2 발표에서 제외 (사용자 지정 11-14: 기본 사항) */
 #s3r{display:none}
+/* 05: 판단 칸 제거 (사용자 지정 11-14) */
+#s5 .kc{justify-content:flex-start;gap:30px}
+#s5 .kc>div{height:118px}
+#s5 .kc>div:not(:last-child)::after{bottom:-26px}
 </style>
 </head>
 <body>
@@ -1096,9 +1096,8 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>AI가 쓴 글자는 깨짐</b><b>틀리면 안 되는 정보</b></div>
-    <div><small>판단</small><b>글자·정보는 코드로</b><b>효과는 짧게 한 번</b><b>요청한 글자만</b></div>
     <div><small>모델·도구</small><b>Python · ffmpeg</b><b>Blender · Real-ESRGAN</b><b>demucs + Whisper</b></div>
-    <div><small>스킬·라이브러리</small><b>효과 모음 (승인·거절)</b><b>motion 레일 · 로컬 전용</b><b>AI가 쓴 코드 · 로컬 실행</b></div>
+    <div><small>스킬·라이브러리</small><b>효과 모음 HTML 구성</b><b>Threads에서 퍼와</b><b>선택지 늘리기</b></div>
     <div class="key"><small>쌓인 특성</small><b><span class="under">같은 효과 반복 ✗</span></b><b>얇은 HUD · 번짐 ✗</b><b>480p 미리보기 먼저</b></div>
     <div><small>위키·기록</small><b>교훈 장부 · 3D·모션</b><b>Claude 메모리 3건</b><b>효과 모음은 따로 보관</b></div>
   </div>
