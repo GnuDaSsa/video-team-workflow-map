@@ -36,7 +36,7 @@ body{font-family:var(--sans);-webkit-font-smoothing:antialiased;cursor:default;u
 /* ---------- drawing frame ---------- */
 .frame{position:absolute;border:2px solid var(--ink)}
 .frame-in{position:absolute;border:1px solid var(--ink)}
-.zone{position:absolute;font:28px/1 var(--mono);color:var(--mid)}
+.zone{display:none;position:absolute;font:28px/1 var(--mono);color:var(--mid)}
 .ztick{position:absolute;background:var(--ink)}
 
 /* ---------- overview title ---------- */
@@ -449,7 +449,7 @@ body.p4b #s4 .df .n4{color:var(--ink)}
 #hud .ticks{display:flex;gap:5px}
 #hud .ticks i{width:7px;height:3px;background:var(--line)}
 #hud .ticks i.on{background:var(--ink)}
-#hint{position:fixed;right:28px;bottom:24px;font:12px/1 var(--mono);color:var(--soft);letter-spacing:.06em;transition:opacity 1s}
+#hint{opacity:0;position:fixed;right:28px;bottom:24px;font:12px/1 var(--mono);color:var(--soft);letter-spacing:.06em;transition:opacity 1s}
 body.clean #hud,body.clean #hint{opacity:0}
 
 /* r9 s3 split */
@@ -593,22 +593,20 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <svg id="ink" class="mark" style="left:0;top:0" width="6400" height="4600"></svg>
 
   <div class="ttl">
-    <div class="k">SHEET 00 — 전체도</div>
     <h1>영상팀 워크플로우</h1>
     <div class="s">기획 · 음악 · 이미지 · 영상화 · 후처리 · 편집</div>
-      <div class="by">성남시청 사진우 주무관 · 화면 속 “저”는 발표자입니다</div>
       <div class="bdl" data-go="d00c"><span class="bd k">실제 자료</span><span class="bd">재구성</span><span class="bd">예시</span><span class="bd">체감</span></div>
   </div>
 
   <!-- 01 기획 -->
   <section class="sheet" id="s1" style="left:300px;top:1250px">
     <div class="ov">
-      <div class="ov-top"><span class="no">01</span><span>PLANNING</span></div>
+      <div class="ov-top"><span class="no">01</span></div>
       <div class="ov-name">기획</div>
       <div class="ov-sub">95%는 내 창의성</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01</span>기획</h2><div class="r">SHEET 01 / 06</div></div>
+      <div class="dh"><h2><span class="no">01</span>기획</h2></div>
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>매번 다른 컨셉·분위기</b><b>2D · 3D · 실사</b></div>
@@ -622,7 +620,6 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
         <div>
           <div class="k">처음 꿈꾼 것</div>
           <p class="p mid"><span class="strike">Codex + LLM Wiki → 언젠가 기획 안 해도 되게</span></p>
-<p class="gl">Codex = AI 코딩 도구 · LLM Wiki = 직접 쌓는 정리 문서</p>
           <div class="gap"></div>
           <div class="k">해 보니 · 매번 다름</div>
           <div class="tags"><span>2D</span><span>3D</span><span>실사</span><span>분위기</span></div>
@@ -636,19 +633,18 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
         </div>
       </div></div>
 </div></div>
-      <div class="df"><span>AI 세션 · 기획 대화</span><span>VT-01</span></div>
     </div>
   </section>
 
   <!-- 02 음악 -->
   <section class="sheet" id="s2" style="left:2400px;top:1250px">
     <div class="ov">
-      <div class="ov-top"><span class="no">02</span><span>MUSIC</span></div>
+      <div class="ov-top"><span class="no">02</span></div>
       <div class="ov-name">음악</div>
       <div class="ov-sub">Suno</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">02</span>음악</h2><div class="r">SHEET 02 / 06</div></div>
+      <div class="dh"><h2><span class="no">02</span>음악</h2></div>
       <div class="body">
         <div class="kcw">
   <div class="kc">
@@ -668,7 +664,6 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </div>
 </div>
       </div>
-      <div class="df"><span>AI 세션 · Suno 조작</span><span>VT-02</span></div>
     </div>
   </section>
 
@@ -676,7 +671,7 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <section class="sheet rev" id="rev" style="left:1880px;top:420px">
     <svg class="cloud" width="960" height="600"></svg>
     <div class="ov">
-      <div class="ov-top"><span class="no">△1</span><span>REVISION</span></div>
+      <div class="ov-top"><span class="no">△1</span></div>
       <div class="ov-name">음악에 맞춰<br>기획 수정</div>
     </div>
     <div class="dt">
@@ -691,12 +686,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <!-- 03 이미지 -->
   <section class="sheet" id="s3" style="left:4500px;top:1250px">
     <div class="ov">
-      <div class="ov-top"><span class="no">03</span><span>IMAGE</span></div>
+      <div class="ov-top"><span class="no">03</span></div>
       <div class="ov-name">이미지</div>
       <div class="ov-sub">Midjourney · Seedream</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03</span>이미지</h2><div class="r">SHEET 03 / 06</div></div>
+      <div class="dh"><h2><span class="no">03</span>이미지</h2></div>
       <div class="body"><div class="sp3">
         <div class="sp3l">
           <h3 class="sp3t r">슬롭을 만드는 요소</h3>
@@ -707,7 +702,6 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
             <figure><img src="assets/r9/slop_gpt_1.jpg" alt=""><figcaption>GPT · 한 줄</figcaption></figure>
             <figure><img src="assets/r9/slop_gpt_2.jpg" alt=""><figcaption>GPT · 한 줄</figcaption></figure>
           </div>
-          <p class="sp3n">예시: &lsquo;AI 스마트시티 홍보 이미지&rsquo; 한 줄로 생성</p>
         </div>
         <div class="sp3d"></div>
         <div class="sp3r">
@@ -738,7 +732,6 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
           </div>
         </div>
       </div></div>
-      <div class="df"><span>AI 세션 · 이미지 생성 → 검수</span><span>VT-03</span></div>
     </div>
   </section>
 
@@ -746,7 +739,7 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <section class="sheet rev" id="s3r" style="left:4580px;top:300px">
     <svg class="cloud" width="1440" height="810"></svg>
     <div class="ov">
-      <div class="ov-top"><span class="no">△2</span><span>REVISION</span></div>
+      <div class="ov-top"><span class="no">△2</span></div>
       <div class="ov-name">참조 그림 속 물건이<br>영상에 그대로</div>
     </div>
     <div class="dt">
@@ -780,12 +773,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <!-- 04 영상화 -->
   <section class="sheet" id="s4" style="left:300px;top:2950px">
     <div class="ov">
-      <div class="ov-top"><span class="no">04</span><span>MOTION</span></div>
+      <div class="ov-top"><span class="no">04</span></div>
       <div class="ov-name">영상화</div>
       <div class="ov-sub">Runway · Seedance 2.0 / 2.5</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04</span>영상화<span class="pt4 a">① 참조에 역할 주기</span><span class="pt4 b">② 동작과 결과</span></h2><div class="r"><span class="bd k" data-go="d00c">실제 자료</span>SHEET 04 / 06</div></div>
+      <div class="dh"><h2><span class="no">04</span>영상화<span class="pt4 a">① 참조에 역할 주기</span><span class="pt4 b">② 동작과 결과</span></h2><div class="r"><span class="bd k" data-go="d00c">실제 자료</span></div></div>
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>인물·장소 컷마다 유지</b><b>영상 속 글자는 최대한 피함</b><b>글자는 후처리로 추가</b></div>
@@ -811,24 +804,23 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
             <p class="seq">갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤</p>
             <code>Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.</code>
           </div>
-          <figure class="mv4"><img src="assets/vid/b01_shot1.jpg" alt=""><video id="v4s1" src="assets/r6/b01_shot1_0-3s.mp4" poster="assets/vid/b01_shot1.jpg" preload="auto" muted loop playsinline></video><figcaption>숏 1 · 14초 결과 구간의 처음 3초 · 무음</figcaption></figure>
+          <figure class="mv4"><img src="assets/vid/b01_shot1.jpg" alt=""><video id="v4s1" src="assets/r6/b01_shot1_0-3s.mp4" poster="assets/vid/b01_shot1.jpg" preload="auto" muted loop playsinline></video><figcaption>숏 1</figcaption></figure>
           <div class="v4q r"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막 = 글자 없는 빈 천</p></div>
           <div class="v4s"><figure><img src="assets/vid/b01_shot2.jpg" alt=""><figcaption>숏 2 · 3–6초</figcaption></figure><figure class="r"><img src="assets/vid/b01_shot5.jpg" alt=""><figcaption data-go="c54">숏 5 · 빈 현수막 → 05-4</figcaption></figure></div>
         </div>
       </div></div></div>
-      <div class="df"><span>실제 사례 · 성남시 MV 첫 15초 · Seedance 2.5 · 5숏 · 참조 3장 · <b class="n4">이 15초 중 실제로 쓰는 건 일부입니다 → 06 편집</b></span><span>VT-04</span></div>
     </div>
   </section>
 
   <!-- 05 후처리 -->
   <section class="sheet" id="s5" style="left:2400px;top:2950px">
     <div class="ov">
-      <div class="ov-top"><span class="no">05</span><span>POST</span></div>
+      <div class="ov-top"><span class="no">05</span></div>
       <div class="ov-name">후처리</div>
       <div class="ov-sub">효과 · 카드 · 설명 · 합성</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">05</span>후처리</h2><div class="r">SHEET 05 / 06</div></div>
+      <div class="dh"><h2><span class="no">05</span>후처리</h2></div>
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>AI가 쓴 글자는 깨짐</b><b>틀리면 안 되는 정보</b></div>
@@ -885,19 +877,18 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
           </article>
         </div></div></div>
       </div>
-      <div class="df"><span>05-1 효과 · 05-2 카드 · 05-3 설명 그래픽 · 05-4 합성 — AI가 코드를 쓰고 로컬에서 실행 · Python · ffmpeg</span><span>VT-05</span></div>
     </div>
   </section>
 
   <!-- 06 편집 -->
   <section class="sheet" id="s6" style="left:4500px;top:2950px">
     <div class="ov">
-      <div class="ov-top"><span class="no">06</span><span>EDIT</span></div>
+      <div class="ov-top"><span class="no">06</span></div>
       <div class="ov-name">편집</div>
       <div class="ov-sub">직접</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">06</span>편집</h2><div class="r">SHEET 06 / 06</div></div>
+      <div class="dh"><h2><span class="no">06</span>편집</h2></div>
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>생성 15초 ≠ 최종 15초</b><b>쓸 구간은 편집에서</b></div>
@@ -915,17 +906,10 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
         </table>
         <div class="ho6"><b>AI 세션 → 사람</b>검수를 통과한 승인 클립 + 이야기 순서표</div><div class="ho6 s">내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람</div>
       </div></div></div>
-      <div class="df"><span>사람 · 직접</span><span>VT-06</span></div>
     </div>
   </section>
 
   <!-- lanes under sheets -->
-  <div class="lane" style="left:300px;top:2300px"><b>AI</b>기획 대화</div>
-  <div class="lane" style="left:2400px;top:2300px"><b>AI</b>Suno 조작</div>
-  <div class="lane" style="left:4500px;top:2300px"><b>AI</b>이미지 생성 → 검수</div>
-  <div class="lane" style="left:300px;top:4000px"><b>AI</b>영상 생성 → 검수</div>
-  <div class="lane" style="left:2400px;top:4000px"><b>AI + 로컬</b>코드 작성 · Python · ffmpeg</div>
-  <div class="lane" style="left:4500px;top:4000px"><b>사람</b>직접</div>
 
   <div class="appxb" id="appxb"><b>부록 16장 · D 키</b><small>질문 대비 상세 자료 · 05-2 사례는 05에서 카드를 클릭</small></div>
   <div class="legend-ov">
@@ -934,23 +918,10 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
     <div style="color:var(--soft)">AI = 단계마다 따로 띄우는 AI 작업 세션</div>
   </div>
 
-  <div class="tb">
-    <div class="wide"><small>도면명</small>영상팀 워크플로우</div>
-    <div><small>작성</small>사진우</div>
-    <div><small>소속</small>성남시청</div>
-    <div><small>축척</small>N.S.</div>
-    <div><small>도면번호</small>VT-00</div>
-  </div>
-
   <!-- ================= VT-10 단계별 상세도 ================= -->
   <div class="ttl2" style="left:6900px">
-    <div class="k">SHEET 10 — 부록</div>
     <h1>부록 · 단계별 상세도</h1>
     <div class="s">질문이 나오면 펼치는 자료 · 시트를 누르면 크게 · D는 01-A부터, G는 이 지도</div>
-  </div>
-  <div class="tb2" style="left:13000px">
-    <div class="wide"><small>도면명</small>부록 · 단계별 상세도</div>
-    <div><small>작성</small>사진우</div><div><small>구분</small>부록</div><div><small>축척</small>N.S.</div><div><small>도면번호</small>VT-10</div>
   </div>
 
   <div class="rowlab" style="left:6900px;top:800px"><div class="n">01</div><div class="t">기획</div><div class="k">정해지는 것</div><div class="v">컨셉 · 스타일 바이블 · 콘티</div><div class="k">담당</div><div class="v m">기획 대화 → 콘티 세션</div></div>
@@ -961,9 +932,9 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <div class="rowlab" style="left:6900px;top:7100px"><div class="n">06</div><div class="t">편집</div><div class="k">정해지는 것</div><div class="v">컷 선택 · 길이 · 순서</div><div class="k">담당</div><div class="v m">사람</div></div>
   <div class="rowlab" style="left:6900px;top:8360px"><div class="n">00</div><div class="t">공통</div><div class="k">정해지는 것</div><div class="v">위키 · 교훈</div><div class="k">담당</div><div class="v m">전 단계</div></div>
   <section class="sheet dp" id="d01a" style="left:7600px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-A</span><span>STAGES</span></div><div class="ov-name">기획 순서</div><div class="ov-sub">컨셉 → 스타일 → 음악 → 콘티</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-A</span></div><div class="ov-name">기획 순서</div><div class="ov-sub">컨셉 → 스타일 → 음악 → 콘티</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-A</span>기획 순서와 확정</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">01-A</span>기획 순서와 확정</h2></div>
       <div class="body"><div class="sflow">
   <div><small>1 · 기획 대화</small><b>컨셉 3안</b><code>세 안 중 하나를 고름</code><em>확정: 고른 안을 말한 원문 그대로</em></div>
   <div><small>2 · 기획 대화</small><b>스타일 바이블</b><code>화풍 · 인물 · 장소를 글로 고정</code><em>확정: 형식 검사 통과</em></div>
@@ -982,13 +953,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <div><div class="k">확정 규칙</div>
   <div class="ol"><p>앞 단계가 바뀌면 <b>뒤 단계의 확정을 다시 확인</b> <small class="mid">— 단, 생성 전 묶음은 15초 구간별로 봅니다. 입력이 바뀐 구간만 다시 확정하고, 그대로인 구간의 확정과 결과는 유지(11-11부터). 화풍 고정 문장이 바뀌면 전 구간, 인물 고정 설명이 바뀌면 그 인물이 나오는 구간만</small></p><p>고칠 때는 같은 문서를 고쳐 다시 확정, 이전본은 따로 보관</p><p>제작 단계에서 프롬프트를 새로 쓰지 않음 — 그 내용을 정한 단계로 돌아감</p><p>영상 종류: 뮤직비디오 · 공모전 · 관광 · 기관 홍보 · 숏폼</p></div></div>
 </div></div>
-      <div class="df"><span></span><span>01-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d01b" style="left:9400px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-B</span><span>BIBLE</span></div><div class="ov-name">스타일 바이블</div><div class="ov-sub">모든 프롬프트의 고정 문단</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-B</span></div><div class="ov-name">스타일 바이블</div><div class="ov-sub">모든 프롬프트의 고정 문단</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-B</span>스타일 바이블에 적는 것</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">01-B</span>스타일 바이블에 적는 것</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
 <table class="fld ko">
   <tr><th>항목</th><th>내용</th></tr>
@@ -1011,13 +981,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <p><span>금지할 룩</span>프롬프트 · 검수의 거절 기준</p>
   <p><span>실제 예 · 성남시 MV</span><code>Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …</code></p>
 </div></div></div></div>
-      <div class="df"><span></span><span>01-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d01c" style="left:11200px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 항목</div><div class="ov-sub">생성 1회 15초 · 숏 1–4(2.0) · 1–8(2.5)</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-C</span></div><div class="ov-name">콘티 항목</div><div class="ov-sub">생성 1회 15초 · 숏 1–4(2.0) · 1–8(2.5)</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">01-C</span>콘티에 적는 것</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">01-C</span>콘티에 적는 것</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
 <div><div class="k">생성 1회 (블록)</div>
 <table class="fld ko">
@@ -1043,13 +1012,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </table>
 <p class="note" style="margin-top:18px">실제 예 · 성남시 MV 숏 5: <b>“입구 위 글자 없는 긴 크림 천 현수막 … (후반 ‘솔로몬의 선택’ 합성 자리)”</b> → 04 · 05-4</p></div>
 </div></div>
-      <div class="df"><span></span><span>01-C</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d02a" style="left:7600px;top:2060px">
-    <div class="ov"><div class="ov-top"><span class="no">02-A</span><span>SUNO</span></div><div class="ov-name">Suno 프롬프트</div><div class="ov-sub">참고 모음 → 스타일 · 가사 · 길이</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">02-A</span></div><div class="ov-name">Suno 프롬프트</div><div class="ov-sub">참고 모음 → 스타일 · 가사 · 길이</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">02-A</span>Suno 프롬프트 구조</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">02-A</span>Suno 프롬프트 구조</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr 1fr;gap:44px">
 <div><div class="k">참고 프롬프트 모음 → 프롬프트</div>
 <div class="ol"><p><b>검색</b> — 장르·무드·용도·그루브·악기·보컬·BPM·형식으로 색인 + 관련 1–3개만</p><p><b>추출</b> — 가까운 패턴 2–5개에서 변수만</p><p><b>정리</b> — 아티스트·곡 이름 제거, 묘사어로 대체</p><p><b>조합</b> — 프롬프트 하나</p><p><b>변형</b> — 변수 몇 개만 바꾼 1개</p><p><b>기록</b> — 참고한 파일 이름</p></div></div>
@@ -1060,13 +1028,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 <div><div class="k">규칙</div>
 <div class="ol r"><p>BGM 길이: Simple 대신 Custom, Duration을 <b>초</b>로 입력 — 목표값일 뿐</p><p>보컬: 한 명의 안정된 한국어 보컬, 자연스러운 발음·호흡</p><p>perfect · crystalline · ethereal 같은 형용사 나열 금지</p><p>인스트 인트로엔 허밍·속삭임 금지를 명시</p><p>고르기 · 다운로드는 내가 직접</p></div></div>
 </div></div>
-      <div class="df"><span></span><span>02-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d03a" style="left:7600px;top:3320px">
-    <div class="ov"><div class="ov-top"><span class="no">03-A</span><span>PROMPT</span></div><div class="ov-name">이미지 프롬프트</div><div class="ov-sub">공냥 키트 6섹션</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">03-A</span></div><div class="ov-name">이미지 프롬프트</div><div class="ov-sub">공냥 키트 6섹션</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-A</span>이미지 프롬프트 구조</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">03-A</span>이미지 프롬프트 구조</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 560px">
 <div><table class="fld ko">
   <tr><th>항목</th><th>내용</th><th>분량</th></tr>
@@ -1082,13 +1049,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 <div><div class="k">철칙 · 공냥 키트(gpt-image-2용) 기준</div>
 <div class="ol r"><p>장면에서 뺄 것은 부정문 대신 <b>긍정형으로 다시 쓰기</b> <small class="mid">— gpt-image-2는 장면 부정어를 오히려 그림. 예외: 글자를 넣을 때 중복·유령 글자를 막는 정해진 문구</small></p><p>masterpiece · 8k · best quality 같은 옛 어휘 금지</p><p>카메라·조명 장비명 대신 결과 ("배경이 부드럽게 흐려짐")</p><p>수치는 박는다 — HEX · 켈빈 · key:fill 1:2</p><p>1줄 = 1컷 = 1호출, 그리드 금지</p><p>이상적 피부 대신 natural skin texture · visible pores · film grain</p></div></div>
 </div></div>
-      <div class="df"><span></span><span>03-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d03b" style="left:9400px;top:3320px">
-    <div class="ov"><div class="ov-top"><span class="no">03-B</span><span>REFERENCES</span></div><div class="ov-name">참조 이미지 규칙</div><div class="ov-sub">인물 · 장소 · 소품 · 스타일</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">03-B</span></div><div class="ov-name">참조 이미지 규칙</div><div class="ov-sub">인물 · 장소 · 소품 · 스타일</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-B</span>참조 이미지 규칙과 검수</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">03-B</span>참조 이미지 규칙과 검수</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
 <div><div class="k">참조 종류</div>
 <div class="chips" style="margin-bottom:22px"><span>인물</span><span>장소</span><span>소품</span><span>스타일</span><span>내가 준 자료</span></div>
@@ -1107,13 +1073,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </table>
 <p class="note" style="margin-top:14px;font-size:19px">지금 기본 방식은 컷별 시작 이미지를 만들지 않습니다. 컷의 구도 · 동작 · 시간 진행은 영상 프롬프트가 맡고, 실제로 일어났는지는 영상 검수(04-B)에서 봅니다.</p></div>
 </div></div>
-      <div class="df"><span></span><span>03-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d03c" style="left:11200px;top:3320px">
-    <div class="ov"><div class="ov-top"><span class="no">03-C</span><span>MODELS</span></div><div class="ov-name">이미지 모델 변경</div><div class="ov-sub">gpt-image → MJ · Seedream</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">03-C</span></div><div class="ov-name">이미지 모델 변경</div><div class="ov-sub">gpt-image → MJ · Seedream</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">03-C</span>이미지 모델 변경</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">03-C</span>이미지 모델 변경</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:560px 1fr">
 <div><div class="k">변경 이력</div>
 <div class="tl">
@@ -1133,13 +1098,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </table>
 <p class="note" style="margin-top:20px">생성은 이미지 전용 AI 세션이 실행하고, 결과는 프로젝트에 등록한 뒤 검수합니다.</p></div>
 </div></div>
-      <div class="df"><span></span><span>03-C</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04a" style="left:7600px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-A</span><span>PROMPT</span></div><div class="ov-name">프롬프트 해부</div><div class="ov-sub">줄마다 주인이 있다</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-A</span></div><div class="ov-name">프롬프트 해부</div><div class="ov-sub">줄마다 주인이 있다</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부</h2></div>
       <div class="body"><table class="anat">
   <tr><td>15 seconds, 5 shots:</td><td>길이와 숏 수<small>15초를 다 씀 — 프롬프트 사정으로 줄이지 않음</small></td></tr>
   <tr><td>Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …</td><td>화풍 고정 문장<small>스타일 바이블 원문 그대로, 모든 생성에 반복</small></td></tr>
@@ -1153,13 +1117,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <tr><td>End frame: Fixed eye-level wide of a low glass building …</td><td>마지막 구도<small>다음 생성이 이어받음</small></td></tr>
 </table>
 <p class="note" style="margin-top:12px">모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이를 맞추려고 내용을 압축하지 않음</p></div>
-      <div class="df"><span></span><span>04-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04b" style="left:9400px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-B</span><span>PIPELINE</span></div><div class="ov-name">검사 → 생성 → 검수</div><div class="ov-sub">넣기 전에 거치는 순서</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-B</span></div><div class="ov-name">검사 → 생성 → 검수</div><div class="ov-sub">넣기 전에 거치는 순서</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-B</span>생성 전 묶음 → 검사 → 생성 → 검수</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">04-B</span>생성 전 묶음 → 검사 → 생성 → 검수</h2></div>
       <div class="body"><div class="sflow sm">
   <div><small>규칙 고르기</small><b>위키 발췌</b><code>지식 33개 중 필요한 섹션만<br>기본값: 배포 런타임 6섹션 · 9,000자<br>수정 중인 로컬 소스 11 · 14,000</code></div>
   <div><small>생성 전 묶음</small><b>1회분 패키지</b><code>요약 · 프롬프트 · 설정<br>참조 목록</code></div>
@@ -1178,13 +1141,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 <table class="fld"><tr><th>검수에서 보는 것</th><th></th></tr>
   <tr><td>움직임 · 소리</td><td>정상 속도로 재생 · 접촉·전환은 느리게 · 소리</td></tr><tr><td>필요한 일</td><td>필요한 일이 실제로 일어났나 — 주인공 유지 · 행동이 빠지지 않았나</td></tr><tr><td>글자 · 얼굴</td><td>옷 · 등판 · 소품 위 깨진 글자 · 서양인 얼굴 · 이상한 헤어</td></tr><tr><td>시선 · 손</td><td>장비를 보는가, 손 논리</td></tr><tr><td>교체</td><td>같은 클립의 무인 구간·클로즈업으로 — 그 구간이 장면의 역할을 하는지 따로 검수 · 거절된 클립 자체는 해결 전까지 보류</td></tr></table>
 </div></div>
-      <div class="df"><span></span><span>04-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04c" style="left:11200px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-C</span><span>CHECK</span></div><div class="ov-name">반복 실수 검사</div><div class="ov-sub">내가 거절한 것 13가지</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-C</span></div><div class="ov-name">반복 실수 검사</div><div class="ov-sub">내가 거절한 것 13가지</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-C</span>반복 실수 검사<span class="id">prompt_lint</span></h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">04-C</span>반복 실수 검사<span class="id">prompt_lint</span></h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 470px;height:auto">
 <div><div class="k">관찰된 실패 — 이렇게 썼더니 이렇게 나왔다</div>
 <table class="fld big">
@@ -1200,13 +1162,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </div>
 <p class="note" style="margin-top:22px">이 13가지 문구를 프롬프트를 쓰는 단계에서 자동으로 찾아 경고합니다. 의도한 예외는 그 장면에만 허용합니다. <b>경고를 통과했다고 좋은 영상이 보장되지는 않습니다 — 같은 실수를 두 번 하지 않기 위한 장치입니다.</b></p>
 <p class="note" style="margin-top:14px"><b>규칙에는 적용 조건이 있습니다.</b> "과한 액션 줄이기"는 손그림(잉크·수채) 작업에서 나온 교훈입니다. 한 작품에서 거절한 표현을 모든 작품의 금지로 만들지 않고, 다른 장르에서는 경고를 보고 판단합니다.</p></div>
-      <div class="df"><span></span><span>04-C</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d04d" style="left:13000px;top:4580px">
-    <div class="ov"><div class="ov-top"><span class="no">04-D</span><span>MODELS</span></div><div class="ov-name">영상 모델 · 모드</div><div class="ov-sub">2.0 → 2.5 · 시작 이미지 없이</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">04-D</span></div><div class="ov-name">영상 모델 · 모드</div><div class="ov-sub">2.0 → 2.5 · 시작 이미지 없이</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-D</span>영상 모델 · 모드 변경</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">04-D</span>영상 모델 · 모드 변경</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 470px">
 <div><table class="fld c3">
   <tr><th>항목</th><th>Seedance 2.0</th><th>Seedance 2.5</th></tr>
@@ -1227,13 +1188,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <p><span>11-11</span>반복 실수 검사 추가</p>
 </div></div>
 </div></div>
-      <div class="df"><span></span><span>04-D</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d05a" style="left:7600px;top:5840px">
-    <div class="ov"><div class="ov-top"><span class="no">05-A</span><span>POST</span></div><div class="ov-name">후처리 구성</div><div class="ov-sub">작업 · 방법 · 기준</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">05-A</span></div><div class="ov-name">후처리 구성</div><div class="ov-sub">작업 · 방법 · 기준</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">05-A</span>후처리 구성</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">05-A</span>후처리 구성</h2></div>
       <div class="body"><table class="fld c3">
   <tr><th>작업</th><th>방법</th><th>기준</th></tr>
   <tr><td>색보정</td><td>Python · ffmpeg 스크립트</td><td>과한 부분부터 줄이기 · 컷 사이 톤 맞추기</td></tr>
@@ -1246,13 +1206,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <tr><td>설명 그래픽</td><td>코드 · Blender · ffmpeg</td><td>480p 미리보기 먼저 · 공공 톤 남색·금색</td></tr>
   <tr><td>정지 화면 검사</td><td>ffmpeg</td><td>렌더마다</td></tr>
 </table></div>
-      <div class="df"><span></span><span>05-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d06a" style="left:7600px;top:7100px">
-    <div class="ov"><div class="ov-top"><span class="no">06-A</span><span>EDIT</span></div><div class="ov-name">편집 규칙</div><div class="ov-sub">사람이 직접</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">06-A</span></div><div class="ov-name">편집 규칙</div><div class="ov-sub">사람이 직접</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">06-A</span>편집 규칙</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">06-A</span>편집 규칙</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
 <table class="fld">
   <tr><td>누가</td><td>내가 직접 — CapCut 자동 편집은 10-16 중단</td></tr>
@@ -1265,13 +1224,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
 </table>
 <div><div class="k">왜 밖에 두나</div><p class="note">소재 폴더에 등록되지 않은 파일이 섞이면 소재 점검이 실패해 이미지 검수 · 영상 생성 단계가 <b>멈춘다</b>.</p></div>
 </div></div>
-      <div class="df"><span></span><span>06-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d00a" style="left:7600px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-A</span><span>WIKI</span></div><div class="ov-name">위키 지도</div><div class="ov-sub">원문 → 지식 → 고르기</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">00-A</span></div><div class="ov-name">위키 지도</div><div class="ov-sub">원문 → 지식 → 고르기</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:660px 1fr;gap:70px">
 <div><div class="k">위키</div>
 <div class="tree">위키
@@ -1293,13 +1251,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <div class="fbox" style="left:530px;top:250px;width:170px"><small>다음 작업</small>메모리 · 시드</div>
   <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 옮긴다.</p>
 </div></div></div>
-      <div class="df"><span></span><span>00-A</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d00b" style="left:9400px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-B</span><span>LESSON</span></div><div class="ov-name">실패 → 경고</div><div class="ov-sub">'매끈한 피부' 사례 하나</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">00-B</span></div><div class="ov-name">실패 → 경고</div><div class="ov-sub">'매끈한 피부' 사례 하나</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-B</span>실패 하나가 다음 입력의 경고가 되기까지</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">00-B</span>실패 하나가 다음 입력의 경고가 되기까지</h2></div>
       <div class="body">
         <div class="k">실제 사례 — '매끈한 피부'</div>
         <div class="sflow big">
@@ -1319,13 +1276,12 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
           </div>
         </div>
       </div>
-      <div class="df"><span></span><span>00-B</span></div>
     </div>
   </section>
   <section class="sheet dp" id="d00c" style="left:11200px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-C</span><span>LIMITS</span></div><div class="ov-name">배지와 한계</div><div class="ov-sub">배지 네 가지 · 화면별 한계</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">00-C</span></div><div class="ov-name">배지와 한계</div><div class="ov-sub">배지 네 가지 · 화면별 한계</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-C</span>배지와 한계</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">00-C</span>배지와 한계</h2></div>
       <div class="body"><div class="cols" style="grid-template-columns:470px 1fr">
 <div><div class="k">화면의 배지 네 가지</div>
 <table class="fld ko">
@@ -1348,7 +1304,6 @@ body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
   <tr><td>04-B · 04-D</td><td>숏 수·참조 장수는 우리 런타임의 검사 한도(모델 사양과 다를 수 있음). 위키 발췌 한도는 실행본·소스·프로젝트 설정마다 다를 수 있음</td></tr>
 </table></div>
 </div></div>
-      <div class="df"><span></span><span>00-C</span></div>
     </div>
   </section>
 </div>
@@ -1587,7 +1542,7 @@ function edit() {
   const ph = x0 + 640;
   el('line', {x1: ph, y1: 6, x2: ph, y2: 196, stroke: RED, 'stroke-width': 2.4}, s);
   el('path', {d: `M${ph - 9} 0 L${ph + 9} 0 L${ph} 12 Z`, fill: RED}, s);
-  lab(x0, 226, '도식(예시) · 테이크 번호가 섞여 있는 게 정상 — 더 뽑을 수 있으니까', SOFT, 20);
+  lab(x0, 226, '도식(예시)', SOFT, 20);
 }
 
 /* ---------- hand marks on text ---------- */
@@ -1807,7 +1762,7 @@ addEventListener('keydown', e => {
   else if (/^[1-6]$/.test(k)) go(steps.findIndex(s => s.id === 's' + k));
   else if (k === 'r' || k === 'R') go(steps.findIndex(s => s.id === 'rev'));
   else if (k === 'f' || k === 'F') { document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
-  else if (k === 'h' || k === 'H') document.body.classList.toggle('clean');
+  else if (k === 'h' || k === 'H') document.getElementById('hint').style.opacity = document.getElementById('hint').style.opacity === '1' ? 0 : 1;
 });
 document.querySelectorAll('.sheet').forEach(s => s.addEventListener('click', ev => {
   ev.stopPropagation();
@@ -1854,7 +1809,7 @@ document.fonts.ready.then(() => {
 const params = new URLSearchParams(location.search);
 if (params.has('full')) { brief = false; hud(); }
 if (params.has('clean')) document.body.classList.add('clean');
-setTimeout(() => document.getElementById('hint').style.opacity = 0, 6000);
+
 })();
 </script>
 </body>
