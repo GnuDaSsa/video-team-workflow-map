@@ -64,10 +64,18 @@ Suno
 공냥 프롬프트킷 서식
 Grok · Midjourney는 한 번에 여러 장
 내 눈에 드는 한 장 → 작풍 선정
+여러 장 → 한 장
 - 그림 `assets/r9/mj_0.jpg` 
 - 그림 `assets/r9/mj_1.jpg` 
 - 그림 `assets/r9/mj_2.jpg` [고름] 
 - 그림 `assets/r9/mj_3.jpg` 
+직접 골라 쓴 작풍
+- 그림 `assets/r9/mine_2d_char.jpg` 2D 셀 · 인물 시트
+- 그림 `assets/r9/mine_hand_park.jpg` 손그림 수채 · 장소
+- 그림 `assets/r9/mine_anime.jpg` 애니 · 장면
+- 그림 `assets/r9/mine_mj_hall.jpg` Midjourney · 공간
+- 그림 `assets/r9/mine_grok.jpg` Grok · 인물
+- 그림 `assets/r9/mine_real_robot.jpg` 실사 · 로봇 시트
 체감
 이것만으로 공모전 슬롭 85%는 이기고 들어간다
 

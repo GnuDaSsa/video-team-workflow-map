@@ -475,6 +475,14 @@ body.clean #hud,body.clean #hint{opacity:0}
 .sp3g figure.pick img{border:4px solid var(--red)}
 .sp3g figure.pick b{position:absolute;left:0;top:0;background:var(--red);color:var(--sheet);font:600 14px/1 var(--mono);padding:5px 9px 4px;letter-spacing:.06em}
 .sp3n{font:13px/1.4 var(--mono);color:var(--soft);margin-top:10px}
+.sp3s{font:600 14px/1 var(--mono);letter-spacing:.08em;color:var(--mid);margin:12px 0 7px}
+.sp3g.q4{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:0}
+.sp3g.q4 img{aspect-ratio:16/9;object-fit:cover}
+.sp3g.q4 figure.pick img{border-width:3px}
+.sp3g.q4 figure.pick b{font-size:12px;padding:3px 6px 2px}
+.sp3g.w3{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 10px;margin-top:0}
+.sp3g.w3 img{aspect-ratio:16/9;object-fit:cover}
+.sp3kl{margin-bottom:4px}
 .sp3b{margin-top:16px;display:flex;align-items:flex-start;gap:0;flex-wrap:wrap}
 .sp3b .bd{margin-bottom:6px}
 .sp3b strong{display:block;flex-basis:100%;font:700 31px/1.25 var(--serif);color:var(--red);letter-spacing:-.01em}
@@ -608,11 +616,21 @@ body.clean #hud,body.clean #hint{opacity:0}
         <div class="sp3r">
           <h3 class="sp3t">내 요소 → 개성</h3>
           <ul class="sp3kl"><li>툴 배분: 2D·3D·수묵 = Midjourney · 실사 = Seedream</li><li>공냥 프롬프트킷 서식</li><li>Grok · Midjourney는 한 번에 여러 장</li><li>내 눈에 드는 한 장 → 작풍 선정</li></ul>
-          <div class="sp3g wd">
+          <div class="sp3s">여러 장 → 한 장</div>
+          <div class="sp3g q4">
             <figure><img src="assets/r9/mj_0.jpg" alt=""></figure>
             <figure><img src="assets/r9/mj_1.jpg" alt=""></figure>
             <figure class="pick"><img src="assets/r9/mj_2.jpg" alt=""><b>고름</b></figure>
             <figure><img src="assets/r9/mj_3.jpg" alt=""></figure>
+          </div>
+          <div class="sp3s">직접 골라 쓴 작풍</div>
+          <div class="sp3g w3">
+            <figure><img src="assets/r9/mine_2d_char.jpg" alt=""><figcaption>2D 셀 · 인물 시트</figcaption></figure>
+            <figure><img src="assets/r9/mine_hand_park.jpg" alt=""><figcaption>손그림 수채 · 장소</figcaption></figure>
+            <figure><img src="assets/r9/mine_anime.jpg" alt=""><figcaption>애니 · 장면</figcaption></figure>
+            <figure><img src="assets/r9/mine_mj_hall.jpg" alt=""><figcaption>Midjourney · 공간</figcaption></figure>
+            <figure><img src="assets/r9/mine_grok.jpg" alt=""><figcaption>Grok · 인물</figcaption></figure>
+            <figure><img src="assets/r9/mine_real_robot.jpg" alt=""><figcaption>실사 · 로봇 시트</figcaption></figure>
           </div>
           <div class="sp3b"><span class="bd" data-go="d00c">체감</span><strong>이것만으로 공모전 슬롭 85%는 이기고 들어간다</strong></div>
         </div>
