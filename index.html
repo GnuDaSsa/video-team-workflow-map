@@ -847,6 +847,22 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 #s2 .kc{justify-content:flex-start;gap:30px}
 #s2 .kc>div{height:118px}
 #s2 .kc>div:not(:last-child)::after{bottom:-26px}
+/* 02: 생성 요소 → 장면 수 재정립 (사용자 지정 11-14) */
+#s2 .k{margin:4px 0 0}
+#s2 .tags.t2{flex-wrap:wrap;gap:12px;margin:14px 0 34px}
+#s2 .tags.t2 span{font-size:28px;padding:12px 18px 11px}
+#s2 .msg2{margin:0 0 18px}
+#s2 .why2{display:flex;align-items:center;flex-wrap:wrap;gap:14px;font:500 30px/1.2 var(--sans)}
+#s2 .why2 i{font-style:normal;color:var(--mid)}
+#s2 .why2 b{font-weight:700;color:var(--red);border-bottom:3px solid var(--red);padding-bottom:2px}
+#s2 .why2 em{font-style:normal;font-size:24px;border:1.5px solid var(--ink);padding:8px 12px 7px;margin-left:10px}
+#s2 .row2{height:0;overflow:hidden}
+/* 03 왼쪽: 홍보물 + 2D·3D·실사 캐릭터 (사용자 지정 11-14) */
+#s3 .sp3g.sq.s4{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 10px;margin-top:22px}
+#s3 .sp3g.s4 .rl{grid-column:1/-1;font:600 24px/1 var(--sans);color:var(--mid);margin:10px 0 2px}
+#s3 .sp3g.s4 .cl{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;font:500 24px/1 var(--sans);color:var(--mid);text-align:center;margin-top:6px}
+/* △2 발표에서 제외 (사용자 지정 11-14: 기본 사항) */
+#s3r{display:none}
 </style>
 </head>
 <body>
@@ -859,7 +875,7 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
   <div class="ttl">
     <h1>영상팀 워크플로우</h1>
     <div class="s">기획 · 음악 · 이미지 · 영상화 · 후처리 · 편집</div>
-      <div class="bdl" data-go="d00c"><span class="bd k">실제 자료</span><span class="bd">재구성</span><span class="bd">예시</span><span class="bd">체감</span></div>
+      <div class="bdl" data-go="d00c"><span class="bd k">실제 자료</span><span class="bd">예시</span><span class="bd">체감</span></div>
   </div>
 
   <!-- 01 기획 -->
@@ -910,12 +926,14 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
     <div class="key"><small>중요</small><b><span class="under">음악이 먼저 정해짐</span></b><b>→ 기획 다시 손봄 △1</b></div>
     <div><small>판단</small><b>특이할 것 없이 Suno</b><b>거의 손 안 댐</b><b>고르기·다운로드는 직접</b></div>
     <div><small>모델·도구</small><b>Suno</b><b>Custom · 길이는 초로</b></div>
-    <div><small>스킬·라이브러리</small><b style="letter-spacing:-.05em;font-size:.94em">awesome-suno-prompts</b><b>레포지토리 활용</b></div>
-    <div><small>쌓인 특성</small><b>형용사 나열 ✗</b><b>아티스트·곡 이름 제거</b><b>인트로 허밍·속삭임 ✗</b></div>
+    <div><small>스킬·라이브러리</small><b style="letter-spacing:-.05em">awesome-suno-prompts</b><b>레포지토리 활용</b></div>
   </div>
   <div class="ev">
+<div class="k">음악 생성 · 중요한 것</div>
+<div class="tags t2"><span>Custom 모드</span><span>길이는 초로</span><span>형용사 나열 ✗</span><span>아티스트·곡 이름 ✗</span><span>인트로 허밍 ✗</span></div>
 <div class="msg2">음악이 정해지면<br>다시 기획으로 <span class="red">↺ △1</span></div>
-<div class="row2"><div class="brand">Suno</div><div class="au" id="au2"><span class="aub"></span><span class="aubar"><i></i></span><audio preload="none" tabindex="-1" muted></audio></div></div>
+<div class="why2"><span>하이햇 · 박자감</span><i>→</i><span>처음과 다른 장면 수</span><i>→</i><b>장면 수 재정립</b><em>뮤비 · 배경음악 모두</em></div>
+<div class="row2"><div class="au" id="au2"><span class="aub"></span><span class="aubar"><i></i></span><audio preload="none" tabindex="-1" muted></audio></div></div>
 <span class="bd ex2" data-go="d00c">예시</span>
 <svg id="wave" class="mark" style="left:0;bottom:0" width="1072" height="290"></svg>
 </div>
@@ -952,11 +970,18 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
         <div class="sp3l">
           <h3 class="sp3t r">슬롭을 만드는 요소</h3>
           <div class="sp3k"><span>프롬프팅 없이 한 줄</span><span>모두가 쓰는 GPT · 나노바나나</span><span>어디서 본 것 같은 그림</span></div>
-          <div class="sp3g sq">
-            <figure><img src="assets/r9/slop_nano_1.jpg" alt=""><figcaption>나노바나나 · 한 줄</figcaption></figure>
-            <figure><img src="assets/r9/slop_nano_2.jpg" alt=""><figcaption>나노바나나 · 한 줄</figcaption></figure>
-            <figure><img src="assets/r9/slop_gpt_1.jpg" alt=""><figcaption>GPT · 한 줄</figcaption></figure>
-            <figure><img src="assets/r9/slop_gpt_2.jpg" alt=""><figcaption>GPT · 한 줄</figcaption></figure>
+          <div class="sp3g sq s4">
+            <div class="rl">나노바나나 · 한 줄</div>
+            <figure><img src="assets/r9/slop_nano_1.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_nano_2d.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_nano_3d.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_nano_real.jpg" alt=""></figure>
+            <div class="rl">GPT · 한 줄</div>
+            <figure><img src="assets/r9/slop_gpt_2.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_gpt_2d.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_gpt_3d.jpg" alt=""></figure>
+            <figure><img src="assets/r9/slop_gpt_real.jpg" alt=""></figure>
+            <div class="cl"><span>홍보물</span><span>2D</span><span>3D</span><span>실사</span></div>
           </div>
         </div>
         <div class="sp3d"></div>
@@ -1400,7 +1425,7 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
   <tr><td>"매끈한 피부"<span class="id">smooth skin</span></td><td>플라스틱 같은 AI 피부</td></tr>
   <tr><td>글자가 있을 법한 소품 · 옷</td><td>깨진 글자, 가짜 한자 · 숫자</td></tr>
   <tr><td>"화면은 비어 있다"</td><td>그 말이 오히려 화면을 불러냄</td></tr>
-  <tr><td>한국 단서가 없는 사무실</td><td>외국 스톡 영상 같은 사무실</td></tr><tr><td>장소 참조 그림 속 소품 · 종이 여백</td><td>영상에 그대로 번짐 <span class="id" data-go="s3r" style="cursor:pointer;color:var(--red)">→ △2 사례</span></td></tr>
+  <tr><td>한국 단서가 없는 사무실</td><td>외국 스톡 영상 같은 사무실</td></tr><tr><td>장소 참조 그림 속 소품 · 종이 여백</td><td>영상에 그대로 번짐</td></tr>
 </table>
 <p class="note" style="margin-top:16px">그 밖에 2가지: 화면 내용 묘사 → 가짜 UI 글자 · 콧줄 묘사 → 산소 캐뉼라로 오인</p></div>
 <div><div class="k">작업 방식 선택 — 실패가 아니라 내 방침</div>
@@ -1532,7 +1557,6 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 <div><div class="k">화면의 배지 네 가지</div>
 <table class="fld ko">
   <tr><td><span class="bd k">실제 자료</span></td><td>실제 작업물 · 발췌·크기 조정만, 합성·보정 없음</td></tr>
-  <tr><td><span class="bd">재구성</span></td><td>남은 기록을 날짜순으로 이은 사례. 하나만 바꿔 본 비교가 아닙니다</td></tr>
   <tr><td><span class="bd">예시</span></td><td>설명하려고 그린 도식과 숫자. 잰 값이 아닙니다</td></tr>
   <tr><td><span class="bd">체감</span></td><td>발표자의 체감. 조사 수치가 아닙니다</td></tr>
 </table>
@@ -1545,7 +1569,6 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
   <tr><td>△1</td><td>30씬 → 40씬, 6씬 → 8씬은 예시 숫자. 음파는 실제 곡의 바탕 모양만, 하이햇 자리와 장면 나누기는 그린 예시. 음악 때문에 바뀐 실제 콘티 기록은 싣지 못했습니다</td></tr>
   <tr><td>02 · 06</td><td>02 음파는 △1과 같은 그림(예시). 06 편집 타임라인은 도식(예시). 02의 20초 음원은 실제 곡</td></tr>
   <tr><td>04 저작 모델</td><td>Codex → Astra → Claude 변천과 “원하는 바 이상”은 발표자의 체감입니다</td></tr>
-  <tr><td>△2</td><td>어느 생성에 어느 참조를 붙였는지 기록 없음. 두 클립은 같은 구도이지만 같은 컷은 아님(색감·잔·촛불). 같은 기간 영상 프롬프트를 바꿨는지 확인 못 함 — 참조만 바꾼 비교가 아님</td></tr>
   <tr><td>05-1 · 05-2</td><td>원본이 로컬에 없어 최종본의 효과 직전·효과 순간을 나란히 둠(원본 대조 아님). 약 0.4초는 최종본 클립에서 프레임을 센 값(약 11프레임)</td></tr>
   <tr><td>04-B · 04-D</td><td>숏 수·참조 장수는 우리 런타임의 검사 한도(모델 사양과 다를 수 있음). 위키 발췌 한도는 실행본·소스·프로젝트 설정마다 다를 수 있음</td></tr>
 </table></div>
@@ -1684,7 +1707,7 @@ function cloud(sel = '#rev .cloud', w = 960, h = 600, sw = 3.2) {
 }
 
 /* ---------- small diagrams ---------- */
-function rev2() {
+function rev2() { return; /* △2 제외 (사용자 지정 11-14) */
   cloud('#s3r .cloud', 1440, 810, 1.1);
   const s = cxg();
   const P = sampleBez([5300, 1124], [5288, 1160], [5312, 1196], [5300, 1232], 12);
@@ -1887,7 +1910,6 @@ const steps = [
   {id: 's3', label: '03 이미지'},
   {id: 's4', part: 'a', label: '04 영상화 ① 참조에 역할 주기'},
   {id: 's4', part: 'b', hash: 's4-2', label: '04 영상화 ② 동작과 결과'},
-  {id: 's3r', label: '△2 참조를 고쳐서 해결'},
   {id: 's5', label: '05 후처리'},
   {id: 'c51', focus: 's5', label: '05-1 화성 · 잉크 프레임'},
   {id: 'c52', focus: 's5', deep: 1, label: '05-2 매돌이 · 도감 카드'},
