@@ -911,7 +911,7 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
   </div>
   <div class="ev">
 <div class="msg2">음악이 정해지면<br>다시 기획으로 <span class="red">↺ △1</span></div>
-<div class="row2"><div class="brand">Suno</div><div class="au" id="au2"><span class="aub"></span><span class="aubar"><i></i></span><audio src="assets/r2/music_c05_20s.mp3" preload="none" tabindex="-1"></audio></div></div>
+<div class="row2"><div class="brand">Suno</div><div class="au" id="au2"><span class="aub"></span><span class="aubar"><i></i></span><audio preload="none" tabindex="-1" muted></audio></div></div>
 <span class="bd ex2" data-go="d00c">예시</span>
 <svg id="wave" class="mark" style="left:0;bottom:0" width="1072" height="290"></svg>
 </div>
@@ -1080,7 +1080,7 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
             <div class="pair">
               <figure><img src="assets/post/hw_before.jpg" alt=""><b>효과 직전</b><figcaption>최종본의 타격 직전 프레임</figcaption></figure>
               <i>→</i>
-              <figure><video src="assets/clips/hw_hit.mp4" poster="assets/post/hw_after.jpg" preload="auto" playsinline></video><span class="pl"></span><b class="a">효과 순간</b><figcaption>최종본 2.5초 · 소리 포함 <span class="snd">소리 꺼짐 · V</span></figcaption></figure>
+              <figure><video src="assets/clips/hw_hit.mp4" poster="assets/post/hw_after.jpg" preload="auto" muted playsinline data-silent></video><span class="pl"></span><b class="a">효과 순간</b><figcaption>최종본 2.5초</figcaption></figure>
             </div>
             <p class="cd">약 0.4초만(최종본 기준) · 실사 → 형광 잉크 판화 · 같은 효과 반복 ✗</p>
           </article>
@@ -1932,14 +1932,14 @@ function apply(c) {
 const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 
 const au = document.getElementById('au2'), aud = au.querySelector('audio');
-function tune() { if (aud.paused) { if (aud.ended) aud.currentTime = 0; aud.play().catch(() => {}); } else aud.pause(); }
+function tune() {} /* 발표는 시스템 음성 없이 진행 — 음악 재생 안 함 */
 aud.addEventListener('play', () => au.classList.add('on'));
 aud.addEventListener('pause', () => au.classList.remove('on'));
 aud.addEventListener('timeupdate', () => { au.querySelector('.aubar i').style.width = (aud.currentTime / (aud.duration || 20) * 100) + '%'; });
 au.addEventListener('click', ev => { ev.stopPropagation(); if (steps[idx].id === 's2') tune(); });
 function playClip(v) {
   v.currentTime = 0;
-  v.muted = v.hasAttribute('data-silent');
+  v.muted = true;
   const box = v.closest('.case');
   box.classList.remove('nosound');
   const p = v.play();
