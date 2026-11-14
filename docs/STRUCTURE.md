@@ -80,7 +80,7 @@ Grok · Midjourney는 한 번에 여러 장
 ## 04 영상화 ① 참조에 역할 주기
 <!-- id: s4 a -->
 *실제 자료*
-**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 영상 속 글자는 최대한 피함 · 글자는 후처리로 추가] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개 · 지식을 모아 메타프롬프팅] → 모델·도구 [Seedance 2.0 · 2.5 · 메타프롬프팅 = Claude · Opus 5.5 · Fable 5.2] → 스킬·라이브러리 [Seedance 기본 문법 · Higgsfield 커뮤니티 문법 · 사징가 스킬 → 어댑터] → 쌓인 특성 [use · exclude · scope · 준비 → 동작 → 반응 → 정착 · 글자 날 소품 → 빈 채로] → 위키·기록 [Higgsfield 2D · 3D · 실사 · 사징가 어댑터 · 교훈 장부]
+**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 영상 속 글자는 최대한 피함 · 글자는 후처리로 추가] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개] → 모델·도구 [Seedance 2.0 · 2.5 · 프롬프트는 Claude가 씀] → 참고한 지식 → 위키 [Seedance 공식 문법 · Higgsfield 2D·3D·실사 · 사징가(인플루언서) 스킬 · → 위키에 모아 Claude에게]
 프롬프트 저작 Codex → Astra ✗ → Claude Opus 5.5 · Fable 5.2 원하는 바 이상 체감
 
 **붙인 참조 3장**
@@ -96,6 +96,11 @@ Grok · Midjourney는 한 번에 여러 장
 <!-- id: s4 b -->
 *실제 자료*
 동작 = 형용사 ✗ · 순서 ○
+✗ 형용사로 쓰면
+dynamic, cinematic, smooth motion
+화면에 안 보이는 말 → 화면 전체가 계속 출렁 = AI 티
+○ 순서로 쓰면
+The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
 갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤
 - 그림 `assets/vid/b01_shot1.jpg` + 영상 `assets/r6/b01_shot1_0-3s.mp4` 숏 1
 - 그림 `assets/vid/b01_shot2.jpg` 숏 2
