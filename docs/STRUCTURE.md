@@ -101,6 +101,7 @@ dynamic, cinematic, smooth motion
 화면에 안 보이는 말 → 화면 전체가 계속 출렁 = AI 티
 ○ 순서로 쓰면
 The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.
+갈대가 바람 한 번에 천천히 눕고, 한 박자 뒤 그의 코트 자락이 들리고, 천천히 숨 한 번에 어깨가 오르내린 뒤 그는 가만히 멈춘다.
 갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤
 - 그림 `assets/vid/b01_shot1.jpg` + 영상 `assets/r6/b01_shot1_0-3s.mp4` 숏 1
 - 그림 `assets/vid/b01_shot2.jpg` 숏 2
