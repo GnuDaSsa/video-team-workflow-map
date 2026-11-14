@@ -12,8 +12,7 @@
 
 **해 보니 · 매번 다름**
 - 2D · 3D · 실사 · 분위기
-95
-%
+95 %
 제 창의성 체감
 
 ## 02 음악
@@ -94,9 +93,11 @@ Grok · Midjourney는 한 번에 여러 장
 영상에 이상한 물건이 계속 나오면, 프롬프트보다 참조 그림부터 봅니다.
 전
 - 그림 `assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg` [종이 여백] 처음 장소 참조 — 리본 그릇, 종이 여백
+→
 - 그림 `assets/r3/same_before.jpg` 생성한 영상 — 리본 그릇 그대로
 후
 - 그림 `assets/r2/a_approved_REF_LOC_MEETUP_HALL_2.jpg` 다시 그린 장소 참조 — 리본 없음
+→
 - 그림 `assets/r3/same_after.jpg` 다시 생성한 영상 — 리본 없음
 
 ## 05 후처리

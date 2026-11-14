@@ -823,6 +823,23 @@ body.zoomed #s5 .case.cur .pair b{font-size:9.5px}
 body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
 .pair b{color:var(--ink)}
 .pair b.a{color:var(--red)}
+/* ===== R15 ===== */
+.appxb{display:none}
+body.ov #hud{opacity:0;pointer-events:none}
+body:not(.zoomed) #s5 .pl{display:none}
+#s2 .brand{font-size:44px}
+#s4 .mvw img,#s4 .mvw video{transform:scale(2.2);transform-origin:0% 62%}
+body.zoomed #s5 .case.cur .ch span{font-size:11px}
+#c53 .pair.three{grid-template-rows:auto auto 1fr}
+body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;margin:-2px 0}
+#s4 .kc>div.key{border-width:2px}
+#s4 .mt4 strong{border-bottom-width:1.2px}
+#s3r .fxrow{gap:12px}
+#s3r .fxrow > i{font:500 24px/1 var(--sans);color:var(--ink);width:24px;text-align:center}
+#s4 .mt4 i.dn{transform:rotate(90deg)}
+#s4 .mt4 .br + strong{margin-left:416px}
+#s5 .kc>div:nth-child(2) b{font-size:33px;line-height:1.12}
+#s5 .kc>div:nth-child(2){min-height:126px}
 </style>
 </head>
 <body>
@@ -865,7 +882,7 @@ body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
           <div class="tags"><span>2D</span><span>3D</span><span>실사</span><span>분위기</span></div>
         </div>
         <div>
-                    <div class="ratio"><span class="circled">95</span><small>%</small></div>
+                    <div class="ratio"><span class="circled">95<small>%</small></span></div>
           <p class="p">제 창의성<span class="bd" data-go="d00c">체감</span></p>
         </div>
       </div></div>
@@ -984,6 +1001,7 @@ body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
           <div class="fxk"><b>전</b></div>
           <div class="fxrow">
             <figure><div class="cw z"><img src="assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg" alt=""><span class="ring" style="left:39.5%;top:55%;width:17%;height:28%"></span><b>종이 여백</b></div><figcaption>처음 장소 참조 — 리본 그릇, 종이 여백</figcaption></figure>
+            <i>→</i>
             <figure><div class="cw"><img src="assets/r3/same_before.jpg" alt=""><span class="ring" style="left:41%;top:56%;width:17%;height:28%"></span></div><figcaption>생성한 영상 — 리본 그릇 그대로</figcaption></figure>
           </div>
         </div>
@@ -991,6 +1009,7 @@ body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
           <div class="fxk a"><b>후</b></div>
           <div class="fxrow">
             <figure><div class="cw z"><img src="assets/r2/a_approved_REF_LOC_MEETUP_HALL_2.jpg" alt=""></div><figcaption>다시 그린 장소 참조 — 리본 없음</figcaption></figure>
+            <i>→</i>
             <figure><div class="cw"><img src="assets/r3/same_after.jpg" alt=""></div><figcaption>다시 생성한 영상 — 리본 없음</figcaption></figure>
           </div>
         </div>
@@ -1016,7 +1035,7 @@ body.zoomed #s5 .case.cur .cd{font-size:10px;margin-top:11px}
     <div><small>쌓인 특성</small><b>use · exclude · scope</b><b>준비 → 동작 → 반응 → 정착</b><b>글자 날 소품 → 빈 채로</b></div>
     <div><small>위키·기록</small><b>Higgsfield 2D · 3D · 실사</b><b>사징가 어댑터</b><b>교훈 장부</b></div>
   </div>
-  <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i>→</i><span class="br"></span><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span></div>
+  <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i class="dn">→</i><span class="br"></span><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span></div>
         <div class="v4a"><svg class="mark" id="m4"></svg>
           <div class="k">붙인 참조 3장</div>
           <div class="h4">참조 1장 = 역할 1개</div>
@@ -1667,11 +1686,11 @@ function rev2() {
   const P = sampleBez([5300, 1124], [5288, 1160], [5312, 1196], [5300, 1232], 12);
   el('path', {d: handPath(P, 3), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round'}, s);
   arrowHead(s, P[P.length - 1], P[P.length - 3], 50, RED, 7);
-  const R = [[300, 3450], [150, 3450], [150, 190], [5300, 190], [5300, 292]];
+  const R = [[265, 3450], [198, 3450], [198, 190], [5300, 190], [5300, 292]];
   const Q = [];
   for (let i = 0; i < R.length - 1; i++) Q.push(...sampleBez(R[i], R[i], R[i + 1], R[i + 1], 24).slice(i ? 1 : 0));
   el('path', {d: handPath(Q, 4), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round', 'stroke-linejoin': 'round'}, s);
-  el('circle', {cx: 300, cy: 3450, r: 11, fill: RED}, s);
+  el('circle', {cx: 265, cy: 3450, r: 13, fill: RED}, s);
   arrowHead(s, Q[Q.length - 1], Q[Q.length - 3], 50, RED, 7);
 }
 
@@ -1692,7 +1711,7 @@ function wave() {
   const s = document.getElementById('wave');
   const w = 1072, mid = 138, amp = 116, p = w / 128;
   hatWave(s, 0, w, mid, amp);
-  for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', Object.assign({d: `M${x} 262 L${x - 7} 276 L${x + 7} 276 Z`}, k % 2 ? {fill: RED} : {fill: 'none', stroke: RED, 'stroke-width': 1.6, 'stroke-linejoin': 'round'}), s); }
+  for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', Object.assign({d: `M${x} 262 L${x - 7} 276 L${x + 7} 276 Z`}, {fill: RED}), s); }
 }
 function beats() {
   const s = document.getElementById('beats');
@@ -1705,7 +1724,7 @@ function beats() {
   T(0, mid - 6, '음파', Object.assign({}, sans, {fill: INK}));
   T(0, mid + 16, '빨강 = 하이햇', {fill: RED});
   el('rect', {x: x0, y: yA, width: w, height: hA, fill: 'none', stroke: MID, 'stroke-width': 1.8}, s);
-  for (let j = 1; j < 6; j++) { const x = x0 + w * j / 6; el('line', {x1: x, y1: yA - 12, x2: x, y2: yA + hA, stroke: MID, 'stroke-width': 1.8}, s); }
+  for (let j = 1; j < 6; j++) { const x = x0 + w * j / 6; el('line', {x1: x, y1: yA, x2: x, y2: yA + hA, stroke: MID, 'stroke-width': 1.8}, s); }
   for (let j = 0; j < 6; j++) T(x0 + w * (j + .5) / 6, yA + 29, String(j + 1), {'text-anchor': 'middle', fill: MID, 'font-size': 20, 'font-weight': 600});
   T(0, yA + 18, '기획 초안 6씬', Object.assign({}, sans, {fill: MID}));
   T(0, yA + 36, '균등 분할');
@@ -1764,10 +1783,10 @@ function edit() {
   }
   el('line', {x1: x0, y1: 104, x2: x - 4, y2: 104, stroke: LINE, 'stroke-width': 1}, s);
   // cut range (clip T09 = x 568..660)
-  el('rect', {x: 588, y: 28, width: 52, height: 48, fill: '#F3D9D2'}, s);
-  [588, 640].forEach(cx => {
-    el('line', {x1: cx, y1: 20, x2: cx, y2: 84, stroke: RED, 'stroke-width': 3.6}, s);
-    if (cx === 588) el('path', {d: `M${cx - 6} 2 L${cx} 10 L${cx + 6} 2`, fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'}, s);
+  el('rect', {x: 686, y: 28, width: 112, height: 48, fill: '#F3D9D2'}, s);
+  [686, 798].forEach(cx => {
+    el('line', {x1: cx, y1: 20, x2: cx, y2: 84, stroke: RED, 'stroke-width': 3}, s);
+    if (cx === 686) el('path', {d: `M${cx - 6} 2 L${cx} 10 L${cx + 6} 2`, fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linejoin': 'round', 'stroke-linecap': 'round'}, s);
   });
   // playhead
   const ph = x0 + 640;
@@ -1784,7 +1803,7 @@ function marks4() {
   svg.innerHTML = '';
   const ell = (cx, cy, rx, ry) => {
     const pts = []; for (let i = 0; i <= 34; i++) { const a = -2.2 + i / 34 * 6.7; pts.push([cx + Math.cos(a) * rx, cy + Math.sin(a) * ry]); }
-    el('path', {d: handPath(pts, 1.2), fill: 'none', stroke: RED, 'stroke-width': 2, 'stroke-linecap': 'round'}, svg);
+    el('path', {d: handPath(pts, 1.2), fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linecap': 'round'}, svg);
   };
   const A = imgs[1], B = imgs[2];
   [[A, FACE, CLOTH], [B, FACE_F, CLOTH_F]].forEach(([im, FACE, CLOTH]) => {
@@ -1800,25 +1819,28 @@ function marks4() {
 }
 const FACE = [.205, .21, .065, .14], CLOTH = [.205, .62, .095, .25], FACE_F = [.23, .15, .06, .09], CLOTH_F = [.23, .58, .10, .29];
 function decorate() {
+  document.querySelectorAll('.strike>svg.mark,.under>svg.mark,.circled>svg.mark').forEach(n => n.remove());
   document.querySelectorAll('.strike').forEach(sp => {
     const w = sp.offsetWidth, h = sp.offsetHeight;
     const svg = el('svg', {class: 'mark', width: w + 20, height: h, style: `left:-10px;top:0`});
     const y = h * .56;
-    const P = Array.from({length: 14}, (_, i) => [i / 13 * (w + 16) + 2, y + (i / 13 - .5) * -4]);
+    const P = Array.from({length: 14}, (_, i) => [i / 13 * (w + 4) + 8, y + (i / 13 - .5) * -4]);
     el('path', {d: handPath(P, 2), fill: 'none', stroke: RED, 'stroke-width': 3, 'stroke-linecap': 'round'}, svg);
     sp.appendChild(svg);
   });
   document.querySelectorAll('.under').forEach(sp => {
     const w = sp.offsetWidth, h = sp.offsetHeight;
-    const svg = el('svg', {class: 'mark', width: w + 20, height: 30, style: `left:-6px;top:${h - 10}px`});
-    const P = Array.from({length: 12}, (_, i) => [i / 11 * (w + 10), 10 + Math.sin(i * .9) * 1.2 + i * .3]);
+    const l6 = !!sp.closest('.lead6');
+    const svg = el('svg', {class: 'mark', width: w + 20, height: 30, style: `left:-6px;top:${l6 ? h - 2 : h - 10}px`});
+    const P = Array.from({length: 12}, (_, i) => [l6 ? i / 11 * w + 6 : i / 11 * (w + 10), 10 + Math.sin(i * .9) * 1.2 + i * .3]);
     el('path', {d: handPath(P, 1.6), fill: 'none', stroke: RED, 'stroke-width': 3.2, 'stroke-linecap': 'round'}, svg);
     sp.appendChild(svg);
   });
   document.querySelectorAll('.circled').forEach(sp => {
     const w = sp.offsetWidth, h = sp.offsetHeight;
-    const pad = 26, svg = el('svg', {class: 'mark', width: w + pad * 2, height: h + pad * 2, style: `left:${-pad}px;top:${-pad}px`});
-    const cx = w / 2 + pad, cy = h / 2 + pad + 6, rx = w / 2 + 16, ry = h / 2 - 4;
+    const pad = sp.closest('.ratio') ? 66 : 26, svg = el('svg', {class: 'mark', width: w + pad * 2, height: h + pad * 2, style: `left:${-pad}px;top:${-pad}px`});
+    const rt = !!sp.closest('.ratio');
+    const cx = w / 2 + pad, cy = h / 2 + pad + 6, rx = rt ? w / 2 + 50 : w / 2 + 16, ry = rt ? h / 2 + 6 : h / 2 - 4;
     const P = [];
     for (let i = 0; i <= 40; i++) {
       const a = -2.2 + i / 40 * (Math.PI * 2 + .55);
@@ -1987,6 +2009,7 @@ function go(i, instant) {
 /* ---------- HUD ---------- */
 const ticks = document.getElementById('ticks');
 function hud() {
+  document.body.classList.toggle('ov', idx === 0);
   const st = steps[idx];
   const vis = steps.map((s, i) => i).filter(i => !brief || !steps[i].deep);
   const pos = vis.indexOf(idx);
