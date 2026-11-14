@@ -908,6 +908,19 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 #s6 .mc6 .f i{font:500 24px/1 var(--mono);font-style:normal;color:var(--red)}
 #s6 .mc6 p{font:500 22px/1.4 var(--sans);margin:12px 0 0}
 #s6 .kc>div.key{padding-top:24px}
+/* 06 모션 매치 컷 프레임 (화성 최종본 28.6s │ 29.0s) */
+#s6 .mc6{margin:12px 0 12px;padding:14px 18px}
+#s6 .mc6 .h{margin-bottom:10px}
+#s6 .mc6 .fr{display:flex;align-items:flex-start;gap:12px}
+#s6 .mc6 .fr figure{margin:0;width:258px}
+#s6 .mc6 .fr img,#s6 .mc6 .fr video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink)}
+#s6 .mc6 .fr figure.v{margin-left:14px}
+#s6 .mc6 .fr figure.v video{border:2px solid var(--red)}
+#s6 .mc6 .fr figcaption{font:500 20px/1.2 var(--sans);margin-top:6px}
+#s6 .mc6 .fr i{font:500 22px/1 var(--mono);font-style:normal;color:var(--red);align-self:center;margin-top:-26px}
+#s6 .mc6 p{margin-top:8px}
+#s6 .who2 li{font-size:20px;line-height:1.22}
+#s6 .who2 b{margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -1213,7 +1226,9 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
   </div>
   <div class="ev"><div class="lead6">편집은 <span class="under">제가</span> 합니다.</div>
         <div class="tags t6"><span>ffmpeg 가편</span><i>→</i><span>트랜지션</span><span>속도</span><span>페이드 인·아웃</span><b>= 직접</b></div>
-        <div class="mc6"><div class="h"><b>모션 매치 컷</b><span>화성 「여긴, 화성」</span></div><div class="f"><span>공장 프레스가 내려옴</span><i>│컷│</i><span>바둑알이 판에 놓임</span></div><p>내려오는 움직임이 컷을 넘어 이어짐 → 장면이 바뀌어도 눈이 끊기지 않음</p></div>
+        <div class="mc6"><div class="h"><b>모션 매치 컷</b><span>화성 「여긴, 화성」</span></div>
+          <div class="fr"><figure><img src="assets/r17/hw_mc_a.jpg" alt=""><figcaption>기계팔이 짐을 놓음</figcaption></figure><i>│컷│</i><figure><img src="assets/r17/hw_mc_b.jpg" alt=""><figcaption>바둑알이 떨어짐</figcaption></figure><figure class="v"><video src="assets/r17/hw_matchcut.mp4" poster="assets/r17/hw_mc_a.jpg" muted loop autoplay playsinline></video><figcaption>이어 보기</figcaption></figure></div>
+          <p>떨어지는 움직임이 컷을 넘어 이어짐 → 장면이 바뀌어도 눈이 끊기지 않음</p></div>
         <svg id="edit" style="display:none" width="1072" height="172" viewBox="0 0 1432 230"></svg>
         <div class="who2">
           <div><b>AI 세션</b><ul><li>콘티 구체화</li><li>프롬프트 작성</li><li>생성 실행·수확</li><li>1차 검수</li><li>후처리 코드 작성·실행</li></ul></div>
