@@ -63,6 +63,21 @@ def block_md(node: Tag) -> str:
             out.append(f"\n**{clean(el.get_text(' '))}**"); return
         if any(c in cls for c in ("chips", "tags", "gates")):
             out.append("- " + " · ".join(clean(s.get_text(' ')) for s in el.find_all(['span'], recursive=False) or [el])); return
+        if "kc" in cls:
+            links = []
+            for d in el.find_all("div", recursive=False):
+                lab = d.find("small")
+                kws = []
+                for b in d.find_all("b"):
+                    t = clean(b.get_text(" "))
+                    if t: kws.append(t)
+                links.append(f"{clean(lab.get_text()) if lab else ''} [{' · '.join(kws)}]")
+            out.append("**키워드 사슬** " + " → ".join(links)); return
+        if "mt4" in cls:
+            st = el.find(class_="strike")
+            t = clean(el.get_text(" "))
+            if st: t = t.replace(clean(st.get_text(" ")), "~~" + clean(st.get_text(" ")) + "~~")
+            out.append(t); return
         if "sflow" in cls:
             out.append(" → ".join("[" + clean(d.get_text(' ')) + "]" for d in el.find_all("div", recursive=False))); return
         if "pair" in cls:

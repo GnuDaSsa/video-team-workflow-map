@@ -373,7 +373,6 @@ figure.playing .pl{display:none}
 #s4 .pa,#s4 .pb{transition:opacity .4s}
 body.p4a #s4 .pb{opacity:0;pointer-events:none}
 body.p4b #s4 .pa{opacity:.38}
-#s6 #edit{margin-top:20px!important}
 .n6{font:400 24px/1.5 var(--sans);color:var(--ink);margin-top:6px}
 .n6 b{font-weight:700}
 /* r5 */
@@ -391,6 +390,48 @@ body.p4b #s4 .df .n4{color:var(--ink)}
 #s4 figure.mv4{position:relative}
 #s4 figure.mv4 video{position:absolute;left:0;top:0;display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink)}
 
+/* r8 — 키워드 사슬(왼쪽 레일) */
+.kcw{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:30px;height:100%}
+.kcw>.ev{position:relative;min-width:0;height:100%}
+.kc{display:flex;flex-direction:column;justify-content:space-between;height:100%}
+.kc>div{position:relative;height:104px;border:2px solid var(--ink);background:var(--sheet);padding:13px 14px 7px;display:flex;flex-direction:column;justify-content:center}
+.kc>div:not(:last-child)::after{content:"↓";position:absolute;right:34px;bottom:-19px;font:300 18px/1 var(--sans);color:var(--mid)}
+.kc small{position:absolute;left:10px;top:-9px;background:var(--sheet);padding:0 7px;font:13px/16px var(--mono);letter-spacing:.1em;color:var(--mid);white-space:nowrap}
+.kc b{display:block;font:600 21px/1.2 var(--sans);letter-spacing:-.01em;white-space:nowrap}
+.kc b.m{font:400 15px/1.68 var(--mono);letter-spacing:0}
+.kc>div.key{border:3px solid var(--red)}
+.kc>div.key small{color:var(--red)}
+.kc .under{margin-bottom:9px}
+.chips span.r{border-color:var(--red);color:var(--red)}
+/* r8 — 시트별 증거 영역 */
+.e1{display:grid;grid-template-columns:minmax(0,1fr) 470px;gap:44px;height:100%}
+#s2 .brand{margin:10px 0 26px}
+.e3{display:grid;grid-template-columns:300px minmax(0,1fr);gap:44px;height:100%}
+#s3 .hongdae{font-size:88px}
+.mt4{display:flex;align-items:center;gap:14px;font:500 21px/1 var(--sans);white-space:nowrap;margin-bottom:12px}
+.mt4 small{font:13px/1 var(--mono);letter-spacing:.1em;color:var(--soft)}
+.mt4 i{font-style:normal;color:var(--mid)}
+.mt4 .no{color:var(--soft)}
+.mt4 strong{font-weight:700;border-bottom:3px solid var(--red);padding-bottom:3px}
+.mt4 em{font:normal 500 17px/1 var(--sans);color:var(--red)}
+.mt4 .gf{margin-left:auto;font:500 17px/1 var(--sans);color:var(--soft)}
+#s4 .v4{grid-template-columns:250px minmax(0,1fr) 250px;column-gap:36px}
+#s4 .v4q p{font-size:21px}
+#s4 .v4 figcaption{white-space:normal}
+#s4 .v4 .k.pb{font-size:14px!important}
+#s5 .case.tall .pair.v{height:auto;align-self:center}
+#s5 .case.tall .pair.v figure{height:205px}
+#s6 .lead6{font-size:64px}
+#s6 #edit{margin-top:18px!important}
+#s6 .ho6{font-size:20px}
+#s6 .ho6 b{margin-right:14px}
+#s6 .ho6 small{font-size:.8em}
+#s1 .p.mid{font-size:22px}
+.mt4 .gf .strike{margin-right:8px}
+#s5 #c52 .ch{flex-wrap:wrap;row-gap:6px}
+#s5 #c52 .ch em{white-space:nowrap}
+#rev .rt{font-size:38px;margin:20px 0 12px}
+#rev .chips{margin-bottom:4px}
 /* title block */
 .tb{position:absolute;left:4500px;top:4130px;width:1600px;height:280px;border:2px solid var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr 1fr;grid-template-rows:1fr 1fr;background:var(--sheet)}
 .tb div{border-right:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 22px;font:500 30px/1.2 var(--sans)}
@@ -438,19 +479,23 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">01</span>기획</h2><div class="r">SHEET 01 / 06</div></div>
-      <div class="body"><div class="col2">
+      <div class="body"><div class="kcw">
+  <div class="kc">
+    <div><small>중요</small><b>매번 다른 컨셉·분위기</b><b>2D · 3D · 실사</b></div>
+    <div class="key"><small>판단</small><b>뼈대는 내 창의성</b><b>AI는 <span class="under">살 붙이는 조언</span>만</b><b>체감 95 : 5</b></div>
+    <div><small>모델·도구</small><b>기획 대화</b><b>Codex · Claude</b></div>
+    <div><small>스킬·라이브러리</small><b>컨셉 3안 → 1안 선택</b><b>스타일 바이블</b><b>콘티 · 15초 단위</b></div>
+    <div><small>쌓인 특성</small><b>기획 경험은 재사용 ✗</b><b>앞이 바뀌면 뒤 재확정</b><b>장면은 대사 그대로</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 · 공통</b><b class="m">seeds/ · 다음 작품 시드</b><b class="m">_hub/context-capsules</b></div>
+  </div>
+  <div class="ev"><div class="e1">
         <div>
           <div class="k">처음 꿈꾼 것</div>
-          <p class="p mid"><span class="strike">Codex + LLM Wiki로 기획 경험을 쌓아서,</span><br><span class="strike">언젠가는 제가 기획 안 해도 되게.</span></p>
+          <p class="p mid"><span class="strike">Codex + LLM Wiki → 언젠가 기획 안 해도 되게</span></p>
 <p class="gl">Codex = AI 코딩 도구 · LLM Wiki = 직접 쌓는 정리 문서</p>
           <div class="gap"></div>
-          <div class="k">해 보니</div>
-          <p class="p">공공 영상도, 공모전도 매번 컨셉과 분위기가 다릅니다.</p>
+          <div class="k">해 보니 · 매번 다름</div>
           <div class="tags"><span>2D</span><span>3D</span><span>실사</span><span>분위기</span></div>
-          <p class="p mid">쌓은 경험이 다음 기획에 그대로 쓰이지 않았습니다.</p>
-          <div class="gap"></div>
-          <div class="k">지금</div>
-          <p class="p">뼈대는 제 창의성으로 세우고,<br>AI에게는 <span class="under">살 붙이는 조언</span>만 듣습니다.</p>
         </div>
         <div>
           <div class="k">비중 · 체감</div>
@@ -460,6 +505,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           <div class="barl"><span>나 95</span><span class="red">AI 조언 5</span></div>
         </div>
       </div></div>
+</div></div>
       <div class="df"><span>AI 세션 · 기획 대화</span><span>VT-01</span></div>
     </div>
   </section>
@@ -474,17 +520,23 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div class="dt">
       <div class="dh"><h2><span class="no">02</span>음악</h2><div class="r">SHEET 02 / 06</div></div>
       <div class="body">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start">
-          <div>
-            <div class="k">배경음악</div>
-            <div class="brand">Suno</div>
-            <p class="p">특이할 것 없이 Suno로 만듭니다.</p>
-            <p class="p">공개 프롬프트 모음<span class="glo">(<code>awesome-suno-prompts</code>)</span>을 적용해서, 거의 손 안 대고.</p>
-            <div class="au" id="au2"><span class="aub"></span><span>실제 예 · 화성 공모전 곡 일부 · Suno · 20초</span><span class="aubar"><i></i></span><span class="auk">클릭 또는 M</span><audio src="assets/r2/music_c05_20s.mp3" preload="none" tabindex="-1"></audio></div>
-          </div>
-          <div class="redline" style="text-align:right;margin-top:6px">음악이 정해지면<br>다시 기획으로 ↺</div>
-        </div>
-        <svg id="wave" class="mark" style="left:0;bottom:0" width="1432" height="250"></svg>
+        <div class="kcw">
+  <div class="kc">
+    <div class="key"><small>중요</small><b><span class="under">음악이 먼저 정해짐</span></b><b>→ 기획 다시 손봄 △1</b></div>
+    <div><small>판단</small><b>특이할 것 없이 Suno</b><b>거의 손 안 댐</b><b>고르기·다운로드는 직접</b></div>
+    <div><small>모델·도구</small><b>Suno</b><b>Custom · 길이는 초로</b></div>
+    <div><small>스킬·라이브러리</small><b class="m">music-director 스킬</b><b class="m">awesome-suno-prompts</b><b>가까운 패턴 2–5개만</b></div>
+    <div><small>쌓인 특성</small><b>형용사 나열 ✗</b><b>아티스트·곡 이름 제거</b><b>인트로 허밍·속삭임 ✗</b></div>
+    <div><small>위키·기록</small><b>스킬 본문에만</b><b>교훈 장부 항목 없음</b></div>
+  </div>
+  <div class="ev">
+<div class="k">배경음악</div>
+<div class="brand">Suno</div>
+<div class="au" id="au2"><span class="aub"></span><span>실제 예 · 화성 공모전 곡 일부 · Suno · 20초</span><span class="aubar"><i></i></span><span class="auk">클릭 또는 M</span><audio src="assets/r2/music_c05_20s.mp3" preload="none" tabindex="-1"></audio></div>
+<div class="redline" style="margin-top:22px">음악이 정해지면 다시 기획으로 ↺ △1</div>
+<svg id="wave" class="mark" style="left:0;bottom:0" width="1112" height="250"></svg>
+</div>
+</div>
       </div>
       <div class="df"><span>AI 세션 · Suno 조작</span><span>VT-02</span></div>
     </div>
@@ -500,8 +552,8 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div class="dt">
       <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">1</text></svg>REV. 1 — 음악 → 기획<span class="bd" data-go="d00c">예시</span></div>
       <div class="rt">음악을 정하고, 기획을 다시 손봅니다.</div>
-      <p class="rp">팝핑댄서 출신이라 비트에 민감합니다.<br>드럼 하이햇 기준으로 장면을 쪼개 보면,<br>30씬으로 기획했어도 40씬은 들어가야 루즈해지지 않습니다.</p>
-      <svg id="beats" style="display:block;margin-top:26px;overflow:visible" width="820" height="160"></svg>
+      <div class="chips"><span>팝핑댄서 출신</span><span>비트에 민감</span><span class="r">하이햇 = 장면 전환</span><span class="r">30씬 → 40씬</span></div>
+      <svg id="beats" style="display:block;margin-top:18px;overflow:visible" width="840" height="284"></svg>
       <div class="rc">음악 결정 → 기획 수정 · 반드시 거치는 단계</div>
     </div>
   </section>
@@ -515,38 +567,42 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">03</span>이미지</h2><div class="r">SHEET 03 / 06</div></div>
-      <div class="body"><div class="col3">
+      <div class="body"><div class="kcw">
+  <div class="kc">
+    <div><small>중요</small><b>슬롭 = 너무 흔한 그림</b><b>슬롭 여부가 여기서 갈림</b><b>참조 = 04의 기준 그림</b></div>
+    <div class="key"><small>판단</small><b><span class="under">남들과 다르게</span></b><b>드문 도구를 고름</b><b>킷 + 내 개성 = 희소성</b></div>
+    <div><small>모델·도구</small><b>Midjourney · 2D·3D</b><b>Seedream 5.5 Pro · 실사</b><b>gpt-image-2 · 포스터</b></div>
+    <div><small>스킬·라이브러리</small><b>공냥 프롬프트킷</b><b>서식 6섹션 + AR · HEX</b><b class="m">image-prompt 스킬</b></div>
+    <div><small>쌓인 특성</small><b>실사 피부결 · 매끈 피부 ✗</b><b>인물 시트 2패널 · 목 연결</b><b>장소 참조에 소품·여백 ✗</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 · 실사 / 2D</b><b class="m">image-qc-style-continuity</b><b class="m">image-prompt 스킬 본문</b></div>
+  </div>
+  <div class="ev"><div class="e3">
         <div>
           <div class="hongdae">홍대병</div>
-          <p class="p" style="margin-top:14px">남들과 다르고 싶습니다.</p>
           <svg id="dots" style="display:block;margin-top:20px" width="230" height="230" viewBox="0 0 380 380"></svg>
           <div class="legend"><i style="background:var(--line)"></i>GPT · 나노바나나 95<br><i style="background:var(--red)"></i>미드저니 · 시드림 5</div>
           <div style="margin-top:12px"><span class="bd" data-go="d00c">원고의 비유</span></div>
           <p class="gl" style="margin-top:14px">공냥 프롬프트킷 = 이미지 프롬프트 서식 · 부록 03-A</p>
         </div>
         <div>
-          <p class="p p3">AI 슬롭은 왜 슬롭일까요?<br><strong>일상에서 너무 많이 보이기 때문입니다.</strong></p>
-          <p class="p p3 mid">프롬프트킷도 고민도 없이, 자연어 한두 줄로 뽑은 이미지.<br>슬롭은 거기서 시작합니다.</p>
           <table class="sched">
             <tr><th>용도</th><th>도구</th></tr>
             <tr><td>2D · 3D</td><td><b>Midjourney</b></td></tr>
             <tr><td>실사</td><td><b>Seedream 5.5 Pro</b></td></tr>
             <tr><td>일본풍 2D 캐릭터</td><td><b>전부 뽑아 보고 결정</b><br><span class="alt">Grok Imagine · Midjourney · Kling · 나노바나나 · GPT</span></td></tr>
           </table>
-          <div class="f3"><p class="formula"><span>드문 도구</span> + <span>공냥 프롬프트킷</span> + <span>나의 개성</span> = 희소성</p>
-          <p class="redline">슬롭이냐 아니냐는 이 단계에서 갈립니다.</p></div>
           <div class="i3">
             <div class="i3k"><span class="bd k" data-go="d00c">실제 자료</span>실사 인물은 Seedream으로 다시 만든 예 · 성남시 푸드테크 영상 · 보호자 인물 시트</div>
             <div class="i3row">
               <figure><img src="assets/r3/img_earlier_face.jpg" alt=""><figcaption>이전 인물 시트 · 얼굴</figcaption></figure>
               <i>→</i>
-              <figure class="a"><img src="assets/r3/img_seedream_face.jpg" alt=""><figcaption>Seedream으로 다시 만든 시트 · 얼굴 · 승인본</figcaption></figure>
+              <figure class="a"><img src="assets/r3/img_seedream_face.jpg" alt=""><figcaption>Seedream 재생성 · 승인본</figcaption></figure>
               <div class="i3q"><q>너무 자글자글해서 싫어</q><small>이전 시트를 보고 제가 한 말 · 2026-10-23 강의자료에 적어 둔 원문</small></div>
             </div>
-            <p class="i3d"><b>참조</b> = 영상을 만들 때 AI에게 기준으로 붙이는 그림(인물 · 장소 · 소품). 이런 인물 시트가 참조이고, 04에서 붙입니다.</p>
           </div>
         </div>
       </div></div>
+</div></div>
       <div class="df"><span>AI 세션 · 이미지 생성 → 검수</span><span>VT-03</span></div>
     </div>
   </section>
@@ -597,30 +653,34 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">04</span>영상화</h2><div class="r"><span class="bd k" data-go="d00c">실제 자료</span>SHEET 04 / 06</div></div>
-      <div class="body">
-        <div class="v4top">
-          <div class="v4brand">Runway <span class="mid">→</span> Seedance 2.0 · 2.5</div>
-          <div class="v4skip"><span class="strike">Google Flow</span><em>고수분들 앞이니 생략합니다</em></div>
-        </div>
-        <p class="v4claim">시작 장면 이미지 없이, 캐릭터 · 장소 · 소품 <strong>참조만 붙여서 바로 생성합니다.</strong> 아래는 실제로 넣은 것과 나온 것입니다.</p>
+      <div class="body"><div class="kcw">
+  <div class="kc">
+    <div><small>중요</small><b>참조가 프롬프트를 이김</b><b>프롬프트가 연출을 맡음</b></div>
+    <div><small>판단</small><b>시작 이미지 없이 참조만</b><b>참조 1장 = 역할 1개</b><b>지식을 모아 메타프롬프팅</b></div>
+    <div><small>모델·도구</small><b>Seedance 2.0 · 2.5</b><b>메타프롬프팅 = Claude</b><b>Opus 5.5 · Fable 5.2</b></div>
+    <div class="key"><small>스킬·라이브러리</small><b class="m">seedance25-prompt-en</b><b><span class="under">Higgsfield 커뮤니티 문법</span></b><b>사징가 스킬 → 어댑터</b></div>
+    <div><small>쌓인 특성</small><b class="m">참조: use · exclude · scope</b><b>준비 → 동작 → 반응 → 정착</b><b>글자 날 소품 → 빈 채로</b></div>
+    <div><small>위키·기록</small><b class="m">higgsfield-community-grammar</b><b>2D · 3D · 실사 · 교훈 장부</b><b class="m">xazinga-prompting-adapter</b></div>
+  </div>
+  <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i>→</i><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span><span class="gf"><span class="strike">Google Flow</span> 생략</span></div>
         <div class="v4">
           <div class="k">① 붙인 참조 3장</div>
           <div class="k">② 실제 프롬프트에서 네 줄<span>영어 약 9천 자 중</span></div>
           <div class="k pb" style="font-size:15px;letter-spacing:.02em;white-space:nowrap">③ 나온 결과 · 한 번에 생성한 15초</div>
 
           <figure><img src="assets/vid/b01_ref1.jpg" alt=""><figcaption>@Image1 · 장소</figcaption></figure>
-          <div class="v4q"><code class="pa">References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.</code><p class="pa">참조 한 장에 역할 하나. 이 그림에서는 장소만 가져오라고 적습니다.</p><code class="mv pb">Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.</code><p class="pb">움직임은 형용사 대신 순서로 적습니다.<small>바람에 갈대가 눕고 → 한 박자 뒤 코트 자락이 들리고 → 숨 한 번 → 그대로 멈춤</small></p></div>
+          <div class="v4q"><code class="pa">References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.</code><p class="pa">참조 1장 = 역할 1개 · 여기선 장소만</p><code class="mv pb">Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.</code><p class="pb">동작 = 형용사 ✗ · 순서 ○<small>갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤</small></p></div>
           <figure class="pb mv4"><img src="assets/vid/b01_shot1.jpg" alt=""><video id="v4s1" src="assets/r6/b01_shot1_0-3s.mp4" poster="assets/vid/b01_shot1.jpg" preload="auto" muted loop playsinline></video><figcaption>숏 1 · 14초 결과 구간의 처음 3초 · 무음</figcaption></figure>
 
           <figure><img src="assets/vid/b01_ref2.jpg" alt=""><figcaption>@Image2 · 남자 인물 시트</figcaption></figure>
-          <div class="v4q pa"><code>@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.</code><p>인물 시트에서는 얼굴과 옷만. 종이 배경과 3면 배치는 장면에 넣지 말라고 적습니다.</p></div>
+          <div class="v4q pa"><code>@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.</code><p>인물 시트 = 얼굴·옷만(use) · 종이 배경·3면 배치 제외(exclude)</p></div>
           <figure class="pb"><img src="assets/vid/b01_shot2.jpg" alt=""><figcaption>숏 2 · 3–6초</figcaption></figure>
 
           <figure><img src="assets/vid/b01_ref3.jpg" alt=""><figcaption>@Image3 · 여자 인물 시트</figcaption></figure>
-          <div class="v4q r pb"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막은 일부러 글자 없는 빈 천으로 뽑습니다.<small>콘티 메모 원문: “후반 ‘솔로몬의 선택’ 합성 자리” — 글자는 05-4에서 겁니다.</small></p></div>
+          <div class="v4q r pb"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막 = 글자 없는 빈 천<small>콘티 메모 원문: “후반 ‘솔로몬의 선택’ 합성 자리” → 05-4</small></p></div>
           <figure class="r pb"><img src="assets/vid/b01_shot5.jpg" alt=""><figcaption data-go="c54">숏 5 · 빈 현수막 → 05-4</figcaption></figure>
         </div>
-      </div>
+      </div></div></div>
       <div class="df"><span>실제 사례 · 성남시 MV 첫 15초 · Seedance 2.5 · 5숏 · 참조 3장 · <b class="n4">이 15초 중 실제로 쓰는 건 일부입니다 → 06 편집</b></span><span>VT-04</span></div>
     </div>
   </section>
@@ -634,24 +694,32 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">05</span>후처리</h2><div class="r">SHEET 05 / 06</div></div>
-      <div class="body">
-        <div class="cases">
+      <div class="body"><div class="kcw">
+  <div class="kc">
+    <div><small>중요</small><b>AI가 쓴 글자는 깨짐</b><b>틀리면 안 되는 정보</b></div>
+    <div><small>판단</small><b>글자·정보는 코드로</b><b>효과는 짧게 한 번</b><b>요청한 글자만</b></div>
+    <div><small>모델·도구</small><b>Python · ffmpeg</b><b>Blender · Real-ESRGAN</b><b>demucs + Whisper</b></div>
+    <div><small>스킬·라이브러리</small><b>효과 모음 (승인·거절)</b><b>motion 레일 · 로컬 전용</b><b>AI가 쓴 코드 · 로컬 실행</b></div>
+    <div class="key"><small>쌓인 특성</small><b><span class="under">같은 효과 반복 ✗</span></b><b>얇은 HUD · 번짐 ✗</b><b>480p 미리보기 먼저</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 · 3D·모션</b><b>Claude 메모리 3건</b><b>효과 취향은 위키에 없음</b></div>
+  </div>
+  <div class="ev"><div class="cases">
           <article class="case" id="c51">
-            <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」<em class="zh">발표 사례 ① · 클릭하면 크게</em></div>
+            <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」<em class="zh">사례 ① · 클릭</em></div>
             <div class="ct">타격하는 박에만, 잉크 프레임</div>
             <div class="pair">
               <figure><img src="assets/post/hw_before.jpg" alt=""><b>효과 직전</b><figcaption>최종본의 타격 직전 프레임</figcaption></figure>
               <i>→</i>
               <figure><video src="assets/clips/hw_hit.mp4" poster="assets/post/hw_after.jpg" preload="auto" playsinline></video><span class="pl">누르면 소리 켜고 재생</span><b class="a">효과 순간</b><figcaption>최종본 2.5초 · 소리 포함 <span class="snd">소리 꺼짐 — V 키</span></figcaption></figure>
             </div>
-            <p class="cd">아주 잠깐(최종본 기준 약 0.4초)만 실사를 형광 잉크 판화로 바꾸고 멈춥니다. 같은 효과는 반복하지 않습니다.</p>
+            <p class="cd">약 0.4초만(최종본 기준) · 실사 → 형광 잉크 판화 · 같은 효과 반복 ✗</p>
           </article>
           <article class="case tall" id="c52">
             <div class="tx">
-              <div class="ch"><span>05-2</span>광양시 「매돌이」<em class="zh">발표에서는 건너뜀 · 클릭하면 크게</em></div>
+              <div class="ch"><span>05-2</span>광양시 「매돌이」<em class="zh">건너뜀 · 클릭</em></div>
               <div class="ct">장소가 바뀌면,<br>도감 카드</div>
-              <p class="cd">자연 다큐처럼 "관찰 지점 No.01" 카드를 띄워 어디인지 화면이 말하게 했습니다.</p>
-              <p class="cd mid">납품 전 해상도 확대(4K) + 그레인. 두 그림 모두 최종본 프레임.</p>
+              <p class="cd">“관찰 지점 No.01” 카드 · 어디인지 화면이 말함</p>
+              <p class="cd mid">4K 확대 + 그레인 · 두 그림 모두 최종본 프레임</p>
             </div>
             <div class="pair v">
               <figure><img src="assets/post/md_before.jpg" alt=""><b>카드 직전</b></figure>
@@ -659,7 +727,7 @@ body.clean #hud,body.clean #hint{opacity:0}
             </div>
           </article>
           <article class="case" id="c53">
-            <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상<em class="zh">설명 그래픽 자체를 코드로 만든 사례 · 발표에서는 건너뜀 · 클릭하면 크게</em></div>
+            <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상<em class="zh">건너뜀 · 클릭</em></div>
             <div class="ct">실사는 글자 없이, 설명은 코드로</div>
             <div class="pair three">
               <figure><img src="assets/post/sn_before.jpg" alt=""><b>생성 원본</b><figcaption>Seedance 원본</figcaption></figure>
@@ -668,19 +736,19 @@ body.clean #hud,body.clean #hint{opacity:0}
               <i>+</i>
               <figure><img src="assets/post/sn_mg.jpg" alt=""><b class="a">설명 그래픽</b><figcaption>코드로 제작</figcaption></figure>
             </div>
-            <p class="cd">기술명·지도·협력기관 로고처럼 틀리면 안 되는 정보는 AI에게 그리게 하지 않습니다.</p>
+            <p class="cd">틀리면 안 되는 정보(기술명 · 지도 · 로고) = AI에게 안 그리게</p>
           </article>
           <article class="case" id="c54">
-            <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면<em class="zh">발표 사례 ② · 클릭하면 크게</em></div>
+            <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면<em class="zh">사례 ② · 클릭</em></div>
             <div class="ct">빈 현수막에 글자 걸기</div>
             <div class="pair">
               <figure><video src="assets/clips/sol_before.mp4" poster="assets/post/sol_before.jpg" preload="auto" muted loop playsinline data-silent></video><span class="pl">누르면 재생</span><b>생성 원본</b><figcaption>빈 천으로 생성 · 04의 숏 5</figcaption></figure>
               <i>→</i>
               <figure><video src="assets/clips/sol_after.mp4" poster="assets/post/sol_after.jpg" preload="auto" muted loop playsinline data-silent></video><span class="pl">누르면 재생</span><b class="a">글자 합성</b><figcaption>천의 주름·그림자 위에 곱하기 합성</figcaption></figure>
             </div>
-            <p class="cd">AI가 쓰면 글자가 깨지니, 프롬프트에서부터 빈 현수막으로 뽑고 글자는 나중에 천에 스며들게 입힙니다.</p>
+            <p class="cd">AI 글자는 깨짐 → 빈 현수막으로 생성 → 글자는 천 위에 합성</p>
           </article>
-        </div>
+        </div></div></div>
       </div>
       <div class="df"><span>05-1 효과 · 05-2 카드 · 05-4 합성 · 05-3 설명 그래픽 자체를 코드로 제작 — AI가 코드를 쓰고 로컬에서 실행 · Python · ffmpeg</span><span>VT-05</span></div>
     </div>
@@ -695,17 +763,23 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div class="dh"><h2><span class="no">06</span>편집</h2><div class="r">SHEET 06 / 06</div></div>
-      <div class="body">
-        <div class="lead6">편집은 <span class="under">제가</span> 합니다.</div>
-        <p class="p" style="margin-top:30px">AI는 장면을 계속 뽑고, 자르고 붙이는 판단은 사람이.</p>
-        <p class="p mid">길이가 모자라면 정지·슬로모션 대신, 이미 뽑은 다른 테이크로 채웁니다.</p><p class="n6"><b>생성한 15초가 곧 최종 15초는 아닙니다.</b> 프롬프트의 초 표기는 진행 속도 지시이고, 쓸 구간은 검수와 편집에서 고릅니다.</p>
-        <svg id="edit" style="display:block;margin-top:44px;overflow:visible" width="1432" height="230"></svg>
+      <div class="body"><div class="kcw">
+  <div class="kc">
+    <div><small>중요</small><b>생성 15초 ≠ 최종 15초</b><b>쓸 구간은 편집에서</b></div>
+    <div class="key"><small>판단</small><b><span class="under">자르고 붙이는 판단은 사람</span></b><b>AI는 장면을 계속 뽑기</b><b>편집안은 요청 때만</b></div>
+    <div><small>모델·도구</small><b>사람 · 직접 편집</b><b>CapCut 자동 편집 중단</b></div>
+    <div><small>스킬·라이브러리</small><b>승인 클립 + 이야기 순서표</b><b>정지 화면 검사 · ffmpeg</b></div>
+    <div><small>쌓인 특성</small><b>길이 부족 → 다른 테이크</b><b>정지·슬로·확대 이동 ✗</b><b>편집물은 소재 폴더 밖</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 [11-11]</b><b>Claude 메모리 3건</b></div>
+  </div>
+  <div class="ev"><div class="lead6">편집은 <span class="under">제가</span> 합니다.</div>
+        <svg id="edit" style="display:block;overflow:visible" width="1112" height="179" viewBox="0 0 1432 230"></svg>
         <table class="who">
           <tr><td>사람</td><td>방향·컨셉 선택 · 곡 선택 · 콘티 승인 · 생성 실행 승인 · 결과 채택·거절 · 최종 편집</td></tr>
           <tr><td>AI 세션</td><td>콘티 구체화 · 프롬프트 작성 · 생성 실행·수확 · 1차 검수 · 후처리 코드 작성·실행</td></tr>
         </table>
         <div class="ho6"><b>AI 세션 → 사람</b>검수를 통과한 승인 클립 + 이야기 순서표 <small>— 내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람</small></div><div class="whon">근거 · 부록 01-A · 04-B · 06-A · 런타임 규칙 §4</div>
-      </div>
+      </div></div></div>
       <div class="df"><span>사람 · 직접</span><span>VT-06</span></div>
     </div>
   </section>
@@ -1135,8 +1209,9 @@ body.clean #hud,body.clean #hint{opacity:0}
 <div><div class="k">화면별 한계</div>
 <table class="fld">
   <tr><td>01 기획</td><td>95 : 5는 발표자의 체감입니다</td></tr>
-  <tr><td>△1</td><td>30씬 → 40씬은 예시 숫자. 음악 때문에 바뀐 실제 콘티 기록은 이 자료에 싣지 못했습니다</td></tr>
-  <tr><td>02 · 06</td><td>파형 · 하이햇 눈금 · 편집 타임라인은 도식(예시). 02의 20초 음원은 실제 곡</td></tr>
+  <tr><td>△1</td><td>30씬 → 40씬, 6씬 → 8씬은 예시 숫자. 음파는 실제 곡의 바탕 모양만, 하이햇 자리와 장면 나누기는 그린 예시. 음악 때문에 바뀐 실제 콘티 기록은 싣지 못했습니다</td></tr>
+  <tr><td>02 · 06</td><td>02 음파는 △1과 같은 그림(예시). 06 편집 타임라인은 도식(예시). 02의 20초 음원은 실제 곡</td></tr>
+  <tr><td>04 저작 모델</td><td>Codex → Astra → Claude 변천과 “원하는 바 이상”은 발표자의 체감입니다</td></tr>
   <tr><td>03 점 격자</td><td>대부분(95)이 GPT·나노바나나로 만들 때 미드저니·시드림 쪽은 5 — 원고의 비유, 조사 수치 아님</td></tr>
   <tr><td>03 인물 시트</td><td>기존 시트에서 자르기만 함(재생성·보정 없음). 이전 시트를 만든 도구는 기록이 없어 적지 않음. 같은 조건의 비교인지 확인할 기록이 없음</td></tr>
   <tr><td>△2</td><td>어느 생성에 어느 참조를 붙였는지 기록 없음. 두 클립은 같은 구도이지만 같은 컷은 아님(색감·잔·촛불). 같은 기간 영상 프롬프트를 바꿨는지 확인 못 함 — 참조만 바꾼 비교가 아님</td></tr>
@@ -1286,54 +1361,55 @@ function rev2() {
   arrowHead(s, P[P.length - 1], P[P.length - 3], 50, RED, 7);
 }
 
+/* r8: 실제 곡 포락선(assets/r8/c05_hats.json env 1000칸 → 128칸 최대값, 0–99). 바탕 모양만 실제이고 하이햇 위치는 예시 */
+const ENV = [73,69,80,67,84,58,73,72,68,76,73,59,80,75,64,71,72,61,73,60,73,67,78,69,64,78,77,78,78,68,75,71,75,69,61,68,75,66,63,78,69,70,61,76,72,72,65,75,76,59,22,93,46,68,68,78,77,59,17,88,73,68,85,65,68,67,83,75,77,73,81,81,74,70,77,77,73,75,75,62,81,42,78,73,73,79,62,71,77,71,75,78,64,75,78,80,76,93,72,81,57,48,27,8,23,89,99,81,89,63,75,75,73,78,84,73,74,79,74,71,80,84,76,79,77,73,81,77];
+// 128칸: 4칸마다 하이햇(빨강), 16칸마다 강한 하이햇(굵은 빨강 + 바로 뒤 한 칸 여운)
+function hatWave(s, x0, w, mid, amp) {
+  const n = ENV.length, p = w / n, bw = p * .58;
+  el('line', {x1: x0, y1: mid, x2: x0 + w, y2: mid, stroke: LINE, 'stroke-width': 1}, s);
+  for (let i = 0; i < n; i++) {
+    const acc = i % 16 === 0, hat = i % 4 === 0, tail = i % 16 === 1;
+    const h = acc ? amp : hat ? amp * .72 : tail ? amp * .6 : amp * (.1 + .42 * ENV[i] / 99);
+    const wd = acc ? bw * 1.7 : bw;
+    el('rect', {x: x0 + (i + .5) * p - wd / 2, y: mid - h, width: wd, height: h * 2, fill: acc || hat || tail ? RED : INK}, s);
+  }
+}
 function wave() {
   const s = document.getElementById('wave');
-  const n = 179, bw = 8, mid = 120;
-  el('line', {x1: 0, y1: mid, x2: 1432, y2: mid, stroke: LINE, 'stroke-width': 1}, s);
-  for (let i = 0; i < n; i++) {
-    const t = i / n;
-    let env = t < .18 ? .18 + t * 1.4 : t < .42 ? .45 + (t - .18) * 1.1 : t < .45 ? .1 : t < .82 ? .95 : .95 - (t - .82) * 4;
-    env = Math.max(.08, Math.min(1, env));
-    const hh = env * (0.4 + 0.6 * rnd()) * 92;
-    el('rect', {x: i * bw, y: mid - hh, width: 3.4, height: hh * 2, fill: INK}, s);
-  }
-  // hi-hat grid
-  for (let i = 0; i < 90; i++) {
-    const x = i * 16 + 1.7;
-    el('line', {x1: x, y1: 228, x2: x, y2: i % 4 === 0 ? 212 : 220, stroke: RED, 'stroke-width': 1.6}, s);
-  }
+  const w = 1112, mid = 118, amp = 92, p = w / 128;
+  hatWave(s, 0, w, mid, amp);
+  for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', {d: `M${x} 218 L${x - 7} 232 L${x + 7} 232 Z`, fill: RED}, s); }
   const t = el('text', {x: 0, y: 250, fill: RED, 'font-size': 16, 'font-family': 'Mono, Menlo', 'letter-spacing': '2'}, s);
   t.textContent = 'HI-HAT';
-  const t2 = el('text', {x: 1432, y: 18, fill: SOFT, 'font-size': 16, 'font-family': 'Mono, Menlo', 'text-anchor': 'end', 'letter-spacing': '2'}, s);
-  t2.textContent = '도식 · 예시';
+  const t2 = el('text', {x: w, y: 18, fill: SOFT, 'font-size': 16, 'font-family': 'Mono, Menlo', 'text-anchor': 'end', 'letter-spacing': '2'}, s);
+  t2.textContent = '예시';
 }
-
 function beats() {
   const s = document.getElementById('beats');
-  const x0 = 180, w = 600;
-  const row = (y, n, color, label, sub) => {
-    const a = el('text', {x: 0, y: y + 22, fill: color, 'font-size': 19, 'font-family': 'Pre, sans-serif', 'font-weight': 600}, s); a.textContent = label;
-    const b = el('text', {x: 0, y: y + 46, fill: SOFT, 'font-size': 13, 'font-family': 'Mono, Menlo'}, s); b.textContent = sub;
-    el('rect', {x: x0, y, width: w, height: 44, fill: 'none', stroke: color, 'stroke-width': 1.6}, s);
-    for (let i = 1; i < n; i++) {
-      const x = x0 + w * i / n;
-      el('line', {x1: x, y1: y, x2: x, y2: y + 44, stroke: color, 'stroke-width': 1}, s);
-    }
-  };
-  row(8, 30, INK, '기획 30씬', '예시');
-  // hi-hat marks between rows
-  for (let i = 0; i <= 40; i++) {
-    const x = x0 + w * i / 40;
-    el('path', {d: `M${x-3.5} 77 l7 7 M${x+3.5} 77 l-7 7`, stroke: RED, 'stroke-width': 1.3}, s);
+  const x0 = 168, w = 632, p = w / 128, mid = 84, amp = 58, yA = 164, hA = 38, yB = 228, hB = 48;
+  const T = (x, y, t, o) => { const e = el('text', Object.assign({x, y, fill: MID, 'font-size': 13, 'font-family': 'Mono, Menlo'}, o), s); e.textContent = t; return e; };
+  const sans = {'font-family': 'Pre, sans-serif', 'font-weight': 600, 'font-size': 19};
+  const ax = k => x0 + (16 * k + .5) * p;
+  for (let k = 1; k < 8; k++) el('line', {x1: ax(k), y1: mid - amp - 10, x2: ax(k), y2: yB, stroke: RED, 'stroke-width': 1.2, 'stroke-dasharray': '3 4'}, s);
+  hatWave(s, x0, w, mid, amp);
+  T(0, mid - 6, '음파', Object.assign({}, sans, {fill: INK}));
+  T(0, mid + 16, '빨강 = 하이햇', {fill: RED});
+  el('rect', {x: x0, y: yA, width: w, height: hA, fill: 'none', stroke: SOFT, 'stroke-width': 1.6}, s);
+  for (let j = 1; j < 6; j++) { const x = x0 + w * j / 6; el('line', {x1: x, y1: yA - 12, x2: x, y2: yA + hA, stroke: SOFT, 'stroke-width': 1.6}, s); }
+  for (let j = 0; j < 6; j++) T(x0 + w * (j + .5) / 6, yA + 25, String(j + 1), {'text-anchor': 'middle', fill: SOFT, 'font-size': 15});
+  T(0, yA + 18, '기획 초안 6씬', Object.assign({}, sans, {fill: MID}));
+  T(0, yA + 36, '균등 분할');
+  for (let k = 0; k < 8; k++) {
+    const a = k ? ax(k) : x0, b = k < 7 ? ax(k + 1) : x0 + w;
+    el('rect', {x: a, y: yB, width: b - a, height: hB, fill: k % 2 ? '#F3D9D2' : '#FAF9F6', stroke: RED, 'stroke-width': 1.8}, s);
+    T((a + b) / 2, yB + 31, String(k + 1), {'text-anchor': 'middle', fill: RED, 'font-size': 17, 'font-weight': 700});
   }
-  const hl = el('text', {x: x0 - 12, y: 86, fill: RED, 'font-size': 12, 'font-family': 'Mono, Menlo', 'text-anchor': 'end'}, s); hl.textContent = 'hi-hat';
-  row(104, 40, RED, '하이햇 기준 40씬', '예시');
-  // hand arrow 30 → 40
-  const P = sampleBez([x0 + w + 12, 30], [x0 + w + 44, 46], [x0 + w + 44, 104], [x0 + w + 14, 124], 16);
+  T(0, yB + 22, '하이햇 기준 8씬', Object.assign({}, sans, {fill: RED}));
+  T(0, yB + 41, '튀는 박에서 전환', {fill: RED});
+  const P = sampleBez([x0 + w + 10, yA + 18], [x0 + w + 38, yA + 34], [x0 + w + 38, yB + 6], [x0 + w + 12, yB + 24], 16);
   el('path', {d: handPath(P, 1.5), fill: 'none', stroke: RED, 'stroke-width': 2.2, 'stroke-linecap': 'round'}, s);
   arrowHead(s, P[P.length - 1], P[P.length - 3], 12, RED, 2.2);
 }
-
 function dots() {
   const s = document.getElementById('dots');
   const pick = new Set([47, 58, 63, 74, 86]);
