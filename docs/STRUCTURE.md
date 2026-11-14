@@ -84,7 +84,7 @@ Grok · Midjourney는 한 번에 여러 장
 ## 04 영상화
 <!-- id: s4 -->
 *실제 자료 SHEET 04 / 06*
-**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 글자는 깨지지 않게] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개 · 지식을 모아 메타프롬프팅] → 모델·도구 [Seedance 2.0 · 2.5 · 메타프롬프팅 = Claude · Opus 5.5 · Fable 5.2] → 스킬·라이브러리 [seedance25-prompt-en · Higgsfield 커뮤니티 문법 · 사징가 스킬 → 어댑터] → 쌓인 특성 [참조: use · exclude · scope · 준비 → 동작 → 반응 → 정착 · 글자 날 소품 → 빈 채로] → 위키·기록 [higgsfield-community-grammar · 2D · 3D · 실사 · 교훈 장부 · xazinga-prompting-adapter]
+**키워드 사슬** 중요 [인물·장소 컷마다 유지 · 영상 속 글자는 최대한 피함 · 글자는 후처리로 추가] → 판단 [시작 이미지 없이 참조만 · 참조 1장 = 역할 1개 · 지식을 모아 메타프롬프팅] → 모델·도구 [Seedance 2.0 · 2.5 · 메타프롬프팅 = Claude · Opus 5.5 · Fable 5.2] → 스킬·라이브러리 [seedance25-prompt-en · Higgsfield 커뮤니티 문법 · 사징가 스킬 → 어댑터] → 쌓인 특성 [참조: use · exclude · scope · 준비 → 동작 → 반응 → 정착 · 글자 날 소품 → 빈 채로] → 위키·기록 [higgsfield-community-grammar · 2D · 3D · 실사 · 교훈 장부 · xazinga-prompting-adapter]
 프롬프트 저작 Codex → Astra ✗ → Claude Opus 5.5 · Fable 5.2 원하는 바 이상 체감
 
 **① 붙인 참조 3장**
