@@ -871,6 +871,20 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
 #s6 .tags.t6 span{font-size:26px;padding:10px 16px 9px}
 #s6 .tags.t6 i{font:400 26px/1 var(--sans);font-style:normal;color:var(--mid)}
 #s6 .tags.t6 b{font:700 30px/1 var(--sans);color:var(--red);margin-left:4px}
+/* 사슬 밑줄이 다음 줄 글자와 겹치지 않게 */
+.kc b:has(.under){margin-bottom:12px}
+/* 02 = 생성 요소만, 이유는 △1로 (사용자 지정 11-14: 중복 금지) */
+#s2 .msg2{margin:6px 0 34px}
+#s2 .tags.t2{gap:16px;margin:0}
+#s2 .tags.t2 span{font-size:40px;padding:18px 26px 16px}
+#rev .why1{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font:500 19px/1.2 var(--sans);margin:0 0 14px}
+#rev .why1 i{font-style:normal;color:var(--mid)}
+#rev .why1 b{font-weight:700;color:var(--red);border-bottom:2px solid var(--red);padding-bottom:1px}
+#rev .why1 em{font-style:normal;font-size:15px;border:1px solid var(--ink);padding:5px 8px 4px;margin-left:6px}
+#s2 .ev{display:flex;flex-direction:column;justify-content:center;padding-bottom:60px}
+#s2 .msg2{font-size:76px;line-height:1.15}
+#s2 .tags.t2 span{font-size:44px}
+#s5 .kc>div.key{height:auto;min-height:118px;padding-top:20px}
 </style>
 </head>
 <body>
@@ -931,19 +945,16 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
       <div class="body">
         <div class="kcw">
   <div class="kc">
-    <div class="key"><small>중요</small><b><span class="under">음악이 먼저 정해짐</span></b><b>→ 기획 다시 손봄 △1</b></div>
+    <div class="key"><small>중요</small><b><span class="under">음악이 먼저 정해짐</span></b><b>→ △1</b></div>
     <div><small>판단</small><b>특이할 것 없이 Suno</b><b>거의 손 안 댐</b><b>고르기·다운로드는 직접</b></div>
     <div><small>모델·도구</small><b>Suno</b><b>Custom · 길이는 초로</b></div>
     <div><small>스킬·라이브러리</small><b style="letter-spacing:-.05em">awesome-suno-prompts</b><b>레포지토리 활용</b></div>
   </div>
   <div class="ev">
-<div class="k">음악 생성 · 중요한 것</div>
+<div class="msg2">음악 생성에서<br>중요한 것</div>
 <div class="tags t2"><span>Custom 모드</span><span>길이는 초로</span><span>형용사 나열 ✗</span><span>아티스트·곡 이름 ✗</span><span>인트로 허밍 ✗</span></div>
-<div class="msg2">음악이 정해지면<br>다시 기획으로 <span class="red">↺ △1</span></div>
-<div class="why2"><span>하이햇 · 박자감</span><i>→</i><span>처음과 다른 장면 수</span><i>→</i><b>장면 수 재정립</b><em>뮤비 · 배경음악 모두</em></div>
 <div class="row2"><div class="au" id="au2"><span class="aub"></span><span class="aubar"><i></i></span><audio preload="none" tabindex="-1" muted></audio></div></div>
-<span class="bd ex2" data-go="d00c">예시</span>
-<svg id="wave" class="mark" style="left:0;bottom:0" width="1072" height="290"></svg>
+<svg id="wave" class="mark" style="display:none" width="1072" height="290"></svg>
 </div>
 </div>
       </div>
@@ -960,6 +971,7 @@ body.zoomed #c53.cur .pair.three > i:first-of-type{font-size:9.5px;height:8px;ma
     <div class="dt">
       <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">1</text></svg>음악 → 기획<span class="bd" data-go="d00c">예시</span></div>
       <div class="rt">음악을 정하고, 기획을 다시 손봅니다.</div>
+      <div class="why1"><span>하이햇 · 박자감</span><i>→</i><span>처음과 다른 장면 수</span><i>→</i><b>장면 수 재정립</b><em>뮤비 · 배경음악 모두</em></div>
       <div class="chips"><span>팝핑댄서 출신</span><span>비트에 민감</span><span class="r">하이햇 = 장면 전환</span><span class="r">30씬 → 40씬</span></div>
       <svg id="beats" style="display:block;margin-top:18px;overflow:visible" width="840" height="284"></svg>
         </div>
