@@ -314,8 +314,6 @@ code{font:.86em var(--mono);background:var(--faint);padding:.08em .35em}
 .who td:first-child{font-weight:700;width:150px}
 .who tr:last-child td:first-child{color:var(--red)}
 .whon{font:14px/1 var(--mono);color:var(--soft);margin-top:10px}
-.zh{font:normal 500 13px/1 var(--sans);color:var(--red);margin-left:auto}
-.zoomed .zh{display:none}
 .appxb{position:absolute;left:2400px;top:4130px;width:1600px;border:3px solid var(--ink);background:var(--sheet);padding:30px 40px;cursor:pointer}
 .appxb b{display:block;font:700 60px/1.1 var(--sans);letter-spacing:-.02em}
 .appxb small{display:block;font:34px/1.4 var(--mono);color:var(--mid);margin-top:14px}
@@ -486,6 +484,105 @@ body.clean #hud,body.clean #hint{opacity:0}
 .sp3b{margin-top:16px;display:flex;align-items:flex-start;gap:0;flex-wrap:wrap}
 .sp3b .bd{margin-bottom:6px}
 .sp3b strong{display:block;flex-basis:100%;font:700 31px/1.25 var(--serif);color:var(--red);letter-spacing:-.01em}
+/* r10 */
+:root{--t2:64px;--t2s:48px;--t3:32px;--t4:22px;--t5:18px;--t6:15px}
+.lane{transition:opacity .4s;font-size:58px}
+body.in .lane{opacity:0}
+.ttl2,.tb2,.rowlab,.sheet.dp,.zx{transition:opacity .5s}
+body:not(.apx) :is(.ttl2,.tb2,.rowlab,.sheet.dp,.zx){opacity:0;pointer-events:none}
+.ttl .bdl{display:flex;align-items:center;white-space:nowrap}
+.ttl .bdl .bd{font-size:62px;border-width:4px;padding:14px 22px 12px;margin-right:22px;cursor:pointer}
+.ttl .s{font-size:62px}
+.ttl .by{font-size:62px}
+.legend-ov{font-size:56px}
+.appxb b{font-size:72px}
+.appxb small{font-size:50px}
+.kc small{font:15px/16px var(--mono)}
+.kc b{font-size:22px}
+.kc b.m{font-size:15px}
+.kc>div{border-width:1.5px}
+.kc>div.key{border-width:3px}
+.bd{font-size:15px}
+.mt4 small{font-size:15px}
+.sp3g figcaption,.sp3n,.sp3s{font-size:15px}
+.sp3s{margin:8px 0 5px}
+.ch{font-size:18px;align-items:baseline}
+.ch span{font:700 24px/1 var(--mono)}
+.cd{font-size:16px}
+.pl{font-size:15px}
+.pair figure{display:flex;flex-direction:column}
+.pair figcaption{font:15px/1.3 var(--sans);white-space:nowrap}
+.pair b{position:static;display:block;order:-1;border:0;background:none;padding:0 0 5px;font:600 15px/1 var(--mono);color:var(--mid)}
+.pair b.a{background:none;color:var(--red);border:0}
+.pair.v img{height:185px;width:auto}
+#s5 .case.tall .pair.v figure{height:auto}
+body:not(.zoomed) #s5 .pl{font-size:0;gap:0;padding:7px 8px;top:20px}
+#c53 .pair.three figure:last-child{flex:1.8}
+/* 01 */
+#s1 .ratio + .p{font:600 36px/1.3 var(--sans)}
+#s1 .ratio + .p .bd{font-size:22px;margin:0 0 0 18px}
+#s1 .tags span{font-size:32px;padding:14px 22px 13px}
+#s1 .p.mid{font-size:26px}
+/* 02 */
+.msg2{font:700 var(--t2)/1.2 var(--serif);letter-spacing:-.02em;margin:6px 0 28px}
+#s2 .row2{display:flex;align-items:center;gap:32px}
+#s2 .brand{font-size:72px;margin:0}
+#s2 .au{margin-top:0}
+.ex2{position:absolute;right:0;bottom:240px;margin:0}
+/* revision 2 */
+.fxk{display:flex;align-items:center}
+.fxk .bd{margin:0 0 0 auto;font-size:16px}
+/* 03 */
+.pk3{display:grid;grid-template-columns:256px 19px 396px;align-items:center}
+.sp3g.c4{grid-template-columns:repeat(2,1fr);gap:8px;margin:0}
+.pk3 .big{margin:0}
+.pk3 .big img{display:block;width:396px;aspect-ratio:16/9;object-fit:cover;border:4px solid var(--red)}
+.pk3 .big figcaption{font:600 15px/1 var(--mono);color:var(--red);margin-top:5px}
+.pk3>i{font:300 22px/1 var(--sans);font-style:normal;color:var(--mid);text-align:center}
+.bt3{display:grid;grid-template-columns:442px minmax(0,1fr);column-gap:24px;align-items:end}
+.bt3 .sp3g.w3{gap:8px 8px}
+.bt3 figcaption{white-space:normal}
+.bt3 .sp3b{margin:0;border-left:3px solid var(--red);padding-left:16px}
+.sp3b strong{font-size:var(--t3)}
+.sp3b .bd{font-size:18px}
+/* 04 */
+#s4 .ev{position:relative}
+#s4 .v4a,#s4 .v4b{position:absolute;left:0;right:0;top:44px;bottom:0;transition:opacity .4s}
+body:not(.p4b) #s4 .v4b{opacity:0;pointer-events:none}
+body.p4b #s4 .v4a{opacity:0;pointer-events:none}
+.v4a{display:grid;grid-template-columns:290px minmax(0,1fr);column-gap:44px;row-gap:10px;align-items:center;align-content:start}
+.v4a img,.v4b img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--ink)}
+.v4a figcaption,.v4b figcaption{font:15px/1.3 var(--mono);color:var(--mid);margin-top:5px}
+.v4a .k{margin:0;grid-column:1}
+.v4a .h4{grid-column:2}
+.h4{font:700 var(--t2s)/1.15 var(--serif);letter-spacing:-.02em}
+.v4r p{font:600 26px/1.35 var(--sans)}
+.v4r code,.v4l code,.v4q code{display:block;background:none;padding:0;font:16px/1.45 var(--mono);color:var(--mid);margin-top:8px}
+.v4r.two{grid-row:span 2;border-left:2px solid var(--ink);padding-left:22px}
+.seq{font:500 24px/1.4 var(--sans);margin:10px 0 4px}
+.v4b{display:grid;grid-template-columns:minmax(0,1fr) 560px;column-gap:36px;grid-template-rows:auto auto;row-gap:14px;align-items:start}
+.v4b .mv4{width:560px}
+.v4b .v4s{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.v4b .v4q.r{align-self:center;grid-column:1;grid-row:2;border-left:3px solid var(--red);padding-left:18px}
+.v4b .v4q.r p{font:600 23px/1.35 var(--sans);color:var(--red);margin-top:6px}
+.v4b .v4l{grid-column:1;grid-row:1}
+.v4b .mv4{grid-column:2;grid-row:1}
+.v4b .v4s{grid-column:2;grid-row:2}
+.v4s figure.r img{border:3px solid var(--red)}
+.v4s figure.r figcaption{color:var(--red);cursor:pointer}
+#s4 figure.mv4 video{cursor:pointer}
+.pt4{font:500 26px/1 var(--sans);color:var(--mid);letter-spacing:0}
+body:not(.p4b) #s4 .pt4.b,body.p4b #s4 .pt4.a{display:none}
+/* 06 */
+#s6 .ho6{font-size:24px;margin-top:14px}
+#s6 .ho6.s{font-size:20px;color:var(--mid);margin-top:6px}
+.who td{font-size:24px}
+.pair.three{align-items:flex-start}
+#s1 .ratio + .p{margin-top:16px}
+/* hud */
+#hud{font-size:14px}
+#hint{font-size:13px}
+@media (max-width:1500px){#hint{right:auto;left:28px;bottom:50px}}
 </style>
 </head>
 <body>
@@ -500,7 +597,7 @@ body.clean #hud,body.clean #hint{opacity:0}
     <h1>영상팀 워크플로우</h1>
     <div class="s">기획 · 음악 · 이미지 · 영상화 · 후처리 · 편집</div>
       <div class="by">성남시청 사진우 주무관 · 화면 속 “저”는 발표자입니다</div>
-      <div class="bdl" data-go="d00c">배지 — 실제 자료 · 재구성 · 예시 · 원고의 비유 <span>(뜻은 부록 00-C)</span></div>
+      <div class="bdl" data-go="d00c"><span class="bd k">실제 자료</span><span class="bd">재구성</span><span class="bd">예시</span><span class="bd">체감</span></div>
   </div>
 
   <!-- 01 기획 -->
@@ -519,7 +616,7 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div><small>모델·도구</small><b>기획 대화</b><b>Codex · Claude</b></div>
     <div><small>스킬·라이브러리</small><b>컨셉 3안 → 1안 선택</b><b>스타일 바이블</b><b>콘티 · 15초 단위</b></div>
     <div><small>쌓인 특성</small><b>기획 경험은 재사용 ✗</b><b>앞이 바뀌면 뒤 재확정</b><b>장면은 대사 그대로</b></div>
-    <div><small>위키·기록</small><b>교훈 장부 · 공통</b><b class="m">seeds/ · 다음 작품 시드</b><b class="m">_hub/context-capsules</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 · 공통</b><b>다음 작품 시드</b><b>인계 요약</b></div>
   </div>
   <div class="ev"><div class="e1">
         <div>
@@ -531,9 +628,9 @@ body.clean #hud,body.clean #hint{opacity:0}
           <div class="tags"><span>2D</span><span>3D</span><span>실사</span><span>분위기</span></div>
         </div>
         <div>
-          <div class="k">비중 · 체감</div>
+          <div class="k">비중</div>
           <div class="ratio"><span class="circled">95</span><small>%</small></div>
-          <p class="p">제 창의성</p>
+          <p class="p">제 창의성<span class="bd" data-go="d00c">체감</span></p>
           <div class="bar"><div class="me"></div><div class="ai"></div></div>
           <div class="barl"><span>나 95</span><span class="red">AI 조언 5</span></div>
         </div>
@@ -560,13 +657,13 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div><small>모델·도구</small><b>Suno</b><b>Custom · 길이는 초로</b></div>
     <div><small>스킬·라이브러리</small><b class="m">music-director 스킬</b><b class="m">awesome-suno-prompts</b><b>가까운 패턴 2–5개만</b></div>
     <div><small>쌓인 특성</small><b>형용사 나열 ✗</b><b>아티스트·곡 이름 제거</b><b>인트로 허밍·속삭임 ✗</b></div>
-    <div><small>위키·기록</small><b>스킬 본문에만</b><b>교훈 장부 항목 없음</b></div>
+    <div><small>위키·기록</small><b>스킬 · 프롬프트 모음에</b><b>교훈 장부 항목 없음</b></div>
   </div>
   <div class="ev">
 <div class="k">배경음악</div>
-<div class="brand">Suno</div>
-<div class="au" id="au2"><span class="aub"></span><span>실제 예 · 화성 공모전 곡 일부 · Suno · 20초</span><span class="aubar"><i></i></span><span class="auk">클릭 또는 M</span><audio src="assets/r2/music_c05_20s.mp3" preload="none" tabindex="-1"></audio></div>
-<div class="redline" style="margin-top:22px">음악이 정해지면 다시 기획으로 ↺ △1</div>
+<div class="msg2">음악이 정해지면<br>다시 기획으로 <span class="red">↺ △1</span></div>
+<div class="row2"><div class="brand">Suno</div><div class="au" id="au2"><span class="aub"></span><span>실제 예 · 화성 공모전 곡 일부 · Suno · 20초</span><span class="aubar"><i></i></span><span class="auk">클릭 또는 M</span><audio src="assets/r2/music_c05_20s.mp3" preload="none" tabindex="-1"></audio></div></div>
+<span class="bd ex2" data-go="d00c">예시</span>
 <svg id="wave" class="mark" style="left:0;bottom:0" width="1112" height="250"></svg>
 </div>
 </div>
@@ -617,13 +714,18 @@ body.clean #hud,body.clean #hint{opacity:0}
           <h3 class="sp3t">내 요소 → 개성</h3>
           <ul class="sp3kl"><li>툴 배분: 2D·3D·수묵 = Midjourney · 실사 = Seedream</li><li>공냥 프롬프트킷 서식</li><li>Grok · Midjourney는 한 번에 여러 장</li><li>내 눈에 드는 한 장 → 작풍 선정</li></ul>
           <div class="sp3s">여러 장 → 한 장</div>
-          <div class="sp3g q4">
-            <figure><img src="assets/r9/mj_0.jpg" alt=""></figure>
-            <figure><img src="assets/r9/mj_1.jpg" alt=""></figure>
-            <figure class="pick"><img src="assets/r9/mj_2.jpg" alt=""><b>고름</b></figure>
-            <figure><img src="assets/r9/mj_3.jpg" alt=""></figure>
+          <div class="pk3">
+            <div class="sp3g c4">
+              <figure><img src="assets/r9/mj_0.jpg" alt=""></figure>
+              <figure><img src="assets/r9/mj_1.jpg" alt=""></figure>
+              <figure class="pick"><img src="assets/r9/mj_2.jpg" alt=""></figure>
+              <figure><img src="assets/r9/mj_3.jpg" alt=""></figure>
+            </div>
+            <i>→</i>
+            <figure class="big"><img src="assets/r9/mj_2.jpg" alt=""><figcaption>고름</figcaption></figure>
           </div>
           <div class="sp3s">직접 골라 쓴 작풍</div>
+          <div class="bt3">
           <div class="sp3g w3">
             <figure><img src="assets/r9/mine_2d_char.jpg" alt=""><figcaption>2D 셀 · 인물 시트</figcaption></figure>
             <figure><img src="assets/r9/mine_hand_park.jpg" alt=""><figcaption>손그림 수채 · 장소</figcaption></figure>
@@ -633,6 +735,7 @@ body.clean #hud,body.clean #hint{opacity:0}
             <figure><img src="assets/r9/mine_real_robot.jpg" alt=""><figcaption>실사 · 로봇 시트</figcaption></figure>
           </div>
           <div class="sp3b"><span class="bd" data-go="d00c">체감</span><strong>이것만으로 공모전 슬롭 85%는 이기고 들어간다</strong></div>
+          </div>
         </div>
       </div></div>
       <div class="df"><span>AI 세션 · 이미지 생성 → 검수</span><span>VT-03</span></div>
@@ -648,7 +751,7 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
     <div class="dt">
       <div>
-        <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">2</text></svg>REV. 2 — 영상 → 참조<span class="bd" data-go="d00c">재구성</span></div>
+        <div class="rk"><svg width="26" height="23" viewBox="0 0 26 23"><path d="M13 1.5 L24.5 21.5 L1.5 21.5 Z" fill="none" stroke="#CF3A1E" stroke-width="1.6"/><text x="13" y="18" text-anchor="middle" font-size="11" fill="#CF3A1E" font-family="Menlo">2</text></svg>REV. 2 — 영상 → 참조</div>
         <div class="rt">참조 그림에 있으면,<br>영상에도 나옵니다.</div>
         <p class="rp">장소 참조 속 <b>리본 그릇</b> → 영상 테이블에 그대로<br>리본 없이 다시 그림 → 재생성 → 사라짐</p>
         <p class="r2l">영상에 이상한 물건이 계속 나오면,<br>프롬프트보다 참조 그림부터 봅니다.</p>
@@ -656,7 +759,7 @@ body.clean #hud,body.clean #hint{opacity:0}
       </div>
       <div class="fx">
         <div>
-          <div class="fxk"><b>전</b>처음 참조와 그 뒤 생성한 클립</div>
+          <div class="fxk"><b>전</b>처음 참조와 그 뒤 생성한 클립<span class="bd" data-go="d00c">재구성</span></div>
           <div class="fxrow">
             <figure><div class="cw z"><img src="assets/r2/a_earlier_REF_LOC_MEETUP_HALL_1.jpg" alt=""><span class="ring" style="left:54%;top:17%;width:16%;height:28%"></span><b>종이 여백</b></div><figcaption>처음 장소 참조 — 리본 그릇, 종이 여백</figcaption></figure>
             <figure><div class="cw"><img src="assets/r3/same_before.jpg" alt=""><span class="ring" style="left:41%;top:56%;width:17%;height:28%"></span></div><figcaption>생성한 영상 — 리본 그릇 그대로</figcaption></figure>
@@ -682,7 +785,7 @@ body.clean #hud,body.clean #hint{opacity:0}
       <div class="ov-sub">Runway · Seedance 2.0 / 2.5</div>
     </div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04</span>영상화</h2><div class="r"><span class="bd k" data-go="d00c">실제 자료</span>SHEET 04 / 06</div></div>
+      <div class="dh"><h2><span class="no">04</span>영상화<span class="pt4 a">① 참조에 역할 주기</span><span class="pt4 b">② 동작과 결과</span></h2><div class="r"><span class="bd k" data-go="d00c">실제 자료</span>SHEET 04 / 06</div></div>
       <div class="body"><div class="kcw">
   <div class="kc">
     <div><small>중요</small><b>인물·장소 컷마다 유지</b><b>영상 속 글자는 최대한 피함</b><b>글자는 후처리로 추가</b></div>
@@ -693,22 +796,24 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div><small>위키·기록</small><b class="m">higgsfield-community-grammar</b><b>2D · 3D · 실사 · 교훈 장부</b><b class="m">xazinga-prompting-adapter</b></div>
   </div>
   <div class="ev"><div class="mt4"><small>프롬프트 저작</small><span class="no">Codex</span><i>→</i><span class="no">Astra ✗</span><i>→</i><strong>Claude Opus 5.5 · Fable 5.2</strong><em>원하는 바 이상</em><span class="bd" data-go="d00c">체감</span></div>
-        <div class="v4">
-          <div class="k">① 붙인 참조 3장</div>
-          <div class="k">② 실제 프롬프트에서 네 줄<span>영어 약 9천 자 중</span></div>
-          <div class="k pb" style="font-size:15px;letter-spacing:.02em;white-space:nowrap">③ 나온 결과 · 한 번에 생성한 15초</div>
-
+        <div class="v4a">
+          <div class="k">붙인 참조 3장</div>
+          <div class="h4">참조 1장 = 역할 1개</div>
           <figure><img src="assets/vid/b01_ref1.jpg" alt=""><figcaption>@Image1 · 장소</figcaption></figure>
-          <div class="v4q"><code class="pa">References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.</code><p class="pa">참조 1장 = 역할 1개 · 여기선 장소만</p><code class="mv pb">Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.</code><p class="pb">동작 = 형용사 ✗ · 순서 ○<small>갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤</small></p></div>
-          <figure class="pb mv4"><img src="assets/vid/b01_shot1.jpg" alt=""><video id="v4s1" src="assets/r6/b01_shot1_0-3s.mp4" poster="assets/vid/b01_shot1.jpg" preload="auto" muted loop playsinline></video><figcaption>숏 1 · 14초 결과 구간의 처음 3초 · 무음</figcaption></figure>
-
+          <div class="v4r"><p>여기선 장소만</p><code>References: @Image1 is the river valley, footbridge, reeds, apartment window lights and dusk sky only.</code></div>
           <figure><img src="assets/vid/b01_ref2.jpg" alt=""><figcaption>@Image2 · 남자 인물 시트</figcaption></figure>
-          <div class="v4q pa"><code>@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.</code><p>인물 시트 = 얼굴·옷만(use) · 종이 배경·3면 배치 제외(exclude)</p></div>
-          <figure class="pb"><img src="assets/vid/b01_shot2.jpg" alt=""><figcaption>숏 2 · 3–6초</figcaption></figure>
-
+          <div class="v4r two"><p>인물 시트 = 얼굴·옷만(use)</p><p>종이 배경·3면 배치 제외(exclude)</p><code>@Image2 is him, in his slate indigo-grey day overcoat, only: … the cream sheet background and the three-view layout are not part of the scene.</code></div>
           <figure><img src="assets/vid/b01_ref3.jpg" alt=""><figcaption>@Image3 · 여자 인물 시트</figcaption></figure>
-          <div class="v4q r pb"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막 = 글자 없는 빈 천</p></div>
-          <figure class="r pb"><img src="assets/vid/b01_shot5.jpg" alt=""><figcaption data-go="c54">숏 5 · 빈 현수막 → 05-4</figcaption></figure>
+        </div>
+        <div class="v4b">
+          <div class="v4l">
+            <div class="h4">동작 = 형용사 ✗ · 순서 ○</div>
+            <p class="seq">갈대 눕고 → 코트 자락 → 숨 한 번 → 멈춤</p>
+            <code>Shot 1 (0-3s): … The reeds lean in one slow wave of wind; his coat hem lifts a beat after; his shoulders rise and sink with one slow breath and he stays still.</code>
+          </div>
+          <figure class="mv4"><img src="assets/vid/b01_shot1.jpg" alt=""><video id="v4s1" src="assets/r6/b01_shot1_0-3s.mp4" poster="assets/vid/b01_shot1.jpg" preload="auto" muted loop playsinline></video><figcaption>숏 1 · 14초 결과 구간의 처음 3초 · 무음</figcaption></figure>
+          <div class="v4q r"><code>Shot 5 (12-15s): … a long blank cream fabric banner hangs over the entrance … No letters on the banner, building or anywhere.</code><p>현수막 = 글자 없는 빈 천</p></div>
+          <div class="v4s"><figure><img src="assets/vid/b01_shot2.jpg" alt=""><figcaption>숏 2 · 3–6초</figcaption></figure><figure class="r"><img src="assets/vid/b01_shot5.jpg" alt=""><figcaption data-go="c54">숏 5 · 빈 현수막 → 05-4</figcaption></figure></div>
         </div>
       </div></div></div>
       <div class="df"><span>실제 사례 · 성남시 MV 첫 15초 · Seedance 2.5 · 5숏 · 참조 3장 · <b class="n4">이 15초 중 실제로 쓰는 건 일부입니다 → 06 편집</b></span><span>VT-04</span></div>
@@ -731,11 +836,11 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div><small>모델·도구</small><b>Python · ffmpeg</b><b>Blender · Real-ESRGAN</b><b>demucs + Whisper</b></div>
     <div><small>스킬·라이브러리</small><b>효과 모음 (승인·거절)</b><b>motion 레일 · 로컬 전용</b><b>AI가 쓴 코드 · 로컬 실행</b></div>
     <div class="key"><small>쌓인 특성</small><b><span class="under">같은 효과 반복 ✗</span></b><b>얇은 HUD · 번짐 ✗</b><b>480p 미리보기 먼저</b></div>
-    <div><small>위키·기록</small><b>교훈 장부 · 3D·모션</b><b>Claude 메모리 3건</b><b>효과 취향은 위키에 없음</b></div>
+    <div><small>위키·기록</small><b>교훈 장부 · 3D·모션</b><b>Claude 메모리 3건</b><b>효과 모음은 따로 보관</b></div>
   </div>
   <div class="ev"><div class="cases">
           <article class="case" id="c51">
-            <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」<em class="zh">사례 ① · 클릭</em></div>
+            <div class="ch"><span>05-1</span>화성시 공모전 「여긴, 화성」</div>
             <div class="ct">타격하는 박에만, 잉크 프레임</div>
             <div class="pair">
               <figure><img src="assets/post/hw_before.jpg" alt=""><b>효과 직전</b><figcaption>최종본의 타격 직전 프레임</figcaption></figure>
@@ -746,7 +851,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           </article>
           <article class="case tall" id="c52">
             <div class="tx">
-              <div class="ch"><span>05-2</span>광양시 「매돌이」<em class="zh">건너뜀 · 클릭</em></div>
+              <div class="ch"><span>05-2</span>광양시 「매돌이」</div>
               <div class="ct">장소가 바뀌면,<br>도감 카드</div>
               <p class="cd">“관찰 지점 No.01” 카드 · 어디인지 화면이 말함</p>
               <p class="cd mid">4K 확대 + 그레인 · 두 그림 모두 최종본 프레임</p>
@@ -757,7 +862,7 @@ body.clean #hud,body.clean #hint{opacity:0}
             </div>
           </article>
           <article class="case" id="c53">
-            <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상<em class="zh">건너뜀 · 클릭</em></div>
+            <div class="ch"><span>05-3</span>성남시 푸드테크 설명 영상</div>
             <div class="ct">실사는 글자 없이, 설명은 코드로</div>
             <div class="pair three">
               <figure><img src="assets/post/sn_before.jpg" alt=""><b>생성 원본</b><figcaption>Seedance 원본</figcaption></figure>
@@ -769,7 +874,7 @@ body.clean #hud,body.clean #hint{opacity:0}
             <p class="cd">틀리면 안 되는 정보(기술명 · 지도 · 로고) = AI에게 안 그리게</p>
           </article>
           <article class="case" id="c54">
-            <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면<em class="zh">사례 ② · 클릭</em></div>
+            <div class="ch"><span>05-4</span>성남시 MV · 「솔로몬의 선택」 장면</div>
             <div class="ct">빈 현수막에 글자 걸기</div>
             <div class="pair">
               <figure><video src="assets/clips/sol_before.mp4" poster="assets/post/sol_before.jpg" preload="auto" muted loop playsinline data-silent></video><span class="pl">누르면 재생</span><b>생성 원본</b><figcaption>빈 천으로 생성 · 04의 숏 5</figcaption></figure>
@@ -780,7 +885,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           </article>
         </div></div></div>
       </div>
-      <div class="df"><span>05-1 효과 · 05-2 카드 · 05-4 합성 · 05-3 설명 그래픽 자체를 코드로 제작 — AI가 코드를 쓰고 로컬에서 실행 · Python · ffmpeg</span><span>VT-05</span></div>
+      <div class="df"><span>05-1 효과 · 05-2 카드 · 05-3 설명 그래픽 · 05-4 합성 — AI가 코드를 쓰고 로컬에서 실행 · Python · ffmpeg</span><span>VT-05</span></div>
     </div>
   </section>
 
@@ -808,7 +913,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           <tr><td>사람</td><td>방향·컨셉 선택 · 곡 선택 · 콘티 승인 · 생성 실행 승인 · 결과 채택·거절 · 최종 편집</td></tr>
           <tr><td>AI 세션</td><td>콘티 구체화 · 프롬프트 작성 · 생성 실행·수확 · 1차 검수 · 후처리 코드 작성·실행</td></tr>
         </table>
-        <div class="ho6"><b>AI 세션 → 사람</b>검수를 통과한 승인 클립 + 이야기 순서표 <small>— 내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람</small></div><div class="whon">근거 · 부록 01-A · 04-B · 06-A · 런타임 규칙 §4</div>
+        <div class="ho6"><b>AI 세션 → 사람</b>검수를 통과한 승인 클립 + 이야기 순서표</div><div class="ho6 s">내려받았다고 검수가 끝난 것은 아님 · 자르기 · 길이 조정 · 최종본 조립은 사람</div>
       </div></div></div>
       <div class="df"><span>사람 · 직접</span><span>VT-06</span></div>
     </div>
@@ -822,7 +927,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <div class="lane" style="left:2400px;top:4000px"><b>AI + 로컬</b>코드 작성 · Python · ffmpeg</div>
   <div class="lane" style="left:4500px;top:4000px"><b>사람</b>직접</div>
 
-  <div class="appxb" id="appxb"><b>부록 16장 · D 키</b><small>질문 대비 상세 자료 · 05-2 · 05-3 사례는 05에서 카드를 클릭</small></div>
+  <div class="appxb" id="appxb"><b>부록 16장 · D 키</b><small>질문 대비 상세 자료 · 05-2 사례는 05에서 카드를 클릭</small></div>
   <div class="legend-ov">
     <div><span class="sw"></span>진행 순서</div>
     <div><span class="sw r"></span>되돌아가는 수정</div>
@@ -841,12 +946,11 @@ body.clean #hud,body.clean #hint{opacity:0}
   <div class="ttl2" style="left:6900px">
     <div class="k">SHEET 10 — 부록</div>
     <h1>부록 · 단계별 상세도</h1>
-    <div class="s">질문이 나오면 펼치는 자료 · 시트를 누르면 크게 · D는 01-A부터, G는 이 지도 — 2026-11-13 현재 파일 기준</div>
-<div class="s" style="margin-top:6px">글로 읽기 · 레포의 docs/STRUCTURE.md (화면의 모든 시트를 옮긴 텍스트판)</div>
+    <div class="s">질문이 나오면 펼치는 자료 · 시트를 누르면 크게 · D는 01-A부터, G는 이 지도</div>
   </div>
   <div class="tb2" style="left:13000px">
     <div class="wide"><small>도면명</small>부록 · 단계별 상세도</div>
-    <div><small>작성</small>사진우</div><div><small>기준일</small>2026.11.13</div><div><small>축척</small>N.S.</div><div><small>도면번호</small>VT-10</div>
+    <div><small>작성</small>사진우</div><div><small>구분</small>부록</div><div><small>축척</small>N.S.</div><div><small>도면번호</small>VT-10</div>
   </div>
 
   <div class="rowlab" style="left:6900px;top:800px"><div class="n">01</div><div class="t">기획</div><div class="k">정해지는 것</div><div class="v">컨셉 · 스타일 바이블 · 콘티</div><div class="k">담당</div><div class="v m">기획 대화 → 콘티 세션</div></div>
@@ -911,7 +1015,7 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
   </section>
   <section class="sheet dp" id="d01c" style="left:11200px;top:800px">
-    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 항목</div><div class="ov-sub">생성 1회 15초 · 숏 1–4</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">01-C</span><span>STORYBOARD</span></div><div class="ov-name">콘티 항목</div><div class="ov-sub">생성 1회 15초 · 숏 1–4(2.0) · 1–8(2.5)</div></div>
     <div class="dt">
       <div class="dh"><h2><span class="no">01-C</span>콘티에 적는 것</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:1fr 1fr">
@@ -1035,7 +1139,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <section class="sheet dp" id="d04a" style="left:7600px;top:4580px">
     <div class="ov"><div class="ov-top"><span class="no">04-A</span><span>PROMPT</span></div><div class="ov-name">프롬프트 해부</div><div class="ov-sub">줄마다 주인이 있다</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부 · 실제 제출본</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">04-A</span>프롬프트 해부</h2><div class="r">부록</div></div>
       <div class="body"><table class="anat">
   <tr><td>15 seconds, 5 shots:</td><td>길이와 숏 수<small>15초를 다 씀 — 프롬프트 사정으로 줄이지 않음</small></td></tr>
   <tr><td>Artistic hand-drawn 2D animation, ink and watercolor on coarse cream cold-press paper. …</td><td>화풍 고정 문장<small>스타일 바이블 원문 그대로, 모든 생성에 반복</small></td></tr>
@@ -1048,7 +1152,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <tr><td>Consistency: He keeps messy short black hair with a ruffled fringe, …</td><td>인물 특징 다시 적기<small>긴 테이크 흔들림 방지</small></td></tr>
   <tr><td>End frame: Fixed eye-level wide of a low glass building …</td><td>마지막 구도<small>다음 생성이 이어받음</small></td></tr>
 </table>
-<p class="note" style="margin-top:12px">성남시 MV 첫 15초의 실제 제출 프롬프트(영어 약 9천 자)에서 줄 머리만 발췌 · 모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이를 맞추려고 내용을 압축하지 않음</p></div>
+<p class="note" style="margin-top:12px">모델 입력은 <b>영어만</b> · Runway 입력 10,000자 이하 · 길이를 맞추려고 내용을 압축하지 않음</p></div>
       <div class="df"><span></span><span>04-A</span></div>
     </div>
   </section>
@@ -1065,12 +1169,12 @@ body.clean #hud,body.clean #hint{opacity:0}
 <div class="sflow sm" style="margin-top:28px">
   <div><small>설정 확인</small><b>길이 확인</b><code>2.0 ≤ 15초<br>2.5 ≤ 30초 · 1–8숏</code></div>
   <div><small>확정</small><b>묶음 확정</b><code>입력이 바뀌면 다시 확정</code><em>내가 실행 승인 1회</em></div>
-  <div><small>생성</small><b>제출 · 수확</b><code>백그라운드로 실행</code></div>
+  <div><small>생성</small><b>제출 · 수확</b><code>실행 승인 뒤 제출 · 내려받기</code></div>
   <div><small>영상 검수</small><b>클립 검수</b><code>정상 속도 재생 · 접촉/전환 구간 느리게 · 소리 확인<br>+ 1초 1장 시트 · 사람 컷 확대</code></div>
 </div>
 <div class="cols" style="grid-template-columns:1fr 1fr;margin-top:30px;height:auto">
 <table class="fld ko"><tr><th>생성이 끝나거나 멈추는 경우</th><th></th></tr>
-  <tr><td>정상 종료</td><td>전부 내려받음, 또는 아직 실행 승인 전 — 내려받았다고 검수가 끝난 것은 아님</td></tr><tr><td>확인 필요</td><td>내가 확인해야 다음으로</td></tr><tr><td>중단</td><td>사이트의 자동화 경고 — 나만 풀 수 있음</td></tr><tr><td>실패</td><td>생성 실패·유실 · 실행 거부 · 세션 수 상한 — 다시 생성하기 전에 이미 제출됐는지부터 확인(중복 생성 방지) · 복구는 같은 세션, 같은 자리에서 이어서</td></tr></table>
+  <tr><td>정상 종료</td><td>전부 내려받음, 또는 아직 실행 승인 전 — 내려받았다고 검수가 끝난 것은 아님</td></tr><tr><td>확인 필요</td><td>내가 확인해야 다음으로</td></tr><tr><td>실패</td><td>생성 실패·유실 · 실행 거부 · 세션 수 상한 — 다시 생성하기 전에 이미 제출됐는지부터 확인(중복 생성 방지) · 복구는 같은 세션, 같은 자리에서 이어서</td></tr></table>
 <table class="fld"><tr><th>검수에서 보는 것</th><th></th></tr>
   <tr><td>움직임 · 소리</td><td>정상 속도로 재생 · 접촉·전환은 느리게 · 소리</td></tr><tr><td>필요한 일</td><td>필요한 일이 실제로 일어났나 — 주인공 유지 · 행동이 빠지지 않았나</td></tr><tr><td>글자 · 얼굴</td><td>옷 · 등판 · 소품 위 깨진 글자 · 서양인 얼굴 · 이상한 헤어</td></tr><tr><td>시선 · 손</td><td>장비를 보는가, 손 논리</td></tr><tr><td>교체</td><td>같은 클립의 무인 구간·클로즈업으로 — 그 구간이 장면의 역할을 하는지 따로 검수 · 거절된 클립 자체는 해결 전까지 보류</td></tr></table>
 </div></div>
@@ -1120,7 +1224,7 @@ body.clean #hud,body.clean #hint{opacity:0}
   <p><span>07-11</span>시작 이미지 없는 방식 추가 — 참조만 붙이고 연출은 프롬프트가</p>
   <p><span>10-29</span>시작프레임 없이 참조만이 기본</p>
   <p><span>11-07</span>Seedance 2.5 지원</p>
-  <p><span>11-11</span>생성을 백그라운드로 · 반복 실수 검사 추가</p>
+  <p><span>11-11</span>반복 실수 검사 추가</p>
 </div></div>
 </div></div>
       <div class="df"><span></span><span>04-D</span></div>
@@ -1169,27 +1273,25 @@ body.clean #hud,body.clean #hint{opacity:0}
     <div class="dt">
       <div class="dh"><h2><span class="no">00-A</span>위키 지도</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:660px 1fr;gap:70px">
-<div><div class="k">~/wiki</div>
-<div class="tree">wiki/
-├─ raw/                <em>원문 278 · 고치지 않음</em>
-├─ concepts/           <em>지식 50 · 영상 29</em>
-├─ queries/            <em>남겨둘 만한 답 18</em>
-├─ seeds/              <em>다음 작품 시드 7</em>
-├─ _hub/
-│  └─ context-capsules/ <b>캡슐 147일</b>
-├─ _meta/
-│  └─ video-knowledge-catalog.json <b>33</b>
-└─ SCHEMA · index · log</div></div>
+<div><div class="k">위키</div>
+<div class="tree">위키
+├─ 원문            <em>278 · 고치지 않음</em>
+├─ 지식 페이지      <em>50 · 영상 29</em>
+├─ 남겨둘 만한 답   <em>18</em>
+├─ 다음 작품 시드   <em>7</em>
+├─ 인계 요약(캡슐)  <b>147일</b>
+├─ 지식 목록        <b>33</b>
+└─ 규칙 · 목차 · 기록</div></div>
 <div style="position:relative">
   <div class="k">흐름</div>
   <svg id="d1flow" class="mark" style="left:0;top:40px" width="700" height="470"></svg>
-  <div class="fbox" style="left:0;top:50px;width:190px"><small>raw/</small>원문</div>
-  <div class="fbox" style="left:260px;top:50px;width:200px"><small>concepts/</small>지식 페이지</div>
+  <div class="fbox" style="left:0;top:50px;width:190px"><small>모으기</small>원문</div>
+  <div class="fbox" style="left:260px;top:50px;width:200px"><small>정리</small>지식 페이지</div>
   <div class="fbox" style="left:530px;top:50px;width:170px;font-size:21px"><small>고르기</small>필요한 규칙만</div>
   <div class="fbox r" style="left:0;top:250px;width:190px"><small>세션</small>대화·작업</div>
-  <div class="fbox r" style="left:260px;top:250px;width:200px"><small>_hub/</small>캡슐</div>
-  <div class="fbox" style="left:530px;top:250px;width:170px"><small>memory · seeds</small>메모리 · 시드</div>
-  <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 raw/에 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 옮긴다.</p>
+  <div class="fbox r" style="left:260px;top:250px;width:200px"><small>인계</small>캡슐</div>
+  <div class="fbox" style="left:530px;top:250px;width:170px"><small>다음 작업</small>메모리 · 시드</div>
+  <p class="note" style="position:absolute;left:0;top:420px;width:700px">원문은 그대로 두고, 검증·요약한 지식 페이지로 컴파일한다(Karpathy식 LLM Wiki). Codex와 Claude가 같은 위키를 읽고 쓴다. 압축·인계 직전에 캡슐을 남기고, 재사용할 교훈만 지식 페이지·시드·메모리로 옮긴다.</p>
 </div></div></div>
       <div class="df"><span></span><span>00-A</span></div>
     </div>
@@ -1201,10 +1303,10 @@ body.clean #hud,body.clean #hint{opacity:0}
       <div class="body">
         <div class="k">실제 사례 — '매끈한 피부'</div>
         <div class="sflow big">
-          <div><small>10-22 · 실패</small><b>“AI 티가 질질”</b><code>실사 인물 프롬프트에 smooth skin이라고 쓴 결과에 대한 내 판정</code></div>
+          <div><small>실패</small><b>“AI 티가 질질”</b><code>실사 인물 프롬프트에 smooth skin이라고 쓴 결과에 대한 내 판정</code></div>
           <div><small>기록</small><b>메모</b><code>규칙과 이유를 적어 둠 — 대신 모공 · 35mm · 그레인</code></div>
-          <div><small>11-11 · 자동 검사</small><b>검사 규칙</b><code>같은 문구를 찾는 규칙 추가 — 영상 · 이미지 프롬프트</code></div>
-          <div><small>11-13 · 정리</small><b>교훈 장부</b><code>실사 항목에 올림 — 실사 장면마다 함께 전달</code></div>
+          <div><small>자동 검사</small><b>검사 규칙</b><code>같은 문구를 찾는 규칙 추가 — 영상 · 이미지 프롬프트</code></div>
+          <div><small>정리</small><b>교훈 장부</b><code>실사 항목에 올림 — 실사 장면마다 함께 전달</code></div>
           <div><small>다음 입력</small><b class="red">경고</b><code>같은 문구를 쓰면 쓰는 단계에서 경고</code></div>
         </div>
         <div class="cols" style="grid-template-columns:1fr 520px;margin-top:44px;height:auto">
@@ -1213,7 +1315,7 @@ body.clean #hud,body.clean #hint{opacity:0}
           </div>
           <div class="aside">
             <div class="k">별도 경로 · 아직 결과 없음</div>
-            <p class="note"><b>좋았던 결과 모으기</b> — Runway에서 하트를 누른 결과의 프롬프트를 프로젝트 마감 때 한 번 읽어 모으는 경로. 11-13에 만들었고 <b>아직 수집 0건</b>입니다. 위 사례와는 별개입니다.</p>
+            <p class="note"><b>좋았던 결과 모으기</b> — Runway에서 하트를 누른 결과의 프롬프트를 프로젝트 마감 때 한 번 읽어 모으는 경로. 만들어 두었고 <b>아직 수집 0건</b>입니다. 위 사례와는 별개입니다.</p>
           </div>
         </div>
       </div>
@@ -1221,22 +1323,23 @@ body.clean #hud,body.clean #hint{opacity:0}
     </div>
   </section>
   <section class="sheet dp" id="d00c" style="left:11200px;top:8360px">
-    <div class="ov"><div class="ov-top"><span class="no">00-C</span><span>LIMITS</span></div><div class="ov-name">근거와 한계</div><div class="ov-sub">배지 네 가지 · 화면별 한계</div></div>
+    <div class="ov"><div class="ov-top"><span class="no">00-C</span><span>LIMITS</span></div><div class="ov-name">배지와 한계</div><div class="ov-sub">배지 네 가지 · 화면별 한계</div></div>
     <div class="dt">
-      <div class="dh"><h2><span class="no">00-C</span>근거와 한계</h2><div class="r">부록</div></div>
+      <div class="dh"><h2><span class="no">00-C</span>배지와 한계</h2><div class="r">부록</div></div>
       <div class="body"><div class="cols" style="grid-template-columns:470px 1fr">
 <div><div class="k">화면의 배지 네 가지</div>
 <table class="fld ko">
   <tr><td><span class="bd k">실제 자료</span></td><td>실제 작업물 · 발췌·크기 조정만, 합성·보정 없음</td></tr>
   <tr><td><span class="bd">재구성</span></td><td>남은 기록을 날짜순으로 이은 사례. 하나만 바꿔 본 비교가 아닙니다</td></tr>
   <tr><td><span class="bd">예시</span></td><td>설명하려고 그린 도식과 숫자. 잰 값이 아닙니다</td></tr>
-  <tr><td><span class="bd">원고의 비유</span></td><td>발표자의 비유와 체감. 조사 수치가 아닙니다</td></tr>
+  <tr><td><span class="bd">체감</span></td><td>발표자의 체감. 조사 수치가 아닙니다</td></tr>
 </table>
 <p class="note" style="margin-top:18px">부록의 규칙과 한도는 <b>그렇게 하도록 적어 둔 것</b>의 기록입니다. 모든 작품에 적용됐다거나 품질이 좋아졌다는 증거는 아닙니다.</p>
 </div>
 <div><div class="k">화면별 한계</div>
 <table class="fld">
   <tr><td>01 기획</td><td>95 : 5는 발표자의 체감입니다</td></tr>
+  <tr><td>03 이미지</td><td>85%는 발표자의 체감입니다. 왼쪽 네 장은 한 줄로 뽑은 예시</td></tr>
   <tr><td>△1</td><td>30씬 → 40씬, 6씬 → 8씬은 예시 숫자. 음파는 실제 곡의 바탕 모양만, 하이햇 자리와 장면 나누기는 그린 예시. 음악 때문에 바뀐 실제 콘티 기록은 싣지 못했습니다</td></tr>
   <tr><td>02 · 06</td><td>02 음파는 △1과 같은 그림(예시). 06 편집 타임라인은 도식(예시). 02의 20초 음원은 실제 곡</td></tr>
   <tr><td>04 저작 모델</td><td>Codex → Astra → Claude 변천과 “원하는 바 이상”은 발표자의 체감입니다</td></tr>
@@ -1307,9 +1410,9 @@ function arrowHead(svg, tip, from, len, color, sw) {
 }
 
 /* ---------- drawing frame zones ---------- */
-function zones(x0, w, h) {
+function zones(x0, w, h, extra) {
   const z = document.getElementById('zones');
-  const add = (cls, css, txt) => { const d = document.createElement('div'); d.className = cls; d.style.cssText = css; if (txt != null) d.textContent = txt; z.appendChild(d); };
+  const add = (cls, css, txt) => { const d = document.createElement('div'); d.className = cls + (extra ? ' ' + extra : ''); d.style.cssText = css; if (txt != null) d.textContent = txt; z.appendChild(d); };
   add('frame', `left:${x0 + 60}px;top:60px;width:${w - 120}px;height:${h - 120}px`);
   add('frame-in', `left:${x0 + 110}px;top:110px;width:${w - 220}px;height:${h - 220}px`);
   const cols = Math.round(w / 800), rows = Math.round(h / 920);
@@ -1355,7 +1458,7 @@ function connectors() {
 }
 
 /* ---------- revision cloud ---------- */
-function cloud(sel = '#rev .cloud', w = 960, h = 600) {
+function cloud(sel = '#rev .cloud', w = 960, h = 600, sw = 3.2) {
   const svg = document.querySelector(sel);
   const m = 8;
   const corners = [[m, m], [w - m, m], [w - m, h - m], [m, h - m], [m, m]];
@@ -1375,12 +1478,12 @@ function cloud(sel = '#rev .cloud', w = 960, h = 600) {
     }
   }
   el('rect', {x: m, y: m, width: w - 2*m, height: h - 2*m, fill: '#FAF9F6'}, svg);
-  el('path', {d, fill: 'none', stroke: RED, 'stroke-width': 3.2, 'stroke-linejoin': 'round'}, svg);
+  el('path', {d, fill: 'none', stroke: RED, 'stroke-width': sw, 'stroke-linejoin': 'round'}, svg);
 }
 
 /* ---------- small diagrams ---------- */
 function rev2() {
-  cloud('#s3r .cloud', 1440, 810);
+  cloud('#s3r .cloud', 1440, 810, 2.3);
   const s = document.getElementById('ink');
   const P = sampleBez([5300, 1124], [5288, 1160], [5312, 1196], [5300, 1232], 12);
   el('path', {d: handPath(P, 3), fill: 'none', stroke: RED, 'stroke-width': 7, 'stroke-linecap': 'round'}, s);
@@ -1397,7 +1500,7 @@ function hatWave(s, x0, w, mid, amp) {
     const acc = i % 16 === 0, hat = i % 4 === 0, tail = i % 16 === 1;
     const h = acc ? amp : hat ? amp * .72 : tail ? amp * .6 : amp * (.1 + .42 * ENV[i] / 99);
     const wd = acc ? bw * 1.7 : bw;
-    el('rect', {x: x0 + (i + .5) * p - wd / 2, y: mid - h, width: wd, height: h * 2, fill: acc || hat || tail ? RED : INK}, s);
+    el('rect', {x: x0 + (i + .5) * p - wd / 2, y: mid - h, width: wd, height: h * 2, fill: acc || hat || tail ? RED : INK, 'fill-opacity': acc || !(hat || tail) ? 1 : .38}, s);
   }
 }
 function wave() {
@@ -1407,8 +1510,6 @@ function wave() {
   for (let k = 0; k < 8; k++) { const x = (16 * k + .5) * p; el('path', {d: `M${x} 218 L${x - 7} 232 L${x + 7} 232 Z`, fill: RED}, s); }
   const t = el('text', {x: 0, y: 250, fill: RED, 'font-size': 16, 'font-family': 'Mono, Menlo', 'letter-spacing': '2'}, s);
   t.textContent = 'HI-HAT';
-  const t2 = el('text', {x: w, y: 18, fill: SOFT, 'font-size': 16, 'font-family': 'Mono, Menlo', 'text-anchor': 'end', 'letter-spacing': '2'}, s);
-  t2.textContent = '예시';
 }
 function beats() {
   const s = document.getElementById('beats');
@@ -1416,7 +1517,7 @@ function beats() {
   const T = (x, y, t, o) => { const e = el('text', Object.assign({x, y, fill: MID, 'font-size': 13, 'font-family': 'Mono, Menlo'}, o), s); e.textContent = t; return e; };
   const sans = {'font-family': 'Pre, sans-serif', 'font-weight': 600, 'font-size': 19};
   const ax = k => x0 + (16 * k + .5) * p;
-  for (let k = 1; k < 8; k++) el('line', {x1: ax(k), y1: mid - amp - 10, x2: ax(k), y2: yB, stroke: RED, 'stroke-width': 1.2, 'stroke-dasharray': '3 4'}, s);
+  for (let k = 1; k < 8; k++) { const d = {stroke: RED, 'stroke-width': 1.2, 'stroke-dasharray': '3 4'}; el('line', Object.assign({x1: ax(k), y1: mid - amp - 10, x2: ax(k), y2: yA - 16}, d), s); el('line', Object.assign({x1: ax(k), y1: yA + hA + 5, x2: ax(k), y2: yB}, d), s); }
   hatWave(s, x0, w, mid, amp);
   T(0, mid - 6, '음파', Object.assign({}, sans, {fill: INK}));
   T(0, mid + 16, '빨강 = 하이햇', {fill: RED});
@@ -1466,14 +1567,14 @@ function post() {
 
 function edit() {
   const s = document.getElementById('edit');
-  const lab = (x, y, t, c, fs) => { const e = el('text', {x, y, fill: c || SOFT, 'font-size': fs || 15, 'font-family': 'Mono, Menlo', 'letter-spacing': '1'}, s); e.textContent = t; };
+  const lab = (x, y, t, c, fs) => { const e = el('text', {x, y, fill: c || SOFT, 'font-size': fs || 20, 'font-family': 'Mono, Menlo', 'letter-spacing': '1'}, s); e.textContent = t; };
   const x0 = 60;
   lab(0, 58, 'V1'); lab(0, 152, 'A1');
   const clips = [['T03', 120], ['T11', 86], ['T07', 160], ['T02', 70], ['T15', 132], ['T09', 96], ['T21', 150], ['T04', 110], ['T18', 140], ['T12', 108], ['T06', 120]];
   let x = x0;
   clips.forEach(([n, w]) => {
     el('rect', {x, y: 28, width: w - 4, height: 48, fill: '#EFEDE7', stroke: INK, 'stroke-width': 1.4}, s);
-    lab(x + 8, 48, n, MID, 14);
+    lab(x + 8, 50, n, MID, n === 'T02' ? 18 : 20);
     x += w;
   });
   // audio
@@ -1486,7 +1587,7 @@ function edit() {
   const ph = x0 + 640;
   el('line', {x1: ph, y1: 6, x2: ph, y2: 196, stroke: RED, 'stroke-width': 2.4}, s);
   el('path', {d: `M${ph - 9} 0 L${ph + 9} 0 L${ph} 12 Z`, fill: RED}, s);
-  lab(x0, 226, '도식(예시) · 테이크 번호가 섞여 있는 게 정상 — 더 뽑을 수 있으니까', SOFT, 15);
+  lab(x0, 226, '도식(예시) · 테이크 번호가 섞여 있는 게 정상 — 더 뽑을 수 있으니까', SOFT, 20);
 }
 
 /* ---------- hand marks on text ---------- */
@@ -1554,10 +1655,10 @@ const steps = [
   {id: 's4', part: 'b', hash: 's4-2', label: '04 영상화 ② 동작과 결과'},
   {id: 's3r', label: '△2 참조를 고쳐서 해결'},
   {id: 's5', label: '05 후처리'},
-  {id: 'c51', focus: 's5', label: '05 사례 ① 화성 · 잉크 프레임'},
-  {id: 'c52', focus: 's5', deep: 1, label: '05 카드 · 매돌이 도감 카드'},
-  {id: 'c53', focus: 's5', deep: 1, label: '05 카드 · 성남 설명은 코드로'},
-  {id: 'c54', focus: 's5', label: '05 사례 ② 솔로몬 · 현수막 글자'},
+  {id: 'c51', focus: 's5', label: '05-1 화성 · 잉크 프레임'},
+  {id: 'c52', focus: 's5', deep: 1, label: '05-2 매돌이 · 도감 카드'},
+  {id: 'c53', focus: 's5', label: '05-3 성남 · 설명은 코드로'},
+  {id: 'c54', focus: 's5', label: '05-4 솔로몬 · 현수막 글자'},
   {id: 's6', label: '06 편집'},
   {rect: [30, 30, 6340, 4540], label: '전체도'},
   {rect: [6630, 30, 8540, 9640], deep: 1, appx: 1, hash: 'appx', label: '부록 · 단계별 상세도'},
@@ -1568,7 +1669,7 @@ const steps = [
   {id: 'd03a', deep: 1, label: '03-A 이미지 프롬프트 구조'},
   {id: 'd03b', deep: 1, label: '03-B 참조 이미지 규칙 · 검수'},
   {id: 'd03c', deep: 1, label: '03-C 이미지 모델 변경'},
-  {id: 'd04a', deep: 1, label: '04-A 프롬프트 해부 · 실제 제출본'},
+  {id: 'd04a', deep: 1, label: '04-A 프롬프트 해부'},
   {id: 'd04b', deep: 1, label: '04-B 검사 → 생성 → 검수'},
   {id: 'd04c', deep: 1, label: '04-C 반복 실수 검사'},
   {id: 'd04d', deep: 1, label: '04-D 영상 모델 · 모드 변경'},
@@ -1576,7 +1677,7 @@ const steps = [
   {id: 'd06a', deep: 1, label: '06-A 편집 규칙'},
   {id: 'd00a', deep: 1, label: '00-A 위키 지도'},
   {id: 'd00b', deep: 1, label: '00-B 실패 → 경고'},
-  {id: 'd00c', deep: 1, label: '00-C 근거와 한계'},
+  {id: 'd00c', deep: 1, label: '00-C 배지와 한계'},
   {rect: [0, 0, 15200, 9700], deep: 1, label: '전체'},
 ];
 let idx = 0, cam = null, raf = 0, focusTimer = 0, clipTimer = 0, brief = true, ret = null;
@@ -1625,6 +1726,7 @@ function clips(delay) {
   });
   if (act.length) clipTimer = setTimeout(() => act.forEach(playClip), delay);
   const s1 = document.getElementById('v4s1');
+  if (!s1.dataset.c) { s1.dataset.c = 1; s1.addEventListener('click', e => { e.stopPropagation(); s1.paused ? s1.play() : s1.pause(); }); }
   if (steps[idx].part === 'b') { if (s1.paused) { s1.muted = true; s1.currentTime = 0; s1.play().catch(() => {}); } }
   else if (!s1.paused || s1.currentTime > 0) { s1.pause(); s1.load(); }
 }
@@ -1638,6 +1740,8 @@ function go(i, instant) {
   const fid = st.focus || st.id;
   document.querySelectorAll('.sheet.focus').forEach(e => { if (e.id !== fid) e.classList.remove('focus'); });
   document.body.classList.toggle('zoomed', !!st.focus);
+  document.body.classList.toggle('in', !!st.id);
+  document.body.classList.toggle('apx', !!(st.appx || /^d\d/.test(st.id || '') || (st.rect && st.rect[2] > 7000)));
   document.body.classList.toggle('p4a', st.part === 'a'); document.body.classList.toggle('p4b', st.part === 'b');
   const tgtEl = fid ? document.getElementById(fid) : null;
   hud();
@@ -1740,7 +1844,7 @@ function fromHash() {
 addEventListener('hashchange', () => { const j = fromHash(); if (j !== idx) { if (steps[j].deep) brief = false; go(j); } });
 
 /* ---------- boot ---------- */
-zones(0, 6400, 4600); zones(6600, 8600, 9700); connectors(); cloud(); wave(); beats(); dots(); edit(); d1flow(); rev2();
+zones(0, 6400, 4600); zones(6600, 8600, 9700, 'zx'); connectors(); cloud('#rev .cloud', 960, 600, 1.7); wave(); beats(); dots(); edit(); d1flow(); rev2();
 document.fonts.ready.then(() => {
   decorate();
   const h = fromHash();
